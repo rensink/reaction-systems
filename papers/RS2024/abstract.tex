@@ -75,10 +75,10 @@ To parse this, note that (in the GROOVE rule syntax) the red structure must be a
 Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved through a second rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules.
 
 \medskip\noindent
-Our first results are encouraging: the capability of GROOVE to explore larger Reaction Systems 
+Our first results are encouraging: GROOVE seems capable to explore larger Reaction Systems 
 %is well beyond what other tools have been able to achieve, 
-by halving the analysis time of both reachability and causal analyses:
-we are able to find unwanted patterns in reachable configurations (if they exist); moreover, given a trace to such an unwanted pattern, we can also extract a graphical representation of the causal history of that entities, at least as far as reactants are concerned.
+by halving the analysis time of both reachability and causal analyses.
+More precisely, we are able to find a trace towards unwanted patterns (if they exist) among millions of reachable configurations using different heuristics; then, we can also prune the trace to extract a graphical representation of the causal history of that entities, at least as far as reactants are concerned.
 
 % ---- Bibliography ----
 %

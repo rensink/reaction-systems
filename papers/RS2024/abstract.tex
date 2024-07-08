@@ -6,6 +6,8 @@
 % Other font encondings may result in incorrect characters.
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{comment}
+\usepackage[inline]{enumitem}
 
 \newcommand{\lab}[1]{\textsf{#1}}
 \newcommand{\blab}[1]{\lab{\bfseries #1}}
@@ -34,13 +36,13 @@ University of Twente, Netherlands,
 
 
 \maketitle
-
+\begin{comment}
 \begin{abstract}
 We explore the capabilities of GROOVE, a state-of-the-art toolset based on graph transformation systems, to perform reachability and causal analysis of Reaction Systems.
 Our results are still preliminary, but encouraging, as in the presence of large state spaces GROOVE outperforms available applications by halving the analysis time of both reachability and causal analyses.
 From the point of view of GROOVE, the implementation of Reaction Systems provided some interesting insights on the most convenient way to model certain computational requirements through negative and nested application conditions.
 \end{abstract}
-
+\end{comment}
 Reaction systems (RS)~\cite{DBLP:journals/fuin/EhrenfeuchtR07} are a computational model inspired by the functioning of biochemical reactions within living cells. 
 %The primary motivation behind RS is to provide a simple yet expressive model for understanding and analyzing processes in natural and artificial systems.
 RS focus on the interaction of entities through a set of reactions. 
@@ -51,17 +53,21 @@ Unlike traditional models of concurrency, like Petri nets, the theory of RS is b
 Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena, led to experiment with environments that exhibit nondeterministic and recursive behaviour.
 Then, performing reachability and causal analysis required the exploration of large state spaces for which the available prototype tool~\cite{DBLP:journals/tcs/BrodoBF21} struggled in terms of  memory consumption and response time.
  
-Graph Transformation is a modelling technique that is widely applicable in problem domains where the objects of study have an inherent graphical structure, meaning that they can be naturally though of as consisting of nodes (of some kind) linked by edges (of some kind), and the task at hand is to study their properties and evolution. Besides the graphs themselves, the core concept is that of a (transformation) \emph{rule} capturing a particular change to such a graph. Rules can be used, for instance, to describe the change of a system over time, but can also be instrumental in composing and decomposing the graphs and in that manner expose structural properties.
+Graph Transformation (GT)~\cite{DBLP:series/eatcs/EhrigEPT06,DBLP:books/sp/HeckelT20} is a modelling technique that is widely applicable in problem domains where the objects of study have an inherent graphical structure, and the task at hand is to study their properties and evolution. Besides the graphs themselves, the core concept is that of a (transformation) \emph{rule} capturing a particular change to such a graph. Rules can be used, for instance, to describe the change of a system over time, but can also be instrumental in composing and decomposing graphs and so exposing structural properties.
 
-Importantly for the utility of the technique, there are a number of (academic) tools supporting their use. The research described here crucially relies on GROOVE, one of the most prominent tools in this area, which was designed precisely to enable Graph Transformation-based system analysis of the kind described above. In particular, a feature of GROOVE that is essential for the purpose of this research is the ability to formulate \emph{nested} (or \emph{quantified}) rules, which capture simultaneous changes in all neighbourhoods that satisfy certain application conditions, rather than only local (single) changes in one such neighbourhood at a time. Another feature is the ability to \emph{explore} the set of reachable graphs (under the given rules) using various strategies.
+Importantly for the utility of the technique, there are a number of (academic) tools supporting its use. The research described here crucially relies on GROOVE \cite{DBLP:journals/sttt/GhamarianMRZZ12}, one of the most prominent tools in this area, which was designed precisely to enable GT-based system analysis of the kind described above. Two features of GROOVE that are essential for the purpose of this research are
+\begin{enumerate*}[label=\emph{(\roman*)}]
+\item nested (i.e., quantified) rules, which capture simultaneous changes in all neighbourhoods that satisfy certain application conditions, rather than only locally in one such neighbourhood at a time; and
+\item exploration of the set of reachable graphs (under the given rules) using various strategies.
+\end{enumerate*}
 
-We are in the process of investigating how Graph Transformation can help in addressing the analysis questions in Reaction Systems. For this purpose, we have defined an encoding of a given RS system as a single graph, upon which a small number of (fixed) rules operate to simulate the correct semantics. The core rule describes describes the simultaneous firing of all \blab{Reaction}s, given that none of their \lab{inhibitor}s are present whereas all of their \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
+We are in the process of investigating how GT can help in addressing the analysis questions in Reaction Systems. For this purpose, we encode a given RS as a single graph, upon which a small number of (fixed) rules operate to simulate the correct semantics. The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
 
 \begin{center}
-\includegraphics[scale=.6]{react}
+\includegraphics[scale=.5]{react}
 \end{center}
 
-To parse this, note that (in the GROOVE rule syntax) the red structure constitutes an application condition requiring its absence; moreover, green labels are added and blue ones deleted upon rule application. The \ilab{present} flag signals whether an \blab{Entity} is considered to be currently present; hence, creating or deleting that flag comes down to creating or deleting the \blab{Entity}. The $\forall$-nodes impose the desired quantification, causing a single application of this rule to model the firing of all enabled \blab{Reaction}s, even if there are thousands of them.
+To parse this, note that (in the GROOVE rule syntax) the red structure must be absent for the rule to apply; moreover, green labels are added and blue ones deleted upon rule application. The \ilab{present} flag signals whether an \blab{Entity} is considered to be currently present; hence, creating or deleting that flag comes down to creating or deleting the \blab{Entity}. The $\forall$-nodes impose the desired quantification, causing a single application of this rule to model the firing of all enabled \blab{Reaction}s, even if there are thousands of them.
 
 Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved through a second rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules.
 

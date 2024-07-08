@@ -43,6 +43,9 @@ Our results are still preliminary, but encouraging, as in the presence of large 
 From the point of view of GROOVE, the implementation of Reaction Systems provided some interesting insights on the most convenient way to model certain computational requirements through negative and nested application conditions.
 \end{abstract}
 \end{comment}
+
+We explore the capabilities of  a state-of-the-art toolset based on graph transformation  to perform reachability and causal analysis of Reaction Systems.
+
 Reaction systems (RS)~\cite{DBLP:journals/fuin/EhrenfeuchtR07} are a computational model inspired by the functioning of biochemical reactions within living cells. 
 %The primary motivation behind RS is to provide a simple yet expressive model for understanding and analyzing processes in natural and artificial systems.
 RS focus on the interaction of entities through a set of reactions. 
@@ -64,7 +67,7 @@ Importantly for the utility of the technique, there are a number of (academic) t
 We are in the process of investigating how GT can help in addressing the analysis questions in Reaction Systems. For this purpose, we encode a given RS as a single graph, upon which a small number of (fixed) rules operate to simulate the correct semantics. The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
 
 \begin{center}
-\includegraphics[scale=.5]{react}
+\includegraphics[scale=.49]{react}
 \end{center}
 
 To parse this, note that (in the GROOVE rule syntax) the red structure must be absent for the rule to apply; moreover, green labels are added and blue ones deleted upon rule application. The \ilab{present} flag signals whether an \blab{Entity} is considered to be currently present; hence, creating or deleting that flag comes down to creating or deleting the \blab{Entity}. The $\forall$-nodes impose the desired quantification, causing a single application of this rule to model the firing of all enabled \blab{Reaction}s, even if there are thousands of them.
@@ -72,7 +75,10 @@ To parse this, note that (in the GROOVE rule syntax) the red structure must be a
 Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved through a second rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules.
 
 \medskip\noindent
-Our first results are encouraging: the capability of GROOVE to explore larger Reaction Systems is well beyond what other tools have been able to achieve, meaning that we are often able to find unwanted patterns in reachable configurations (if they exist); moreover, given a trace to such an unwanted pattern, we can also extract the causal history of the entities, at least as far as reactants are concerned.
+Our first results are encouraging: the capability of GROOVE to explore larger Reaction Systems 
+%is well beyond what other tools have been able to achieve, 
+by halving the analysis time of both reachability and causal analyses:
+we are able to find unwanted patterns in reachable configurations (if they exist); moreover, given a trace to such an unwanted pattern, we can also extract a graphical representation of the causal history of that entities, at least as far as reactants are concerned.
 
 % ---- Bibliography ----
 %

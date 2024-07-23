@@ -513,6 +513,18 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <node id="forbidden">
+        </node>
+        <edge from="forbidden" to="forbidden">
+            <attr name="label">
+                <string>type:forbidden</string>
+            </attr>
+        </edge>
+        <edge from="forbidden" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <node id="get_apixaban">
         </node>
         <edge from="get_apixaban" to="get_apixaban">

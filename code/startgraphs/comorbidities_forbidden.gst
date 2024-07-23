@@ -497,6 +497,23 @@
                 <string>let:name="flecainide"</string>
             </attr>
         </edge>
+        <node id="forbidden">
+        </node>
+        <edge from="forbidden" to="forbidden">
+            <attr name="label">
+                <string>id:forbidden</string>
+            </attr>
+        </edge>
+        <edge from="forbidden" to="forbidden">
+            <attr name="label">
+                <string>type:forbidden</string>
+            </attr>
+        </edge>
+        <edge from="forbidden" to="forbidden">
+            <attr name="label">
+                <string>let:name="forbidden"</string>
+            </attr>
+        </edge>
         <node id="get_apixaban">
         </node>
         <edge from="get_apixaban" to="get_apixaban">
@@ -2740,6 +2757,11 @@
             </attr>
         </edge>
         <edge from="react_38" to="danger">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_38" to="forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5405,6 +5427,11 @@
         <edge from="react_112" to="major">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_112" to="forbidden">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="react_112" to="major">

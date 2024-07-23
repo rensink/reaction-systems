@@ -150,7 +150,7 @@
                 <string>of</string>
             </attr>
         </edge>
-        <edge from="Reaction" to="Reaction">
+        <edge from="Rule" to="Rule">
             <attr name="label">
                 <string>flag:fired</string>
             </attr>

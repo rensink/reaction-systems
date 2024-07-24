@@ -1330,12 +1330,12 @@
                 <string>let:name="react_0"</string>
             </attr>
         </edge>
-        <edge from="react_0" to="afib">
+        <edge from="react_0" to="Forbidden">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_0" to="afib">
+        <edge from="react_0" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1357,12 +1357,12 @@
                 <string>let:name="react_1"</string>
             </attr>
         </edge>
-        <edge from="react_1" to="alert_dup">
+        <edge from="react_1" to="afib">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_1" to="alert_dup">
+        <edge from="react_1" to="afib">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1384,22 +1384,12 @@
                 <string>let:name="react_2"</string>
             </attr>
         </edge>
-        <edge from="react_2" to="apixaban">
+        <edge from="react_2" to="alert_dup">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_2" to="stop_doac">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_2" to="apixaban">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_2" to="doac">
+        <edge from="react_2" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1426,17 +1416,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_3" to="dabigatran">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_3" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_3" to="alert_dup">
+        <edge from="react_3" to="apixaban">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_3" to="doac">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1463,7 +1453,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_4" to="diltiazem">
+        <edge from="react_4" to="dabigatran">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -1473,12 +1463,7 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_4" to="col_moderate">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_4" to="moderate">
+        <edge from="react_4" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1505,7 +1490,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_5" to="get_diltiazem">
+        <edge from="react_5" to="diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -1547,7 +1532,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_6" to="get_verapamil">
+        <edge from="react_6" to="get_diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -1589,7 +1574,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_7" to="verapamil">
+        <edge from="react_7" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -1626,22 +1611,27 @@
                 <string>let:name="react_8"</string>
             </attr>
         </edge>
-        <edge from="react_8" to="atenolol">
+        <edge from="react_8" to="apixaban">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_8" to="stop_sbb">
+        <edge from="react_8" to="verapamil">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_8" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_8" to="atenolol">
+        <edge from="react_8" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_8" to="sbb">
+        <edge from="react_8" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1668,17 +1658,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_9" to="bisoprolol">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_9" to="stop_sbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_9" to="alert_dup">
+        <edge from="react_9" to="atenolol">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_9" to="sbb">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1705,17 +1695,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_10" to="flecainide">
+        <edge from="react_10" to="bisoprolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_10" to="col_moderate">
+        <edge from="react_10" to="stop_sbb">
             <attr name="label">
-                <string>product</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_10" to="moderate">
+        <edge from="react_10" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1742,7 +1732,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_11" to="get_flecainide">
+        <edge from="react_11" to="flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -1774,12 +1764,22 @@
                 <string>let:name="react_12"</string>
             </attr>
         </edge>
-        <edge from="react_12" to="below55">
+        <edge from="react_12" to="atenolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_12" to="below55">
+        <edge from="react_12" to="get_flecainide">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_12" to="col_moderate">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_12" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1801,22 +1801,12 @@
                 <string>let:name="react_13"</string>
             </attr>
         </edge>
-        <edge from="react_13" to="benazepril">
+        <edge from="react_13" to="below55">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_13" to="stop_acei">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_13" to="acei">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_13" to="benazepril">
+        <edge from="react_13" to="below55">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1843,17 +1833,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_14" to="captopril">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_14" to="stop_acei">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_14" to="alert_dup">
+        <edge from="react_14" to="acei">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_14" to="benazepril">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1880,17 +1870,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_15" to="get_warfarin">
+        <edge from="react_15" to="captopril">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_15" to="col_minor">
+        <edge from="react_15" to="stop_acei">
             <attr name="label">
-                <string>product</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_15" to="minor">
+        <edge from="react_15" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1917,7 +1907,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_16" to="warfarin">
+        <edge from="react_16" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -1949,22 +1939,22 @@
                 <string>let:name="react_17"</string>
             </attr>
         </edge>
-        <edge from="react_17" to="bisoprolol">
+        <edge from="react_17" to="benazepril">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_17" to="stop_sbb">
+        <edge from="react_17" to="warfarin">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_17" to="bisoprolol">
+        <edge from="react_17" to="col_minor">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_17" to="sbb">
+        <edge from="react_17" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -1991,17 +1981,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_18" to="flecainide">
+        <edge from="react_18" to="stop_sbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_18" to="col_moderate">
+        <edge from="react_18" to="bisoprolol">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_18" to="moderate">
+        <edge from="react_18" to="sbb">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2028,7 +2018,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_19" to="get_flecainide">
+        <edge from="react_19" to="flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -2060,22 +2050,22 @@
                 <string>let:name="react_20"</string>
             </attr>
         </edge>
-        <edge from="react_20" to="captopril">
+        <edge from="react_20" to="bisoprolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_20" to="stop_acei">
+        <edge from="react_20" to="get_flecainide">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_20" to="acei">
+        <edge from="react_20" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_20" to="captopril">
+        <edge from="react_20" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2097,22 +2087,22 @@
                 <string>let:name="react_21"</string>
             </attr>
         </edge>
-        <edge from="react_21" to="carvedilol">
+        <edge from="react_21" to="captopril">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_21" to="stop_nsbb">
+        <edge from="react_21" to="stop_acei">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_21" to="carvedilol">
+        <edge from="react_21" to="acei">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_21" to="nsbb">
+        <edge from="react_21" to="captopril">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2139,22 +2129,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_22" to="dabigatran">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="react_22" to="stop_doac">
+        <edge from="react_22" to="stop_nsbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_22" to="col_moderate">
+        <edge from="react_22" to="carvedilol">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_22" to="moderate">
+        <edge from="react_22" to="nsbb">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2181,9 +2166,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_23" to="flecainide">
+        <edge from="react_23" to="dabigatran">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_23" to="stop_doac">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="react_23" to="col_moderate">
@@ -2218,14 +2208,9 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_24" to="get_dabigatran">
+        <edge from="react_24" to="flecainide">
             <attr name="label">
                 <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="react_24" to="stop_doac">
-            <attr name="label">
-                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="react_24" to="col_moderate">
@@ -2260,9 +2245,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_25" to="get_flecainide">
+        <edge from="react_25" to="get_dabigatran">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_25" to="stop_doac">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="react_25" to="col_moderate">
@@ -2297,17 +2287,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_26" to="propranolol">
+        <edge from="react_26" to="get_flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_26" to="stop_nsbb">
+        <edge from="react_26" to="col_moderate">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>product</string>
             </attr>
         </edge>
-        <edge from="react_26" to="alert_dup">
+        <edge from="react_26" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2329,22 +2319,22 @@
                 <string>let:name="react_27"</string>
             </attr>
         </edge>
-        <edge from="react_27" to="chlorothiazide">
+        <edge from="react_27" to="carvedilol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_27" to="stop_td">
+        <edge from="react_27" to="propranolol">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_27" to="stop_nsbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_27" to="chlorothiazide">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_27" to="td">
+        <edge from="react_27" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2371,17 +2361,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_28" to="get_warfarin">
+        <edge from="react_28" to="stop_td">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_28" to="col_minor">
+        <edge from="react_28" to="chlorothiazide">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_28" to="minor">
+        <edge from="react_28" to="td">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2408,17 +2398,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_29" to="indapamide">
+        <edge from="react_29" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_29" to="stop_td">
+        <edge from="react_29" to="col_minor">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>product</string>
             </attr>
         </edge>
-        <edge from="react_29" to="alert_dup">
+        <edge from="react_29" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2445,17 +2435,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_30" to="warfarin">
+        <edge from="react_30" to="indapamide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_30" to="col_minor">
+        <edge from="react_30" to="stop_td">
             <attr name="label">
-                <string>product</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_30" to="minor">
+        <edge from="react_30" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2477,12 +2467,22 @@
                 <string>let:name="react_31"</string>
             </attr>
         </edge>
-        <edge from="react_31" to="consensus_acei">
+        <edge from="react_31" to="chlorothiazide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_31" to="consensus_acei">
+        <edge from="react_31" to="warfarin">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_31" to="col_minor">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_31" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2504,22 +2504,12 @@
                 <string>let:name="react_32"</string>
             </attr>
         </edge>
-        <edge from="react_32" to="dabigatran">
+        <edge from="react_32" to="consensus_acei">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_32" to="stop_doac">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_32" to="dabigatran">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_32" to="doac">
+        <edge from="react_32" to="consensus_acei">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2546,22 +2536,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_33" to="diltiazem">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_33" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_33" to="col_moderate">
+        <edge from="react_33" to="dabigatran">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_33" to="moderate">
+        <edge from="react_33" to="doac">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2588,7 +2573,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_34" to="get_carvedilol">
+        <edge from="react_34" to="diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -2630,7 +2615,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_35" to="get_diltiazem">
+        <edge from="react_35" to="get_carvedilol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -2672,7 +2657,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_36" to="get_verapamil">
+        <edge from="react_36" to="get_diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -2682,12 +2667,12 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_36" to="col_major">
+        <edge from="react_36" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_36" to="major">
+        <edge from="react_36" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2714,7 +2699,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_37" to="verapamil">
+        <edge from="react_37" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -2722,6 +2707,11 @@
         <edge from="react_37" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_37" to="Forbidden">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="react_37" to="col_major">
@@ -2751,9 +2741,19 @@
                 <string>let:name="react_38"</string>
             </attr>
         </edge>
-        <edge from="react_38" to="danger">
+        <edge from="react_38" to="dabigatran">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_38" to="verapamil">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_38" to="stop_doac">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="react_38" to="Forbidden">
@@ -2761,7 +2761,12 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_38" to="danger">
+        <edge from="react_38" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_38" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2783,12 +2788,12 @@
                 <string>let:name="react_39"</string>
             </attr>
         </edge>
-        <edge from="react_39" to="diabete">
+        <edge from="react_39" to="danger">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_39" to="diabete">
+        <edge from="react_39" to="danger">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2815,7 +2820,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_40" to="diseases">
+        <edge from="react_40" to="diabete">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2837,22 +2842,12 @@
                 <string>let:name="react_41"</string>
             </attr>
         </edge>
-        <edge from="react_41" to="diltiazem">
+        <edge from="react_41" to="diabete">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_41" to="stop_cbb">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_41" to="cbb">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_41" to="diltiazem">
+        <edge from="react_41" to="diseases">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2879,17 +2874,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_42" to="flecainide">
+        <edge from="react_42" to="stop_cbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_42" to="col_major">
+        <edge from="react_42" to="cbb">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_42" to="major">
+        <edge from="react_42" to="diltiazem">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2916,22 +2911,22 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_43" to="get_apixaban">
+        <edge from="react_43" to="flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_43" to="stop_doac">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_43" to="col_moderate">
+        <edge from="react_43" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_43" to="moderate">
+        <edge from="react_43" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_43" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -2958,7 +2953,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_44" to="get_dabigatran">
+        <edge from="react_44" to="get_apixaban">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3000,17 +2995,22 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_45" to="get_flecainide">
+        <edge from="react_45" to="get_dabigatran">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_45" to="col_major">
+        <edge from="react_45" to="stop_doac">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_45" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_45" to="major">
+        <edge from="react_45" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3037,17 +3037,22 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_46" to="verapamil">
+        <edge from="react_46" to="get_flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_46" to="stop_cbb">
+        <edge from="react_46" to="Forbidden">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>product</string>
             </attr>
         </edge>
-        <edge from="react_46" to="alert_dup">
+        <edge from="react_46" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_46" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3069,22 +3074,22 @@
                 <string>let:name="react_47"</string>
             </attr>
         </edge>
-        <edge from="react_47" to="doac">
+        <edge from="react_47" to="diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_47" to="doac_fail">
+        <edge from="react_47" to="verapamil">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_47" to="stop_cbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_47" to="doac_ok">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_47" to="doac_test">
+        <edge from="react_47" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3111,17 +3116,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_48" to="doac_danger">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="react_48" to="stop_doac">
+        <edge from="react_48" to="doac_fail">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_48" to="danger">
+        <edge from="react_48" to="doac_ok">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_48" to="doac_test">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3148,7 +3153,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_49" to="doac_fail">
+        <edge from="react_49" to="doac_danger">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3158,7 +3163,12 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_49" to="doac_danger">
+        <edge from="react_49" to="Forbidden">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_49" to="danger">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3180,17 +3190,22 @@
                 <string>let:name="react_50"</string>
             </attr>
         </edge>
+        <edge from="react_50" to="doac">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="react_50" to="doac_fail">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_50" to="doac_ok">
+        <edge from="react_50" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_50" to="doac_fail">
+        <edge from="react_50" to="doac_danger">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3212,12 +3227,17 @@
                 <string>let:name="react_51"</string>
             </attr>
         </edge>
-        <edge from="react_51" to="doac_int">
+        <edge from="react_51" to="doac_fail">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_51" to="doac_int">
+        <edge from="react_51" to="doac_ok">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_51" to="doac_fail">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3239,17 +3259,12 @@
                 <string>let:name="react_52"</string>
             </attr>
         </edge>
-        <edge from="react_52" to="doac_ok">
+        <edge from="react_52" to="doac_int">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_52" to="doac_fail">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_52" to="doac_ok">
+        <edge from="react_52" to="doac_int">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3271,17 +3286,17 @@
                 <string>let:name="react_53"</string>
             </attr>
         </edge>
-        <edge from="react_53" to="flecainide">
+        <edge from="react_53" to="doac_ok">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_53" to="stop_flec">
+        <edge from="react_53" to="doac_fail">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_53" to="flecainide">
+        <edge from="react_53" to="doac_ok">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3308,17 +3323,12 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_54" to="get_atenolol">
+        <edge from="react_54" to="stop_flec">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_54" to="col_moderate">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_54" to="moderate">
+        <edge from="react_54" to="flecainide">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3345,7 +3355,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_55" to="get_bisoprolol">
+        <edge from="react_55" to="get_atenolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3382,7 +3392,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_56" to="get_carvedilol">
+        <edge from="react_56" to="get_bisoprolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3419,17 +3429,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_57" to="get_diltiazem">
+        <edge from="react_57" to="get_carvedilol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_57" to="col_major">
+        <edge from="react_57" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_57" to="major">
+        <edge from="react_57" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3456,17 +3466,22 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_58" to="get_propranolol">
+        <edge from="react_58" to="get_diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_58" to="col_moderate">
+        <edge from="react_58" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_58" to="moderate">
+        <edge from="react_58" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_58" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3493,17 +3508,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_59" to="get_verapamil">
+        <edge from="react_59" to="get_propranolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_59" to="col_major">
+        <edge from="react_59" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_59" to="major">
+        <edge from="react_59" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3530,17 +3545,22 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_60" to="propranolol">
+        <edge from="react_60" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_60" to="col_moderate">
+        <edge from="react_60" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_60" to="moderate">
+        <edge from="react_60" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_60" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3567,17 +3587,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_61" to="verapamil">
+        <edge from="react_61" to="propranolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_61" to="col_major">
+        <edge from="react_61" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_61" to="major">
+        <edge from="react_61" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3599,22 +3619,27 @@
                 <string>let:name="react_62"</string>
             </attr>
         </edge>
-        <edge from="react_62" to="get_apixaban">
+        <edge from="react_62" to="flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_62" to="stop_doac">
+        <edge from="react_62" to="verapamil">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_62" to="apixaban">
+        <edge from="react_62" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_62" to="doac">
+        <edge from="react_62" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_62" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3641,22 +3666,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_63" to="get_diltiazem">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_63" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_63" to="col_moderate">
+        <edge from="react_63" to="apixaban">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_63" to="moderate">
+        <edge from="react_63" to="doac">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3683,7 +3703,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_64" to="get_verapamil">
+        <edge from="react_64" to="get_diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3725,7 +3745,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_65" to="verapamil">
+        <edge from="react_65" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3762,22 +3782,27 @@
                 <string>let:name="react_66"</string>
             </attr>
         </edge>
-        <edge from="react_66" to="get_atenolol">
+        <edge from="react_66" to="get_apixaban">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_66" to="stop_sbb">
+        <edge from="react_66" to="verapamil">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_66" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_66" to="atenolol">
+        <edge from="react_66" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_66" to="sbb">
+        <edge from="react_66" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3804,17 +3829,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_67" to="get_flecainide">
+        <edge from="react_67" to="stop_sbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_67" to="col_moderate">
+        <edge from="react_67" to="atenolol">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_67" to="moderate">
+        <edge from="react_67" to="sbb">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3836,22 +3861,22 @@
                 <string>let:name="react_68"</string>
             </attr>
         </edge>
-        <edge from="react_68" to="get_benazepril">
+        <edge from="react_68" to="get_atenolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_68" to="stop_acei">
+        <edge from="react_68" to="get_flecainide">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_68" to="acei">
+        <edge from="react_68" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_68" to="benazepril">
+        <edge from="react_68" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3878,17 +3903,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_69" to="get_warfarin">
+        <edge from="react_69" to="stop_acei">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_69" to="col_minor">
+        <edge from="react_69" to="acei">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_69" to="minor">
+        <edge from="react_69" to="benazepril">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3915,7 +3940,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_70" to="warfarin">
+        <edge from="react_70" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -3947,22 +3972,22 @@
                 <string>let:name="react_71"</string>
             </attr>
         </edge>
-        <edge from="react_71" to="get_bisoprolol">
+        <edge from="react_71" to="get_benazepril">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_71" to="stop_sbb">
+        <edge from="react_71" to="warfarin">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_71" to="bisoprolol">
+        <edge from="react_71" to="col_minor">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_71" to="sbb">
+        <edge from="react_71" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -3989,12 +4014,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_72" to="get_flecainide">
+        <edge from="react_72" to="stop_sbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_72" to="moderate">
+        <edge from="react_72" to="bisoprolol">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_72" to="sbb">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4016,22 +4046,17 @@
                 <string>let:name="react_73"</string>
             </attr>
         </edge>
-        <edge from="react_73" to="get_captopril">
+        <edge from="react_73" to="get_bisoprolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_73" to="stop_acei">
+        <edge from="react_73" to="get_flecainide">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_73" to="acei">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_73" to="captopril">
+        <edge from="react_73" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4053,22 +4078,22 @@
                 <string>let:name="react_74"</string>
             </attr>
         </edge>
-        <edge from="react_74" to="get_carvedilol">
+        <edge from="react_74" to="get_captopril">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_74" to="stop_nsbb">
+        <edge from="react_74" to="stop_acei">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_74" to="carvedilol">
+        <edge from="react_74" to="acei">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_74" to="nsbb">
+        <edge from="react_74" to="captopril">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4095,22 +4120,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_75" to="get_dabigatran">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="react_75" to="stop_doac">
+        <edge from="react_75" to="stop_nsbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_75" to="col_moderate">
+        <edge from="react_75" to="carvedilol">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_75" to="moderate">
+        <edge from="react_75" to="nsbb">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4137,9 +4157,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_76" to="get_flecainide">
+        <edge from="react_76" to="get_dabigatran">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_76" to="stop_doac">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="react_76" to="col_moderate">
@@ -4169,22 +4194,22 @@
                 <string>let:name="react_77"</string>
             </attr>
         </edge>
-        <edge from="react_77" to="get_chlorothiazide">
+        <edge from="react_77" to="get_carvedilol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_77" to="stop_td">
+        <edge from="react_77" to="get_flecainide">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_77" to="chlorothiazide">
+        <edge from="react_77" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_77" to="td">
+        <edge from="react_77" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4211,17 +4236,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_78" to="get_warfarin">
+        <edge from="react_78" to="stop_td">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_78" to="col_minor">
+        <edge from="react_78" to="chlorothiazide">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_78" to="minor">
+        <edge from="react_78" to="td">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4248,7 +4273,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_79" to="warfarin">
+        <edge from="react_79" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -4280,22 +4305,22 @@
                 <string>let:name="react_80"</string>
             </attr>
         </edge>
-        <edge from="react_80" to="get_dabigatran">
+        <edge from="react_80" to="get_chlorothiazide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_80" to="stop_doac">
+        <edge from="react_80" to="warfarin">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_80" to="dabigatran">
+        <edge from="react_80" to="col_minor">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_80" to="doac">
+        <edge from="react_80" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4322,22 +4347,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_81" to="get_diltiazem">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_81" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_81" to="col_moderate">
+        <edge from="react_81" to="dabigatran">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_81" to="moderate">
+        <edge from="react_81" to="doac">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4364,7 +4384,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_82" to="get_verapamil">
+        <edge from="react_82" to="get_diltiazem">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -4374,12 +4394,12 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_82" to="col_major">
+        <edge from="react_82" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_82" to="major">
+        <edge from="react_82" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4406,7 +4426,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_83" to="verapamil">
+        <edge from="react_83" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -4414,6 +4434,11 @@
         <edge from="react_83" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_83" to="Forbidden">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="react_83" to="col_major">
@@ -4443,22 +4468,32 @@
                 <string>let:name="react_84"</string>
             </attr>
         </edge>
-        <edge from="react_84" to="get_diltiazem">
+        <edge from="react_84" to="get_dabigatran">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_84" to="stop_cbb">
+        <edge from="react_84" to="verapamil">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_84" to="stop_doac">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_84" to="cbb">
+        <edge from="react_84" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_84" to="diltiazem">
+        <edge from="react_84" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_84" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4485,17 +4520,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_85" to="get_flecainide">
+        <edge from="react_85" to="stop_cbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_85" to="col_major">
+        <edge from="react_85" to="cbb">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_85" to="major">
+        <edge from="react_85" to="diltiazem">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4517,17 +4552,27 @@
                 <string>let:name="react_86"</string>
             </attr>
         </edge>
+        <edge from="react_86" to="get_diltiazem">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="react_86" to="get_flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_86" to="stop_flec">
+        <edge from="react_86" to="Forbidden">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>product</string>
             </attr>
         </edge>
-        <edge from="react_86" to="flecainide">
+        <edge from="react_86" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_86" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4554,17 +4599,12 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_87" to="get_propranolol">
+        <edge from="react_87" to="stop_flec">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_87" to="col_moderate">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_87" to="moderate">
+        <edge from="react_87" to="flecainide">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4591,17 +4631,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_88" to="get_verapamil">
+        <edge from="react_88" to="get_propranolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_88" to="col_major">
+        <edge from="react_88" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_88" to="major">
+        <edge from="react_88" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4628,17 +4668,22 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_89" to="propranolol">
+        <edge from="react_89" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_89" to="col_moderate">
+        <edge from="react_89" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_89" to="moderate">
+        <edge from="react_89" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_89" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4665,17 +4710,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_90" to="verapamil">
+        <edge from="react_90" to="propranolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_90" to="col_major">
+        <edge from="react_90" to="col_moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_90" to="major">
+        <edge from="react_90" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4697,22 +4742,27 @@
                 <string>let:name="react_91"</string>
             </attr>
         </edge>
-        <edge from="react_91" to="get_indapamide">
+        <edge from="react_91" to="get_flecainide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_91" to="stop_td">
+        <edge from="react_91" to="verapamil">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_91" to="indapamide">
+        <edge from="react_91" to="Forbidden">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_91" to="td">
+        <edge from="react_91" to="col_major">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_91" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4739,17 +4789,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_92" to="get_warfarin">
+        <edge from="react_92" to="stop_td">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_92" to="col_minor">
+        <edge from="react_92" to="indapamide">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_92" to="minor">
+        <edge from="react_92" to="td">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4776,7 +4826,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_93" to="warfarin">
+        <edge from="react_93" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -4808,22 +4858,22 @@
                 <string>let:name="react_94"</string>
             </attr>
         </edge>
-        <edge from="react_94" to="get_irbesartan">
+        <edge from="react_94" to="get_indapamide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_94" to="stop_arb">
+        <edge from="react_94" to="warfarin">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_94" to="arb">
+        <edge from="react_94" to="col_minor">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_94" to="irbesartan">
+        <edge from="react_94" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4845,7 +4895,7 @@
                 <string>let:name="react_95"</string>
             </attr>
         </edge>
-        <edge from="react_95" to="get_olmesortan">
+        <edge from="react_95" to="get_irbesartan">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -4860,7 +4910,7 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_95" to="olmesortan">
+        <edge from="react_95" to="irbesartan">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4882,22 +4932,22 @@
                 <string>let:name="react_96"</string>
             </attr>
         </edge>
-        <edge from="react_96" to="get_propranolol">
+        <edge from="react_96" to="get_olmesortan">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_96" to="stop_nsbb">
+        <edge from="react_96" to="stop_arb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_96" to="nsbb">
+        <edge from="react_96" to="arb">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_96" to="propranolol">
+        <edge from="react_96" to="olmesortan">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4924,17 +4974,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_97" to="get_warfarin">
+        <edge from="react_97" to="stop_nsbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_97" to="col_minor">
+        <edge from="react_97" to="nsbb">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_97" to="minor">
+        <edge from="react_97" to="propranolol">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -4961,7 +5011,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_98" to="warfarin">
+        <edge from="react_98" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -4993,22 +5043,22 @@
                 <string>let:name="react_99"</string>
             </attr>
         </edge>
-        <edge from="react_99" to="get_verapamil">
+        <edge from="react_99" to="get_propranolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_99" to="stop_cbb">
+        <edge from="react_99" to="warfarin">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_99" to="cbb">
+        <edge from="react_99" to="col_minor">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_99" to="verapamil">
+        <edge from="react_99" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5030,17 +5080,22 @@
                 <string>let:name="react_100"</string>
             </attr>
         </edge>
-        <edge from="react_100" to="get_vkant">
+        <edge from="react_100" to="get_verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_100" to="stop_vkant">
+        <edge from="react_100" to="stop_cbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_100" to="vkant">
+        <edge from="react_100" to="cbb">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_100" to="verapamil">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5062,17 +5117,17 @@
                 <string>let:name="react_101"</string>
             </attr>
         </edge>
-        <edge from="react_101" to="get_warfarin">
+        <edge from="react_101" to="get_vkant">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_101" to="stop_warf">
+        <edge from="react_101" to="stop_vkant">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_101" to="warfarin">
+        <edge from="react_101" to="vkant">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5099,17 +5154,12 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_102" to="indapamide">
+        <edge from="react_102" to="stop_warf">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_102" to="col_minor">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_102" to="minor">
+        <edge from="react_102" to="warfarin">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5136,7 +5186,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_103" to="propranolol">
+        <edge from="react_103" to="indapamide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -5168,12 +5218,22 @@
                 <string>let:name="react_104"</string>
             </attr>
         </edge>
-        <edge from="react_104" to="has_fib">
+        <edge from="react_104" to="get_warfarin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_104" to="has_fib">
+        <edge from="react_104" to="propranolol">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_104" to="col_minor">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_104" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5195,12 +5255,12 @@
                 <string>let:name="react_105"</string>
             </attr>
         </edge>
-        <edge from="react_105" to="heart_rate">
+        <edge from="react_105" to="has_fib">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_105" to="heart_rate">
+        <edge from="react_105" to="has_fib">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5222,12 +5282,12 @@
                 <string>let:name="react_106"</string>
             </attr>
         </edge>
-        <edge from="react_106" to="hyper">
+        <edge from="react_106" to="heart_rate">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_106" to="diseases">
+        <edge from="react_106" to="heart_rate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5254,7 +5314,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_107" to="hyper">
+        <edge from="react_107" to="diseases">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5276,22 +5336,12 @@
                 <string>let:name="react_108"</string>
             </attr>
         </edge>
-        <edge from="react_108" to="indapamide">
+        <edge from="react_108" to="hyper">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_108" to="stop_td">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_108" to="indapamide">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_108" to="td">
+        <edge from="react_108" to="hyper">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5318,17 +5368,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_109" to="warfarin">
+        <edge from="react_109" to="stop_td">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_109" to="col_minor">
+        <edge from="react_109" to="indapamide">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_109" to="minor">
+        <edge from="react_109" to="td">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5350,22 +5400,22 @@
                 <string>let:name="react_110"</string>
             </attr>
         </edge>
-        <edge from="react_110" to="irbesartan">
+        <edge from="react_110" to="indapamide">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_110" to="stop_arb">
+        <edge from="react_110" to="warfarin">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_110" to="arb">
+        <edge from="react_110" to="col_minor">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_110" to="irbesartan">
+        <edge from="react_110" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5392,17 +5442,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_111" to="olmesortan">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="react_111" to="stop_arb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_111" to="alert_dup">
+        <edge from="react_111" to="arb">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_111" to="irbesartan">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5424,17 +5474,22 @@
                 <string>let:name="react_112"</string>
             </attr>
         </edge>
-        <edge from="react_112" to="major">
+        <edge from="react_112" to="irbesartan">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_112" to="Forbidden">
+        <edge from="react_112" to="olmesortan">
             <attr name="label">
-                <string>product</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_112" to="major">
+        <edge from="react_112" to="stop_arb">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_112" to="alert_dup">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5456,12 +5511,12 @@
                 <string>let:name="react_113"</string>
             </attr>
         </edge>
-        <edge from="react_113" to="minor">
+        <edge from="react_113" to="major">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_113" to="minor">
+        <edge from="react_113" to="major">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5483,12 +5538,12 @@
                 <string>let:name="react_114"</string>
             </attr>
         </edge>
-        <edge from="react_114" to="moderate">
+        <edge from="react_114" to="minor">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_114" to="moderate">
+        <edge from="react_114" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5510,22 +5565,12 @@
                 <string>let:name="react_115"</string>
             </attr>
         </edge>
-        <edge from="react_115" to="olmesortan">
+        <edge from="react_115" to="moderate">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_115" to="stop_arb">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_115" to="arb">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_115" to="olmesortan">
+        <edge from="react_115" to="moderate">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5547,12 +5592,22 @@
                 <string>let:name="react_116"</string>
             </attr>
         </edge>
-        <edge from="react_116" to="origin">
+        <edge from="react_116" to="olmesortan">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_116" to="origin">
+        <edge from="react_116" to="stop_arb">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_116" to="arb">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_116" to="olmesortan">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5574,12 +5629,12 @@
                 <string>let:name="react_117"</string>
             </attr>
         </edge>
-        <edge from="react_117" to="over75">
+        <edge from="react_117" to="origin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_117" to="over75">
+        <edge from="react_117" to="origin">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5601,22 +5656,12 @@
                 <string>let:name="react_118"</string>
             </attr>
         </edge>
-        <edge from="react_118" to="propranolol">
+        <edge from="react_118" to="over75">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_118" to="stop_nsbb">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_118" to="nsbb">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_118" to="propranolol">
+        <edge from="react_118" to="over75">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5643,17 +5688,17 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_119" to="warfarin">
+        <edge from="react_119" to="stop_nsbb">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_119" to="col_minor">
+        <edge from="react_119" to="nsbb">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="react_119" to="minor">
+        <edge from="react_119" to="propranolol">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5675,12 +5720,22 @@
                 <string>let:name="react_120"</string>
             </attr>
         </edge>
-        <edge from="react_120" to="sync1">
+        <edge from="react_120" to="propranolol">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_120" to="sync1">
+        <edge from="react_120" to="warfarin">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_120" to="col_minor">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_120" to="minor">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5702,12 +5757,12 @@
                 <string>let:name="react_121"</string>
             </attr>
         </edge>
-        <edge from="react_121" to="sync2">
+        <edge from="react_121" to="sync1">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_121" to="sync2">
+        <edge from="react_121" to="sync1">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5729,22 +5784,12 @@
                 <string>let:name="react_122"</string>
             </attr>
         </edge>
-        <edge from="react_122" to="verapamil">
+        <edge from="react_122" to="sync2">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_122" to="stop_cbb">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_122" to="cbb">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="react_122" to="verapamil">
+        <edge from="react_122" to="sync2">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5766,17 +5811,22 @@
                 <string>let:name="react_123"</string>
             </attr>
         </edge>
-        <edge from="react_123" to="vkant">
+        <edge from="react_123" to="verapamil">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_123" to="stop_vkant">
+        <edge from="react_123" to="stop_cbb">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_123" to="vkant">
+        <edge from="react_123" to="cbb">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="react_123" to="verapamil">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -5798,17 +5848,49 @@
                 <string>let:name="react_124"</string>
             </attr>
         </edge>
-        <edge from="react_124" to="warfarin">
+        <edge from="react_124" to="vkant">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_124" to="stop_warf">
+        <edge from="react_124" to="stop_vkant">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_124" to="warfarin">
+        <edge from="react_124" to="vkant">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <node id="react_125">
+        </node>
+        <edge from="react_125" to="react_125">
+            <attr name="label">
+                <string>id:react_125</string>
+            </attr>
+        </edge>
+        <edge from="react_125" to="react_125">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="react_125" to="react_125">
+            <attr name="label">
+                <string>let:name="react_125"</string>
+            </attr>
+        </edge>
+        <edge from="react_125" to="warfarin">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_125" to="stop_warf">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_125" to="warfarin">
             <attr name="label">
                 <string>product</string>
             </attr>

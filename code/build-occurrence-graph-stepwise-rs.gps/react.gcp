@@ -1,0 +1,5 @@
+recipe react() {
+  entities-age;
+  react-produce;
+  merge;
+}

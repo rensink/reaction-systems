@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="environment-fired">
+    <graph role="rule" edgeids="false" edgemode="directed" id="context">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -82,24 +82,24 @@
                 <string>new:flag:present</string>
             </attr>
         </edge>
-        <edge from="n0" to="n2">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
+        <edge from="n0" to="n2">
             <attr name="label">
-                <string>type:State</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n1" to="n4">
             <attr name="label">
                 <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n1" to="n3">
@@ -117,9 +117,19 @@
                 <string>in</string>
             </attr>
         </edge>
+        <edge from="n3" to="n0">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n3">
             <attr name="label">
-                <string>type:Step</string>
+                <string>new:flag:fired</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n5">
+            <attr name="label">
+                <string>move</string>
             </attr>
         </edge>
         <edge from="n3" to="n6">
@@ -137,19 +147,9 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="n3" to="n0">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n5">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-        </edge>
         <edge from="n3" to="n3">
             <attr name="label">
-                <string>new:flag:fired</string>
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -197,14 +197,14 @@
                 <string>in</string>
             </attr>
         </edge>
-        <edge from="n9" to="n8">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n9" to="n9">
             <attr name="label">
                 <string>not=sub1:flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n8">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
@@ -227,11 +227,6 @@
                 <string>in</string>
             </attr>
         </edge>
-        <edge from="n11" to="n7">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n11" to="n11">
             <attr name="label">
                 <string>type:Entity</string>
@@ -240,6 +235,11 @@
         <edge from="n11" to="n11">
             <attr name="label">
                 <string>use=sub2:flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n7">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n12" to="n12">
@@ -257,24 +257,24 @@
                 <string>in</string>
             </attr>
         </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>type:Token</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n1">
-            <attr name="label">
-                <string>del:current</string>
-            </attr>
-        </edge>
         <edge from="n13" to="n4">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
+        <edge from="n13" to="n13">
+            <attr name="label">
+                <string>type:Token</string>
+            </attr>
+        </edge>
         <edge from="n13" to="n5">
             <attr name="label">
                 <string>new:current</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n1">
+            <attr name="label">
+                <string>del:current</string>
             </attr>
         </edge>
     </graph>

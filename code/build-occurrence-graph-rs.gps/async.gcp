@@ -1,52 +1,61 @@
 // state s0
-environment-fired;
-// state s208
-fired("khr_1");
-fired("kdiabete_1");
+context;
+// state s1
 fired("eafib3_0");
-fired("eafib1_0");
-fired("k_doac_2");
-fired("korigin_0");
-fired("khf_0");
-fired("kdoacint_1");
-fired("ksync2_0");
-fired("eafib2_0");
-fired("khyper_0");
-fired("kcons_0");
 fired("ksync1_0");
 fired("kafib_0");
+fired("khyper_0");
+fired("ksync2_0");
+fired("kdoacint_0");
+fired("khr_1");
+fired("k_doac_2");
+fired("eafib2_0");
 fired("kage_0");
+fired("korigin_0");
+fired("kdiabete_1");
+fired("kcons_1");
+fired("eafib1_0");
 fired("ghyper_0");
+fired("khf_0");
 react;
-// state s976
-environment-fired;
-// state s1744
+// state s385
+context;
+// state s769
 fired("empty_0");
 fired("ghyper_1");
+fired("eafib1_1");
 fired("eafib2_1");
 fired("k_doac_2");
-fired("eafib1_1");
 fired("eafib3_1");
 react;
-// state s2458
-environment-fired;
-// state s3060
-fired("g1_2");
+// state s1153
+context;
+// state s1537
+fired("empty_0");
+fired("econs_1");
 fired("ehf_1");
 fired("ehr_0");
-fired("econs_3");
-fired("empty_0");
+fired("g1_3");
 fired("k_doac_2");
 react;
-// state s3754
-environment-fired;
-// state s4932
+// state s2057
+context;
+// state s2397
+fired("empty_0");
+fired("econs_1");
+fired("g3_2");
+fired("eflec_1");
+fired("ehr_0");
+fired("k_doac_2");
+react;
+// state s9228
+context;
+// state s14908
+fired("g6_0");
 fired("ehr_0");
 fired("empty_0");
-fired("estroke_1");
-fired("eflec_1");
+fired("econs_1");
 fired("k_doac_2");
-fired("g3_2");
 react;
-// state s12353
-`halt`;
+// state s113021
+

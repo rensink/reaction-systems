@@ -106,12 +106,12 @@
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>let:name="a"</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>let:name="a"</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -136,17 +136,17 @@
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
                 <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
                 <string>let:name="q0"</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">
@@ -171,12 +171,12 @@
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>let:name="q2"</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>let:name="q2"</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -229,24 +229,14 @@
                 <string>id:w0</string>
             </attr>
         </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>let:name="w0"</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n0">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n8" to="n7">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>type:Reaction</string>
             </attr>
         </edge>
         <edge from="n8" to="n2">
@@ -254,9 +244,19 @@
                 <string>product</string>
             </attr>
         </edge>
+        <edge from="n8" to="n0">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n8" to="n2">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>let:name="w0"</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
@@ -264,9 +264,14 @@
                 <string>id:w1</string>
             </attr>
         </edge>
-        <edge from="n9" to="n9">
+        <edge from="n9" to="n7">
             <attr name="label">
-                <string>type:Reaction</string>
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n3">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
@@ -279,19 +284,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n9" to="n3">
+        <edge from="n9" to="n9">
             <attr name="label">
-                <string>product</string>
+                <string>type:Reaction</string>
             </attr>
         </edge>
         <edge from="n9" to="n0">
             <attr name="label">
                 <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n7">
-            <attr name="label">
-                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n10" to="n10">
@@ -304,24 +304,9 @@
                 <string>type:Reaction</string>
             </attr>
         </edge>
-        <edge from="n10" to="n10">
-            <attr name="label">
-                <string>let:name="w2"</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n0">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n10" to="n7">
             <attr name="label">
                 <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n3">
-            <attr name="label">
-                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n10" to="n4">
@@ -329,14 +314,24 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n11" to="n11">
+        <edge from="n10" to="n10">
             <attr name="label">
-                <string>id:w3</string>
+                <string>let:name="w2"</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n3">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n0">
+            <attr name="label">
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n11" to="n11">
             <attr name="label">
-                <string>type:Reaction</string>
+                <string>id:w3</string>
             </attr>
         </edge>
         <edge from="n11" to="n11">
@@ -349,6 +344,16 @@
                 <string>reactant</string>
             </attr>
         </edge>
+        <edge from="n11" to="n0">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
         <edge from="n11" to="n7">
             <attr name="label">
                 <string>inhibitor</string>
@@ -357,11 +362,6 @@
         <edge from="n11" to="n5">
             <attr name="label">
                 <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n11" to="n0">
-            <attr name="label">
-                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n12" to="n12">
@@ -379,17 +379,7 @@
                 <string>let:name="w4"</string>
             </attr>
         </edge>
-        <edge from="n12" to="n7">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
         <edge from="n12" to="n0">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n12" to="n5">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -399,9 +389,24 @@
                 <string>product</string>
             </attr>
         </edge>
+        <edge from="n12" to="n7">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n5">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n13" to="n13">
             <attr name="label">
                 <string>id:w5</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n6">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n13" to="n13">
@@ -414,16 +419,6 @@
                 <string>let:name="w5"</string>
             </attr>
         </edge>
-        <edge from="n13" to="n6">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n6">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n13" to="n0">
             <attr name="label">
                 <string>reactant</string>
@@ -434,29 +429,14 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
+        <edge from="n13" to="n6">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n14" to="n14">
             <attr name="label">
                 <string>id:w6</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n14">
-            <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n14">
-            <attr name="label">
-                <string>let:name="w6"</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n2">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n2">
-            <attr name="label">
-                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n14" to="n7">
@@ -464,9 +444,29 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
+        <edge from="n14" to="n2">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n14" to="n1">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n2">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n14">
+            <attr name="label">
+                <string>let:name="w6"</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n14">
+            <attr name="label">
+                <string>type:Reaction</string>
             </attr>
         </edge>
         <edge from="n15" to="n15">
@@ -479,12 +479,17 @@
                 <string>type:Reaction</string>
             </attr>
         </edge>
-        <edge from="n15" to="n15">
+        <edge from="n15" to="n7">
             <attr name="label">
-                <string>let:name="w7"</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n15" to="n1">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n15" to="n3">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -494,19 +499,29 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n15" to="n7">
+        <edge from="n15" to="n15">
             <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="n15" to="n3">
-            <attr name="label">
-                <string>reactant</string>
+                <string>let:name="w7"</string>
             </attr>
         </edge>
         <edge from="n16" to="n16">
             <attr name="label">
                 <string>id:w8</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n1">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n5">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n7">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n16" to="n16">
@@ -519,22 +534,7 @@
                 <string>let:name="w8"</string>
             </attr>
         </edge>
-        <edge from="n16" to="n5">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
         <edge from="n16" to="n4">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n16" to="n7">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="n16" to="n1">
             <attr name="label">
                 <string>reactant</string>
             </attr>
@@ -544,14 +544,9 @@
                 <string>id:w9</string>
             </attr>
         </edge>
-        <edge from="n17" to="n17">
+        <edge from="n17" to="n6">
             <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n17" to="n17">
-            <attr name="label">
-                <string>let:name="w9"</string>
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n17" to="n1">
@@ -564,14 +559,19 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n17" to="n6">
+        <edge from="n17" to="n17">
             <attr name="label">
-                <string>product</string>
+                <string>type:Reaction</string>
             </attr>
         </edge>
         <edge from="n17" to="n7">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n17" to="n17">
+            <attr name="label">
+                <string>let:name="w9"</string>
             </attr>
         </edge>
         <edge from="n18" to="n18">
@@ -582,6 +582,11 @@
         <edge from="n18" to="n18">
             <attr name="label">
                 <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n1">
+            <attr name="label">
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n18" to="n18">
@@ -595,11 +600,6 @@
             </attr>
         </edge>
         <edge from="n18" to="n6">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n18" to="n1">
             <attr name="label">
                 <string>reactant</string>
             </attr>

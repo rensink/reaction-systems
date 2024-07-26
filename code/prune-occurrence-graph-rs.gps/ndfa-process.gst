@@ -34,6 +34,11 @@
                 <string>98 187 38 18</string>
             </attr>
         </node>
+        <edge from="n0" to="n1">
+            <attr name="label">
+                <string>next</string>
+            </attr>
+        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:State</string>
@@ -44,19 +49,9 @@
                 <string>next</string>
             </attr>
         </edge>
-        <edge from="n0" to="n1">
-            <attr name="label">
-                <string>next</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n3">
-            <attr name="label">
-                <string>product</string>
             </attr>
         </edge>
         <edge from="n1" to="n0">
@@ -64,14 +59,19 @@
                 <string>move</string>
             </attr>
         </edge>
-        <edge from="n2" to="n0">
+        <edge from="n1" to="n3">
             <attr name="label">
-                <string>move</string>
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n2" to="n4">
             <attr name="label">
                 <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n0">
+            <attr name="label">
+                <string>move</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">

@@ -1,58 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="state">
+    <graph role="rule" edgeids="false" edgemode="directed" id="delete-irrelevant-EntityInst">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <attr name="actionRole">
-            <string>condition</string>
-        </attr>
-        <attr name="enabled">
-            <string>false</string>
-        </attr>
         <node id="n0">
             <attr name="layout">
-                <string>194 117 40 36</string>
+                <string>212 132 25 24</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>208 212 36 18</string>
+                <string>399 153 63 18</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>343 124 38 18</string>
+                <string>198 236 58 18</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:State</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n1">
-            <attr name="label">
-                <string>name</string>
+                <string>forallx:</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>parout:0</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>string:</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n0">
-            <attr name="label">
-                <string>current</string>
+                <string>type:Forbidden</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>type:Token</string>
+                <string>del:</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n0">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n1">
+            <attr name="label">
+                <string>not:(-reactant.product)*.of</string>
             </attr>
         </edge>
     </graph>

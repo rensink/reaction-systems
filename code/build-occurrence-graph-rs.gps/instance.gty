@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="type">
+    <graph role="type" edgeids="false" edgemode="directed" id="instance">
         <attr name="$version">
             <string>curly</string>
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>367 129 75 36</string>
+                <string>219 290 75 36</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>585 114 75 54</string>
+                <string>402 280 75 54</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>200 472 75 36</string>
+                <string>226 162 51 36</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>201 367 75 36</string>
+                <string>150 471 51 36</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>367 363 75 54</string>
+                <string>414 161 36 18</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>390 483 27 18</string>
+                <string>296 470 53 36</string>
             </attr>
         </node>
         <node id="n6">
             <attr name="layout">
-                <string>588 353 75 54</string>
+                <string>276 381 75 18</string>
             </attr>
         </node>
         <node id="n7">
             <attr name="layout">
-                <string>382 258 53 36</string>
+                <string>155 378 49 18</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:RInstance</string>
+                <string>abs:</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:RuleOcc</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
@@ -64,14 +69,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n0" to="n7">
+        <edge from="n0" to="n2">
             <attr name="label">
-                <string>of</string>
+                <string>abs:of</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:EInstance</string>
+                <string>type:EntityInst</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -84,115 +89,77 @@
                 <string>string:name</string>
             </attr>
         </edge>
-        <edge from="n1" to="n6">
+        <edge from="n1" to="n4">
             <attr name="label">
                 <string>of</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>type:State</string>
+                <string>import:</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n5">
-            <attr name="label">
-                <string>next</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n3">
-            <attr name="label">
-                <string>type:Token</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n3">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n2">
-            <attr name="label">
-                <string>current</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>abs:</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
                 <string>type:Rule</string>
             </attr>
         </edge>
-        <edge from="n4" to="n4">
+        <edge from="n3" to="n3">
             <attr name="label">
-                <string>flag:fired</string>
+                <string>import:</string>
             </attr>
         </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n6">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n6">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n6">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n5" to="n5">
+        <edge from="n3" to="n3">
             <attr name="label">
                 <string>type:Step</string>
             </attr>
         </edge>
-        <edge from="n5" to="n4">
+        <edge from="n4" to="n4">
             <attr name="label">
-                <string>sub:</string>
+                <string>import:</string>
             </attr>
         </edge>
-        <edge from="n5" to="n2">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-            <attr name="layout">
-                <string>210 3 403 492 402 564 238 566 237 490 11</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n6">
+        <edge from="n4" to="n4">
             <attr name="label">
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n6" to="n6">
+        <edge from="n5" to="n5">
             <attr name="label">
-                <string>flag:present</string>
+                <string>import:</string>
             </attr>
         </edge>
-        <edge from="n6" to="n6">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n7" to="n7">
+        <edge from="n5" to="n5">
             <attr name="label">
                 <string>type:Reaction</string>
             </attr>
         </edge>
-        <edge from="n7" to="n4">
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n0">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n5">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n3">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n0">
             <attr name="label">
                 <string>sub:</string>
             </attr>

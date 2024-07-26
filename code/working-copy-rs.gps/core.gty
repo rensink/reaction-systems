@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="type">
+    <graph role="type" edgeids="false" edgemode="directed" id="core">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n0">
-            <attr name="layout">
-                <string>367 129 75 36</string>
-            </attr>
-        </node>
-        <node id="n1">
-            <attr name="layout">
-                <string>585 114 75 54</string>
-            </attr>
-        </node>
         <node id="n2">
             <attr name="layout">
                 <string>200 472 75 36</string>
@@ -41,72 +31,27 @@
         </node>
         <node id="n7">
             <attr name="layout">
-                <string>382 258 53 36</string>
+                <string>382 267 53 18</string>
             </attr>
         </node>
-        <node id="n8">
-            <attr name="layout">
-                <string>215 203 56 54</string>
-            </attr>
-        </node>
-        <edge from="n0" to="n1">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:RInstance</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n1">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n7">
-            <attr name="label">
-                <string>of</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>flag:last</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n6">
-            <attr name="label">
-                <string>of</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>type:EInstance</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
         <edge from="n2" to="n2">
             <attr name="label">
                 <string>type:State</string>
             </attr>
         </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
         <edge from="n2" to="n5">
             <attr name="label">
                 <string>next</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>type:Token</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">
@@ -119,19 +64,19 @@
                 <string>current</string>
             </attr>
         </edge>
-        <edge from="n3" to="n3">
-            <attr name="label">
-                <string>type:Token</string>
-            </attr>
-        </edge>
         <edge from="n4" to="n4">
             <attr name="label">
                 <string>abs:</string>
             </attr>
         </edge>
-        <edge from="n4" to="n6">
+        <edge from="n4" to="n4">
             <attr name="label">
-                <string>reactant</string>
+                <string>type:Rule</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>flag:fired</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -149,19 +94,19 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n4" to="n4">
+        <edge from="n4" to="n6">
             <attr name="label">
-                <string>flag:fired</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>type:Rule</string>
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
             <attr name="label">
                 <string>type:Step</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n4">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n5" to="n2">
@@ -172,11 +117,6 @@
                 <string>210 3 403 492 402 564 238 566 237 490 11</string>
             </attr>
         </edge>
-        <edge from="n5" to="n4">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n6" to="n6">
             <attr name="label">
                 <string>type:Entity</string>
@@ -184,12 +124,12 @@
         </edge>
         <edge from="n6" to="n6">
             <attr name="label">
-                <string>string:name</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">
             <attr name="label">
-                <string>flag:present</string>
+                <string>string:name</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
@@ -200,34 +140,6 @@
         <edge from="n7" to="n4">
             <attr name="label">
                 <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n3">
-            <attr name="label">
-                <string>action</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>type:Phase</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>flag:active</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>next</string>
-            </attr>
-            <attr name="layout">
-                <string>500 0 243 230 53 220 243 230 11</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>int:count</string>
             </attr>
         </edge>
     </graph>

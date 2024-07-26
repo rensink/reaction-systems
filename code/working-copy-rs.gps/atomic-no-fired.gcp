@@ -1,4 +1,0 @@
-recipe transition() {
-  environment; react;
-}
- 

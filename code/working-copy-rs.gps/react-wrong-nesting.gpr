@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="react">
+    <graph role="rule" edgeids="false" edgemode="directed" id="react-wrong-nesting">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -49,14 +49,14 @@
                 <string>830 185 11 18</string>
             </attr>
         </node>
-        <node id="n9">
-            <attr name="layout">
-                <string>640 72 11 18</string>
-            </attr>
-        </node>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n2">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n0" to="n3">
@@ -67,11 +67,6 @@
         <edge from="n0" to="n1">
             <attr name="label">
                 <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n2">
-            <attr name="label">
-                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n0" to="n4">
@@ -129,7 +124,7 @@
                 <string>new:flag:present</string>
             </attr>
         </edge>
-        <edge from="n3" to="n9">
+        <edge from="n3" to="n4">
             <attr name="label">
                 <string>at</string>
             </attr>
@@ -177,16 +172,6 @@
         <edge from="n8" to="n8">
             <attr name="label">
                 <string>forall:</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n9">
-            <attr name="label">
-                <string>forall:</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n4">
-            <attr name="label">
-                <string>in</string>
             </attr>
         </edge>
     </graph>

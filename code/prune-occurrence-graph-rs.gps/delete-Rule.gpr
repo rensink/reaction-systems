@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="fired">
+    <graph role="rule" edgeids="false" edgemode="directed" id="delete-Rule">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <attr name="actionRole">
-            <string>condition</string>
-        </attr>
-        <attr name="enabled">
-            <string>false</string>
-        </attr>
         <node id="n0">
             <attr name="layout">
-                <string>212 117 27 36</string>
+                <string>184 192 25 24</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>208 212 36 18</string>
+                <string>184 291 27 18</string>
             </attr>
         </node>
-        <edge from="n0" to="n1">
+        <edge from="n0" to="n0">
             <attr name="label">
-                <string>name</string>
+                <string>forallx:</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>del:</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
             <attr name="label">
                 <string>type:Rule</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
+        <edge from="n1" to="n0">
             <attr name="label">
-                <string>flag:fired</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>par:0</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>string:</string>
+                <string>at</string>
             </attr>
         </edge>
     </graph>

@@ -7,6 +7,9 @@
         <attr name="actionRole">
             <string>condition</string>
         </attr>
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
                 <string>187 117 55 36</string>
@@ -17,14 +20,14 @@
                 <string>208 212 36 18</string>
             </attr>
         </node>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>flag:present</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n1">
             <attr name="label">
                 <string>name</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">

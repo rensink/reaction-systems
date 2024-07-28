@@ -61,12 +61,12 @@
         </node>
         <node id="n11">
             <attr name="layout">
-                <string>130 271 36 18</string>
+                <string>99 272 36 18</string>
             </attr>
         </node>
         <node id="n12">
             <attr name="layout">
-                <string>147 114 11 18</string>
+                <string>116 115 11 18</string>
             </attr>
         </node>
         <node id="n13">
@@ -81,7 +81,7 @@
         </node>
         <node id="n15">
             <attr name="layout">
-                <string>117 397 59 36</string>
+                <string>86 398 59 36</string>
             </attr>
         </node>
         <node id="n16">
@@ -109,14 +109,9 @@
                 <string>new:flag:fired</string>
             </attr>
         </edge>
-        <edge from="n0" to="n4">
+        <edge from="n0" to="n1">
             <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n2">
-            <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n0" to="n3">
@@ -124,14 +119,19 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n0" to="n1">
+        <edge from="n0" to="n11">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n0" to="n11">
+        <edge from="n0" to="n2">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n4">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -221,7 +221,7 @@
         </edge>
         <edge from="n7" to="n7">
             <attr name="label">
-                <string>type:Reaction</string>
+                <string>type:Rule</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
@@ -284,27 +284,27 @@
                 <string>let:name=re.name</string>
             </attr>
         </edge>
-        <edge from="n10" to="n9">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n15">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n10" to="n4">
             <attr name="label">
                 <string>at</string>
             </attr>
             <attr name="layout">
-                <string>500 0 440 392 537 321 539 118 347 118 11</string>
+                <string>500 0 409 415 537 321 539 118 270 127 11</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n9">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n10" to="n0">
             <attr name="label">
                 <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n15">
+            <attr name="label">
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n11" to="n11">
@@ -357,17 +357,17 @@
                 <string>flag:last</string>
             </attr>
         </edge>
+        <edge from="n15" to="n11">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
         <edge from="n15" to="n12">
             <attr name="label">
                 <string>at</string>
             </attr>
             <attr name="layout">
-                <string>500 0 112 414 76 414 80 128 229 128 11</string>
-            </attr>
-        </edge>
-        <edge from="n15" to="n11">
-            <attr name="label">
-                <string>of</string>
+                <string>500 0 115 416 45 415 49 129 121 124 11</string>
             </attr>
         </edge>
         <edge from="n16" to="n16">

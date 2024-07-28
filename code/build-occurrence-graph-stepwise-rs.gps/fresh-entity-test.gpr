@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="fired-test">
+    <graph role="rule" edgeids="false" edgemode="directed" id="fresh-entity-test">
         <attr name="transitionLabel">
-            <string>Fired: %s</string>
+            <string>Created: %s</string>
         </attr>
         <attr name="actionRole">
             <string>condition</string>
@@ -22,17 +22,17 @@
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>flag:fired</string>
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>flag:fresh</string>
             </attr>
         </edge>
         <edge from="n0" to="n1">
             <attr name="label">
                 <string>name</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:Rule</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">

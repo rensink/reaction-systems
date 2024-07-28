@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="fired-test">
+    <graph role="rule" edgeids="false" edgemode="directed" id="test-state-current">
         <attr name="transitionLabel">
-            <string>Fired: %s</string>
+            <string>Current: %s</string>
         </attr>
         <attr name="actionRole">
             <string>condition</string>
+        </attr>
+        <attr name="enabled">
+            <string>false</string>
         </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>212 117 27 36</string>
+                <string>213 126 31 18</string>
             </attr>
         </node>
         <node id="n1">
@@ -20,9 +23,14 @@
                 <string>208 212 36 18</string>
             </attr>
         </node>
+        <node id="n2">
+            <attr name="layout">
+                <string>343 124 38 18</string>
+            </attr>
+        </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>flag:fired</string>
+                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n0" to="n1">
@@ -30,19 +38,24 @@
                 <string>name</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:Rule</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>par:0</string>
+                <string>parout:0</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>string:</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n0">
+            <attr name="label">
+                <string>current</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:Token</string>
             </attr>
         </edge>
     </graph>

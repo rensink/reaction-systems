@@ -11,7 +11,7 @@
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>402 280 75 54</string>
+                <string>402 271 75 72</string>
             </attr>
         </node>
         <node id="n2">
@@ -26,7 +26,7 @@
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>406 152 51 36</string>
+                <string>413 152 36 36</string>
             </attr>
         </node>
         <node id="n5">
@@ -44,6 +44,16 @@
                 <string>155 378 49 18</string>
             </attr>
         </node>
+        <node id="n8">
+            <attr name="layout">
+                <string>658 175 38 18</string>
+            </attr>
+        </node>
+        <node id="n9">
+            <attr name="layout">
+                <string>659 313 31 18</string>
+            </attr>
+        </node>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>abs:</string>
@@ -59,11 +69,6 @@
                 <string>string:name</string>
             </attr>
         </edge>
-        <edge from="n0" to="n2">
-            <attr name="label">
-                <string>abs:of</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n1">
             <attr name="label">
                 <string>product</string>
@@ -72,6 +77,11 @@
         <edge from="n0" to="n1">
             <attr name="label">
                 <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n2">
+            <attr name="label">
+                <string>abs:of</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -121,12 +131,12 @@
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>import:</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>flag:fresh</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -144,14 +154,14 @@
                 <string>type:ReactionOcc</string>
             </attr>
         </edge>
-        <edge from="n6" to="n5">
-            <attr name="label">
-                <string>of</string>
-            </attr>
-        </edge>
         <edge from="n6" to="n0">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n5">
+            <attr name="label">
+                <string>of</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
@@ -167,6 +177,21 @@
         <edge from="n7" to="n3">
             <attr name="label">
                 <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>type:Token</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n9">
+            <attr name="label">
+                <string>fresh</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>type:State</string>
             </attr>
         </edge>
     </graph>

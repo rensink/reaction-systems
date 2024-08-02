@@ -27,7 +27,7 @@ java -jar Generator.jar \
 java -jar Generator.jar \
   -D controlProgram=mytrace \
   -traces \
-  -f myresult-#1.gst \
+  -f myresult-#.gst \
   -r 1 \
   myocc.gps \
   mystart.gst

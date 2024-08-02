@@ -11529,6 +11529,33 @@
                 <string>move</string>
             </attr>
         </edge>
+        <node id="kafib_1">
+        </node>
+        <edge from="kafib_1" to="kafib_1">
+            <attr name="label">
+                <string>id:kafib_1</string>
+            </attr>
+        </edge>
+        <edge from="kafib_1" to="kafib_1">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
+        <edge from="kafib_1" to="kafib_1">
+            <attr name="label">
+                <string>let:name="kafib_1"</string>
+            </attr>
+        </edge>
+        <edge from="kafib" to="kafib_1">
+            <attr name="label">
+                <string>next</string>
+            </attr>
+        </edge>
+        <edge from="kafib_1" to="empty">
+            <attr name="label">
+                <string>move</string>
+            </attr>
+        </edge>
         <node id="kage">
         </node>
         <edge from="kage" to="kage">

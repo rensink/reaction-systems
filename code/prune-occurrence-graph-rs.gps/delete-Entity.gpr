@@ -11,7 +11,7 @@
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>228 335 36 18</string>
+                <string>210 326 71 36</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -24,19 +24,14 @@
                 <string>del:</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
+        <edge from="n1" to="n0">
             <attr name="label">
-                <string>not:type:Forbidden</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n0">
-            <attr name="label">
-                <string>at</string>
             </attr>
         </edge>
     </graph>

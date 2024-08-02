@@ -49,9 +49,9 @@
                 <string>next</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
+        <edge from="n1" to="n3">
             <attr name="label">
-                <string>type:Step</string>
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n1" to="n0">
@@ -59,19 +59,19 @@
                 <string>move</string>
             </attr>
         </edge>
-        <edge from="n1" to="n3">
+        <edge from="n1" to="n1">
             <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n4">
-            <attr name="label">
-                <string>product</string>
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n2" to="n0">
             <attr name="label">
                 <string>move</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n4">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">

@@ -11,12 +11,7 @@
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>399 153 63 18</string>
-            </attr>
-        </node>
-        <node id="n2">
-            <attr name="layout">
-                <string>198 236 58 18</string>
+                <string>197 227 59 36</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -26,27 +21,22 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:Forbidden</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
                 <string>del:</string>
             </attr>
         </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n0">
+        <edge from="n1" to="n0">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n2" to="n1">
+        <edge from="n1" to="n1">
             <attr name="label">
-                <string>not:(-reactant.product)*.of</string>
+                <string>not:flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>type:EntityInst</string>
             </attr>
         </edge>
     </graph>

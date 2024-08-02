@@ -44,14 +44,14 @@
                 <string>flag:last</string>
             </attr>
         </edge>
-        <edge from="n1" to="n3">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n2">
             <attr name="label">
                 <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n3">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -79,14 +79,9 @@
                 <string>new:</string>
             </attr>
         </edge>
-        <edge from="n4" to="n4">
+        <edge from="n4" to="n2">
             <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>flag:last</string>
+                <string>of</string>
             </attr>
         </edge>
         <edge from="n4" to="n1">
@@ -99,9 +94,14 @@
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n4" to="n2">
+        <edge from="n4" to="n4">
             <attr name="label">
-                <string>of</string>
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>flag:last</string>
             </attr>
         </edge>
     </graph>

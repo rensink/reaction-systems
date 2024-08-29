@@ -36,9 +36,9 @@ java -jar Generator.jar \
   mystart.gst
 ```
 
-This will result in a file `myresult-nnn.gst` containing the occurrence graph of the forbidden state (where `nnn` is the state number).
+This will result in a file `myresult-xxx.gst` (where `xxx` is the state number) containing the occurrence graph of the forbidden state.
 
-8. Make a copy of `prune-occurrence-graph.gps`, say `myprune.gps`, and copy`mytype.gty` to `myocc.gps`
+8. Make a copy of `prune-occurrence-graph.gps`, say `myprune.gps`, and copy `mytype.gty` to `myprune.gps`
 
 9. Run the Generator on `myresult-nnn.gst` to prune the occurrence graph:
 
@@ -47,8 +47,8 @@ java -jar Generator.jar \
   -D typeGraph="mytype instance" \
   -f mypruned-#.gst \
   myprune.gps \
-  myresult-nnn.gst
+  myresult-xxx.gst
 ```
 
-This will result in a file `mypruned-nnn.gst` containing the pruned occurrence graph. Instead of `mypruned-#.gst` you can also use `mypruned-#.dot` to get the result in `.dot` format; or you can use the `Imager.jar` to convert `.gst` into `.dot`.
+This will result in a file `mypruned-yyy.gst` (where `yyy` is the state number) containing the pruned occurrence graph. Instead of `mypruned-#.gst` you can also use `mypruned-#.dot` to get the result in `.dot` format; or you can use the `Imager.jar` to convert `.gst` into `.dot`.
 

@@ -1,0 +1,56 @@
+Outline of RS-with-GT paper
+===========================
+
+- External deadline: March 2025, Natural Computing
+- Fix internal deadline: beginning of December
+
+
+Extension with other studies:
+----------------------------
+- Comparison with Maude (talk bij Linda Brodo)
+- T-Cell (Paolo Milazzo)
+- Distributed Reaction Systems case (Łukasz Mikulski)
+
+Main point of the paper
+- Improving on existing analysis, from the point of 
+  * View of performance
+  * Outcome of the analysis
+
+Paper outline
+=============
+
+Background
+----------
+- Reaction Systems, including guarded contexts
+- Graph Transformation Systems
+- In both cases: present "advanced" version
+
+Toy example
+-----------
+- Coffee machine, ATM?
+
+Encoding of RS in GT
+--------------------
+- Rules for implementing RS semantics
+- Conversion of a trace to a control program
+- Using recipes in the occurrence graph building
+
+Comparison section
+------------------
+- BiRosesove
+- Heresy
+- WebRSim
+- CL-RS (https://github.com/mnzluca/cl-rs)
+- Maude
+(See https://www.reactionsystems.org/about-reaction-systems)
+
+Flexibility of encoding
+-----------------------
+- We can modify our system to other RS variants
+- Do another (small) case study? Durations?
+
+
+Action Points
+=============
+- Develop toy example
+- Think about possible extensions

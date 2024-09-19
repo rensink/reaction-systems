@@ -1,0 +1,11 @@
+Notes CSMB & Reaction System workshop, 16 Sep 2024
+==================================================
+
+Tutorial Ion Petre (U Turku)
+------------------
+https://doi.org/10.1142/9789813148208_0001
+
+Reactions are one of:
+- Result of collisions as n molecular dynamic
+- Concurrent processes competing for reactants
+- Abstract influences ...

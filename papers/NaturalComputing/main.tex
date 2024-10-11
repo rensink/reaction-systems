@@ -1,0 +1,276 @@
+\documentclass[sn-mathphys-num,a4paper,iicol,lineno,pdflatex]{sn-jnl-hacked}
+%%% RB: Hacking style to resemble camera ready layout of main text
+
+%%% RB additional packages
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{comment}
+%\usepackage[inline]{enumitem}
+
+\newcommand{\lab}[1]{\textsf{#1}}
+\newcommand{\blab}[1]{\lab{\bfseries #1}}
+\newcommand{\ilab}[1]{\lab{\itshape #1}}
+
+
+%Version 3 October 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-vancouver.bst, sn-chicago.bst%  
+ 
+%%\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+%%\documentclass[sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style 
+%%\documentclass[sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
+%%\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+%%%%%% To display ORCID Logo with link, Please add below definition and copy the ORCID_Color.eps in the manuscript package %%%%%
+\makeatletter
+	\def\@citecolor{blue}%
+	\def\@urlcolor{blue}%
+	\def\@linkcolor{blue}%
+	\def\UrlFont{\rmfamily}
+	\def\orcidID#1{\href{http://orcid.org/#1}{\includegraphics{ORCID_Color.eps}}}
+\makeatother
+
+\begin{document}
+
+\title[Experimenting with Reaction Systems using Graph Transformation]{Experimenting with Reaction Systems using Graph Transformation}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\fnm{Roberto} \sur{Bruni\orcidID{0000-0002-7771-4154}}}\email{roberto.bruni@unipi.it}
+%\equalcont{These authors contributed equally to this work.}
+
+\author*[2]{\fnm{Arend} \sur{Rensink\orcidID{0000-0002-1714-6319}}}\email{arend.rensink@utwente.nl}
+%\equalcont{These authors contributed equally to this work.}
+
+\affil[1]{\orgdiv{CS Dept.}, \orgname{University of Pisa}, \orgaddress{\street{Largo B.\ Pontecorvo, 3}, \city{Pisa}, \postcode{56127},  \country{Italy}}}
+
+\affil*[2]{\orgdiv{CS Dept.}, \orgname{University of Twente}, \orgaddress{\street{Hallenweg 19}, \city{Enschede}, \postcode{7522}, \country{Netherlands}}}
+
+\abstract{We explore the capabilities of GROOVE, a state-of-the-art toolset based on graph transformation systems, to perform reachability and causal analysis of Reaction Systems.
+Our results are still preliminary, but encouraging, as in the presence of large state spaces GROOVE outperforms available applications by halving the analysis time of both reachability and causal analyses.
+From the point of view of GROOVE, the implementation of Reaction Systems provided some interesting insights on the most convenient way to model certain computational requirements through negative and nested application conditions.}
+
+\keywords{Reaction Systems, Graph Transformation, GROOVE, \textcolor{red}{Other keywords}}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction: TEXT TAKEN FROM RS2024 ABSTRACT}
+
+We explore the capabilities of  a state-of-the-art toolset based on graph transformation  to perform reachability and causal analysis of Reaction Systems.
+
+Reaction systems (RS)~\cite{DBLP:journals/fuin/EhrenfeuchtR07} are a computational model inspired by the functioning of biochemical reactions within living cells. 
+%The primary motivation behind RS is to provide a simple yet expressive model for understanding and analyzing processes in natural and artificial systems.
+RS focus on the interaction of entities through a set of reactions. 
+Each reaction relies on some reactants, inhibitors, and products to mimic two fundamental mechanisms found in nature: facilitation and inhibition.
+%Facilitation means that a reaction can occur only if all of its reactants are present, while inhibition means that a reaction cannot occur if any of its inhibitors is present. 
+At each time instant, the next state of the system is determined by the products of all enabled reactions plus some additional entities that are possibly provided by environment.
+Unlike traditional models of concurrency, like Petri nets, the theory of RS is based on three principles: \emph{no permanency}, any entity vanishes unless it is sustained by a reaction; \emph{no competition}, an entity is either available for all reactions, or it is not available at all; and \emph{no counting}, the exact concentration level of available entities is ignored.
+Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena, led to experiment with environments that exhibit nondeterministic and recursive behaviour.
+Then, performing reachability and causal analysis required the exploration of large state spaces for which the available prototype tool~\cite{DBLP:journals/tcs/BrodoBF21} struggled in terms of  memory consumption and response time.
+ 
+Graph Transformation (GT)~\cite{DBLP:series/eatcs/EhrigEPT06,DBLP:books/sp/HeckelT20} is a modelling technique that is widely applicable in problem domains where the objects of study have an inherent graphical structure, and the task at hand is to study their properties and evolution. Besides the graphs themselves, the core concept is that of a (transformation) \emph{rule} capturing a particular change to such a graph. Rules can be used, for instance, to describe the change of a system over time, but can also be instrumental in composing and decomposing graphs and so exposing structural properties.
+
+Importantly for the utility of the technique, there are a number of (academic) tools supporting its use. The research described here crucially relies on \href{https://groove.cs.utwente.nl}{GROOVE}~\cite{DBLP:journals/sttt/GhamarianMRZZ12}, one of the most prominent tools in this area, which was designed precisely to enable GT-based system analysis of the kind described above. Two features of GROOVE that are essential for the purpose of this research are
+\begin{enumerate}%[label=\emph{(\roman*)}]
+\item nested (i.e., quantified) rules, which capture simultaneous changes in all neighbourhoods that satisfy certain application conditions, rather than only locally in one such neighbourhood at a time; and
+\item exploration of the set of reachable graphs (under the given rules) using various strategies.
+\end{enumerate}
+
+We are in the process of investigating how GT can help in addressing the analysis questions in Reaction Systems. For this purpose, we encode a given RS as a single graph, upon which a small number of (fixed) rules operate to simulate the correct semantics. The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
+
+\begin{center}
+\includegraphics[scale=.40]{react}
+\end{center}
+
+To parse this, note that (in the GROOVE rule syntax) the red structure must be absent for the rule to apply; moreover, green labels are added and blue ones deleted upon rule application. The \ilab{present} flag signals whether an \blab{Entity} is considered to be currently present; hence, creating or deleting that flag comes down to creating or deleting the \blab{Entity}. The $\forall$-nodes impose the desired quantification, causing a single application of this rule to model the firing of all enabled \blab{Reaction}s, even if there are thousands of them.
+
+Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved through a second rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules.
+
+\medskip\noindent
+Our first results are encouraging: GROOVE seems capable to explore larger Reaction Systems 
+%is well beyond what other tools have been able to achieve, 
+by halving the analysis time of both reachability and causal analyses.
+More precisely, we are able to find a trace towards unwanted patterns (if they exist) among millions of reachable configurations using different heuristics; then, we can also prune the trace to extract a graphical representation of the causal history of that entities, at least as far as reactants are concerned.
+
+\section{Action Points}
+\begin{itemize}
+\item Develop toy example
+\item Think about possible extensions
+\end{itemize}
+
+
+\section{Background}
+
+\subsection{Reaction Systems with Guarded Contexts}
+\subsection{Graph Transformation Systems}
+
+\section{Toy Example}
+
+Coffee machine? ATM?
+
+\section{Encoding of RS in GT}
+\begin{itemize}
+\item Rules for implementing RS semantics
+\item Conversion of a trace to a control program
+\item Using recipes in the occurrence graph building
+\end{itemize}
+
+\section{Comparison}
+(\url{https://www.reactionsystems.org/about-reaction-systems})
+\begin{itemize}
+\item BioReSolve
+\item Heresy
+\item WebRSim
+\item CL-RS (\url{https://github.com/mnzluca/cl-rs})
+\item Maude
+\end{itemize}
+
+\section{Flexibility of encoding}
+\begin{itemize}
+\item We can modify our system to other RS variants
+\item Do another (small) case study? Durations?
+\end{itemize}
+
+
+
+\backmatter
+
+\bmhead{Supplementary information}
+
+If your article has accompanying supplementary file/s please state so here. 
+
+\bmhead{Acknowledgements}
+
+\section*{Declarations}
+
+\subsection*{Funding}
+
+Research partially supported 
+by \textcolor{red}{Other projects}
+by the PRIN PNRR 2022 project \emph{Resource Awareness in Programming} (RAP, P2022HXNSC),
+by the University of Pisa PRA project \emph{Formal methods for the healthcare domain based on spatial information} (FM4HD, PRA\_2022\_99),
+and by the INdAM GNCS project CUP\_E53C22001930001.
+
+\subsection*{Ethical Approval}
+This is not applicable.
+ 
+\subsection*{Competing interests}
+The authors have no relevant financial or non-financial interests to disclose.
+
+\subsection*{Availability of data and materials}
+Data Availability Statement: No Data associated in the manuscript.
+
+\subsection*{Code availability}
+
+\textcolor{red}{Pointer to git repository?}
+
+\subsection*{Author contribution}
+
+All co-authors contributed equally to this work.
+
+\begin{appendices}
+
+\section{Section title of first appendix}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+\end{appendices}
+
+
+\bibliography{references}
+
+
+
+\end{document}

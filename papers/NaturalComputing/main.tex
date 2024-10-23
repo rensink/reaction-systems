@@ -271,7 +271,6 @@ The  rules guarantee that, whenever $\mathsf{P}\xrightarrow{\obs{\obs{D}{R',I',C
 $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 
 \begin{figure*}[t]
-	{\footnotesize
 		$$  
 		\infer[(\textit{\scriptsize{Ent}})]
 		{D \xrightarrow{\obs{\obs{D}{\emptyset,\emptyset,\emptyset}}{\emptyset,\emptyset,\emptyset}}\emptyset}
@@ -315,13 +314,31 @@ $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 		R'\subseteq D &
         R\subseteq D\cup C}
 		$$
-	}
+		
+\noindent
+		where $\ell_1 \frown \ell_2$ and $\ell_1 \cup \ell_2$ are defined as follows:
+		
+		$$\begin{array}{l}
+\obs{\obs{D_1}{R'_1,I'_1,C_1}}{R_1,I_1,P_1}
+\frown
+\obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
+\\
+\qquad\qquad\qquad\qquad\qquad\qquad
+\triangleq (\textstyle\bigcup_{i=1,2} D_i\cup  R'_i) \cap (I'_1 \cup I'_2) = \emptyset
+\wedge
+(\bigcup_{i=1,2} D_i\cup  C_i\cup  R_i) \cap (I_1 \cup I_2) = \emptyset \\[5pt]
+\obs{\obs{D_1}{R'_1,I'_1,C_1}}{R_1,I_1,P_1}
+\cup
+\obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
+\\
+\qquad\qquad\qquad\qquad\qquad\qquad
+\triangleq \obs{\obs{D_1\cup D_2}{R'_1\cup R'_2,I'_1\cup I'_2,C_1\cup C_2}}{R_1\cup R_2,I_1\cup I_2,P_1\cup P_2}
+\end{array}$$
 		\caption{SOS semantics of the RS processes.}
 		\label{fig:guardforRS2nd}
 \end{figure*}
 
 
-%The context $\nil$ has no transition: it stops the execution. 
 The rule $(\textit{Ent})$ records the set of current entities $D$.
 By rule $(\textit{Cxt})$, a prefixed context process $C.\mathsf{K}$ makes available the entities in $C$ and then reduces to $\mathsf{K}$. 
 Rules $(\textit{Suml})$ and $(\textit{Sumr})$ select a move of either the left or the right context, resp., discarding the other process.
@@ -387,62 +404,14 @@ Notably, the SOS semantics matches the set-theoretic dynamics of RSs (as made pr
 %\end{enumerate}
 %\end{theorem}
 
-We enrich the expressiveness of context processes by introducing the possibility to provide some entities \emph{whenever the current state satisfy certain conditions}.
-%We start with very simple conditions on current state that need to be satisfied before the context provides a given set  of entities. 
-To this aim, we introduce guarded prefixes $(R,I,C).\mathsf{K}$. 
-%
-\begin{definition}[Guarded contexts]
-We update Definition~\ref{def:LTSforRS} by letting:
-\[\mathsf{K}::=\nil \mid (R,I,C).\mathsf{K} \mid \mathsf{K}+\mathsf{K} \mid X
-\]
-\noindent
-where $R,I,C\subseteq S$ are possibly empty sets of entities such that $R\cap I=\emptyset$ and $X$ is a context identifier drawn from a predefined environment $\Delta$.
-\end{definition}
 
 The similarity with the syntax of reactions is intended: the key difference is that in $(R,I,C).\mathsf{K}$ the presence of reactants $R$ and the absence of inhibitors $I$ is checked w.r.t. the set of current entities $D$.
-%instead of $W$ (i.e., $R\subseteq D$ and $D\cap I=\emptyset$) and, 
 More importantly, the products $C$ are made available immediately from the context, not at the next step.
-We admit $R$ and $I$ to be possibly empty, and abbreviate $(\emptyset,\emptyset,C).\mathsf{K}$ as $C.\mathsf{K}$.
 Note that a conditional prefixed process that is not enabled behaves as the $\nil$ process.
-%, i.e., there is no rule for $(R,I,C).\mathsf{K}$ that is analogous to rule $(Inh)$ for reactions.
-%
-%We can now introduce the new syntax for context processes. 
 
 
 
 
-
-
-%, i.e.:
-%\begin{equation*}
-%R'\subseteq D
-%\quad\wedge\quad
-%D\cap I'=\emptyset
-%\quad\wedge\quad
-%R\subseteq D\cup C
-%\quad\wedge\quad
-%(D\cup C)\cap I=\emptyset
-%\end{equation*}
-%
-Consequently, we overload the notation $\ell_1\frown \ell_2$ and $\ell_1\cup \ell_2$ by letting:
-%
-{\footnotesize
-\[
-\begin{array}{l}
-\obs{\obs{D_1}{R'_1,I'_1,C_1}}{R_1,I_1,P_1}
-\frown
-\obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
-\\
-\hspace{1.75cm}\triangleq (\textstyle\bigcup_{i=1,2} D_i\cup  R'_i) \cap (I'_1 \cup I'_2) = \emptyset
-\wedge
-(\bigcup_{i=1,2} D_i\cup  C_i\cup  R_i) \cap (I_1 \cup I_2) = \emptyset \\[5pt]
-\obs{\obs{D_1}{R'_1,I'_1,C_1}}{R_1,I_1,P_1}
-\cup
-\obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
-\\
-\hspace{1.75cm}\triangleq \obs{\obs{D_1\cup D_2}{R'_1\cup R'_2,I'_1\cup I'_2,C_1\cup C_2}}{R_1\cup R_2,I_1\cup I_2,P_1\cup P_2}
-\end{array}
-\]}
 
 \begin{example}
 The context 

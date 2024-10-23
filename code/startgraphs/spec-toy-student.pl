@@ -2,20 +2,20 @@
 myentities([cpowder,tpowder]).
 
 myreactions([
-	react([idle],[pm],[pm]),
-	react([pm],[idle],[pm]),
-	react([ccoin,cpowder,milk],[],[cappuccino]),
+	react([idle],[am],[am]),
+	react([am],[idle],[am]),
+	react([ccoin,cpowder],[nomilk],[cappuccino]),
 	react([tcoin,tpowder],[],[tea]),
     react([cpowder],[],[cpowder]),
     react([tpowder],[],[tpowder]),
-    react([anger],[],[danger])
+    react([anger],[],['Forbidden'])
 ]).
 
 mycontext("[refill,student]").
 
 myenvironment("[
-	refill = ({milk}.refill + {}.refill),
-	student = (?{pm},{},{tcoin}?.gettea + ?{},{pm},{ccoin}?.getcappuccino + {idle}.student),
+	refill = ({nomilk}.refill + {}.refill),
+	student = (?{},{am},{tcoin}?.gettea + ?{am},{},{ccoin}?.getcappuccino + {idle}.student),
     gettea = (?{tea},{},{}?.student + ?{},{tea},{anger}?.gettea),
     getcappuccino = (?{cappuccino},{},{}?.student + ?{},{cappuccino},{anger}?.getcappuccino)
     ]").

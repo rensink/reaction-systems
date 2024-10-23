@@ -106,6 +106,23 @@
                 <string>let:name="cpowder"</string>
             </attr>
         </edge>
+        <node id="espresso">
+        </node>
+        <edge from="espresso" to="espresso">
+            <attr name="label">
+                <string>id:espresso</string>
+            </attr>
+        </edge>
+        <edge from="espresso" to="espresso">
+            <attr name="label">
+                <string>type:espresso</string>
+            </attr>
+        </edge>
+        <edge from="espresso" to="espresso">
+            <attr name="label">
+                <string>let:name="espresso"</string>
+            </attr>
+        </edge>
         <node id="idle">
         </node>
         <edge from="idle" to="idle">
@@ -314,12 +331,22 @@
                 <string>let:name="react_3"</string>
             </attr>
         </edge>
-        <edge from="react_3" to="cpowder">
+        <edge from="react_3" to="ccoin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
         <edge from="react_3" to="cpowder">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_3" to="nomilk">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_3" to="espresso">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -341,17 +368,12 @@
                 <string>let:name="react_4"</string>
             </attr>
         </edge>
-        <edge from="react_4" to="idle">
+        <edge from="react_4" to="cpowder">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_4" to="am">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="react_4" to="am">
+        <edge from="react_4" to="cpowder">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -373,17 +395,17 @@
                 <string>let:name="react_5"</string>
             </attr>
         </edge>
-        <edge from="react_5" to="tcoin">
+        <edge from="react_5" to="idle">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_5" to="tpowder">
+        <edge from="react_5" to="am">
             <attr name="label">
-                <string>reactant</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_5" to="tea">
+        <edge from="react_5" to="am">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -405,12 +427,44 @@
                 <string>let:name="react_6"</string>
             </attr>
         </edge>
-        <edge from="react_6" to="tpowder">
+        <edge from="react_6" to="tcoin">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
         <edge from="react_6" to="tpowder">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_6" to="tea">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <node id="react_7">
+        </node>
+        <edge from="react_7" to="react_7">
+            <attr name="label">
+                <string>id:react_7</string>
+            </attr>
+        </edge>
+        <edge from="react_7" to="react_7">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="react_7" to="react_7">
+            <attr name="label">
+                <string>let:name="react_7"</string>
+            </attr>
+        </edge>
+        <edge from="react_7" to="tpowder">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="react_7" to="tpowder">
             <attr name="label">
                 <string>product</string>
             </attr>
@@ -525,9 +579,9 @@
                 <string>let:name="getcappuccino_1"</string>
             </attr>
         </edge>
-        <edge from="getcappuccino_1" to="cappuccino">
+        <edge from="getcappuccino_1" to="espresso">
             <attr name="label">
-                <string>inhibitor</string>
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="getcappuccino_1" to="anger">
@@ -540,7 +594,7 @@
                 <string>next</string>
             </attr>
         </edge>
-        <edge from="getcappuccino_1" to="getcappuccino">
+        <edge from="getcappuccino_1" to="student">
             <attr name="label">
                 <string>move</string>
             </attr>
@@ -626,7 +680,7 @@
                 <string>next</string>
             </attr>
         </edge>
-        <edge from="gettea_1" to="gettea">
+        <edge from="gettea_1" to="student">
             <attr name="label">
                 <string>move</string>
             </attr>

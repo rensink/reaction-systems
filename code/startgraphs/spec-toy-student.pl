@@ -5,6 +5,7 @@ myreactions([
 	react([idle],[am],[am]),
 	react([am],[idle],[am]),
 	react([ccoin,cpowder],[nomilk],[cappuccino]),
+	react([ccoin,cpowder,nomilk],[],[espresso]),
 	react([tcoin,tpowder],[],[tea]),
     react([cpowder],[],[cpowder]),
     react([tpowder],[],[tpowder]),
@@ -16,8 +17,8 @@ mycontext("[refill,student]").
 myenvironment("[
 	refill = ({nomilk}.refill + {}.refill),
 	student = (?{},{am},{tcoin}?.gettea + ?{am},{},{ccoin}?.getcappuccino + {idle}.student),
-    gettea = (?{tea},{},{}?.student + ?{},{tea},{anger}?.gettea),
-    getcappuccino = (?{cappuccino},{},{}?.student + ?{},{cappuccino},{anger}?.getcappuccino)
+    gettea = (?{tea},{},{}?.student + ?{},{tea},{anger}?.student),
+    getcappuccino = (?{cappuccino},{},{}?.student + ?{espresso},{},{anger}?.student)
     ]").
 
 % IGNORE WHAT FOLLOWS

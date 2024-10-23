@@ -237,6 +237,18 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <node id="espresso">
+        </node>
+        <edge from="espresso" to="espresso">
+            <attr name="label">
+                <string>type:espresso</string>
+            </attr>
+        </edge>
+        <edge from="espresso" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <node id="idle">
         </node>
         <edge from="idle" to="idle">

@@ -1,25 +1,24 @@
 % !TEX root =  ./main.tex
 
-\subsection{Reaction Systems with Guarded Contexts}
+\subsection{Reaction Systems with Guarded Contexts}\label{sec:RS}
 
-First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}.
+First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}. Notably, the process algebraic semantics matches the set theoretic dynamics of RSs (as formalized by~\cite[Th.~19]{DBLP:journals/tcs/BrodoBF21}). 
+
+
 
 
 \medskip
 \noindent
 \textbf{RS basics.}
-A Reaction System~\cite{DBLP:journals/fuin/EhrenfeuchtR07} is a pair ${\cal A} = (S, A)$, where $S$ is the finite set of \emph{entities}, and $A$ is a finite set of \emph{reactions}, i.e., triples of the form $a = (R,I,P)$, where $R, I, P\subseteq S$ and $R \cap I = \emptyset$. 
+A Reaction System is a pair ${\cal A} = (S, A)$, where $S$ is the finite set of \emph{entities}, and $A$ is a finite set of \emph{reactions} of the form $a = (R,I,P)$, with $R, I, P\subseteq S$ and $R \cap I = \emptyset$. 
 The sets $R, I, P$ are the sets of \emph{reactants}, \emph{inhibitors}, and  \emph{products}, respectively. 
 Without loss of generality, we admit the use of empty sets as reactants or inhibitors.
 %
 Given the current state $W\subseteq S$, a reaction $a = (R,I,P)$ is enabled in $W$ if all its reactants are present (i.e., $R\subseteq W$) and all its inhibitors absent (i.e., $W \cap I = \emptyset$).
-The \emph{result} of the reaction $a$ on the current state $W$ is defined by letting
-$
-\mathit{res}_a(W) \triangleq\;
-P$ if $a$ is enabled, and
-$\mathit{res}_a(W) \triangleq\; \emptyset$ otherwise.
-The result of all reactions $A$ on the current state $W$, is $\mathit{res}_A(W) \triangleq \cup_{a \in A} \mathit{res}_a(W)$.
-
+The \emph{result} of the reaction $a$ on the current state $W$ is $P$ if $a$ is enabled, and
+$\emptyset$ otherwise.
+The result of all reactions $A$ on the current state $W$, is the union of the results of all reactions.
+%
 The no-permanency principle of RSs dictates that entities disappear if not sustained by some reaction.
 Thus, the current state $W=D\cup C$ is determined by the result $D$ of all reactions on the previous state, together with additional entities $C$ provided by the \emph{context}. 
 
@@ -135,85 +134,19 @@ $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 
 
 The rule $(\textit{Ent})$ records the set of current entities $D$.
-By rule $(\textit{Cxt})$, a prefixed context process $C.\mathsf{K}$ makes available the entities in $C$ and then reduces to $\mathsf{K}$. 
+By rule $(\textit{Cxt})$, a guarded context process $(R,I,C).\mathsf{K}$ makes available the entities in $C$ if the reactants $R$ are present in the current state and the inhibitors $I$ are absent, and then reduces to $\mathsf{K}$. 
 Rules $(\textit{Suml})$ and $(\textit{Sumr})$ select a move of either the left or the right context, resp., discarding the other process.
 By rule $(\textit{Rec})$, a context identifier $X$ behaves according to its defining process $\mathsf{K}$.
+
 The rule $(\textit{Pro})$ assumes the reaction $(R,I,P)$ is enabled: it records its reactants, inhibitors, and products in the label, and leaves the reaction  available at the next step, together with its products $P$.
 The rule $(\textit{Inh})$ records in the label the reasons why the reaction $(R,I,P)$ should not be executed: possibly some inhibiting entities $(J \subseteq I)$ are present or some reactants $(Q \subseteq R)$ are missing, with $J \cup Q \neq \emptyset$, as at least one cause is needed.
-The rule $(\textit{Par})$ puts two processes in parallel by pooling their labels and joining all labels components. We write $\ell_1\cup\ell_2$ for the component-wise union of labels:
-%
-{\footnotesize
-\[
-%\begin{array}{l}
-\textstyle
-\bigcup_{i=1,2} \obs{(D_i,C_i)}{R_i,I_i,P_i}
-%\obs{(D_1,C_1)}{R_1,I_1,P_1}
-%\cup
-%\obs{(D_2,C_2)}{R_2,I_2,P_2}\\
-%\hspace{4.8cm}
-\triangleq 
-\obs{(D_1\cup D_2,C_1\cup C_2)}{R_1\cup R_2,I_1\cup I_2,P_1\cup P_2}\ .
-%\end{array}
-\]}
 
+The rule $(\textit{Par})$ puts two processes in parallel by pooling their labels and joining all labels components. We write $\ell_1\cup\ell_2$ for the component-wise union of labels, while the sanity check $\ell_1\frown\ell_2$ is required to guarantee that labels of reactants and inhibitors are consistent (see definitions in Fig.~\ref{fig:guardforRS2nd}).
 
-The sanity check $\ell_1\frown\ell_2$ is required to guarantee that labels of reactants and inhibitors are consistent (see definition below):
-%
-{\footnotesize
-\[
-%\begin{array}{l}
-\obs{(D_1,C_1)}{R_1,I_1,P_1}
-\frown
-\obs{(D_2,C_2)}{R_2,I_2,P_2}
-\triangleq
-\textstyle (\bigcup_{i=1,2} D_i\cup C_i \cup R_i) \cap (I_1\cup I_2) = \emptyset .
-%\\
-%\hspace{5cm}\triangleq 
-%(D_1\cup  D_2 \cup C_1 \cup C_2 \cup R_1 \cup R_2) \cap (I_1 \cup I_2) = \emptyset\ .
-%\end{array}
-\]
-}
-
-
-Finally, the rule $(\textit{Sys})$ checks that all the needed reactants are available in the system ($R \subseteq D\cup C$). Checking the absence of inhibitors  ($(D\cup C)\cap I = \emptyset$) is not necessary, thanks to the sanity check in rule $(\textit{Par})$.
-%
-%In the following we assume transitions $\mathsf{P}\xrightarrow{\obs{(D,C)}{R,I,P}} \mathsf{P}'$ guarantee that any instance of the rule $(\textit{Inh})$ is applied in a way that maximizes the sets $J$ and $Q$ (see~\cite{DBLP:journals/tcs/BrodoBF21}).
-Notably, the SOS semantics matches the set-theoretic dynamics of RSs (as made precise by~\cite[Th.~19]{DBLP:journals/tcs/BrodoBF21}). 
-
-
-%\begin{theorem}[cf.~\cite{DBLP:journals/tcs/BrodoBF21}]
-%\label{the:corr}
-%Let ${\cal A}$  be a RS, let $\pi=(\{C_i\}_{i\in[0,n]},\{D_i\}_{i\in[0,n]})$ an interactive process, and let
-%$\mathsf{P}_i \triangleq \llbracket {\cal A},\pi \rrbracket_i$ for any $i\in[0,n]$.
-%Then, for any $i\in[0,n-1]$:
-%%both the following conditions hold:
-%\begin{enumerate}
-%\item
-%if $\mathsf{P}_i \xrightarrow{\obs{(D,C)}{R,I,P}} \mathsf{P}$
-% then
-%$D=D_i$, $C=C_i$, $P= D_{i+1}$ and
-%$\mathsf{P} \equiv \mathsf{P}_{i+1}$;
-%\item there exists
-%$R,I \subseteq S$ such that 
-%$\mathsf{P}_i \xrightarrow{\obs{(D_i,C_i)}{R,I,D_{i+1}}} \mathsf{P}_{i+1}$.
-%\end{enumerate}
-%\end{theorem}
-
-
-The similarity with the syntax of reactions is intended: the key difference is that in $(R,I,C).\mathsf{K}$ the presence of reactants $R$ and the absence of inhibitors $I$ is checked w.r.t. the set of current entities $D$.
+Finally, the rule $(\textit{Sys})$ checks that all the needed reactants are available in the system. Checking the absence of inhibitors  is not necessary, thanks to the sanity check in rule $(\textit{Par})$.
+Note that, while the enabling of $(R,I,C).\mathsf{K}$ requires the presence of reactants $R$ and the absence of inhibitors $I$ w.r.t. the set of current entities $D$, in the case of reactions $(R,I,P)$, the check is performed w.r.t. the current state $W=D\cup C$.
 More importantly, the products $C$ are made available immediately from the context, not at the next step.
-Note that a conditional prefixed process that is not enabled behaves as the $\nil$ process.
+It is worthy to mention that a conditional prefixed process that is not enabled behaves as the $\nil$ process.
 
+A first concrete example of RS that exposes most of the features is presented in Section~\ref{sec:student}.
 
-
-
-
-\begin{example}
-The context 
-\(
-X = (\{\mathsf{a}\},\emptyset,\{\mathsf{b}\}).X + (\{\mathsf{b}\},\emptyset,\{\mathsf{a}\}).X + (\emptyset,\{\mathsf{a},\mathsf{b}\},\emptyset).X
-\)
-%\noindent
-ensures that whenever $\mathsf{a}$ or $\mathsf{b}$ are present in the current state, then both $\mathsf{a}$ and $\mathsf{b}$ are available as reactants.
-The last option $(\emptyset,\{\mathsf{a},\mathsf{b}\},\emptyset).X$ handles the case where the first two guards fail: if omitted, when both $\mathsf{a}$ and $\mathsf{b}$ are absent the context $X$ would behave as $\nil$, blocking the computation.
-\end{example}

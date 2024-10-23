@@ -424,7 +424,32 @@ The last option $(\emptyset,\{\mathsf{a},\mathsf{b}\},\emptyset).X$ handles the 
 \end{example}
 
 
-\subsection{Graph Transformation Systems}
+\subsection{Graph Transformation and GROOVE}
+
+Graph Transformation (or Graph Rewriting) is well-established rule-based formalism, the core of which is to specify precisely how graphs may evolve. Each rule embodies a particular change, which can be applied to a given graph (in the simplest form consisting of nodes and binary edges) by establishing where in that graph the preconditions of the rule are met, and then adding and deleting nodes and edges as prescribed.
+
+In this paper, we use the so-called \emph{algebraic approach} to graph transformation (see \cite{EhrigEtAl} for a formal exposition and \cite{HeckelTaentzer} for applications in the context of software engineering); moreover, we rely on the particular flavour implemented in the tool GROOVE \cite{GROOVE}. Some of the relevant fatures of the approach and the tool are:
+%
+\begin{itemize}
+\item Graphs are \emph{directed} and \emph{typed}, meaning that nodes and edges have labels and edges have a direction (going from their \emph{source} to their \emph{target}). Besides binary edges, nodes can also have \emph{flags} (which are essentially additional labels on nodes that can be switched on and off) and \emph{attributes} (which are essentially binary edges whose target node is a data value, e.g., an integer or string).
+
+\item Rules consist of a left hand side (LHS) and right hand side (RHS). Rule applicability is established by \emph{matching} the LHS to the graph in question, and where a match exists, removing nodes and edges that are in the LHS but not in the RHS, and vice versa, adding nodes and edges that are in the RHS but not in the LHS.
+
+\item \GROOVE graphs are \emph{simple} (rather than \emph{multi-sorted}), meaning that there is at most one edge of a given type between any two nodes, and similarly, at most one flag of a given type on any node. If an edge or flag is added where one exists already, this does not change the graph.
+
+\item \GROOVE rules may be \emph{quantified}, meaning that they can simultaneously be applied to multiple places in the same graph.
+
+\item A graph transformation \emph{system} is a set of rules. In the simplest case, every rule can be applied to a graph at hand, giving rise to a modified graph to which every rule can be applied again, and so forth. However, \GROOVE allows rule application to be restricted by an external \emph{control program} that can specify in what order rules may be applied.
+
+\item The core functionality of \GROOVE is to explore the set of reachable graphs, given a graph transformation system (with or without control program) and an initial graph. With this as the basis, there are built-in strategies for searching and model checking.
+\end{itemize}
+%
+The power of graph transformation lies in its generality: many systems naturally lend themselves to be modelled as graphs, and algebraic rules --- especially quantified ones --- provide a rich framework to specify their evolution. This is precisely the starting point for their application in the current paper: reaction systems can straightforwardly be interpreted as graphs. Here is a type graph showing the relevant concepts of that interpretation:
+
+\[\includgraphics{}\]
+
+
+
 
 \section{Toy Example}
 
@@ -436,6 +461,8 @@ Coffee machine? ATM?
 \item Conversion of a trace to a control program
 \item Using recipes in the occurrence graph building
 \end{itemize}
+
+\section{Experimentation}
 
 \section{Comparison}
 (\url{https://www.reactionsystems.org/about-reaction-systems})

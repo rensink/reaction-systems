@@ -207,114 +207,79 @@ More precisely, we are able to find a trace towards unwanted patterns (if they e
 
 \subsection{Reaction Systems with Guarded Contexts}
 
-First, we briefly account for the set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21}, including the recently introduced notion of guarded contexts~\cite{DBLP:conf/cmsb/BowlesBBFGM24}.
+First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}.
 
 
 \medskip
 \noindent
 \textbf{RS basics.}
-Let $S$ be a finite set of \emph{entities}. 
-A \emph{reaction} in $S$ is a triple $a = (R,I,P)$, where $R, I, P\subseteq S$ are finite, non-empty sets and $R \cap I = \emptyset$. 
+A Reaction System~\cite{DBLP:journals/fuin/EhrenfeuchtR07} is a pair ${\cal A} = (S, A)$, where $S$ is the finite set of \emph{entities}, and $A$ is a finite set of \emph{reactions}, i.e., triples of the form $a = (R,I,P)$, where $R, I, P\subseteq S$ and $R \cap I = \emptyset$. 
 The sets $R, I, P$ are the sets of \emph{reactants}, \emph{inhibitors}, and  \emph{products}, respectively. 
-Without loss of generality, we admit the use of empty sets of reactants and inhibitors.
-
-A Reaction System is a pair ${\cal A} = (S, A)$, where $S$ is the set of entities, and $A$ is a finite set of reactions in $S$.
-Given the current state $W\subseteq S$, a reaction $a = (R,I,P)$ is enabled in $W$ if its \emph{enabling predicate}
-$
-\mathit{en}_a(W)\triangleq\; R \subseteq W\; \wedge\; I \cap W = \emptyset
-$
-is satisfied, namely, all reactants must be present and all inhibitors absent.
+Without loss of generality, we admit the use of empty sets as reactants or inhibitors.
+%
+Given the current state $W\subseteq S$, a reaction $a = (R,I,P)$ is enabled in $W$ if all its reactants are present (i.e., $R\subseteq W$) and all its inhibitors absent (i.e., $W \cap I = \emptyset$).
 The \emph{result} of the reaction $a$ on the current state $W$ is defined by letting
 $
 \mathit{res}_a(W) \triangleq\;
-P$ if $\mathit{en}_a(W)$, and
+P$ if $a$ is enabled, and
 $\mathit{res}_a(W) \triangleq\; \emptyset$ otherwise.
 The result of all reactions $A$ on the current state $W$, is $\mathit{res}_A(W) \triangleq \cup_{a \in A} \mathit{res}_a(W)$.
 
 The no-permanency principle of RSs dictates that entities disappear if not sustained by some reaction.
 Thus, the current state $W=D\cup C$ is determined by the result $D$ of all reactions on the previous state, together with additional entities $C$ provided by the \emph{context}. 
-The dynamics of a RS is formalised in terms of {\em interactive processes}.
-They are pairs $\pi = (\gamma, \delta)$, where $\gamma\triangleq \{C_i\}_{i\in[0,n]}$ is the {\em context sequence} and $\delta=\{D_i\}_{i\in[0,n]} $ is the {\em result sequence}, s.t.: 
-$D_0 = \emptyset$; and 
-$D_{i+1} =  \mathit{res}_{A}(D_{i} \cup C_{i})$ for any $i \in [0,n-1]$.
-The sequence $\gamma$ represents external interventions, while the sequence $\delta$ is entirely determined by $\gamma$ and $A$.
-We call $\tau \triangleq \{W_{i}\}_{i\in[0,n]}$  the \emph{state sequence}, with $W_{i} \triangleq C_{i} \cup D_{i}$ for any $i \in [0, n]$.
 
 \medskip
 \noindent
-\textbf{Process algebraic RSs.}
-Inspired by Plotkin's Structural Operational Semantics (SOS) approach~\cite{DBLP:journals/jlp/Plotkin04a} and process algebras such as CCS~\cite{Milner80}, we derive a Labelled Transition System (LTS) semantics for RSs by means of inductive inference rules. LTS states are terms of an algebra, each transition defines a computation step of the RS and its label records the entities involved in that step.
-Following~\cite{DBLP:journals/tcs/BrodoBF21}, we also admit nondeterministic and recursively defined contexts.
-%As common, here we replace the recursive construct $\mathsf{rec}~X.~\mathsf{K}$ with context identifiers $X$ drawn from a family of (recursive) definitions $\Delta \triangleq\{X_j=\mathsf{K}_j\}_{j\in J}$, called the environment.
-%
+\textbf{Process algebraic RSs and guarded contexts.}
+Inspired by Plotkin's Structural Operational Semantics (SOS) approach~\cite{DBLP:journals/jlp/Plotkin04a} and process algebras such as CCS~\cite{Milner80}, the key features of the process algebraic version of RSs, are the ability to account for a quite general notion of context (guarded, nondeterministic, recursive) using a friendly syntax and a compositional approach. This way, we derive a Labelled Transition System (LTS) semantics for RSs by means of inductive inference rules, where LTS states are terms of an algebra, each transition defines a computation step of the RS and its label records the entities involved in that step.
+
 \begin{definition}[RS processes]\label{def:LTSforRS}
 %Let $S$ be a set of entities. 
 \emph{RS processes} are defined by the grammar below:
-\[
-\mathsf{P}:=[\mathsf{M}]
-\qquad
-\mathsf{M}:=(R,I,P) \mid D \mid \mathsf{K} \mid \mathsf{M}|\mathsf{M}
-\]
-\[
-\mathsf{K}::=\nil \mid C.\mathsf{K} \mid \mathsf{K}+\mathsf{K} \mid X
-\]
-where $R$, $I$, $P$, $C$, and $D$ are sets of entities (with $P\neq \emptyset$ and $R\cap I=\emptyset$) and $X$ is a context identifier drawn from a family of (recursive) definitions $\Delta \triangleq\{X_j=\mathsf{K}_j\}_{j\in J}$, called the environment.
+
+\begin{eqnarray*}
+\mathsf{P} & := & [\mathsf{M}]
+\\
+\mathsf{M} & := & (R,I,P) \mid D \mid \mathsf{K} \mid \mathsf{M}|\mathsf{M}
+\\
+\mathsf{K} & ::= & \nil \mid (R,I,C).\mathsf{K} \mid \mathsf{K}+\mathsf{K} \mid X
+\end{eqnarray*}
+
+\noindent
+where $R$, $I$, $P$, $C$, and $D$ are sets of entities (with $P\neq \emptyset$ and $R\cap I=\emptyset$) and $X$ is a context identifier drawn from a family of (recursive) definitions $\Delta \triangleq\{X_j=\mathsf{K}_j\}_{j\in J}$, called the \emph{environment}.
 \end{definition}
 
-%While in principle reactions, entities and context processes could be seen as components to be handled separately, we prefer to mix them together to provide a compositional account of their interactions.
-A RS process  $\mathsf{P}$ embeds a \emph{mixture} process $\mathsf{M}$ obtained as the parallel composition of some reactions $(R,I,P)$, some available entities $D$ (if any), and some \emph{context} $\mathsf{K}$.
-We write $\prod_{i\in I} \mathsf{M}_i$ for the parallel composition of all $\mathsf{M}_i$ with $i\in I$. 
-
+Roughly, a RS process  $\mathsf{P}$ embeds a \emph{mixture} process $\mathsf{M}$ obtained as the parallel composition of some reactions $(R,I,P)$, some available entities $D$ (if any), and some \emph{context} process $\mathsf{K}$.
+%We write $\prod_{i\in I} \mathsf{M}_i$ for the parallel composition of all $\mathsf{M}_i$ with $i\in I$. 
 A  context process $\mathsf{K}$ is either: 
 the nil context $\nil$ that stops the computation;
-the prefixed context $C.\mathsf{K}$ that makes the entities $C$ available to the reactions, and then will behave as $\mathsf{K}$ at the next step;
+the guarded context $(R,I,C).\mathsf{K}$ that makes the entities $C$ available to the reactions if the reactants $R$ are present and the inhibitors $I$ are absent, and then will behave as $\mathsf{K}$ at the next step;
 the non-deterministic choice $\mathsf{K}_1+\mathsf{K}_2$ that can behave as either  $\mathsf{K}_1$ or $\mathsf{K}_2$;  
 the context identifier $X$ that behaves as $\mathsf{K}$ for $X=\mathsf{K}\in \Delta$.
-For example, if $A=\{\mathsf{a}\}.A + \emptyset.A\in \Delta$ and $B=\{\mathsf{b}\}.B + \emptyset.B\in \Delta$, then the context $A | B$ can  offer any combination of $\mathsf{a}$ and $\mathsf{b}$ at each step.
+We write $C.\mathsf{K}$ as a shorthand for the trivially guarded process $(\emptyset,\emptyset,C).\mathsf{K}$.
 
 
 We say that $\mathsf{P}$ and $\mathsf{P}'$ are structurally equivalent, written $\mathsf{P} \equiv \mathsf{P}'$, when they denote the same term up to the laws of Abelian monoids (unit, associativity and commutativity) for  parallel composition $\cdot | \cdot$, with $\emptyset$ as the unit, and the laws of idempotent Abelian monoids for choice $\cdot +\cdot$, with $\nil$ as the unit. We also assume $D_1 | D_2 \equiv D_1\cup D_2$ for any $D_1,D_2\subseteq S$.
 
-\begin{definition}[RSs as RS processes]\label{def:fromRS}
-Let ${\cal A} = (S, A)$  be  a RS, and $\pi = (\gamma, \delta)$ an interactive process, with $\gamma = \{C_i\}_{i\in[0,n]}$ and $\delta = \{D_i\}_{i\in[0,n]}$.
-%
-For any step $i\in[0,n]$, the corresponding RS process $\llbracket {\cal A},\pi \rrbracket_i$ is defined as follows:
-$$
-\llbracket {\cal A},\pi \rrbracket_i
-\triangleq 
-[\; \textstyle \prod_{a\in A} a~|~D_i~|~C_i.C_{i+1}.\cdots.C_n.\nil\;]
-$$
-%
-%We write $\llbracket {\cal A},\pi \rrbracket$ as a shorthand for $\llbracket {\cal A},\pi \rrbracket_0$.
-\end{definition}
-
-
-The SOS semantics of  RS processes is defined by the SOS rules in Fig.~\ref{fig:LTSforRS}.
-
-A transition label $\ell$, written $\obs{(D,C)}{R,I,P}$, records:
-the sets $D$ of entities currently in the system; 
-the set $C$ of entities provided by the context;
-the set $R$ of entities whose presence justifies some reactions;
-the set $I$ of entities whose absence justifies some reactions;
+The SOS semantics of  RS processes is defined by the SOS rules in Fig.~\ref{fig:guardforRS2nd}.
+A transition label $\ell$, written $\obs{\obs{D}{R',I',C}}{R,I,P}$, records:
+the available entities $D$; the entities $C$ provided by the guarded contexts, assuming all entities in $R'$ are present and those in $I'$ are absent;
+the set $R$ of entities whose presence enables or disables some reactions;
+the set $I$ of entities whose absence  enables or disables some reactions;
 and the set $P$ of reaction products.
-The SOS rules guarantee that if $\mathsf{P}\xrightarrow{\obs{(D,C)}{R,I,P}} \mathsf{P}'$ it holds $\mathit{en}_{(R,I,P)}(D\cup C)$.
-%, i.e.:
-% {\color{blue}$R\subseteq D\cup C
-%    ~\wedge~
-%    (D\cup C)\cap I=\emptyset$.}
-%Sometimes we abbreviate the pair $(D,C)$ by $W$.
-%
+The  rules guarantee that, whenever $\mathsf{P}\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} \mathsf{P}'$, it holds that $(R',I',C)$ is enabled in $D$ and that
+$(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
+
 \begin{figure*}[t]
 	{\footnotesize
 		$$  
 		\infer[(\textit{\scriptsize{Ent}})]
-		{D \xrightarrow{\obs{(D,\emptyset)}{\emptyset,\emptyset,\emptyset}}\emptyset}
+		{D \xrightarrow{\obs{\obs{D}{\emptyset,\emptyset,\emptyset}}{\emptyset,\emptyset,\emptyset}}\emptyset}
 		{}
 		\qquad
 		\infer[(\textit{\scriptsize{Cxt}})]
-		{C.\mathsf{K} \xrightarrow{\obs{(\emptyset,C)}{\emptyset,\emptyset,\emptyset}}\mathsf{K}}{}
+		{(R,I,C).\mathsf{K} \xrightarrow{\obs{\obs{\emptyset}{R,I,C}}{\emptyset,\emptyset,\emptyset}}\mathsf{K}}{}
 		$$
-        %\smallskip
 		$$
 		\infer[(\textit{\scriptsize Suml})]
 		{\mathsf{K}_1 + \mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_1}
@@ -328,17 +293,15 @@ The SOS rules guarantee that if $\mathsf{P}\xrightarrow{\obs{(D,C)}{R,I,P}} \mat
 		{X \xrightarrow{\ell}\mathsf{K}'}
 		{X=\mathsf{K}\in\Delta & \mathsf{K} \xrightarrow{\ell}\mathsf{K}'}
 		$$
-        %\smallskip
 		$$
 		\infer[(\textit{\scriptsize Pro})]
-		{(R,I,P)  \xrightarrow{\obs{(\emptyset,\emptyset)}{R,I,P}}(R,I,P)\,|\,P}
+		{(R,I,P)  \xrightarrow{\obs{\obs{\emptyset}{\emptyset,\emptyset,\emptyset}}{R,I,P}}(R,I,P)|P}
 		{}
 		\qquad
 		\infer[(\textit{\scriptsize Inh})]
-		{(R,I,P)  \xrightarrow{\obs{(\emptyset,\emptyset)}{J,Q,\emptyset}}(R,I,P)}
+		{(R,I,P)  \xrightarrow{\obs{\obs{\emptyset}{\emptyset,\emptyset,\emptyset}}{J,Q,\emptyset}}(R,I,P)}
 		{J \subseteq I & Q \subseteq R & J\cup Q\neq \emptyset}
 		$$
-        %\smallskip
 		$$
 		\infer[(\textit{\scriptsize Par})]
 		{\mathsf{M}_1~|~\mathsf{M}_2\xrightarrow{\ell_1\cup\ell_2} \mathsf{M}'_1~|~\mathsf{M}'_2}
@@ -347,13 +310,16 @@ The SOS rules guarantee that if $\mathsf{P}\xrightarrow{\obs{(D,C)}{R,I,P}} \mat
 			\ell_1\frown \ell_2 }
 		\qquad
 		\infer[(\textit{\scriptsize Sys})]
-		{[\mathsf{M}]\xrightarrow{\obs{(D,C)}{R,I,P}} [\mathsf{M}']}
-		{\mathsf{M}\xrightarrow{\obs{(D,C)}{R,I,P}} \mathsf{M}' &
-			R\subseteq D\cup C}
+		{[\mathsf{M}]\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} [\mathsf{M}']}
+		{\mathsf{M}\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} \mathsf{M}' &
+		R'\subseteq D &
+        R\subseteq D\cup C}
 		$$
 	}
-\caption{SOS semantics of the RS processes.}\label{fig:LTSforRS}
+		\caption{SOS semantics of the RS processes.}
+		\label{fig:guardforRS2nd}
 \end{figure*}
+
 
 %The context $\nil$ has no transition: it stops the execution. 
 The rule $(\textit{Ent})$ records the set of current entities $D$.
@@ -445,69 +411,8 @@ Note that a conditional prefixed process that is not enabled behaves as the $\ni
 
 
 
-\begin{figure*}[t]
-	{\footnotesize
-		$$  
-		\infer[(\textit{\scriptsize{Ent}})]
-		{D \xrightarrow{\obs{\obs{D}{\emptyset,\emptyset,\emptyset}}{\emptyset,\emptyset,\emptyset}}\emptyset}
-		{}
-		\qquad
-		\infer[(\textit{\scriptsize{Cxt}})]
-		{(R,I,C).\mathsf{K} \xrightarrow{\obs{\obs{\emptyset}{R,I,C}}{\emptyset,\emptyset,\emptyset}}\mathsf{K}}{}
-		$$
-    %    {\color{red}%\smallskip
-	%	$$
-	%	\infer[(\textit{\scriptsize Suml})]
-	%	{\mathsf{K}_1 + \mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_1}
-	%	{\mathsf{K}_1 \xrightarrow{\ell}\mathsf{K}'_1}
-	%	\qquad
-	%	\infer[(\textit{\scriptsize Sumr})]
-	%	{\mathsf{K}_1 + \mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_2}
-	%	{\mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_2}
-	%	\qquad
-	%	\infer[(\textit{\scriptsize Rec})]
-	%	{X \xrightarrow{\ell}\mathsf{K}'}
-	%	{X=\mathsf{K}\in\Delta & \mathsf{K} \xrightarrow{\ell}\mathsf{K}'}
-	%	$$}
-        %\smallskip
-		$$
-		\infer[(\textit{\scriptsize Pro})]
-		{(R,I,P)  \xrightarrow{\obs{\obs{\emptyset}{\emptyset,\emptyset,\emptyset}}{R,I,P}}(R,I,P)|P}
-		{}
-		\;\;
-		\infer[(\textit{\scriptsize Inh})]
-		{(R,I,P)  \xrightarrow{\obs{\obs{\emptyset}{\emptyset,\emptyset,\emptyset}}{J,Q,\emptyset}}(R,I,P)}
-		{J \subseteq I & Q \subseteq R & J\cup Q\neq \emptyset}
-		$$
-    %   {\color{red} %\smallskip
-	%	$$
-	%	\infer[(\textit{\scriptsize Par})]
-	%	{\mathsf{M}_1~|~\mathsf{M}_2\xrightarrow{\ell_1\cup\ell_2} \mathsf{M}'_1~|~\mathsf{M}'_2}
-	%	{\mathsf{M}_1 \xrightarrow{\ell_1} \mathsf{M}'_1 &
-	%	\mathsf{M}_2 \xrightarrow{\ell_2} \mathsf{M}'_2 &
-	%		\ell_1\frown \ell_2 }
-	%	$$}
-        %\smallskip
-		$$
-		\infer[(\textit{\scriptsize Sys})]
-		{[\mathsf{M}]\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} [\mathsf{M}']}
-		{\mathsf{M}\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} \mathsf{M}' &
-		R'\subseteq D &
-        R\subseteq D\cup C}
-		$$
-	}
-		\caption{Updated rules to handle guarded contexts (rules $(\textit{Suml})$, $(\textit{Sumr})$, $(\textit{Rec})$ and $(\textit{Par})$ are left unchanged from Fig.~\ref{fig:LTSforRS} and thus omitted).}
-		\label{fig:guardforRS2nd}
-\end{figure*}
 
-The SOS rules are updated as shown in Fig.~\ref{fig:guardforRS2nd}.
-To handle guarded contexts we need a more sophisticated kind of labels: we write $\ell$ for a tuple of the form 
-$$\obs{\obs{D}{R',I',C}}{R,I,P}$$
-whose novel component $\obs{D}{R',I',C}$ records the available entities $D$ together with those provided by the guarded contexts, assuming all entities in $R'$ are present and those in $I'$ are absent.
-%, while the remaining sets $R,I,P$ are as before.
-The SOS rules guarantee that whenever $\mathsf{P}\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} \mathsf{P}'$ it holds that 
-$\mathit{en}_{(R',I',C)}(D)$ and
-$\mathit{en}_{(R,I,P)}(D\cup C)$.
+
 %, i.e.:
 %\begin{equation*}
 %R'\subseteq D

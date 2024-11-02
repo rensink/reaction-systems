@@ -2,9 +2,7 @@
 
 \subsection{Reaction Systems with Guarded Contexts}\label{sec:RS}
 
-First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}. Notably, the process algebraic semantics matches the set theoretic dynamics of RSs (as formalized by~\cite[Th.~19]{DBLP:journals/tcs/BrodoBF21}). 
-
-
+First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}. 
 
 
 \medskip
@@ -20,12 +18,12 @@ $\emptyset$ otherwise.
 The result of all reactions $A$ on the current state $W$, is the union of the results of all reactions.
 %
 The no-permanency principle of RSs dictates that entities disappear if not sustained by some reaction.
-Thus, the current state $W=D\cup C$ is determined by the result $D$ of all reactions on the previous state, together with additional entities $C$ provided by the \emph{context}. 
+Thus, the current state $W=D\cup C$ is determined by the result $D$ of all reactions on the previous state, together with some additional entities $C$ that can be provided by the \emph{context} at each step. 
 
 \medskip
 \noindent
 \textbf{Process algebraic RSs and guarded contexts.}
-Inspired by Plotkin's Structural Operational Semantics (SOS) approach~\cite{DBLP:journals/jlp/Plotkin04a} and process algebras such as CCS~\cite{Milner80}, the key features of the process algebraic version of RSs, are the ability to account for a quite general notion of context (guarded, nondeterministic, recursive) using a friendly syntax and a compositional approach. This way, we derive a Labelled Transition System (LTS) semantics for RSs by means of inductive inference rules, where LTS states are terms of an algebra, each transition defines a computation step of the RS and its label records the entities involved in that step.
+Inspired by Plotkin's Structural Operational Semantics approach~\cite{DBLP:journals/jlp/Plotkin04a} and process algebras such as CCS~\cite{Milner80}, the key features of the process algebraic version of RSs are compositionality and the ability to account for a quite general notion of context (guarded, nondeterministic, recursive) using a friendly syntax. This way, we derive a Labelled Transition System (LTS) semantics for RSs by means of inductive inference rules, where LTS states are terms of an algebra, each transition defines a computation step of the RS and its label records the entities involved in that step.
 
 \begin{definition}[RS processes]\label{def:LTSforRS}
 %Let $S$ be a set of entities. 
@@ -108,16 +106,17 @@ $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 		R'\subseteq D &
         R\subseteq D\cup C}
 		$$
-		
+
+\medskip	
 \noindent
+{\footnotesize
 		where $\ell_1 \frown \ell_2$ and $\ell_1 \cup \ell_2$ are defined as follows:
-		
 		$$\begin{array}{l}
 \obs{\obs{D_1}{R'_1,I'_1,C_1}}{R_1,I_1,P_1}
 \frown
 \obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
 \\
-\qquad\qquad\qquad\qquad\qquad\qquad
+\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
 \triangleq (\textstyle\bigcup_{i=1,2} D_i\cup  R'_i) \cap (I'_1 \cup I'_2) = \emptyset
 \wedge
 (\bigcup_{i=1,2} D_i\cup  C_i\cup  R_i) \cap (I_1 \cup I_2) = \emptyset \\[5pt]
@@ -125,9 +124,10 @@ $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 \cup
 \obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
 \\
-\qquad\qquad\qquad\qquad\qquad\qquad
+\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
 \triangleq \obs{\obs{D_1\cup D_2}{R'_1\cup R'_2,I'_1\cup I'_2,C_1\cup C_2}}{R_1\cup R_2,I_1\cup I_2,P_1\cup P_2}
 \end{array}$$
+}
 		\caption{SOS semantics of the RS processes.}
 		\label{fig:guardforRS2nd}
 \end{figure*}

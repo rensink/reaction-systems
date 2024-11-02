@@ -1,0 +1,32 @@
+digraph G {
+
+node [shape=box, style="filled, rounded"]
+edge [arrowhead = vee]
+
+"refill;student;Forbidden;am;cpowder;tpowder" [ label = "refill;student;Forbidden;am;cpowder;tpowder", fillcolor=lightcoral];
+"refill;getcappuccino;am;cappuccino;cpowder;tpowder" [ label = "refill;getcappuccino;am;cappuccino;cpowder;tpowder", fillcolor=white];
+"refill;getcappuccino;am;cpowder;espresso;tpowder" [ label = "refill;getcappuccino;am;cpowder;espresso;tpowder", fillcolor=white];
+"refill;student;am;cpowder;tpowder" [ label = "refill;student;am;cpowder;tpowder", fillcolor=white];
+"refill;gettea;cpowder;tea;tpowder" [ label = "refill;gettea;cpowder;tea;tpowder", fillcolor=white];
+"refill;student;cpowder;tpowder" [ label = "refill;student;cpowder;tpowder", fillcolor=lightblue];
+
+"refill;gettea;cpowder;tea;tpowder" -> "refill;student;cpowder;tpowder" [ label = "0" ];
+"refill;gettea;cpowder;tea;tpowder" -> "refill;student;cpowder;tpowder" [ label = "nomilk" ];
+"refill;student;Forbidden;am;cpowder;tpowder" -> "refill;getcappuccino;am;cappuccino;cpowder;tpowder" [ label = "ccoin" ];
+"refill;student;Forbidden;am;cpowder;tpowder" -> "refill;getcappuccino;am;cpowder;espresso;tpowder" [ label = "ccoin;nomilk" ];
+"refill;student;Forbidden;am;cpowder;tpowder" -> "refill;student;cpowder;tpowder" [ label = "idle" ];
+"refill;student;Forbidden;am;cpowder;tpowder" -> "refill;student;cpowder;tpowder" [ label = "idle;nomilk" ];
+"refill;getcappuccino;am;cpowder;espresso;tpowder" -> "refill;student;Forbidden;am;cpowder;tpowder" [ label = "anger" ];
+"refill;getcappuccino;am;cpowder;espresso;tpowder" -> "refill;student;Forbidden;am;cpowder;tpowder" [ label = "anger;nomilk" ];
+"refill;getcappuccino;am;cappuccino;cpowder;tpowder" -> "refill;student;am;cpowder;tpowder" [ label = "0" ];
+"refill;getcappuccino;am;cappuccino;cpowder;tpowder" -> "refill;student;am;cpowder;tpowder" [ label = "nomilk" ];
+"refill;student;am;cpowder;tpowder" -> "refill;getcappuccino;am;cappuccino;cpowder;tpowder" [ label = "ccoin" ];
+"refill;student;am;cpowder;tpowder" -> "refill;getcappuccino;am;cpowder;espresso;tpowder" [ label = "ccoin;nomilk" ];
+"refill;student;am;cpowder;tpowder" -> "refill;student;cpowder;tpowder" [ label = "idle" ];
+"refill;student;am;cpowder;tpowder" -> "refill;student;cpowder;tpowder" [ label = "idle;nomilk" ];
+"refill;student;cpowder;tpowder" -> "refill;student;am;cpowder;tpowder" [ label = "idle" ];
+"refill;student;cpowder;tpowder" -> "refill;student;am;cpowder;tpowder" [ label = "idle;nomilk" ];
+"refill;student;cpowder;tpowder" -> "refill;gettea;cpowder;tea;tpowder" [ label = "nomilk;tcoin" ];
+"refill;student;cpowder;tpowder" -> "refill;gettea;cpowder;tea;tpowder" [ label = "tcoin" ];
+
+}

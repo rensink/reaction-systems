@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph role="rule" edgeids="false" edgemode="directed" id="context">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <attr name="actionRole">
+            <string>transformer</string>
+        </attr>
+        <node id="n0">
+            <attr name="layout">
+                <string>568 364 53 36</string>
+            </attr>
+        </node>
+        <node id="n1">
+            <attr name="layout">
+                <string>153 119 31 18</string>
+            </attr>
+        </node>
+        <node id="n2">
+            <attr name="layout">
+                <string>457 301 11 18</string>
+            </attr>
+        </node>
+        <node id="n3">
+            <attr name="layout">
+                <string>431 111 38 36</string>
+            </attr>
+        </node>
+        <node id="n4">
+            <attr name="layout">
+                <string>163 204 11 18</string>
+            </attr>
+        </node>
+        <node id="n5">
+            <attr name="layout">
+                <string>628 121 31 18</string>
+            </attr>
+        </node>
+        <node id="n6">
+            <attr name="layout">
+                <string>270 202 8 18</string>
+            </attr>
+        </node>
+        <node id="n7">
+            <attr name="layout">
+                <string>341 297 11 18</string>
+            </attr>
+        </node>
+        <node id="n8">
+            <attr name="layout">
+                <string>186 292 11 18</string>
+            </attr>
+        </node>
+        <node id="n9">
+            <attr name="layout">
+                <string>161 367 86 36</string>
+            </attr>
+        </node>
+        <node id="n10">
+            <attr name="layout">
+                <string>70 379 41 18</string>
+            </attr>
+        </node>
+        <node id="n11">
+            <attr name="layout">
+                <string>346 368 78 36</string>
+            </attr>
+        </node>
+        <node id="n12">
+            <attr name="layout">
+                <string>273 376 41 18</string>
+            </attr>
+        </node>
+        <node id="n13">
+            <attr name="layout">
+                <string>387 17 38 18</string>
+            </attr>
+        </node>
+        <edge from="n0" to="n2">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>new:flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n3">
+            <attr name="label">
+                <string>next</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n4">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n6">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>new:flag:fired</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n11">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+            <attr name="layout">
+                <string>310 2 450 129 385 386 11</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n6">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n5">
+            <attr name="label">
+                <string>move</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n0">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>315 -3 450 129 594 382 11</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n9">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+            <attr name="layout">
+                <string>314 0 450 129 204 385 11</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n6">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>exists:</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n4">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n6">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n6">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n8">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>not=sub1:flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>exists:</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>id:sub1</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n8">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n7">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>use=sub2:flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n12">
+            <attr name="label">
+                <string>exists:</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n12">
+            <attr name="label">
+                <string>id:sub2</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n7">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n4">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n13">
+            <attr name="label">
+                <string>type:Token</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n1">
+            <attr name="label">
+                <string>del:current</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n5">
+            <attr name="label">
+                <string>new:current</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>

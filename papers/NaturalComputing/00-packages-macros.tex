@@ -14,6 +14,12 @@
 \usepackage{mathtools} 
 %\usepackage{lscape}
 %\usepackage{cancel}
+\usepackage{xspace}
+\usepackage{subcaption}
+\usepackage[textsize=tiny]{todonotes}
+% Load hyperref (and then cleveref) last
+\usepackage{hyperref}
+\usepackage{cleveref}
 
 %\usepackage[inline]{enumitem}
 \newcommand{\lab}[1]{\textsf{#1}}
@@ -34,5 +40,22 @@
 \newcommand{\am}{\mathsf{am}}
 \newcommand{\anger}{\mathsf{anger}}
 
+\newcommand{\BioResolve}{\textsf{BioResolve}\xspace}
+\newcommand{\GROOVE}{\textsf{GROOVE}\xspace}
 
-\newcommand{\GROOVE}{\textsf{GROOVE}}
+% Node types
+\newcommand{\Reaction}{{\text{\bfseries\sffamily Reaction}}\xspace}
+\newcommand{\Rule}{{\text{\bfseries\sffamily\itshape Rule}}\xspace}
+\newcommand{\Step}{{\text{\bfseries\sffamily Step}}\xspace}
+\newcommand{\Entity}{{\text{\bfseries\sffamily Entity}}\xspace}
+\newcommand{\State}{{\text{\bfseries\sffamily State}}\xspace}
+\newcommand{\Token}{{\text{\bfseries\sffamily Token}}\xspace}
+% Edges
+\newcommand{\inhibitor}{{\text{\sffamily inhibitor}}\xspace}
+\newcommand{\product}{{\text{\sffamily product}}\xspace}
+\newcommand{\reactant}{{\text{\sffamily reactant}}\xspace}
+\newcommand{\present}{{\text{\sffamily\itshape present}}\xspace}
+\newcommand{\nextt}{{\text{\sffamily next}}\xspace}
+\newcommand{\move}{{\text{\sffamily move}}\xspace}
+% Flags
+\newcommand{\fired}{{\text{\sffamily\itshape fired}}\xspace}

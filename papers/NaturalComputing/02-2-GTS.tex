@@ -4,10 +4,10 @@
 
 Graph Transformation (or Graph Rewriting) is well-established rule-based formalism, the core of which is to specify precisely how graphs may evolve. Each rule embodies a particular change, which can be applied to a given graph (in the simplest form consisting of nodes and binary edges) by establishing where in that graph the preconditions of the rule are met, and then adding and deleting nodes and edges as prescribed.
 
-In this paper, we use the so-called \emph{algebraic approach} to graph transformation (see \cite{EhrigEtAl} for a formal exposition and \cite{HeckelTaentzer} for applications in the context of software engineering); moreover, we rely on the particular flavour implemented in the tool GROOVE \cite{GROOVE}. Some of the relevant fatures of the approach and the tool are:
+In this paper, we use the so-called \emph{algebraic approach} to graph transformation (see \cite{DBLP:series/eatcs/EhrigEPT06} for a formal exposition and \cite{DBLP:books/sp/HeckelT20} for applications in the context of software engineering); moreover, we rely on the particular flavour implemented in the tool GROOVE \cite{DBLP:journals/sttt/GhamarianMRZZ12,GROOVE}. Some of the relevant fatures of the approach and the tool are:
 %
 \begin{itemize}
-\item Graphs are \emph{directed} and \emph{typed}, meaning that nodes and edges have labels and edges have a direction (going from their \emph{source} to their \emph{target}). Besides binary edges, nodes can also have \emph{flags} (which are essentially additional labels on nodes that can be switched on and off) and \emph{attributes} (which are essentially binary edges whose target node is a data value, e.g., an integer or string).
+\item Graphs are \emph{directed} and \emph{typed}, meaning that nodes and edges have labels, and edges have a direction (going from their \emph{source} to their \emph{target}). Besides binary edges, nodes can also have \emph{flags} (which are actually self-loops that act as additional, optional labels on nodes) and \emph{attributes} (which are actually binary edges whose target node is a data value, e.g., an integer or string).
 
 \item Rules consist of a left hand side (LHS) and right hand side (RHS). Rule applicability is established by \emph{matching} the LHS to the graph in question, and where a match exists, removing nodes and edges that are in the LHS but not in the RHS, and vice versa, adding nodes and edges that are in the RHS but not in the LHS.
 
@@ -20,7 +20,14 @@ In this paper, we use the so-called \emph{algebraic approach} to graph transform
 \item The core functionality of \GROOVE is to explore the set of reachable graphs, given a graph transformation system (with or without control program) and an initial graph. With this as the basis, there are built-in strategies for searching and model checking.
 \end{itemize}
 %
-The power of graph transformation lies in its generality: many systems naturally lend themselves to be modelled as graphs, and algebraic rules --- especially quantified ones --- provide a rich framework to specify their evolution. This is precisely the starting point for their application in the current paper: reaction systems can straightforwardly be interpreted as graphs. Here is a type graph showing the relevant concepts of that interpretation:
+The power of graph transformation lies in its generality: many systems naturally lend themselves to be modelled as graphs, and algebraic rules --- especially quantified ones --- provide a rich framework to specify their evolution. This is in fact our motivation for using it the current paper: reaction systems can straightforwardly be interpreted as graphs. \Cref{fig:core-type} shows the core types for the relevant concepts of that interpretation. (The colours just support the visualisation and have no semantics of their own.)
 
-%\[\includegraphics{}\]
+\begin{figure}
+\centering
+\includegraphics[scale=.2]{figs/core-type}
+\caption{Core type graph for reaction systems}
+\label{fig:core-type}
+\end{figure}
+%
+Note especially the (abstract) supertype \Rule with subtypes \Reaction and \Step: the former is the type for the set $A$ of a reaction system ${\cal A}=(S,A)$, whereas the latter is used to represent triples $(R,I,P)$ in a context RS process (\Cref{def:LTSforRS}). The $S$-subsets $R$, $I$, and $P$, in turn, are represented by nodes of type \Entity to which there is an outgoing edge of type \reactant, \inhibitor or \product. The flag \present is used to label the entities occurring in a state $W$. Finally, the structure of context processes is captured by \State entities, with \nextt-edges to the \Step{}s that can be nondeterministally chosen; the subsequent process after such a \Step is given by its outgoing \move-edge. \Token nodes are used to model which \State{}s are currently active.
 

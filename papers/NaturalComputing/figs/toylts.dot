@@ -3,12 +3,12 @@ digraph G {
 node [shape=box, style="filled, rounded"]
 edge [arrowhead = vee]
 
-"refill;student;Forbidden;am;cpowder;tpowder" [ label = "refill;student;Forbidden;am;cpowder;tpowder", fillcolor=lightcoral];
-"refill;getcappuccino;am;cappuccino;cpowder;tpowder" [ label = "refill;getcappuccino;am;cappuccino;cpowder;tpowder", fillcolor=white];
-"refill;getcappuccino;am;cpowder;espresso;tpowder" [ label = "refill;getcappuccino;am;cpowder;espresso;tpowder", fillcolor=white];
-"refill;student;am;cpowder;tpowder" [ label = "refill;student;am;cpowder;tpowder", fillcolor=white];
-"refill;gettea;cpowder;tea;tpowder" [ label = "refill;gettea;cpowder;tea;tpowder", fillcolor=white];
-"refill;student;cpowder;tpowder" [ label = "refill;student;cpowder;tpowder", fillcolor=lightblue];
+"refill;student;Forbidden;am;cpowder;tpowder" [ label = "Refill;Student;Forbidden;am;cpowder;tpowder", fillcolor=lightcoral];
+"refill;getcappuccino;am;cappuccino;cpowder;tpowder" [ label = "Refill;GetCappuccino;am;cappuccino;cpowder;tpowder", fillcolor=white];
+"refill;getcappuccino;am;cpowder;espresso;tpowder" [ label = "Refill;GetCappuccino;am;cpowder;espresso;tpowder", fillcolor=white];
+"refill;student;am;cpowder;tpowder" [ label = "Refill;Student;am;cpowder;tpowder", fillcolor=white];
+"refill;gettea;cpowder;tea;tpowder" [ label = "Refill;GetTea;cpowder;tea;tpowder", fillcolor=white];
+"refill;student;cpowder;tpowder" [ label = "Refill;Student;cpowder;tpowder", fillcolor=lightblue];
 
 "refill;gettea;cpowder;tea;tpowder" -> "refill;student;cpowder;tpowder" [ label = "0" ];
 "refill;gettea;cpowder;tea;tpowder" -> "refill;student;cpowder;tpowder" [ label = "nomilk" ];

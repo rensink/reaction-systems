@@ -36,7 +36,7 @@ The student process is very simple: she takes cappuccino in the morning and tea 
 \end{array}
 \]
 
-Finally, two more reactions model the passage of time (morning vs afternoon) while the student is idle.\todo{What does the red colour signify?}
+Finally, two more reactions model the passage of time (morning vs afternoon) while the student is idle.\todo{What does the red colour signify? RB: I was a bit confused about the reaction and wanted to discuss with you if it is ok}
 \[
 \begin{array}{lll}
 \mathsf{Day} & \triangleq & (\{\idle\},\{\am\},\{\am\})\\
@@ -46,18 +46,21 @@ Finally, two more reactions model the passage of time (morning vs afternoon) whi
 
 We assume that, initially, both entitites $\cpowder$ and $\tpowder$ are present.
 So the system can be written as:
-\[
-[\,\{\cpowder,\tpowder\} 
-| \mathsf{VM}
-| \mathsf{Refill}
-| \mathsf{Day}
+\(
+[\,\mathsf{Refill}
 | \mathsf{Student}
-\,]
-\]
+| \{\cpowder,\tpowder\} 
+| \mathsf{VM}
+| \mathsf{Day}\,]
+\).
 
-Using BioReSolve, we can generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while the state where the student is angry is in light coral.\todo{The Forbidden entity is not explained}
+Using BioReSolve, we can generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while the state where the student is angry is in light coral.
+To improve readability, the nodes of the LTS are labelled by the list of context processes and entities, omitting reactions, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context, i.e., the components in $D\cup C$ extracted from the full label $\obs{\obs{D}{R',I',C}}{R,I,P}$. The label $0$ stands for the emptyset.
+As a general strategy for BioReSolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\emptyset,\{\Forbidden\})$.\todo{The Forbidden entity is not explained. RB: added explanation}
+
+By manual inspection we can recover a trace starting from the initial state and leading to the forbidden state, e.g., the one using arcs $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$ and then, through the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, reconstruct that the production of $\Forbidden$ was due to the enabling of the auxiliary reaction, because $\anger$ was provided by the context, because the student got the espresso instead of the cappuccino, because there was $\nomilk$ when a $\ccoin$ was inserted, because it was $\am$.\todo{RB: not sure if this is ok} 
 
 \begin{figure}
-\includegraphics[scale=.3]{toylts}
+\includegraphics[scale=.3]{./figs/toylts}
 \caption{LTS of the toy example.\label{fig:toylts}}
 \end{figure}

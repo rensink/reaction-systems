@@ -4,7 +4,9 @@
 %%% RB additional packages
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
+\usepackage{listings}
 \usepackage{comment}
+\usepackage[normalem]{ulem}
 \usepackage{hyphenat}
 \usepackage{stmaryrd}
 %\usepackage{wasysym}
@@ -20,6 +22,8 @@
 % Load hyperref (and then cleveref) last
 \usepackage{hyperref}
 \usepackage{cleveref}
+
+\captionsetup[subfigure]{justification=centering}
 
 %\usepackage[inline]{enumitem}
 \newcommand{\lab}[1]{\textsf{#1}}
@@ -38,24 +42,31 @@
 \newcommand{\tea}{\mathsf{tea}}
 \newcommand{\idle}{\mathsf{idle}}
 \newcommand{\am}{\mathsf{am}}
-\newcommand{\anger}{\mathsf{anger}}
+\newcommand{\anger}{{\text{\sffamily anger}}\xspace}
+\newcommand{\Forbidden}{{\text{\sffamily Forbidden}}\xspace}
 
 \newcommand{\BioResolve}{\textsf{BioResolve}\xspace}
 \newcommand{\GROOVE}{\textsf{GROOVE}\xspace}
 
 % Node types
 \newcommand{\Reaction}{{\text{\bfseries\sffamily Reaction}}\xspace}
-\newcommand{\Rule}{{\text{\bfseries\sffamily\itshape Rule}}\xspace}
+\newcommand{\Rule}{{\text{\bfseries\sffamily Rule}}\xspace}
 \newcommand{\Step}{{\text{\bfseries\sffamily Step}}\xspace}
 \newcommand{\Entity}{{\text{\bfseries\sffamily Entity}}\xspace}
 \newcommand{\State}{{\text{\bfseries\sffamily State}}\xspace}
 \newcommand{\Token}{{\text{\bfseries\sffamily Token}}\xspace}
+\newcommand{\RuleOcc}{{\text{\bfseries\sffamily RuleOcc}}\xspace}
+\newcommand{\EntityInst}{{\text{\bfseries\sffamily EntityInst}}\xspace}
 % Edges
 \newcommand{\inhibitor}{{\text{\sffamily inhibitor}}\xspace}
 \newcommand{\product}{{\text{\sffamily product}}\xspace}
 \newcommand{\reactant}{{\text{\sffamily reactant}}\xspace}
-\newcommand{\present}{{\text{\sffamily\itshape present}}\xspace}
 \newcommand{\nextt}{{\text{\sffamily next}}\xspace}
 \newcommand{\move}{{\text{\sffamily move}}\xspace}
 % Flags
 \newcommand{\fired}{{\text{\sffamily\itshape fired}}\xspace}
+\newcommand{\present}{{\text{\sffamily\itshape present}}\xspace}
+% Rules
+\newcommand{\contextR}{{\text{\sffamily context}}\xspace}
+\newcommand{\reactR}{{\text{\sffamily react}}\xspace}
+\newcommand{\firedR}{{\text{\sffamily fired}}\xspace}

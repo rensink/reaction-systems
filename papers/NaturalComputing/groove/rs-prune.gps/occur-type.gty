@@ -1,47 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="core">
+    <graph role="type" edgeids="false" edgemode="directed" id="occur-type">
         <attr name="$version">
             <string>curly</string>
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>22 226 75 36</string>
+                <string>197 128 75 36</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>23 121 75 36</string>
+                <string>380 118 75 54</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>189 117 75 54</string>
+                <string>220 47 27 18</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>211 238 27 18</string>
+                <string>406 45 36 18</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>410 107 75 54</string>
+                <string>244 218 75 18</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>204 21 53 18</string>
+                <string>127 215 49 18</string>
+            </attr>
+        </node>
+        <node id="n6">
+            <attr name="layout">
+                <string>294 37 66 36</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>color:120,32,110</string>
+                <string>color:59,125,35</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
+        <edge from="n0" to="n1">
             <attr name="label">
-                <string>type:State</string>
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n1">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
@@ -49,19 +59,42 @@
                 <string>string:name</string>
             </attr>
         </edge>
-        <edge from="n0" to="n3">
+        <edge from="n0" to="n2">
             <attr name="label">
-                <string>next</string>
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n6">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:RuleOcc</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n5">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+            <attr name="layout">
+                <string>686 5 234 146 149 143 148 229 11</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>color:192,79,21</string>
+                <string>color:11,118,160</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:Token</string>
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n6">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -69,9 +102,9 @@
                 <string>string:name</string>
             </attr>
         </edge>
-        <edge from="n1" to="n0">
+        <edge from="n1" to="n3">
             <attr name="label">
-                <string>current</string>
+                <string>of</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -84,72 +117,29 @@
                 <string>type:Rule</string>
             </attr>
         </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>flag:fired</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n4">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n4">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n4">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n3" to="n3">
-            <attr name="label">
-                <string>color:59,125,35</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n3">
-            <attr name="label">
-                <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n0">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-            <attr name="layout">
-                <string>78 0 224 247 225 321 60 320 59 244 11</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n2">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
             <attr name="label">
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n4" to="n4">
+        <edge from="n3" to="n3">
             <attr name="label">
                 <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>flag:present</string>
+                <string>color:59,125,35</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>string:name</string>
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n0">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -157,14 +147,24 @@
                 <string>color:59,125,35</string>
             </attr>
         </edge>
-        <edge from="n5" to="n5">
-            <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n5" to="n2">
+        <edge from="n5" to="n0">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:TreeNode</string>
             </attr>
         </edge>
     </graph>

@@ -1,0 +1,72 @@
+
+load semantics .
+mod MySystem is
+ inc SEMANTICS .
+ ops akt bax cjun craf cyclinb1 cyclind1 cyclinD1 erbb1 erbb2 erbb3 erk1-2 erlotinib
+     fox01-3a gsk3a-b gska-b nfkb p38 p53 p70s6k pertuzumab pras pten rb rps6 stimulus
+     trastuzumab tsc2 : -> Entity [ctor] .
+
+ eq reactions = 
+        [ (cjun) ; (gsk3a-b) ; (cjun) ] , 
+        [ (p53) ; (empty) ; (gsk3a-b) ] , 
+        [ (cyclinD1) ; (empty) ; (gsk3a-b) ] , 
+        [ (gsk3a-b) ; (empty) ; (gsk3a-b) ] , 
+        [ (erk1-2) ; (pras , tsc2 , nfkb) ; (p70s6k) ] , 
+        [ (p70s6k) ; (pras , tsc2 , nfkb) ; (p70s6k) ] , 
+        [ (rb) ; (empty) ; (p53) ] , 
+        [ (cyclinb1) ; (empty) ; (p53) ] , 
+        [ (pten) ; (empty) ; (p53) ] , 
+        [ (stimulus) ; (empty) ; (p53) ] , 
+        [ (p53) ; (empty) ; (p53) ] , 
+        [ (p38) ; (empty) ; (p53) ] , 
+        [ (craf) ; (empty) ; (erk1-2) ] , 
+        [ (erk1-2) ; (empty) ; (erk1-2) ] , 
+        [ (erbb3) ; (pten) ; (akt) ] , 
+        [ (akt) ; (pten) ; (akt) ] , 
+        [ (erbb1) ; (pten) ; (akt) ] , 
+        [ (erbb2) ; (pten) ; (akt) ] , 
+        [ (stimulus) ; (pertuzumab , erlotinib) ; (erbb1) ] , 
+        [ (erbb1) ; (pertuzumab , erlotinib) ; (erbb1) ] , 
+        [ (p70s6k) ; (empty) ; (rps6) ] , 
+        [ (rps6) ; (empty) ; (rps6) ] , 
+        [ (cyclind1) ; (gsk3a-b) ; (cyclind1) ] , 
+        [ (rps6) ; (gsk3a-b) ; (cyclind1) ] , 
+        [ (erk1-2) ; (gsk3a-b) ; (cyclind1) ] , 
+        [ (akt) ; (gsk3a-b) ; (cyclind1) ] , 
+        [ (fox01-3a) ; (akt) ; (fox01-3a) ] , 
+        [ (erbb1) ; (p53) ; (cyclinb1) ] , 
+        [ (erbb3) ; (p53) ; (cyclinb1) ] , 
+        [ (cyclinb1) ; (p53) ; (cyclinb1) ] , 
+        [ (pras) ; (akt) ; (pras) ] , 
+        [ (tsc2) ; (akt , erk1-2 , gsk3a-b) ; (tsc2) ] , 
+        [ (stimulus) ; (pertuzumab , pten , erlotinib) ; (erbb3) ] , 
+        [ (rps6) ; (pertuzumab , pten , erlotinib) ; (erbb3) ] , 
+        [ (erbb3) ; (pertuzumab , pten , erlotinib) ; (erbb3) ] , 
+        [ (erbb2) ; (erlotinib , trastuzumab , pertuzumab) ; (erbb2) ] , 
+        [ (stimulus) ; (erlotinib , trastuzumab , pertuzumab) ; (erbb2) ] , 
+        [ (pten) ; (gska-b) ; (pten) ] , 
+        [ (nfkb) ; (empty) ; (nfkb) ] , 
+        [ (erbb1) ; (erk1-2) ; (craf) ] , 
+        [ (erbb1) ; (erk1-2) ; (craf) ] , 
+        [ (craf) ; (erk1-2) ; (craf) ] , 
+        [ (rb) ; (cyclind1) ; (rb) ] , 
+        [ (nfkb) ; (cyclind1) ; (rb) ] , 
+        [ (bax) ; (empty) ; (bax) ] , 
+        [ (p38) ; (empty) ; (p38) ] , 
+        [ (akt) ; (empty) ; (p38) ] .
+
+ ops proc1 proc2 : -> Process .
+ eq proc1 = rec 'X . ({ (erlotinib) } . 'X) .
+
+ op init1 : -> State .
+ eq init1 = { process: proc1  ; input: empty } .
+
+ var P         : Process   .
+ vars IN OUT C : SetEntity .
+
+endm
+
+
+--- With erlotinib 
+--- No solution
+search [1]  init1 =>* STATE:IOState  such that STATE:IOState |= (akt) .

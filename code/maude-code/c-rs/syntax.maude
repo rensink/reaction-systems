@@ -1,0 +1,161 @@
+--- File: syntax.maude
+
+--- Definition of the different entities to model reactions and processes
+--- Reactions are terms of the form   [ R ; I ; P ] 
+--- Process have the following syntax 
+---   P ::= 0  |  X |  C . P  |  P + P  |  rec X . P | P || P
+--- Qids are used as identifiers for recursive process
+
+--- the operator  op reactions : -> NeSetReaction [ctor memo] 
+--- must be defined (using equations) by the user's module 
+--- (see the examples in the directory case-study)
+
+--- Sort for entities to be later populated with used-defined constants
+fmod BASE is
+ sort Entity . 
+endfm
+
+view Entity from TRIV to BASE is 
+  sort Elt to Entity .
+endv
+
+fmod MAP-EXT is
+    pr NAT .
+    pr MAP{Entity, Nat} * (sort Map{Entity,Nat} to Map, sort Entry{Entity, Nat} to Entry) .
+    pr SET{Entity} * (sort Set{Entity} to SetEntity, sort NeSet{Entity} to NeSetEntity) .
+
+    --- -------------------------
+    vars MAP MAP' MAP'' : Map .
+    var E               : Entity .
+    vars N N'           : Nat .
+    var SE              : SetEntity .
+    --- -------------------------
+
+    op increase : Map Entity Nat -> Map .
+    eq increase((MAP, E |-> N'), E, N) = MAP, E |-> (N + N') .
+    eq increase(MAP, E, N) = MAP, E |-> N [owise] .
+
+    op increase-max : Map Entity Nat -> Map .
+    eq increase-max((MAP, E |-> N'), E, N) = MAP, E |-> max(N , N') .
+    eq increase-max(MAP, E, N) = MAP, E |-> N [owise] .
+
+    --- Adding  the elements of the second in the first argument
+    op union : Map Map -> Map .
+    eq union(MAP, empty) = MAP .
+    eq union( MAP, (MAP', E |-> N)) = union(increase(MAP, E, N), MAP') .
+
+    --- Adding  the elements using maxof the second in the first argument
+    op union-max : Map Map -> Map .
+    eq union-max(MAP, empty) = MAP .
+    eq union-max( MAP, (MAP', E |-> N)) = union-max(increase-max(MAP, E, N), MAP') .
+
+    op toMap : SetEntity -> Map .
+    eq toMap(empty) = empty .
+    eq toMap( (E, SE)) = E |-> 1, toMap(SE) .
+
+    op toMap : Nat SetEntity -> Map .
+    eq toMap(N, empty) = empty .
+    eq toMap(N, (E, SE)) = E |-> N, toMap(SE) .
+
+    op _[_]0 : Map Entity -> Nat [prec 23] .
+    eq MAP [E]0 = if $hasMapping(MAP, E) then MAP [E] else 0 fi .
+
+
+    --- Subseteq relation: M <=M' if forall e in M, M(e) <= M'(e)
+    op _<=_ : Map Map -> Bool .
+    eq empty <= MAP' = true .
+    eq  (MAP, E |-> N) <= MAP' =  N <= MAP'[E]0 and-then MAP <= MAP' .
+
+
+    --- For inhibition: M < M' if for all e in M', M(e) < M'(e)
+    op _<_ : Map Map -> Bool .
+    eq MAP < empty  = true .
+    eq MAP < (MAP', E |-> N') = MAP[E]0 < N' and-then MAP < MAP' .
+endfm
+
+
+--- Reactions [ R ; I ; P ]  
+fmod REACTION is
+  pr MAP-EXT .
+
+  sort Reaction .
+
+  op `[_;_;_`] : Map Map Map -> Reaction [ctor] .
+endfm
+
+
+--- Processes 
+fmod Process is
+  pr REACTION .
+  pr QID . --- for variables in recursive definitions 
+
+  sort Condition .
+  sorts Process PreProcess SumProcess .
+  subsort Qid < Process .  
+  subsort PreProcess < SumProcess < Process . --- For unary summations 
+
+  --- Conditions can be entities or their absence 
+  subsort Entity < Condition .
+  op _^ : Entity -> Condition [ctor] .
+  op tt : -> Condition [ctor] .
+  op _and_ : Condition Condition -> Condition [ctor gather (e E)] .
+  op _or_ : Condition Condition -> Condition [ctor gather (e E)] .
+
+  --- Processes with prefixes 
+  op {_}._  : SetEntity Process -> PreProcess [ctor gather (e E) prec 20] .
+  op {_}._  : Map Process -> PreProcess [ctor gather (e E) prec 20] .
+  op `[ _-->{_} `] . _  : Condition SetEntity Process -> PreProcess [ctor] .
+  op `[ _-->{_} `] . _  : Condition Map Process -> PreProcess [ctor] .
+
+  op 0      :                       -> Process [ctor] . --- inaction
+  op _+_    : PreProcess SumProcess -> SumProcess [ctor gather (e E)  prec 80] .
+  op _||_   : Process Process       -> Process [ctor assoc comm prec 90] .
+  op rec_._ : Qid Process           -> Process [ctor] .
+
+  --- Replication (derived operator)
+  op !_     : SetEntity -> Process .
+  eq ! W = rec 'REP . ( { W } . 'REP) .
+
+
+  --- -----------------------
+  vars X Y   : Qid .
+  vars P Q R : Process .
+  vars S W   : SetEntity .
+  var COND   : Condition .
+  var MAP    : Map .
+  --- -----------------------
+
+  --- Identity by equations (for efficiency in the definition of the semantics)
+  eq P || 0 = P .
+
+  --- Substitution for defining recursion
+  op subst : Qid Process Process -> Process .
+
+  eq subst(X, R, { S } . P) = { S } . subst(X, R, P) .
+  eq subst(X, R, { MAP } . P) = { MAP } . subst(X, R, P) .
+  eq subst(X, R, [ COND --> { S } ] . P) = [ COND --> { S }] . subst(X, R, P) .
+  eq subst(X, R, [ COND --> { MAP } ] . P) = [ COND --> { MAP }] . subst(X, R, P) .
+  eq subst(X, R, 0) = 0 .
+  eq subst(X, R, P + Q ) = subst(X, R, P) + subst(X, R, Q) .
+  eq subst(X, R, P || Q ) = subst(X, R, P) ||  subst(X, R, Q) .
+  ceq subst(X, R, rec Y . P) = rec Y . subst(X, R, P) if X =/= Y .
+  ceq subst(X, R, rec Y . P) = rec Y . P if X == Y .
+  eq subst(X, R, X) = R .
+  ceq subst(X, R, Y) = Y if X =/= Y .
+
+endfm
+
+view Reaction from TRIV to REACTION is 
+  sort Elt to Reaction .
+endv
+
+
+--- A Reaction System
+--- The user-defined module must provide equations for the operator "reactions" 
+fmod RS is
+  pr Process .
+  pr SET{Reaction} * (sort Set{Reaction} to SetReaction, sort NeSet{Reaction} to NeSetReaction) .
+
+  --- To be defined by the user
+  op reactions : -> NeSetReaction [ctor memo] .
+endfm

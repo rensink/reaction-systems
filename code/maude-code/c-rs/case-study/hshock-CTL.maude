@@ -1,0 +1,91 @@
+--- Heat shock response model in
+--- Artur Meski, Wojciech Penczek, Grzegorz Rozenberg:
+--- Model checking temporal properties of reaction systems. Inf. Sci. 313: 22-42 (2015)
+
+load ../semantics .
+mod MySystem is
+ inc SEMANTICS .
+
+ op MAX : -> Nat .
+ eq MAX = 50 .
+
+
+ ops hsp  hsf  hsf2  hsf3  hse  mfp  prot  
+     hsf3-hse  hsp-hsf  hsp-mfp  temp  h heat cool : -> Entity [ctor] .
+
+eq reactions = 
+  [ toMap((hsf )); toMap((hsp )) ; toMap((hsf3 ))] ,
+  [ toMap(((hsf, hsp, mfp) )); empty ; toMap((hsf3 ))] ,
+  [ toMap((hsf3 )); toMap(((hsp, hse) )) ; toMap((hsf ))] ,
+  [ toMap(((hsp, hsf3, mfp) )); toMap((hse )) ; toMap((hsf ))] ,
+  [ toMap(((hsf3, hse) )); toMap((hsp )) ; toMap(((hsf3-hse) ))] ,
+  [ toMap(((hsp, hsf3, mfp, hse) ));  empty ; toMap(((hsf3-hse) ))] ,
+  [ toMap((hse  )); toMap((hsf3 )) ; toMap((hse ))] ,
+  [ toMap(((hsp, hsf3, hse) )); toMap((mfp )) ; toMap((hse ))] ,
+  [ toMap((hsf3-hse )); toMap((hsp )) ; toMap(((hsp, hsf3-hse) ))] ,
+  [ toMap(((hsp, mfp, hsf3-hse) )); toMap((empty )) ; toMap(((hsp, hsf3-hse) ))] ,
+  [ toMap(((hsf, hsp) )); toMap((mfp )) ; toMap((hsp-hsf ))] ,
+  [ (toMap(((hsp-hsf ) )), temp |-> 42); empty ; toMap(((hsf , hsp) ))] ,
+  [ toMap(((hsp-hsf ) )); temp |-> 42  ; toMap((hsp-hsf ))] ,
+  [ toMap(((hsp, hsf3) )); toMap((mfp )) ; toMap((hsp-hsf ))] ,
+  [ toMap(((hsp, hsf3-hse) )); toMap((mfp )) ; toMap(((hse, hsp-hsf) ))] ,
+  [ (toMap(prot), temp |-> 42); empty ; toMap(((mfp, prot) ))] ,
+  [ toMap((prot )); (temp |-> 42) ; toMap((prot ))] ,
+  [ toMap(((hsp, mfp) )); empty ; toMap((hsp-mfp ))] ,
+  [ toMap((mfp )); toMap((hsp )) ; toMap((mfp ))] ,
+  [ toMap((hsp-mfp  )); empty ; toMap(((hsp, prot) ))],
+  tempUp, tempDown, tempDiamond .
+
+  op tempUp : -> SetReaction .
+  op $tempUp : Nat -> SetReaction .
+  eq tempUp = $tempUp(MAX) .
+  eq $tempUp(0) = empty .
+  eq $tempUp(s(n)) = [ (temp |-> s(n), heat |-> 1) ; empty ; temp |-> s(s(n)) ], $tempUp(n) .
+
+  op tempDown : -> SetReaction .
+  op $tempDown : Nat -> SetReaction .
+  eq tempDown = $tempDown(MAX) .
+  eq $tempDown(0) = empty .
+  eq $tempDown(s(n)) = [ (temp |-> s(n), cool |-> 1) ; empty ; (temp |-> n) ], $tempDown(n) .
+
+  op tempDiamond : -> SetReaction .
+  op $tempDiamond : Nat -> SetReaction .
+  eq tempDiamond = $tempDiamond(MAX) .
+  eq $tempDiamond(0) = empty .
+  eq $tempDiamond(s(n)) = [ (temp |-> s(n)) ; (heat |-> 1, cool |-> 1) ; temp |-> s(n) ], $tempDiamond(n) .
+
+
+
+ op proc : -> Process .
+ eq proc =
+ ( { (hsf |-> 1 , prot |-> 1, hse |-> 1, temp |-> 35) }  . (rec 'X . ( { cool } . 'X + { heat } . 'X ) )) .
+
+
+ op init : -> State .
+ eq init = { process: proc  ; input: empty } .
+
+ var P         : Process   .
+ vars IN OUT C CTX : Map .
+ var n T        : Nat .
+
+ op temp> : Nat -> Prop .
+ eq { next: P ; input: IN ; output: (OUT, temp |-> T) ; ctx: CTX } |= temp>(n) = T > n .
+ eq S:State |= temp>(n) = false [owise] .
+ op temp< : Nat -> Prop .
+ eq { next: P ; input: IN ; output: (OUT, temp |-> T) ; ctx:  CTX } |= temp<(n) = T < n .
+ eq S:State |= temp<(n) = false [owise] .
+
+
+endm
+
+
+eof
+search [1]  init =>* STATE:IOState such that STATE:IOState |= prot |-> 1 .
+search [1]  init =>* STATE:IOState such that STATE:IOState |= (hsp-hsf |-> 1, hse |-> 1, prot |-> 1, temp |-> 42) .
+search [1]  init =>* STATE:IOState such that STATE:IOState |= temp>(35) .
+search [1]  init =>* STATE:IOState such that STATE:IOState |= temp<(35) .
+
+--- Using the model checker (not true due to the infinite computation leading to temp |-> 0)
+umaudemc check hshock-CTL init ' O <> temp>(42)' 
+umaudemc check hshock-CTL init ' A O E <> temp>(42)' 
+

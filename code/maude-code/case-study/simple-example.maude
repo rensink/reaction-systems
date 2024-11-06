@@ -1,0 +1,16 @@
+
+--- A very simple example to start. 
+
+load ../semantics .
+
+mod MySystem is
+ inc SEMANTICS .
+ ops a b c d e : -> Entity [ctor] .
+
+ eq reactions = [ a ; b ; c ] , [a ; b ; d], [ b ; empty ; e ] .
+
+ op init : -> State .
+ eq init = { process: ( rec 'X . ( {a } . 'X  + { b } . 'X )) ; input: empty } .
+
+endm
+

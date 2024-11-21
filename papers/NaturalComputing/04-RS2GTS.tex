@@ -15,7 +15,7 @@ This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of wh
 
 \medskip\noindent\textbf{Transform.}
 %
-The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. It produces two artifacts: firstly, an additional type graph, on top of the onee shown in \Cref{fig:core-type}, in which all entities in the problem at hand are provided with their own type (essentially for performance reasons: it speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two fragments of the start graph are shown in \Cref{fig:toy}.
+The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, in which all entities in the problem at hand are provided with their own type (essentially for performance reasons: it speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two fragments of the start graph are shown in \Cref{fig:toy}.
 
 \begin{figure}
 \centering
@@ -28,7 +28,7 @@ The first step is a text-to-model transformation from a problem specification in
 
 \medskip\noindent\textbf{Explore.}
 %
-The reaction system semantics is encoded as a combination of two rules, \contextR and \reactR, which are scheduled to fire in alternation: \contextR encodes the simultaneous firing of all context processes (involving a nondeterministically selected enabled \Step from every \State with a \Token), and \reactR encodes the simultaneous firing of all enabled \Reaction{}s, while simultaneously erasing all \Entity{}s that were not just produced. The production or erasue of an \Entity is encoded through the creation or deletion of a \present flag on a (persistent) \Entity node, \emph{not} by the creation or deletion of the node itself. In addition, to keep track of which nondeterministic choices were actually taken, the \contextR rule marks the \Step{}s that were selected with a \fired flag, which is erased by the reaction rule; a third rule called \firedR (actually a \emph{condition}, which in \GROOVE is a rule that does not modify the graph) checks for the occurrences of the \fired flag and so exposes the names of the \Rule{}s that have fired in the transition system.
+The reaction system semantics is encoded as a combination of two rules, \contextR and \reactR, which are scheduled to fire in alternation. \contextR encodes the simultaneous firing of all context processes (nondeterministically selecting an enabled \Step from every \State with a \Token), whereas \reactR encodes the (deterministic) simultaneous firing of all enabled \Reaction{}s, while simultaneously erasing all \Entity{}s that were not just produced. The production or erasure of an \Entity is encoded through the creation or deletion of a \present flag on a (persistent) \Entity node, \emph{not} by the creation or deletion of the node itself. In addition, to keep track of which nondeterministic choices were actually taken, the \contextR rule marks the \Step{}s that were selected with a \fired flag, which is subsequently erased by the reaction rule; a third rule called \firedR (actually a \emph{condition}, which in \GROOVE is a rule that does not modify the graph) checks for the occurrences of the \fired flag and so exposes the names of the \Rule{}s that have fired in the transition system.
 
 \begin{figure}
 \centering
@@ -37,9 +37,9 @@ The reaction system semantics is encoded as a combination of two rules, \context
 \label{fig:context}
 \end{figure}
 %
-\Cref{fig:context} shows the first (and most intricate) of these rules, viz.\ the one for the context firing. This is a quantified rule, that can be read as follows. \uline{For all} \State{}s with a \Token, \uline{there is} a \nextt{} \Step such that \uline{for all} \inhibitor{}s \uline{there is no} \present flag whereas \uline{for all} \reactant{}s \uline{there is} a \present flag; moreover, \uline{all} \product{}s of that \Step receive a \present flag; and finally, the \Step receive a \fired flag and the \Token moves to its successor.
+\Cref{fig:context} shows the first (and most intricate) of these rules, viz.\ the one for the context firing. This is a quantified rule, which can be read as follows: \uline{For all} \State{}s with a \Token, \uline{there is} a \nextt{} \Step such that \uline{for all} \inhibitor{}s \uline{there is no} \present flag whereas \uline{for all} \reactant{}s \uline{there is} a \present flag; moreover, when the rule is applied, \uline{all} \product{}s of the selected \Step{}s receive a \present flag, the \Step{}s themselves receive a \fired flag, and all \Token{}s move to the successor \State{}s. Colour coding is used in the visual representation to distinguish the quantifier nodes $\forall$ and $\exists$ (purple), as well as the mandatory absence (red), deletion (blue) and creation (green) of edges and flags.\footnote{This colour coding is \GROOVE-specific and entirely separate from the problem-specific colouring of the graph nodes in Figures \ref{fig:core-type} and~\ref{fig:toy}; in fact, to avoid confusion, the problem-specific colouring is \emph{not} used in the rule view.}
 
-\GROOVE can be set generate the entire state space, which is essentially the same as the one produced by BioResolve (see \Cref{fig:toylts}), but it can also be asked to search the for the first reachable state in which an undesirable entity appears, using breadt-first search (in our running example, the \anger\todo{or \Forbidden} entity). (In fact, the pattern for which \GROOVE searches is itself determined by a rule, which in this case tests for the presence of \anger). When found, the trace to the undesirable state can be saved as a \emph{control program} that drives the next stage of \GROOVE exploration. In particular, besides the alternating application of the \contextR and \reactR rule --- the core of the Reaction System semantics --- this control program records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the undesirable state. Here is the control program for our running example:
+\GROOVE can be set generate the entire state space, which is essentially the same as the one produced by BioResolve (see \Cref{fig:toylts}), but it can also be asked to search the for the first reachable state in which the \Forbidden entity appears, using breadth-first search. (In fact, the pattern for which \GROOVE searches is itself determined by a rule, which in this case merely tests for the presence of \Forbidden). When found, the trace to the undesirable state can be saved as a \emph{control program} that drives the next stage of \GROOVE exploration. In particular, besides the alternating application of the \contextR and \reactR rule --- the core of the Reaction System semantics --- this control program records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the undesirable state. Here is the control program for our running example:
 
 \begin{center}
 \begin{lstlisting}[basicstyle=\sffamily\small,columns=fullflexible,xleftmargin=1cm]
@@ -62,14 +62,14 @@ Here \textsf{student\_2}, \textsf{student\_1} and \textsf{getcappucino\_1} are t
 
 \medskip\noindent\textbf{Build.}
 %
-The purpose of this phase is to build an occurrence graph that explains how the undesirable entity can become present, by collecting the (transitive) dependencies of the undesirable \anger entity. Concretely, we record the following dependencies:\todo{Refer to literature}
+The purpose of this phase is to build an occurrence graph that explains how \Forbidden was produced, by collecting its (transitive) dependencies. Concretely, we record the following dependencies:\todo{Refer to literature}
 \begin{itemize}
 \item From each non-initial \Entity instance to the \Rule occurrence of which it is the \product;
 \item From each \Rule occurrence to all its reactant \Entity instances;
-\item From each \Rule occurrence to all directly preceding \Step occurrences.
+\item From each \Step occurrence to all directly preceding \Step occurrences.
 \end{itemize}
 %
-Note that this is restricted to \emph{positive} dependencies. The representaton of negative dependencies is a research question in its own, and its resultuion is outside the scope of this paper;\todo{Refer to literature} \Cref{fig:occur-type} shows the occurrence type graph. 
+Note that this is restricted to \emph{positive} dependencies.\todo{We could point out the modelling trick of using \espresso as a reactant of \anger, instead of \cappuccino as an inhibitor} The representation of negative dependencies is a research question in its own, and is outside the scope of this paper;\todo{Refer to literature} \Cref{fig:occur-type} shows the occurrence type graph. 
 
 \begin{figure}
 \centering
@@ -78,7 +78,7 @@ Note that this is restricted to \emph{positive} dependencies. The representaton 
 \label{fig:occur-type}
 \end{figure}
 
-As indicated in \Cref{fig:chain}, the occurrence graph is produced by another \GROOVE rule system, using the same start graph but driven by the control program previously created by the explore phase, which encodes the trace to the undesirable state. The occurence graph semantics consists of rules with the same names (\reactR, \contextR and \firedR), but different functionality: in particular, rather than manipulating \present flags, the \reactR rule now creates \RuleOcc- and \EntityInst-nodes together with their dependencies. This is a non-trivial procedure that in fact itself requires several successive stages. Though the details of these stages are not of sufficient interest to include in this paper, we want to point out that breakdown of a single rule (\reactR) into multiple stages is opposed to the usual view, is engrained algebraic graph transformation, that a rule embodies a single, atomic change to a graph. This contradiction is solved by another feature of \GROOVE, namely \emph{recipes}. A recipe is a procedural control abstraction that has transactional semantics, and hence for the purpose of exploration acts just like an atomic rule; however, its body may consist of an arbitrary control (sub-)program. In the occurrence graph semantics, therrefore, \reactR is actually not a rule but a recipe, defined as
+As indicated in \Cref{fig:chain}, the occurrence graph is produced by another \GROOVE rule system, using the same start graph but driven by the control program previously created in the explore phase, encoding (as we have seen) the trace to the undesirable state. The occurrence graph semantics consists of rules with the same names (\reactR, \contextR and \firedR), but different functionality: in particular, rather than manipulating \present flags, the \reactR rule now creates \RuleOcc- and \EntityInst-nodes together with their dependencies. This is a non-trivial procedure that in fact itself requires several successive stages. Though the details of these stages are not of sufficient interest to include in this paper, we want to point out that breaking down a single rule (\reactR, in this case) into multiple stages is opposed to the usual view, engrained in algebraic graph transformation, that a rule embodies a single, atomic change to a graph. This contradiction is solved by another feature of \GROOVE, namely \emph{recipes}. A recipe is a procedural control abstraction that has transactional semantics, and hence for the purpose of exploration acts just like an atomic rule; however, its body may consist of an arbitrary control (sub-)program. In the occurrence graph semantics, therefore, \reactR is actually not a rule but a recipe, defined as
 
 \begin{center}
 \begin{lstlisting}[basicstyle=\sffamily\small,columns=fullflexible,xleftmargin=1cm,keywords={recipe},literate={-}{-}1]
@@ -90,21 +90,21 @@ recipe react() {
 \end{lstlisting}
 \end{center}
 %
-
 \medskip\noindent\textbf{Prune.}
 %
-Unfortunately, the occurernce graph built by this rule system is too large to be usefule: it shows \emph{all} entities and rule occurrences produced by the trace, not just the dependencies of the undesired entity. Moreover, the entire start graph is also (still) present. Therefore, in a third stage, all redundant information is pruned. This is achieved by first marking all backard dependencies of the undesired entity, and then removing all unmarked nodes. Since it is straightforward, and of no particular interest in the context of this paper, we omit the details of the \GROOVE rule system for this. The oucome of this process for our running example is shown in \Cref{fig:toy-pruned}.
+Unfortunately, the occurrence graph built by the rule system described above is too large to be useful: it contains \emph{all} entities and rule occurrences produced by the trace, not just the dependencies of the undesired \Forbidden entity. Moreover, the entire start graph is also (still) present. Therefore, in a third phase, all redundant information is pruned. This is achieved by first marking all transitive backward dependencies of \Forbidden, and then removing all unmarked nodes. Since this is straightforward, and of no particular interest in the context of this paper, we omit the details of the \GROOVE rule system for this phase. Its outcome for our running example is shown in \Cref{fig:toy-pruned}.
 
 
 \begin{figure}
 \centering
-\includegraphics[scale=.12]{figs/toy-pruned}
-\caption{Pruned occurrence graph of the running example}
+\includegraphics[width=\columnwidth]{figs/toy-pruned}
+\caption{Pruned occurrence graph}
 \label{fig:toy-pruned}
 \end{figure}
 
+The pruned occurrence graph visualises the causal effect chain already explained informally at the end of \Cref{sec:student}: the presence of a \ccoin, which itself depends on \am, combined with \cpowder and \nomilk causes the production of \espresso, after which the student produces \anger, which is \Forbidden.
 
-
+\begin{comment}
 \begin{quote}\it Notes:
 \begin{itemize}
 \item Rules for implementing RS semantics
@@ -112,3 +112,4 @@ Unfortunately, the occurernce graph built by this rule system is too large to be
 \item Using recipes in the occurrence graph building
 \end{itemize}
 \end{quote}
+\end{comment}

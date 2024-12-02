@@ -1,0 +1,23 @@
+
+--- A simple example to start with 
+
+load ../semantics .
+mod System is
+ inc SEMANTICS .
+ ops a b c d : -> Entity [ctor] .
+
+
+  eq reactions = [ (a,b) ; (c) ; (b) ] .
+
+ op proc : -> Process .
+ eq proc = { (a , b) } . { a } . { c } . { c } . 0 .
+
+ op init : -> State .
+ eq init = { process: proc  ; input: empty } .
+
+endm
+
+eof
+
+--- Some simple examples of queries 
+search init =>* STATE:IOState .

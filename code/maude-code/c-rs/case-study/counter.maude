@@ -1,0 +1,113 @@
+--- Binary counter example reported in 
+--- Artur Meski, Wojciech Penczek, Grzegorz Rozenberg:
+--- Model checking temporal properties of reaction systems. Inf. Sci. 313: 22-42 (2015)
+
+load ../semantics .
+mod MySystem is
+ inc SEMANTICS .
+
+
+ --- ----------------------
+ --- Size of the bit counter
+ --- ----------------------
+ op N : -> Nat .
+ eq N = 5 .
+ --- ---------------------
+
+ ops inc dec : -> Entity [ctor] .
+ op p : Nat -> Entity [ctor] .
+
+
+ --- -------------------------
+ vars n m      : Nat .
+ var P         : Process   .
+ vars IN OUT C : Map .
+ --- -------------------------
+ 
+ --- Reaction rules 
+ op retention : -> SetReaction .
+ op $retention : Nat -> SetReaction .
+ eq retention = $retention(0) .
+ eq $retention(n) = if n == N then empty 
+                    else [ toMap(p(n)) ; toMap((inc, dec)) ; toMap(p(n)) ] , $retention(s(n)) 
+                  fi .
+
+ op increment : -> SetReaction .
+ op $increment : NzNat -> SetReaction .
+ eq increment =  [ toMap(inc) ; toMap((dec, p(0))) ; toMap(p(0)) ] , $increment(1). 
+ eq $increment(n) = if n == N then empty
+                     else [ toMap((inc, ps(sd(n,1)))) ; toMap((dec, p(n))) ; toMap(p(n)) ] , $increment(s(n))
+                    fi .
+
+ --- Genering p(0)...p(n)
+ op ps : Nat -> SetEntity .
+ eq ps(0) = p(0) .
+ eq ps(s(m)) = p(s(m)), ps(m) .
+
+
+ op incSR : -> SetReaction .
+ op $incSR : NzNat -> SetReaction .
+ op $incSR : NzNat NzNat -> SetReaction .
+
+ eq incSR = $incSR(0) .
+ eq $incSR(n) = if n == N then empty 
+               else $incSR(n, n + 1), $incSR(n + 1)
+              fi .
+
+ eq $incSR(n, m) = if m == N then empty
+                  else [ toMap((inc, p(m))) ; toMap((dec, p(n))) ; toMap(p(m)) ], $incSR(n, m + 1)
+                 fi .
+
+ op decrement : -> SetReaction .
+ op $decrement : NzNat -> SetReaction .
+ eq decrement =  $decrement(0). 
+ eq $decrement(n) = if n == N then empty
+                     else [ toMap(dec) ; toMap((inc, ps(n))) ; toMap(p(n))] , $decrement(s(n))
+                    fi .
+
+ op decSR : -> SetReaction .
+ op $decSR : NzNat -> SetReaction .
+ op $decSR : NzNat NzNat -> SetReaction .
+
+ eq decSR = $decSR(0) .
+ eq $decSR(n) = if n == N then empty 
+               else $decSR(n, n + 1), $decSR(n + 1)
+              fi .
+
+ eq $decSR(n, m) = if m == N then empty
+                  else [ toMap((dec, p(m), p(n))) ; toMap(inc) ; toMap(p(m)) ], $decSR(n, m + 1)
+                 fi .
+
+
+ eq reactions = retention, increment, incSR, decrement, decSR .
+    
+ op proc : -> Process .
+ eq proc =   rec 'X . ( {inc} . 'X + {dec} . 'X ) .
+
+
+ op init : -> State .
+ eq init = { process: proc  ; input: empty } .
+
+
+endm
+
+
+eof
+
+
+--- Some simple tests
+search  { process: ({inc} . 0 ) ; input: empty }  =>! S:PState .
+search  { process: ({dec} . 0 ) ; input: empty }  =>! S:PState .
+search  { process: ({inc} . {dec} . 0 ) ; input: empty }  =>! S:PState .
+search  { process: ({inc} . {inc} . 0 ) ; input: empty }  =>! S:PState .
+search  { process: ({inc} . {inc} . {dec} . {inc} . 0 ) ; input: empty }  =>! S:PState .
+search  { process: ({inc} . {inc} . {dec} . {inc} . 0 ) ; input: empty }  =>! S:PState .
+
+
+--- F1 
+umaudemc check bcounter-CTL init ' A [] ( zero -> E <> full) '
+--- F2
+umaudemc check bcounter-CTL ' { process: (! inc) ; input: empty } ' 'A [] (full ->  A O zero) '
+
+--- F4
+umaudemc check bcounter-CTL init 'A [] (p(sd(N,1)) ->  E <> ~ p(sd(N,1))) '

@@ -1,0 +1,90 @@
+--- Simplified version of the example using only inputs of size =1 
+
+load semantics .
+mod MySystem is
+ inc SEMANTICS .
+ ops foxp3 gata3 ifng ifnge ifngr il12 il12r il17 il18 il18r il2
+     il21 il21r il23 il23r il27 il2r il4 il4e il4r il6 il6e il6r irak
+     jak1 nfat nfkb rorgt socs1 stat1 stat3 stat4 stat5 stat6 tbet tcr
+     tgfb tgfbr void : -> Entity [ctor] .
+
+ eq reactions = 
+    [ (il4r) ; (socs1 , ifng) ; (stat6) ]  , 
+    [ (tgfb , nfat) ; (void) ; (tgfbr) ]  , 
+    [ (tbet) ; (void) ; (il12r) ]  , 
+    [ (stat4) ; (gata3) ; (il2r) ]  , 
+    [ (tcr) ; (gata3) ; (il12r) ]  , 
+    [ (il12 , nfat) ; (void) ; (il12r) ]  , 
+    [ (il2r) ; (void) ; (stat5) ]  , 
+    [ (gata3) ; (tbet) ; (gata3) ]  , 
+    [ (stat5) ; (tgfb , rorgt , foxp3 , tbet) ; (gata3) ]  , 
+    [ (stat6 , nfat) ; (tgfb , rorgt , foxp3 , tbet) ; (gata3) ]  , 
+    [ (stat3) ; (void) ; (il23r)   ]  , 
+    [ (il23 , stat3) ; (tbet) ; (il23r) ]  , 
+    [ (tbet) ; (stat3) ; (ifng) ]  , 
+    [ (nfkb) ; (void) ; (ifng) ]  , 
+    [ (stat4 , nfkb , nfat) ; (stat6 , stat3) ; (ifng) ]  , 
+    [ (tgfbr , stat3 , il6r) ; (tbet , gata3 , foxp3) ; (rorgt) ]  , 
+    [ (tgfbr , stat3 , il21r) ; (tbet , gata3 , foxp3) ; (rorgt) ]  , 
+    [ (il21) ; (void) ; (il21r) ]  , 
+    [ (il18 , il12) ; (stat6) ; (il18r) ]  , 
+    [ (il6e) ; (void) ; (il6r) ]  , 
+    [ (il6) ; (void) ; (il6r) ]  , 
+    [ (il18r) ; (void) ; (irak) ]  , 
+    [ (il12r , il12) ; (gata3) ; (stat4) ]  , 
+    [ (tbet) ; (void) ; (socs1) ]  , 
+    [ (stat1) ; (void) ; (socs1) ]  , 
+    [ (gata3 , nfat) ; (stat1) ; (il4) ]  , 
+    [ (stat3 , nfat) ; (void) ; (il21) ]  , 
+    [ (rorgt) ; (void) ; (il6) ]  , 
+    [ (stat5) ; (il21r , il6r , gata3) ; (foxp3) ]  , 
+    [ (stat5) ; (il21r , stat3 , gata3) ; (foxp3) ]  , 
+    [ (tgfbr) ; (il21r , il6r , gata3) ; (foxp3) ]  , 
+    [ (tgfbr) ; (il21r , stat3 , gata3) ; (foxp3) ]  , 
+    [ (tbet) ; (ifng , il12 , rorgt , foxp3) ; (tbet) ]  , 
+    [ (stat4) ; (rorgt , foxp3) ; (tbet) ]  , 
+    [ (stat1) ; (rorgt , foxp3) ; (tbet) ]  , 
+    [ (il27 , nfat) ; (void) ; (stat1) ]  , 
+    [ (jak1) ; (void) ; (stat1) ]  , 
+    [ (il21r) ; (void) ; (stat3) ]  , 
+    [ (il23r) ; (void) ; (stat3) ]  , 
+    [ (il6r) ; (void) ; (stat3) ]  , 
+    [ (ifngr) ; (socs1) ; (jak1) ]  , 
+    [ (il2 , nfat) ; (void) ; (il2r) ]  , 
+    [ (il4e) ; (void) ; (il4r) ]  , 
+    [ (il4) ; (socs1) ; (il4r) ]  , 
+    [ (irak) ; (foxp3) ; (nfkb) ]  , 
+    [ (tcr) ; (foxp3) ; (nfat) ]  , 
+    [ (stat3 , il17 , il23r) ; (stat1 , stat5) ; (il17) ]  , 
+    [ (rorgt) ; (stat1) ; (il17) ]  , 
+    [ (nfat , nfkb) ; (tbet) ; (il2) ]  , 
+    [ (ifng , nfat) ; (void) ; (ifngr) ]  , 
+    [ (ifnge , nfat) ; (void) ; (ifngr) ]  .
+
+
+ op proc : -> Process .
+
+ eq proc = rec 'X . (
+ { (empty) } . 'X + 
+ { (il27) } . 'X + 
+ { (ifnge) } . 'X + 
+ { (il18) } . 'X + 
+ { (tgfb) } . 'X + 
+ { (il23) } . 'X + 
+ { (tcr) } . 'X + 
+ { (il6e) } . 'X + 
+ { (il12) } . 'X + 
+ { (il4e) } . 'X 
+ ) .
+
+ op init : -> State .
+ eq init = { process: proc  ; input: empty } .
+
+ var P         : Process   .
+ vars IN OUT C : SetEntity .
+
+endm
+
+
+search [1]  init =>* STATE:IOState  such that STATE:IOState |= (foxp3, gata3, tbet) .
+

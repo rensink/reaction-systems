@@ -1,0 +1,155 @@
+--- File: semantics.maude
+
+
+load syntax .
+load model-checker .
+
+--- Evaluating a reaction against a set of entities (the input)
+fmod EVAL is
+  pr RS .
+
+  --- ---------------------------
+  var INPUT        : Map .
+  vars C D         : Map .
+  vars R I P       : Map .
+  var SetR         : SetReaction .
+  vars COND1 COND2 : Condition .
+  var ENT          : Entity .
+  var MAP          : Map .
+  --- ---------------------------
+
+  --- Returns P if [R ; I : P] can be fired on input C and empty otherwise
+  op $eval : Map Reaction -> Map .
+  eq $eval(C, [R ; I ; P]) =
+     if R <= C and-then C < I 
+     then P
+     else empty
+     fi .
+
+  --- Evaluating a set of reactions
+  op eval : Map SetReaction -> Map .
+  op eval : Map SetReaction Map -> Map .
+
+  eq eval(C, SetR) = eval(C, SetR, empty) .
+  eq eval(C, empty, D) = D .
+  eq eval(C, ([R ; I ; P], SetR), D) = eval(C, SetR, (union-max(D, $eval(C, [R ; I ; P])))) .
+
+  --- Evaluating conditions
+  op eval : Condition Map -> Bool .
+  eq eval(tt, INPUT) = true .
+  eq eval(COND1 and COND2, INPUT) = eval(COND1, INPUT) and-then eval(COND2, INPUT) .
+  eq eval(COND1 or COND2, INPUT) = eval(COND1, INPUT) or-else eval(COND2, INPUT) .
+  eq eval(ENT, INPUT) = INPUT [ENT]0 > 0 .
+  eq eval(ENT ^ , INPUT) = INPUT [ENT]0 == 0 .
+endfm
+
+
+--- States of the systems
+fmod STATE is
+  including SATISFACTION .
+  protecting MODEL-CHECKER .
+  protecting  EVAL .
+ 
+  sorts PState IOState .
+  subsort PState IOState < State .
+ 
+ 
+  --- Intermediate state where the process is not necessarily a prefix
+  op { process:_ ; input:_ }  : Process Map -> PState [ctor] .
+  --- The input/output state and the process to be executed next 
+  op { next:_ ; input:_ ; output:_ ; ctx:_  } : Process Map Map Map -> IOState [ctor] .
+ 
+  --- ------------------------
+  var K           : Process .
+  vars IN OUT CTX : Map .
+  var SETE        : SetEntity .
+  var MAP         : Map .
+  --- ------------------------
+ 
+  --- Properties are evaluated on IOStates (and are false on PStates)
+  subsort Map < Prop .
+  eq STATE:PState |= MAP = false .
+  eq { next: K ; input: IN ; output: OUT ; ctx: CTX } |= MAP = MAP  <= OUT .
+
+  --- This proposition is true on IOState 
+  op io-state : -> Prop [ctor] .
+  eq STATE:PState  |= io-state  = false .
+  eq STATE:IOState |= io-state  = true .
+
+  --- Steady state (checking whether the next state is the same as the current one)
+  op isSteady : -> Prop [ctor] .
+  eq { next: K ; input: IN ; output: OUT ; ctx: CTX } |= isSteady = IN == OUT .
+  eq S:State |= isSteady = false [owise] .
+
+
+endfm
+
+
+
+mod SEMANTICS is
+  pr STATE .
+
+  --- ----------------------------
+  vars K K'        : Process    .
+  vars K1 K2       : Process    .
+  vars K1' K2'     : Process    .
+  var KS           : SumProcess .
+  vars Kp Kp'      : PreProcess .
+  vars C C' IN OUT : Map        .
+  vars IN' OUT'    : Map        .
+  vars OUT1 OUT2   : Map        .
+  var CTX          : Map        .
+  var CTX1 CTX2    : Map        .
+  var X            : Qid        .
+  var COND         : Condition  .
+  var SE           : SetEntity  .
+  --- ----------------------------
+
+  --- Checking if a prefix is enabled or not
+  op firable : Map SumProcess -> Bool .
+  eq firable(IN, { C } . K) = true .
+  eq firable(IN, { SE } . K) = true .
+  eq firable(IN, [ COND --> { C } ] . K) = eval(COND, IN) .
+  eq firable(IN, [ COND --> { SE } ] . K) = eval(COND, IN) .
+  eq firable(IN, Kp + KS) = firable(IN, Kp) or-else firable(IN, KS) .
+
+
+  --- Next iteration 
+  rl [next] :  { next: K ; input: IN ; output: OUT ; ctx: CTX } =>
+               { process: K ; input: OUT } .
+
+  --- With prefixes, the output is produced
+  rl [output] : { process: ( { C } . K)  ; input: IN } =>
+                { next:              K   ; input: IN ; output: eval( (C, IN), reactions) ; ctx: C } .
+
+  rl [output] : { process: ( [ COND --> { C } ] . K)  ; input: IN } =>
+                if eval(COND, IN) 
+                then { next: K  ; input: IN ; output: eval( (C, IN), reactions) ; ctx: C } 
+                else { next: 0  ; input: IN ; output: eval(      IN, reactions) ; ctx: empty } 
+                fi .
+  rl [output] : { process: ( { SE } . K)  ; input: IN } =>
+                { next:              K   ; input: IN ; output: eval( (toMap(SE), IN), reactions) ; ctx: toMap(SE) } .
+
+  rl [output] : { process: ( [ COND --> { SE } ] . K)  ; input: IN } =>
+                if eval(COND, IN) 
+                then { next: K  ; input: IN ; output: eval( (toMap(SE), IN), reactions) ; ctx: toMap(SE) } 
+                else { next: 0  ; input: IN ; output: eval(      IN, reactions) ; ctx: empty } 
+                fi .
+
+  crl [choice] : { process:  Kp + KS ; input: IN } =>
+                 { process:  Kp      ; input: IN } 
+      if firable(IN, Kp) .
+
+  crl [choice] : { process:  Kp + KS ; input: IN } =>
+                 { process:  KS      ; input: IN } 
+      if firable(IN, KS) .
+
+ 
+  crl [parallel] : { process: K1 || K2 ; input: IN } =>
+                   { next: K1' || K2'  ; input: IN ; output: (OUT1, OUT2) ; ctx: (CTX1, CTX2) } 
+    if { process: K1 ; input: IN } => { next: K1' ; input: IN ; output: OUT1 ; ctx: CTX1} /\
+       { process: K2 ; input: IN } => { next: K2' ; input: IN ; output: OUT2 ; ctx: CTX2} .
+
+  rl [rec] :    { process: (rec X . K)              ; input: IN } =>
+                { process: subst(X, (rec X . K), K) ; input: IN } .
+endm

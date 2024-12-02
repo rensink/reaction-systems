@@ -1,0 +1,30 @@
+--- Example 1 in our paper 
+
+load ../semantics .
+mod MySystem is
+ inc SEMANTICS .
+ ops egf  e  p  erbb1  erk12  p70s6k : -> Entity [ctor] .
+
+  eq reactions = 
+  [ (egf) ; (e ,p) ; (erbb1) ] ,
+  [ (egf) ; ( empty ) ; (erk12) ] ,
+  [ (erk12) ; ( empty ) ; (p70s6k) ] .
+
+ op proc : -> Process .
+ eq proc = {(egf,e)} . {empty} . {egf} . {empty} . 0 .
+
+ --- An example of an initial state
+ op init : -> IOState  .
+ eq init = init(proc) .
+endm
+
+eof
+
+--- Some examples of commands
+
+--- Rewriting 1 step
+rew [1] init .
+
+--- Searching for all the reachable IOStates
+search init =>* S:State .
+

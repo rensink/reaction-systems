@@ -13,7 +13,7 @@ In this paper, we use the so-called \emph{algebraic approach} to graph transform
 
 \item \GROOVE graphs are \emph{simple} (rather than \emph{multi-sorted}), meaning that there is at most one edge of a given type between any two nodes, and similarly, at most one flag of a given type on any node. If an edge or flag is added where one exists already, this does not change the graph.
 
-\item \GROOVE rules may be \emph{quantified}, meaning that they can simultaneously be applied to multiple places in the same graph.
+\item \GROOVE rules may be \emph{quantified}, meaning that they can simultaneously be applied to multiple places in the same graph. An example is shown in \Cref{fig:context} below.
 
 \item A graph transformation \emph{system} is a set of rules. In the simplest case, every rule can be applied to a graph at hand, giving rise to a modified graph to which every rule can be applied again, and so forth. However, \GROOVE allows rule application to be restricted by an external \emph{control program} that can specify in what order rules may be applied.
 

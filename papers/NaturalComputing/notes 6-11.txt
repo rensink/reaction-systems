@@ -1,0 +1,17 @@
+RS to GTS paper, notes 6-11-2024
+================================
+
+- Refer to Forbidden
+- Change color of present Entity 
+- Remove Reacton names from pruned occurrence graph
+- Relayout occurrence graph
+- Add CamelCase to state & step names
+
+Experimentation
+
+- Describe the problem
+- Special features of the paper
+
+
+Check MAUDE paper & tool!
+

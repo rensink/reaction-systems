@@ -17,7 +17,7 @@ java -jar Generator.jar \
   -o my-trace.gcp \
   -a inv:forbidden \
   -r 1 \
-  my-rs.gps \
+  my-explore.gps \
   my-start.gst
 ```
 
@@ -44,7 +44,9 @@ java -jar Generator.jar \
 
 This will result in a file `my-result-xxx.gst` (where `xxx` is the state number) containing the occurrence graph of the forbidden state.
 
-8. Make a copy of `rs-prune-occur.gps`, say `my-prune.gps`, and copy `my-type.gty` to `my-prune.gps`
+8. Make a copy of `rs-prune-occur.gps`, say `my-prune.gps`
+
+9. Copy `my-type.gty` to `my-prune.gps`
 
 9. Run the Generator on `my-result-nnn.gst` to prune the occurrence graph:
 

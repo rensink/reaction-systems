@@ -1,54 +1,62 @@
 ** Instructions for obtaining a pruned occurrence tree
 
-GROOVE version required: at least 6.9.3
+GROOVE version required: at least 6.9.3.
 
-1. Make a copy of `working-copy-rs.gps`, say `myrs.gps`, and copy the type graph of the problem (say `mytype.gty`) to `myrs.gps`
+To start with, you need a start graph and a type graph of your problem instance; say `my-start.gst` and `my-type.gty`.
 
-3. Run the Generator on the start state of the problem (say `mystart.gst`) to find a forbidden state, inserting your own names for `mytype`, `mytrace`, `myrs` and `mystart.gst`:
+1. Make a copy of `rs-explore.gps`, say `my-explore.gps`
+
+2. Copy the type graph of the problem (say `my-type.gty`) to `my-explore.gps`
+
+3. Run the Generator on the start state of the problem (say `my-start.gst`) to find a forbidden state, inserting your own names for `my-type`, `my-trace`, `my-explore` and `my-start.gst`:
  
 ```
 java -jar Generator.jar \
-  -D typeGraph=mytype \
+  -D typeGraph=my-type \
   -traces \
-  -o mytrace.gcp \
+  -o my-trace.gcp \
   -a inv:forbidden \
   -r 1 \
-  myrs.gps \
-  mystart.gst
+  my-rs.gps \
+  my-start.gst
 ```
 
-`mytrace.gcp` now contains the trace to a forbidden state, as a control program. 
+`my-trace.gcp` now contains the trace to a forbidden state, as a control program. 
 
-5. Make a copy of `build-occurrence-graph.gps`, say `myocc.gps`, and copy`mytype.gty` to `myocc.gps`
+5. Make a copy of `rs-build-occur.gps`, say `my-build.gps`.
 
-6. Copy the trace control program `mytrace.gcp` to `myocc.gps`
+5. Copy `my-type.gty` to `my-build.gps`
 
-7. Run the Generator on `mystart.gst` to generate the occurrence graph for the forbidden state:
+6. Copy the trace control program `my-trace.gcp` to `my-build.gps`
+
+7. Run the Generator on `my-start.gst` to generate the occurrence graph for the forbidden state:
 
 ```
 java -jar Generator.jar \
-  -D typeGraph="mytype instance" \
-  -D controlProgram="mytrace react" \
+  -D typeGraph="my-type instance" \
+  -D controlProgram="my-trace react" \
   -traces \
-  -f myresult-#.gst \
+  -f my-result-#.gst \
   -r 1 \
-  myocc.gps \
-  mystart.gst
+  my-build.gps \
+  my-start.gst
 ```
 
-This will result in a file `myresult-xxx.gst` (where `xxx` is the state number) containing the occurrence graph of the forbidden state.
+This will result in a file `my-result-xxx.gst` (where `xxx` is the state number) containing the occurrence graph of the forbidden state.
 
-8. Make a copy of `prune-occurrence-graph.gps`, say `myprune.gps`, and copy `mytype.gty` to `myprune.gps`
+8. Make a copy of `rs-prune-occur.gps`, say `my-prune.gps`, and copy `my-type.gty` to `my-prune.gps`
 
-9. Run the Generator on `myresult-nnn.gst` to prune the occurrence graph:
+9. Run the Generator on `my-result-nnn.gst` to prune the occurrence graph:
 
 ```
 java -jar Generator.jar \
   -D typeGraph="mytype instance" \
-  -f mypruned-#.gst \
-  myprune.gps \
-  myresult-xxx.gst
+  -f my-pruned-#.gst \
+  my-prune.gps \
+  my-result-xxx.gst
 ```
 
-This will result in a file `mypruned-yyy.gst` (where `yyy` is the state number) containing the pruned occurrence graph. Instead of `mypruned-#.gst` you can also use `mypruned-#.dot` to get the result in `.dot` format; or you can use the `Imager.jar` to convert `.gst` into `.dot`.
+This will result in a file `my-pruned-yyy.gst` (where `yyy` is the state number) containing the pruned occurrence graph.
+
+9. In the above call, instead of `my-pruned-#.gst` you can also use `my-pruned-#.dot` to get the result in `.dot` format; or you can use the `Imager.jar` to convert `.gst` into `.dot`.
 

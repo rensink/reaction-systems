@@ -26,8 +26,8 @@ A refill context process can, nondeterministically, refill the machine with milk
 The student process is very simple: she takes cappuccino in the morning and tea in the afternoon, otherwise she gets angry.
 \[
 \begin{array}{rll}
-\mathsf{Student} & \triangleq & (\emptyset,\{\am\},\{\tcoin\}).\mathsf{GetTea}\\
-& + & (\{\am\},\emptyset,\{\ccoin\}).\mathsf{GetCappuccino}\\
+\mathsf{Student} & \triangleq & (\{\am\},\emptyset,\{\ccoin\}).\mathsf{GetCappuccino}\\
+& + & (\emptyset,\{\am\},\{\tcoin\}).\mathsf{GetTea}\\
 & + & \{\idle\}.\mathsf{Student}\\
 \mathsf{GetCappuccino} & \triangleq & (\{\cappuccino\},\emptyset,\emptyset).\mathsf{Student}\\
 & + & (\{\espresso\},\emptyset,\{\anger\}).\mathsf{Student}\\
@@ -36,7 +36,7 @@ The student process is very simple: she takes cappuccino in the morning and tea 
 \end{array}
 \]
 
-Finally, two more reactions model the passage of time (morning vs afternoon) while the student is idle (i.e., not in the process of getting coffee).
+Finally, two more reactions model the passage of time (morning vs afternoon) while the student is idle (i.e., not in the process of getting beverages).
 \[
 \begin{array}{lll}
 \mathsf{Day} & \triangleq & (\{\idle\},\{\am\},\{\am\})\\
@@ -44,8 +44,8 @@ Finally, two more reactions model the passage of time (morning vs afternoon) whi
 \end{array}
 \]
 
-We assume that, initially, both entitities $\cpowder$ and $\tpowder$ are present.\todo{Currently, \am is initially not present, meaning that the day starts at PM}
-So the system can be written as:
+We assume that, initially, both entitities $\cpowder$ and $\tpowder$ are present.
+So the system can be written as 
 \(
 [\,\mathsf{Refill}
 | \mathsf{Student}
@@ -54,7 +54,9 @@ So the system can be written as:
 | \mathsf{Day}\,]
 \).
 
+
 Using BioReSolve, we can generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while the state where the student is angry is in light coral.
+Note that, as \am is initially not present, it means that the initial time is in the afternoon.
 To improve readability, the nodes of the LTS are labelled by the list of context processes and entities, omitting reactions, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context, i.e., the components in $D\cup C$ extracted from the full label $\obs{\obs{D}{R',I',C}}{R,I,P}$. The label $0$ stands for the emptyset.
 As a general strategy for BioReSolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\emptyset,\{\Forbidden\})$.
 
@@ -63,4 +65,4 @@ As a general strategy for BioReSolve, we use a special entity named $\Forbidden$
 \caption{LTS of the toy example.\label{fig:toylts}}
 \end{figure}
 
-By manual inspection we can recover a trace starting from the initial state and leading to the forbidden state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of $\Forbidden$ was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.\todo{RB: not sure if this is ok} 
+By manual inspection we can recover a trace starting from the initial state and leading to the forbidden state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of $\Forbidden$ was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.

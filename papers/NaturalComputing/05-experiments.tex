@@ -2,13 +2,31 @@
 
 \section{Experimentation}\label{sec:experiments}
 
-Here we consider three larger case studies of increasing complexity, whose RS specifications have already appeared in the recent literature. For each case study, we briefly describe its main features together with the analysis that was performed and then we illustrate some pro and cons of revisiting the analysis in GROOVE through the methodology outlined in the previous sections.
+Here we consider three larger case studies of increasing complexity, whose RS specifications have already appeared in the recent literature. For each case study, we briefly describe its main features and how the methodology outlined in the previous sections can be applied for carrying out some fruitful experimentation with GROOVE.
 
 \subsection{T cell differentiation analysis}
 
-The paper~\cite{datamod2023} presented a slicing toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing minimal sets of biological entities that are responsible for reaching certain attractors, with applications to Boolean network models like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. Roughly, BioReSolve is used to translate Boolean network models to RS specifications and to derive its LTS according to any combination of persistent stimuli that can be provided by the context. Each combination inevitably leads to a looping behaviour (called attractors). Then, the Python script conducts an analysis of the attractors w.r.t. some given \emph{target} entities, and the slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those  target entities. The case study considered in the paper is the T cell differentiation in the immune system. T cell differentiation is a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory} and it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). This model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli. The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
+The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing  biological entities that are responsible for reaching certain attractors, with applications to Boolean network models like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
+
+The main case study considered in~\cite{datamod2023} is the T cell differentiation in the immune system, a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
+% it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
+The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive. %Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
+For readers' convenience, all Boolean update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
+The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
-The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph} and is fully specified by the Boolean update formulas shown in Fig.~\ref{fig:boolean-formulas}. The 9 orange nodes represent different environmental stimuli that the T cell can receive. Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
+
+\medskip\noindent\textbf{Features of interest.}
+- Boolean networks analysis
+- reactions with both reactants and inhibitors
+- nondeterministic persistent contexts
+- rechability and causal analysis
+
+
+Roughly, BioReSolve is used to translate Boolean network models to RS specifications and to derive its LTS according to any combination of persistent stimuli that can be provided by the context. Each combination inevitably leads to a looping behaviour (called attractors). Then, the Python script conducts an analysis of the attractors w.r.t. some given \emph{target} entities, and the slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those  target entities. 
+
+
+
+
 
 
 \begin{figure}[t]
@@ -19,54 +37,6 @@ The Boolean network model is graphically represented as shown in Fig.~\ref{fig:m
 	\label{fig:model-graph}
 \end{figure}
 
-\begin{figure}[t]
-	\begin{center}
-		\includegraphics[width=0.49\textwidth]{figs-datamod2023/TcellBN.png}
-	\end{center}
-%\fontsize{8}{8}
-%\begin{verbatim}
-% Jak1 = IFNgR and not SOCS1 
-% IL21 = STAT3 and NFAT
-%IL18R = IL18 and IL12 and not STAT6 
-%SOCS1 = STAT1 or Tbet 
-%  IL6 = RORgt 
-%STAT5 = IL2R 
-% IL17 = (RORgt and not STAT1) 
-%        or (STAT3 and IL17 and IL23R and not STAT1 and not STAT5) 
-%STAT4 = IL12R and IL12 and not GATA3 
-%IFNgR = (IFNg_e and NFAT) or (IFNg and NFAT) 
-%STAT6 = IL4R and not IFNg and not SOCS1 
-%GATA3 = (STAT6 and NFAT and not TGFb and not RORgt and not Foxp3 
-%        and not Tbet) or (GATA3 and not Tbet) 
-%        or (STAT5 and not TGFb and not RORgt and not Foxp3 and not Tbet) 
-%  IL4 = GATA3 and NFAT and not STAT1 
-% NFkB = IRAK and not Foxp3 
-%  IL2 = NFAT and NFkB and not Tbet 
-%IL23R = (IL23 and STAT3 and not Tbet) or STAT3 
-% Tbet = (STAT4 and not RORgt and not Foxp3) 
-%        or (STAT1 and not RORgt and not Foxp3) 
-%        or (Tbet and not IL12 and not IFNg and not RORgt and not Foxp3) 
-%TGFbR = TGFb and NFAT 
-%RORgt = TGFbR and ((STAT3 and IL21R) or (STAT3 and IL6R)) and not Tbet 
-%        and not GATA3 and not Foxp3 
-% IL6R = IL6 or IL6_e 
-%IL21R = IL21 
-%Foxp3 = (TGFbR and not (IL6R and STAT3) and not IL21R and not GATA3) 
-%        or (STAT5 and not (IL6R and STAT3) and not IL21R and not GATA3) 
-% IRAK = IL18R 
-%IL12R = (IL12 and NFAT) or (STAT4 and not GATA3) or Tbet or (TCR and not GATA3) 
-% IL2R = IL2 and NFAT 
-%STAT3 = IL21R or IL23R or IL6R 
-% IFNg = NFkB or (STAT4 and NFkB and NFAT and not STAT3 and not STAT6) 
-%        or (Tbet and not STAT3) 
-% NFAT = TCR and not Foxp3 
-%STAT1 = (IL27 and NFAT) or Jak1 
-% IL4R = (IL4 and not SOCS1) or IL4_e 
-%\end{verbatim}
-	\caption{Boolean updates of the T Cell differentiation model from \cite{puniya2018mechanistic}, available at \cite{ModelCellCollective}.}
-	\label{fig:boolean-formulas}
-\end{figure}
-
 
 
 T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression of the four transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
@@ -74,16 +44,25 @@ The case in which none of the four relevant transcription factors is expressed (
 There exists experimental evidence that a T cell can express more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other combinations of phenotypes, that might include three or even four of them. 
 
 
-The translation from Boolean networks to RS is be done by turning every Boolean updates into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the Boolean formula for IL12R yields the four reactions:
+The translation from Boolean networks to RS is be done by turning every Boolean updates into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the Boolean update formula for IL12R is
 
-{\footnotesize
+\begin{footnotesize}
+\[
+ \mathtt{IL12R} = (\mathtt{IL12} \& \mathtt{NFAT}) | (\mathtt{STAT4} \& \neg \mathtt{GATA3}) | \mathtt{Tbet} | (\mathtt{TCR} \& \neg \mathtt{GATA3})
+\]
+\end{footnotesize}
+
+\noindent
+which yields the four reactions:
+
+\begin{footnotesize}
 \[
 \begin{array}{ccc}
 (\{\mathrm{IL12},\mathrm{NFAT}\},\emptyset,\{\mathrm{IL12R}\}) & \quad & (\{\mathrm{STAT4}\},\{\mathrm{GATA3}\},\{\mathrm{IL2R}\}) \\
 (\{\mathrm{Tbet}\},\emptyset,\{\mathrm{IL12R}\}) &  \quad & (\{\mathrm{TCR}\},\{\mathrm{GATA3}\},\{\mathrm{IL12R}\}) \\ 
 \end{array} 
 \]
-}
+\end{footnotesize}
 
 %The RS model of T cell differentiation obtained from the translation of the Boolean model is given in Fig. \ref{fig:RS-reactions}.
 %
@@ -149,7 +128,7 @@ Finally, the RS context chooses in a non-deterministic way the set of environmen
 \]
 
 Correspondingly, the LTS has an initial branching into $2^9$ different states, each being the start of a deterministic computation that leads to some attractors. 
-BioReSolve returns the LTS as a graph in dot format, which is then loaded by a Python script. The analysis is performed by considering different \emph{targets} corresponding to the different combinations of phenotypes that a T cell can express (hence, $2^4=16$ targets overall).. 
+BioReSolve returns the LTS as a graph in dot format, which is then loaded by a Python script. The analysis is performed by considering different \emph{targets} corresponding to the different combinations of phenotypes that a T cell can express (hence, $2^4=16$ targets overall).
 Then, attractors related with a target of interest are identified by looking for cycles in the LTS. 
 For example, for the target containing the combination of transcription factors $\{\mathsf{Tbet},\mathsf{GATA3}\}$, we select the attractors that include at least one state in which Tbet is present, at least one state (possibly the same) in which GATA3 is present, and no state in which either RORgt or Foxp3 are present.
 Each of these targeted attractors is reachable due to a different choice of environmental stimuli in the first step. Thus, the collection of all those choices determine, for each target, which combinations of stimuli lead to it. 

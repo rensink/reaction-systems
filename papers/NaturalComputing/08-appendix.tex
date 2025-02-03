@@ -1,0 +1,54 @@
+% !TEX root =  ./main.tex
+
+\section{Auxiliary Material}
+
+\subsection{Auxiliary Material for the T cell differentiation case study}
+
+\begin{figure}[t]
+	\begin{center}
+		\includegraphics[width=0.49\textwidth]{figs-datamod2023/TcellBN.png}
+	\end{center}
+%\fontsize{8}{8}
+%\begin{verbatim}
+% Jak1 = IFNgR and not SOCS1 
+% IL21 = STAT3 and NFAT
+%IL18R = IL18 and IL12 and not STAT6 
+%SOCS1 = STAT1 or Tbet 
+%  IL6 = RORgt 
+%STAT5 = IL2R 
+% IL17 = (RORgt and not STAT1) 
+%        or (STAT3 and IL17 and IL23R and not STAT1 and not STAT5) 
+%STAT4 = IL12R and IL12 and not GATA3 
+%IFNgR = (IFNg_e and NFAT) or (IFNg and NFAT) 
+%STAT6 = IL4R and not IFNg and not SOCS1 
+%GATA3 = (STAT6 and NFAT and not TGFb and not RORgt and not Foxp3 
+%        and not Tbet) or (GATA3 and not Tbet) 
+%        or (STAT5 and not TGFb and not RORgt and not Foxp3 and not Tbet) 
+%  IL4 = GATA3 and NFAT and not STAT1 
+% NFkB = IRAK and not Foxp3 
+%  IL2 = NFAT and NFkB and not Tbet 
+%IL23R = (IL23 and STAT3 and not Tbet) or STAT3 
+% Tbet = (STAT4 and not RORgt and not Foxp3) 
+%        or (STAT1 and not RORgt and not Foxp3) 
+%        or (Tbet and not IL12 and not IFNg and not RORgt and not Foxp3) 
+%TGFbR = TGFb and NFAT 
+%RORgt = TGFbR and ((STAT3 and IL21R) or (STAT3 and IL6R)) and not Tbet 
+%        and not GATA3 and not Foxp3 
+% IL6R = IL6 or IL6_e 
+%IL21R = IL21 
+%Foxp3 = (TGFbR and not (IL6R and STAT3) and not IL21R and not GATA3) 
+%        or (STAT5 and not (IL6R and STAT3) and not IL21R and not GATA3) 
+% IRAK = IL18R 
+%IL12R = (IL12 and NFAT) or (STAT4 and not GATA3) or Tbet or (TCR and not GATA3) 
+% IL2R = IL2 and NFAT 
+%STAT3 = IL21R or IL23R or IL6R 
+% IFNg = NFkB or (STAT4 and NFkB and NFAT and not STAT3 and not STAT6) 
+%        or (Tbet and not STAT3) 
+% NFAT = TCR and not Foxp3 
+%STAT1 = (IL27 and NFAT) or Jak1 
+% IL4R = (IL4 and not SOCS1) or IL4_e 
+%\end{verbatim}
+	\caption{Boolean updates of the T Cell differentiation model from \cite{puniya2018mechanistic}, available at \cite{ModelCellCollective}.}
+	\label{fig:boolean-formulas}
+\end{figure}
+

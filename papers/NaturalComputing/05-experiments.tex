@@ -6,28 +6,16 @@ Here we consider three larger case studies of increasing complexity, whose RS sp
 
 \subsection{T cell differentiation analysis}
 
-The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing  biological entities that are responsible for reaching certain attractors, with applications to Boolean network models like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
-
+The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing  biological entities that are responsible for reaching certain attractors.
 The main case study considered in~\cite{datamod2023} is the T cell differentiation in the immune system, a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
 % it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
 The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive. %Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
 For readers' convenience, all Boolean update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
-The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
+%The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
-
-\medskip\noindent\textbf{Features of interest.}
-- Boolean networks analysis
-- reactions with both reactants and inhibitors
-- nondeterministic persistent contexts
-- rechability and causal analysis
-
-
-Roughly, BioReSolve is used to translate Boolean network models to RS specifications and to derive its LTS according to any combination of persistent stimuli that can be provided by the context. Each combination inevitably leads to a looping behaviour (called attractors). Then, the Python script conducts an analysis of the attractors w.r.t. some given \emph{target} entities, and the slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those  target entities. 
-
-
-
-
-
+T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression of the four transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
+The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype) is denoted as Th0.
+There exists experimental evidence that a T cell can express more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other combinations of phenotypes, that might include three or even four of them. 
 
 \begin{figure}[t]
 	\begin{center}
@@ -37,13 +25,12 @@ Roughly, BioReSolve is used to translate Boolean network models to RS specificat
 	\label{fig:model-graph}
 \end{figure}
 
+\medskip\noindent\textbf{Features of interest.}
+We have selected this case study because it extend the scope of our technique for making it applicable to Boolean networks models, like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
+For these models, the most relevant viewpoints are often reachability (e.g., reachable phenotypes) and causality (effect of environmental conditions) analyses.
+Their corresponding RSs are concerned just with a special kind of nondeterministic persistent contexts, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, leading inevitably the RS to exhibit a looping behaviour (called attractor).
 
-
-T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression of the four transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
-The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype) is denoted as Th0.
-There exists experimental evidence that a T cell can express more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other combinations of phenotypes, that might include three or even four of them. 
-
-
+\medskip\noindent\textbf{Experimental set up.}
 The translation from Boolean networks to RS is be done by turning every Boolean updates into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the Boolean update formula for IL12R is
 
 \begin{footnotesize}
@@ -103,35 +90,51 @@ which yields the four reactions:
 %\label{fig:RS-reactions}
 %\end{figure}
 
-Finally, the RS context chooses in a non-deterministic way the set of environmental stimuli that will persist, i.e., we take the parallel composition of all the following processes:
+The RS context chooses in a non-deterministic way the set of environmental stimuli that will persist, i.e., for each possible stimulus $s$ we define the context processes
 \[
 \begin{array}{rllrll}
-\mathsf{X1} & \triangleq & \{\mathsf{TGFb}\}.\mathsf{X11} + \mathsf{Emp} &\quad
-\mathsf{X11} & \triangleq & \{\mathsf{TGFb}\}.\mathsf{X11}\\
-\mathsf{X2} & \triangleq & \{\mathsf{IL23}\}.\mathsf{X21} + \mathsf{Emp} &\quad
-\mathsf{X21} & \triangleq & \{\mathsf{IL23}\}.\mathsf{X21}\\
-\mathsf{X3} & \triangleq & \{\mathsf{IL12}\}.\mathsf{X31} + \mathsf{Emp} &\quad
-\mathsf{X31} & \triangleq & \{\mathsf{IL12}\}.\mathsf{X31}\\
-\mathsf{X4} & \triangleq & \{\mathsf{IL18}\}.\mathsf{X41} + \mathsf{Emp} &\quad
-\mathsf{X41} & \triangleq & \{\mathsf{IL18}\}.\mathsf{X41}\\
-\mathsf{X5} & \triangleq & \{\mathsf{IL4e}\}.\mathsf{X51} + \mathsf{Emp} &\quad
-\mathsf{X51} & \triangleq & \{\mathsf{IL4e}\}.\mathsf{X51}\\
-\mathsf{X6} & \triangleq & \{\mathsf{IL27}\}.\mathsf{X61} + \mathsf{Emp} &\quad
-\mathsf{X61} & \triangleq & \{\mathsf{IL27}\}.\mathsf{X61}\\
-\mathsf{X7} & \triangleq & \{\mathsf{IL6e}\}.\mathsf{X71} + \mathsf{Emp} &\quad
-\mathsf{X71} & \triangleq & \{\mathsf{IL6e}\}.\mathsf{X71}\\
-\mathsf{X8} & \triangleq & \{\mathsf{IFNge}\}.\mathsf{X81} + \mathsf{Emp} &\quad
-\mathsf{X81} & \triangleq & \{\mathsf{IFNge}\}.\mathsf{X81}\\
-\mathsf{X9} & \triangleq & \{\mathsf{TCR}\}.\mathsf{X91} + \mathsf{Emp} &\quad
-\mathsf{X91} & \triangleq & \{\mathsf{TCR}\}.\mathsf{X91}\\
+\mathsf{X}_s & \triangleq & \{s\}.\mathsf{X}'_s + \mathsf{Emp} &\quad
+\mathsf{X}'_s & \triangleq & \{\mathsf{s}\}.\mathsf{X}'_s
 \end{array}
 \]
+and then we compose all $\mathsf{X}_s$  in parallel (for all $s$).
+%\[
+%\begin{array}{rllrll}
+%\mathsf{X1} & \triangleq & \{\mathsf{TGFb}\}.\mathsf{X11} + \mathsf{Emp} &\quad
+%\mathsf{X11} & \triangleq & \{\mathsf{TGFb}\}.\mathsf{X11}\\
+%\mathsf{X2} & \triangleq & \{\mathsf{IL23}\}.\mathsf{X21} + \mathsf{Emp} &\quad
+%\mathsf{X21} & \triangleq & \{\mathsf{IL23}\}.\mathsf{X21}\\
+%\mathsf{X3} & \triangleq & \{\mathsf{IL12}\}.\mathsf{X31} + \mathsf{Emp} &\quad
+%\mathsf{X31} & \triangleq & \{\mathsf{IL12}\}.\mathsf{X31}\\
+%\mathsf{X4} & \triangleq & \{\mathsf{IL18}\}.\mathsf{X41} + \mathsf{Emp} &\quad
+%\mathsf{X41} & \triangleq & \{\mathsf{IL18}\}.\mathsf{X41}\\
+%\mathsf{X5} & \triangleq & \{\mathsf{IL4e}\}.\mathsf{X51} + \mathsf{Emp} &\quad
+%\mathsf{X51} & \triangleq & \{\mathsf{IL4e}\}.\mathsf{X51}\\
+%\mathsf{X6} & \triangleq & \{\mathsf{IL27}\}.\mathsf{X61} + \mathsf{Emp} &\quad
+%\mathsf{X61} & \triangleq & \{\mathsf{IL27}\}.\mathsf{X61}\\
+%\mathsf{X7} & \triangleq & \{\mathsf{IL6e}\}.\mathsf{X71} + \mathsf{Emp} &\quad
+%\mathsf{X71} & \triangleq & \{\mathsf{IL6e}\}.\mathsf{X71}\\
+%\mathsf{X8} & \triangleq & \{\mathsf{IFNge}\}.\mathsf{X81} + \mathsf{Emp} &\quad
+%\mathsf{X81} & \triangleq & \{\mathsf{IFNge}\}.\mathsf{X81}\\
+%\mathsf{X9} & \triangleq & \{\mathsf{TCR}\}.\mathsf{X91} + \mathsf{Emp} &\quad
+%\mathsf{X91} & \triangleq & \{\mathsf{TCR}\}.\mathsf{X91}\\
+%\end{array}
+%\]
+Correspondingly, in the case study, the LTS has an initial branching into $2^9$ different states, because there are $9$ possible stimulus to be considered. Subsequently, a deterministic computation will start, leading to some attractors. 
 
-Correspondingly, the LTS has an initial branching into $2^9$ different states, each being the start of a deterministic computation that leads to some attractors. 
-BioReSolve returns the LTS as a graph in dot format, which is then loaded by a Python script. The analysis is performed by considering different \emph{targets} corresponding to the different combinations of phenotypes that a T cell can express (hence, $2^4=16$ targets overall).
-Then, attractors related with a target of interest are identified by looking for cycles in the LTS. 
-For example, for the target containing the combination of transcription factors $\{\mathsf{Tbet},\mathsf{GATA3}\}$, we select the attractors that include at least one state in which Tbet is present, at least one state (possibly the same) in which GATA3 is present, and no state in which either RORgt or Foxp3 are present.
-Each of these targeted attractors is reachable due to a different choice of environmental stimuli in the first step. Thus, the collection of all those choices determine, for each target, which combinations of stimuli lead to it. 
+\medskip\noindent\textbf{Analysis goals.}
+The reachability analysis must take into account the different combinations of phenotypes that a T cell can express, called a \emph{target} (hence, $2^4=16$ targets overall).
+For example, for the target containing the combination of transcription factors $\{\mathsf{Tbet},\mathsf{GATA3}\}$, we must select an attractor that includes at least one state in which Tbet is present, at least one state (possibly the same) in which GATA3 is present, and no state in which either RORgt or Foxp3 are present. 
+The causal analysis aims to collect the combinations of environmental stimuli that are responsible for leading to that target.
+
+\medskip\noindent\textbf{Previous approach.}
+Roughly, BioReSolve is used to translate Boolean network models to RS specifications and to derive its LTS according to any combination of persistent stimuli that can be provided by the context. BioReSolve returns the LTS as a graph in dot format, which is then loaded by a Python script. Then, attractors related with a target of interest are identified by looking for cycles in the LTS, and a slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those target entities. 
+The generation of the LTS is often the bottleneck of the approach, both in terms of time (Prolog performance), but also in terms of space, because BioReSolve can require to allocate a large stack limit size to succeed. 
+
+% 
+%Finally, the results of slicing analysis are summarized in Figure \ref{fig:slicing-result}, where it is possibile to see, for each target, which internal genes are \emph{strictly necessary} and which are somehow \emph{relevant} for the expression of the transcription factor of the target. 
+%
+%Each combination inevitably leads to a looping behaviour (called attractors). Then, the Python script conducts an analysis of the attractors w.r.t. some given \emph{target} entities, and the slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those  target entities. 
 
 %In Table \ref{tab:context-count} we report the number of different contexts (choices of environmental stimuli) that lead to each target. The table shows only targets that can be reached, and they result to be those in which only one transcription factor is expressed, and those in which Tbet is expressed together with another transcription factor. For each target, the contexts leading to it are summarized in the table by a Boolean formula, while in Figure \ref{fig:input-composition} they are depicted graphically. 
 %
@@ -186,15 +189,15 @@ Each of these targeted attractors is reachable due to a different choice of envi
 %\end{table}
 %
 
-In the end, it is shown that 248 contexts (out of 512) lead to the expression of at least one of the four transcription factors under study, with Tbet, corresponding to phenotype Th1, being expressed in the majority of the cases (152 out of 248), half of the times in combination with another transcription factor.
-% (in 76 cases out of 152). 
-%Also Foxp3 is often expressed (in 96 cases out of 248), while RORgt and GATA3 are less frequent (64 and 12 cases, respectively).
-Moreover, it is observed that:
-\begin{itemize}
-	\item TCR has to be present in order to express any of the phenotypes
-	\item IL23R and IL18R do not contribute to determine any of the phenotypes
-	\item The presence of TGFb mostly discriminates between the expression of either Foxp3/RORgt or tbet/GATA3.
-\end{itemize}
+%In the end, it is shown that 248 contexts (out of 512) lead to the expression of at least one of the four transcription factors under study, with Tbet, corresponding to phenotype Th1, being expressed in the majority of the cases (152 out of 248), half of the times in combination with another transcription factor.
+%% (in 76 cases out of 152). 
+%%Also Foxp3 is often expressed (in 96 cases out of 248), while RORgt and GATA3 are less frequent (64 and 12 cases, respectively).
+%Moreover, it is observed that:
+%\begin{itemize}
+%	\item TCR has to be present in order to express any of the phenotypes
+%	\item IL23R and IL18R do not contribute to determine any of the phenotypes
+%	\item The presence of TGFb mostly discriminates between the expression of either Foxp3/RORgt or tbet/GATA3.
+%\end{itemize}
 
 
 %\begin{figure}[t]
@@ -233,7 +236,6 @@ Moreover, it is observed that:
 %\end{verbatim} 
 %\normalsize
 
-Finally, the results of slicing analysis are summarized in Figure \ref{fig:slicing-result}, where it is possibile to see, for each target, which internal genes are \emph{strictly necessary} and which are somehow \emph{relevant} for the expression of the transcription factor of the target. 
 %We remark that this is a form of causality analysis: for example, one gene that results to be necessary may cause the execution of a chain of reactions leading after some steps to the expression of one of the target transcription factors.
 %
 %Once necessary and relevant genes for one target are identified, we can look for them in the results of the analysis conducted for the other targets. This leads to a notion of \emph{specificity} that is very important. For example, a gene that is necessary for the expression of a phenotype and that is not relevant for the expression of the other phenotypes (i.e., it is highly specific) is a perfect candidate as a target for a drug aimed at inhibiting the expression of its phenotype.
@@ -255,3 +257,16 @@ Finally, the results of slicing analysis are summarized in Figure \ref{fig:slici
 %\end{itemize}
 %
 %This analysis contributes to the understanding of the behaviour of the model, to correct it in case some mistakes are identified and to use it for identifying drug targets. We discussed the relation with other approaches in the literature.
+
+\medskip\noindent\textbf{GROOVE experimentation.}
+
+TO BE COMPLETED
+
+
+
+
+
+
+
+
+

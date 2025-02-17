@@ -1,0 +1,14 @@
+digraph G {
+
+node [shape=box, style="filled, rounded"]
+edge [arrowhead = vee]
+
+"k;ket;0" [ label = "k;ket;0", fillcolor=white];
+"k;ket;erk12;p70s6k;pkca;plcg" [ label = "k;ket;erk12;p70s6k;pkca;plcg", fillcolor=white];
+"k;ket;erk12;plcg" [ label = "k;ket;erk12;plcg", fillcolor=white];
+
+"k;ket;erk12;p70s6k;pkca;plcg" -> "k;ket;erk12;p70s6k;pkca;plcg" [ label = "e;egf;hrg;t" ];
+"k;ket;erk12;plcg" -> "k;ket;erk12;p70s6k;pkca;plcg" [ label = "e;egf;hrg;t" ];
+"k;ket;0" -> "k;ket;erk12;plcg" [ label = "e;egf;hrg;t" ];
+
+}

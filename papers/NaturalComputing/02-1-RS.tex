@@ -1,6 +1,6 @@
 % !TEX root =  ./main.tex
 
-\subsection{Reaction Systems with Guarded Contexts}\label{sec:RS}
+\subsection{RSs with Guarded Contexts}\label{sec:RS}
 
 First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}. 
 
@@ -48,10 +48,11 @@ the nil context $\nil$ that stops the computation;
 the guarded context $(R,I,C).\mathsf{K}$ that makes the entities $C$ available to the reactions if the reactants $R$ are present and the inhibitors $I$ are absent, and then will behave as $\mathsf{K}$ at the next step;
 the non-deterministic choice $\mathsf{K}_1+\mathsf{K}_2$ that can behave as either  $\mathsf{K}_1$ or $\mathsf{K}_2$;  
 the context identifier $X$ that behaves as $\mathsf{K}$ for $X=\mathsf{K}\in \Delta$.
-We write $C.\mathsf{K}$ as a shorthand for the trivially guarded process $(\emptyset,\emptyset,C).\mathsf{K}$ and we assume the trivial recursive process $\mathsf{Emp}=\emptyset.\mathsf{Emp}$ is always available.
+We write $C.\mathsf{K}$ as a shorthand for the trivially guarded process $(\emptyset,\emptyset,C).\mathsf{K}$ and we assume the recursive context $\mathsf{Emp}=\emptyset.\mathsf{Emp}$ is always defined.
 
 
 We say that $\mathsf{P}$ and $\mathsf{P}'$ are structurally equivalent, written $\mathsf{P} \equiv \mathsf{P}'$, when they denote the same term up to the laws of Abelian monoids (unit, associativity and commutativity) for  parallel composition $\cdot | \cdot$, with $\emptyset$ as the unit, and the laws of idempotent Abelian monoids for choice $\cdot +\cdot$, with $\nil$ as the unit. We also assume $D_1 | D_2 \equiv D_1\cup D_2$ for any $D_1,D_2\subseteq S$.
+Indexed sums and parallel compositions are denoted, respectively, by $\sum_{i\in I} \mathsf{K}_i$ and $\prod_{i\in I} \mathsf{M}_i$.
 
 The SOS semantics of  RS processes is defined by the SOS rules in Fig.~\ref{fig:guardforRS2nd}.
 A transition label $\ell$, written $\obs{\obs{D}{R',I',C}}{R,I,P}$, records:

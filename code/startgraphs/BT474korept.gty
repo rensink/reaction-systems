@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph role="type" edgeids="false" edgemode="directed" id="type">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="Token">
+        </node>
+        <edge from="Token" to="Token">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="Token" to="Token">
+            <attr name="label">
+                <string>type:Token</string>
+            </attr>
+        </edge>
+        <node id="State">
+        </node>
+        <edge from="State" to="State">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="State" to="State">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
+        <node id="Step">
+        </node>
+        <edge from="Step" to="Step">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
+        <node id="Rule">
+        </node>
+        <edge from="Rule" to="Rule">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="Rule" to="Rule">
+            <attr name="label">
+                <string>type:Rule</string>
+            </attr>
+        </edge>
+        <node id="Entity">
+        </node>
+        <edge from="Entity" to="Entity">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="Entity" to="Entity">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <node id="Reaction">
+        </node>
+        <edge from="Reaction" to="Reaction">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <node id="RInstance">
+        </node>
+        <edge from="RInstance" to="RInstance">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="RInstance" to="RInstance">
+            <attr name="label">
+                <string>type:RInstance</string>
+            </attr>
+        </edge>
+        <node id="EInstance">
+        </node>
+        <edge from="EInstance" to="EInstance">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="EInstance" to="EInstance">
+            <attr name="label">
+                <string>type:EInstance</string>
+            </attr>
+        </edge>
+        <edge from="Token" to="State">
+            <attr name="label">
+                <string>current</string>
+            </attr>
+        </edge>
+        <edge from="State" to="Step">
+            <attr name="label">
+                <string>next</string>
+            </attr>
+        </edge>
+        <edge from="Step" to="State">
+            <attr name="label">
+                <string>move</string>
+            </attr>
+        </edge>
+        <edge from="Step" to="Rule">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="Rule" to="Entity">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="Rule" to="Entity">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="Rule" to="Entity">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="Reaction" to="Rule">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="RInstance" to="Reaction">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="RInstance" to="EInstance">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="RInstance" to="EInstance">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="EInstance" to="Entity">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="Rule" to="Rule">
+            <attr name="label">
+                <string>flag:fired</string>
+            </attr>
+        </edge>
+        <edge from="EInstance" to="EInstance">
+            <attr name="label">
+                <string>flag:last</string>
+            </attr>
+        </edge>
+        <edge from="Entity" to="Entity">
+            <attr name="label">
+                <string>flag:present</string>
+            </attr>
+        </edge>
+        <node id="akt">
+        </node>
+        <edge from="akt" to="akt">
+            <attr name="label">
+                <string>type:akt</string>
+            </attr>
+        </edge>
+        <edge from="akt" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="e">
+        </node>
+        <edge from="e" to="e">
+            <attr name="label">
+                <string>type:e</string>
+            </attr>
+        </edge>
+        <edge from="e" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="egf">
+        </node>
+        <edge from="egf" to="egf">
+            <attr name="label">
+                <string>type:egf</string>
+            </attr>
+        </edge>
+        <edge from="egf" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="erbb1">
+        </node>
+        <edge from="erbb1" to="erbb1">
+            <attr name="label">
+                <string>type:erbb1</string>
+            </attr>
+        </edge>
+        <edge from="erbb1" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="erbb2">
+        </node>
+        <edge from="erbb2" to="erbb2">
+            <attr name="label">
+                <string>type:erbb2</string>
+            </attr>
+        </edge>
+        <edge from="erbb2" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="erbb3">
+        </node>
+        <edge from="erbb3" to="erbb3">
+            <attr name="label">
+                <string>type:erbb3</string>
+            </attr>
+        </edge>
+        <edge from="erbb3" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="erk12">
+        </node>
+        <edge from="erk12" to="erk12">
+            <attr name="label">
+                <string>type:erk12</string>
+            </attr>
+        </edge>
+        <edge from="erk12" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="hrg">
+        </node>
+        <edge from="hrg" to="hrg">
+            <attr name="label">
+                <string>type:hrg</string>
+            </attr>
+        </edge>
+        <edge from="hrg" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="mek12">
+        </node>
+        <edge from="mek12" to="mek12">
+            <attr name="label">
+                <string>type:mek12</string>
+            </attr>
+        </edge>
+        <edge from="mek12" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="mtor">
+        </node>
+        <edge from="mtor" to="mtor">
+            <attr name="label">
+                <string>type:mtor</string>
+            </attr>
+        </edge>
+        <edge from="mtor" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="p">
+        </node>
+        <edge from="p" to="p">
+            <attr name="label">
+                <string>type:p</string>
+            </attr>
+        </edge>
+        <edge from="p" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="p70s6k">
+        </node>
+        <edge from="p70s6k" to="p70s6k">
+            <attr name="label">
+                <string>type:p70s6k</string>
+            </attr>
+        </edge>
+        <edge from="p70s6k" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="pdk1">
+        </node>
+        <edge from="pdk1" to="pdk1">
+            <attr name="label">
+                <string>type:pdk1</string>
+            </attr>
+        </edge>
+        <edge from="pdk1" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="pkca">
+        </node>
+        <edge from="pkca" to="pkca">
+            <attr name="label">
+                <string>type:pkca</string>
+            </attr>
+        </edge>
+        <edge from="pkca" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="plcg">
+        </node>
+        <edge from="plcg" to="plcg">
+            <attr name="label">
+                <string>type:plcg</string>
+            </attr>
+        </edge>
+        <edge from="plcg" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="t">
+        </node>
+        <edge from="t" to="t">
+            <attr name="label">
+                <string>type:t</string>
+            </attr>
+        </edge>
+        <edge from="t" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>

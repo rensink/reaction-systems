@@ -1,0 +1,60 @@
+digraph G {
+
+node [shape=box, style="filled, rounded"]
+edge [arrowhead = vee]
+
+"k;korept;0" [ label = "k;korept;0", fillcolor=white];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" [ label = "k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg", fillcolor=white];
+"k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg", fillcolor=white];
+"k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg" [ label = "k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg", fillcolor=white];
+"k;korept;erbb1;erbb3;erk12;plcg" [ label = "k;korept;erbb1;erbb3;erk12;plcg", fillcolor=white];
+"k;korept;erk12;mtor;p70s6k;pkca;plcg" [ label = "k;korept;erk12;mtor;p70s6k;pkca;plcg", fillcolor=white];
+"k;korept;erk12;mtor;plcg" [ label = "k;korept;erk12;mtor;plcg", fillcolor=white];
+"k;korept;erk12;p70s6k;pkca;plcg" [ label = "k;korept;erk12;p70s6k;pkca;plcg", fillcolor=white];
+"k;korept;erk12;plcg" [ label = "k;korept;erk12;plcg", fillcolor=white];
+
+"k;korept;erk12;p70s6k;pkca;plcg" -> "k;korept;erk12;p70s6k;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;erk12;p70s6k;pkca;plcg" -> "k;korept;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;erk12;p70s6k;pkca;plcg" -> "k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;erk12;plcg" -> "k;korept;erk12;p70s6k;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;erk12;plcg" -> "k;korept;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;erk12;plcg" -> "k;korept;erbb1;erbb3;erk12;p70s6k;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;erk12;mtor;plcg" -> "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;erk12;mtor;plcg" -> "k;korept;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;erk12;mtor;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mtor;p70s6k;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;erbb1;erbb3;erk12;plcg" -> "k;korept;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;korept;erbb1;erbb3;erk12;plcg" -> "k;korept;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;p" ];
+"k;korept;erbb1;erbb3;erk12;plcg" -> "k;korept;akt;erbb1;erbb3;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg;t" ];
+"k;korept;0" -> "k;korept;erk12;plcg" [ label = "e;egf;hrg" ];
+"k;korept;0" -> "k;korept;erk12;mtor;plcg" [ label = "egf;hrg;p" ];
+"k;korept;0" -> "k;korept;erbb1;erbb3;erk12;plcg" [ label = "egf;hrg;t" ];
+
+}

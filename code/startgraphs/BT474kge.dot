@@ -1,0 +1,18 @@
+digraph G {
+
+node [shape=box, style="filled, rounded"]
+edge [arrowhead = vee]
+
+"k;kge;0" [ label = "k;kge;0", fillcolor=white];
+"k;kge;akt;erbb1;erbb2;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "k;kge;akt;erbb1;erbb2;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;kge;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "k;kge;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;kge;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "k;kge;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg", fillcolor=white];
+"k;kge;erbb1;erbb2;erbb3;erk12;plcg" [ label = "k;kge;erbb1;erbb2;erbb3;erk12;plcg", fillcolor=white];
+
+"k;kge;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;kge;akt;erbb1;erbb2;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg" ];
+"k;kge;akt;erbb1;erbb2;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" -> "k;kge;akt;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;kge;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" -> "k;kge;akt;erbb1;erbb2;erbb3;erk12;mek12;mtor;p70s6k;pdk1;pkca;plcg" [ label = "egf;hrg" ];
+"k;kge;erbb1;erbb2;erbb3;erk12;plcg" -> "k;kge;akt;erk12;mek12;p70s6k;pdk1;pkca;plcg" [ label = "e;egf;hrg" ];
+"k;kge;0" -> "k;kge;erbb1;erbb2;erbb3;erk12;plcg" [ label = "egf;hrg" ];
+
+}

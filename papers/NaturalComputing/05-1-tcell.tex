@@ -3,13 +3,10 @@
 
 \subsection{T cell differentiation analysis}
 
-The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing  biological entities that are responsible for reaching certain attractors.
-The main case study considered in~\cite{datamod2023} is the T cell differentiation in the immune system, a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
+The paper~\cite{datamod2023} analyses T cell differentiation in the immune system, a widely studied biological phenomenon, using Reactive Systems. The starting point for the analysis is a Boolean network model; several of those are available as a \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
 % it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
 
-The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive; all the other nodes have an associated Boolean update formula that specifies when they are triggered. 
-%Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
-For the readers' convenience, all update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
+The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive; all the other nodes have an associated Boolean update formula that specifies when they are triggered. For the readers' convenience, all update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
 %The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
 T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression\todo{A: In this context, is ``expression'' the same as ``occurrence''?} of the four transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
@@ -30,6 +27,7 @@ For these models, the most relevant viewpoints are often reachability (e.g., whi
 Their corresponding RSs always use a special kind of nondeterministic persistent contexts, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, inevitably causing the RS to end up in a loop (called an attractor).
 
 \subparagraph*{Experimental set up.}
+
 The translation from Boolean networks to RS consists in turning every update formula into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the update formula for \texttt{IL12R} is
 %
 \begin{small}
@@ -129,7 +127,7 @@ For example, for the target containing the combination of transcription factors 
 The causal analysis aims to collect the combinations of environmental stimuli that are responsible for leading to that target.
 
 \subparagraph*{Previous approach.}
-Roughly, BioReSolve is used to translate Boolean network models to RS specifications and to derive its LTS according to any combination of persistent stimuli that can be provided by the context. BioReSolve returns the LTS as a graph in dot format, which is then loaded by a Python script. Then, attractors related with a target of interest are identified by looking for cycles in the LTS, and a slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those target entities. 
+The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) to study the Boolean network model. Roughly, BioReSolve is used to translate Boolean network models to RS specifications\todo{A: Is that translation really done within BioResolve?} and to derive its LTS according to any combination of persistent stimuli that can be provided by the context. BioReSolve returns the LTS as a graph in dot format, which is then loaded by a Python script. Then, attractors related with a target of interest are identified by looking for cycles in the LTS, and a slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those target entities. 
 The generation of the LTS is often the bottleneck of the approach, both in terms of time (Prolog performance), but also in terms of space, because BioReSolve can require to allocate a large stack limit size to succeed. 
 
 % 

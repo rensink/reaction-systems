@@ -4,28 +4,29 @@
 \subsection{T cell differentiation analysis}
 
 The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing  biological entities that are responsible for reaching certain attractors.
-The main case study considered in~\cite{datamod2023} is the T cell differentiation in the immune system, a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
+The main case study considered in~\cite{datamod2023} is the T cell differentiation in the immune system, a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
 % it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
-The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive. %Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
-For readers' convenience, all Boolean update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
+The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive; all the other nodes have an associated Boolean update formula that specifies when they are triggered. 
+%Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
+For the readers' convenience, all update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
 %The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
 T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression of the four transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
-The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype) is denoted as Th0.
-There exists experimental evidence that a T cell can express more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other combinations of phenotypes, that might include three or even four of them. 
+The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype is exhibited) is denoted as Th0.
+There exists experimental evidence that a T cell can express more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other\todo{A: other than what?} combinations of phenotypes, that might include three or even four of them. 
 
 \begin{figure}[t]
 	\begin{center}
-		\includegraphics[width=0.49\textwidth]{figs-datamod2023/Tcell-graph-8set23.png}
+		\includegraphics[width=\columnwidth]{figs-datamod2023/Tcell-graph-8set23.png}
 	\end{center}
 	\caption{Graphical representation of the Boolean network model of T Cell differentiation from \cite{puniya2018mechanistic}.}
 	\label{fig:model-graph}
 \end{figure}
 
 \subparagraph*{Features of interest.}
-We have selected this case study because it extend the scope of our technique for making it applicable to Boolean networks models, like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
-For these models, the most relevant viewpoints are often reachability (e.g., reachable phenotypes) and causality (effect of environmental conditions) analyses.
-Their corresponding RSs are concerned just with a special kind of nondeterministic persistent contexts, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, leading inevitably the RS to exhibit a looping behaviour (called attractor).
+We have selected this case study because it extends the scope of our technique by making it applicable to Boolean networks models, like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
+For these models, the most relevant viewpoints are often reachability (e.g., which phenotypes are reachable?) and causality (what is the effect of environmental conditions?) analyses.
+Their corresponding RSs always use a special kind of nondeterministic persistent contexts, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, inevitably leading the RS to end up in a loop (called an attractor).
 
 \subparagraph*{Experimental set up.}
 The translation from Boolean networks to RS consists in turning every update formula into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the update formula for IL12R is
@@ -87,7 +88,7 @@ which yields the four reactions:
 %\label{fig:RS-reactions}
 %\end{figure}
 
-The RS context can choose any combination of environmental stimuli that will persist, i.e., for each possible stimulus $s$ we define the context processes
+The RS context can choose any combination of environmental stimuli that will then persist, i.e., for each possible stimulus $s$ we define the context processes
 \[
 \begin{array}{rllrll}
 \mathsf{X}_s & \triangleq & \{\mathsf{s}\}.\mathsf{X}'_s + \mathsf{Emp} &\quad

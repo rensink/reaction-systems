@@ -5,9 +5,7 @@
 First, we briefly account for the classical set theoretic definition of Reaction Systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07}. Then, we focus on their process algebraic version~\cite{DBLP:journals/tcs/BrodoBF21} and its further extension with guarded contexts in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}. 
 
 
-\medskip
-\noindent
-\textbf{RS basics.}
+\subparagraph*{RS basics.}
 A Reaction System is a pair ${\cal A} = (S, A)$, where $S$ is the finite set of \emph{entities}, and $A$ is a finite set of \emph{reactions} of the form $a = (R,I,P)$, with $R, I, P\subseteq S$ and $R \cap I = \emptyset$. 
 The sets $R, I, P$ are the sets of \emph{reactants}, \emph{inhibitors}, and  \emph{products}, respectively. 
 Without loss of generality, we admit the use of empty sets as reactants or inhibitors.
@@ -20,9 +18,7 @@ The result of all reactions $A$ on the current state $W$, is the union of the re
 The no-permanency principle of RSs dictates that entities disappear if not sustained by some reaction.
 Thus, the current state $W=D\cup C$ is determined by the result $D$ of all reactions on the previous state, together with some additional entities $C$ that can be provided by the \emph{context} at each step. 
 
-\medskip
-\noindent
-\textbf{Process algebraic RSs and guarded contexts.}
+\subparagraph*{Process algebraic RSs and guarded contexts.}
 Inspired by Plotkin's Structural Operational Semantics approach~\cite{DBLP:journals/jlp/Plotkin04a} and process algebras such as CCS~\cite{Milner80}, the key features of the process algebraic version of RSs are compositionality and the ability to account for a quite general notion of context (guarded, nondeterministic, recursive) using a friendly syntax. This way, we derive a Labelled Transition System (LTS) semantics for RSs by means of inductive inference rules, where LTS states are terms of an algebra, each transition defines a computation step of the RS and its label records the entities involved in that step.
 
 \begin{definition}[RS processes]\label{def:LTSforRS}

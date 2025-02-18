@@ -6,13 +6,13 @@
 The paper~\cite{datamod2023} presented a toolchain (BioReSolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) for exposing  biological entities that are responsible for reaching certain attractors.
 The main case study considered in~\cite{datamod2023} is the T cell differentiation in the immune system, a widely studied biological phenomenon for which several Boolean network models are available \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
 % it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
-The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive. %Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
+The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive; all the other nodes have an associated Boolean update formula that specifies when they are triggered.\todo{A: Rephrased; please check for terminology}. %Then, it contains 23 nodes for relevant T cell genes, and 6 nodes for secreted cytokines.
 For readers' convenience, all Boolean update formulas are reported in Fig.~\ref{fig:boolean-formulas} in the Appendix. 
 %The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
-T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression of the four transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
-The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype) is denoted as Th0.
-There exists experimental evidence that a T cell can express more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other combinations of phenotypes, that might include three or even four of them. 
+T cells can exhibit four phenotypes, Th1, Th2, Th17 and iTreg, represented by the expression\todo{A: In this context, is ``expression'' the same as ``occurrence''?} of the transcription factors Tbet, GATA3, RORgt and Foxp3, respectively.
+The case in which none of these four transcription factors is expressed (i.e., no phenotype) is denoted as Th0.
+There exists experimental evidence that a T cell can express\todo{``express'' $\rightarrow$ ``exhibit''?} more than one phenotype \cite{luckheeram2012cd4+} and the computational analysis performed in \cite{puniya2018mechanistic} suggests that T cells may express also other\todo{A: other than what?} combinations of phenotypes, that might include three or even four of them. 
 
 \begin{figure}[t]
 	\begin{center}
@@ -25,29 +25,30 @@ There exists experimental evidence that a T cell can express more than one pheno
 \subparagraph*{Features of interest.}
 We have selected this case study because it extend the scope of our technique for making it applicable to Boolean networks models, like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
 For these models, the most relevant viewpoints are often reachability (e.g., reachable phenotypes) and causality (effect of environmental conditions) analyses.
-Their corresponding RSs are concerned just with a special kind of nondeterministic persistent contexts, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, leading inevitably the RS to exhibit a looping behaviour (called attractor).
+Their corresponding RSs are concerned just with a special kind of nondeterministic persistent context, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, inevitably causing the RS to end up in a loop (called an attractor).
 
 \subparagraph*{Experimental set up.}
-The translation from Boolean networks to RS consists in turning every update formula into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the update formula for IL12R is
-
-\begin{footnotesize}
+The translation from Boolean networks to RS consists in turning every update formula into disjunctive normal form. Then, every clause of the disjunction produces a reaction in which (i) reactants are the positive atoms, (ii) inhibitors are the negated atoms and (iii) the updated variable forms a singleton product. For example, the update formula for \texttt{IL12R} is
+%
+\begin{small}
 \[
- \mathtt{IL12R} = (\mathtt{IL12} \& \mathtt{NFAT})~|~(\mathtt{STAT4} \& \neg \mathtt{GATA3})~|~ \mathtt{Tbet}~|~(\mathtt{TCR} \& \neg \mathtt{GATA3})
+ (\mathtt{IL12} \& \mathtt{NFAT})~|~(\mathtt{STAT4} \& \neg \mathtt{GATA3})~|~ \mathtt{Tbet}~|~(\mathtt{TCR} \& \neg \mathtt{GATA3})
 \]
-\end{footnotesize}
-
-\noindent
+\end{small}
+%
 which yields the four reactions:
-
-\begin{footnotesize}
+%
+\begin{small}
 \[
-\begin{array}{ccc}
-(\{\mathrm{IL12},\mathrm{NFAT}\},\emptyset,\{\mathrm{IL12R}\}) & \quad & (\{\mathrm{STAT4}\},\{\mathrm{GATA3}\},\{\mathrm{IL2R}\}) \\
-(\{\mathrm{Tbet}\},\emptyset,\{\mathrm{IL12R}\}) &  \quad & (\{\mathrm{TCR}\},\{\mathrm{GATA3}\},\{\mathrm{IL12R}\}) \\ 
+\begin{array}{c@{{\quad}}c}
+\mathtt{(\{IL12,NFAT\},\emptyset,\{IL12R\})}
+ & \mathtt{(\{STAT4\},\{GATA3\},\{IL2R\})} \\
+\mathtt{(\{Tbet\},\emptyset,\{IL12R\})}
+ & \mathtt{(\{TCR\},\{GATA3\},\{IL12R\})} \\ 
 \end{array} 
 \]
-\end{footnotesize}
-
+\end{small}
+%
 %The RS model of T cell differentiation obtained from the translation of the Boolean model is given in Fig. \ref{fig:RS-reactions}.
 %
 %\begin{figure}[t]
@@ -86,14 +87,16 @@ which yields the four reactions:
 %\caption{Reactions of the RS model in BioReSolve syntax.}
 %\label{fig:RS-reactions}
 %\end{figure}
-
+%
 The RS context can choose any combination of environmental stimuli that will persist, i.e., for each possible stimulus $s$ we define the context processes
+%
 \[
 \begin{array}{rllrll}
 \mathsf{X}_s & \triangleq & \{\mathsf{s}\}.\mathsf{X}'_s + \mathsf{Emp} &\quad
 \mathsf{X}'_s & \triangleq & \{\mathsf{s}\}.\mathsf{X}'_s
 \end{array}
 \]
+%
 and then take the context $\prod_s \mathsf{X}_s$.
 %\[
 %\begin{array}{rllrll}

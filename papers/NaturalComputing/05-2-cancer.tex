@@ -1,17 +1,20 @@
 % !TEX root =  ./main.tex
 
-\subsection{Protein signaling networks analysis}
+\subsection{Protein Signaling Networks Analysis}
 
-The paper~\cite{DBLP:conf/cmsb/BallisBFO24} encodes RSs into the Maude ecosystem\footnote{\url{https://maude.cs.illinois.edu}.}~\cite{DBLP:conf/maude/2007} to take advantage of the built-in LTL and CTL model checker facilities.
+This case was studied in~\cite{DBLP:conf/cmsb/BallisBFO24}, where it was encoded into the Maude ecosystem\footnote{\url{https://maude.cs.illinois.edu}.}~\cite{DBLP:conf/maude/2007} to take advantage of their built-in LTL and CTL model checker facilities. It is based on a biological case study from~\cite{derHeyde2014}, aimed to identify the best drug treatment for three different breast cancer representative cell lines: BT474, SKBR3 and HCC1954. This is achieved by studying the behavior of the protein signaling networks for the HER2-positive breast cancer subtype in the presence of different combinations of monoclonal antibody drugs.
+%The paper~\cite{DBLP:conf/cmsb/BallisBFO24} encodes RSs into the Maude ecosystem\footnote{\url{https://maude.cs.illinois.edu}.}~\cite{DBLP:conf/maude/2007} to take advantage of the built-in LTL and CTL model checker facilities.
 In a nutshell, Maude is a high-performance reflective language and system based on equational and rewriting logic specification. 
-The encoding of RSs is made possible by setting up a specific rewrite theory, called \textbf{ccReact}, which is expressive enough to incorporate reactions and guarded contexts. 
-The approach is then validated on a biological case study taken from~\cite{derHeyde2014}, aimed to identify the best drug treatment for three different breast cancer representative cell lines: BT474, SKBR3 and HCC1954. This is achieved by studying the behavior of the protein signaling networks for the HER2-positive breast cancer subtype in the presence of different combinations of monoclonal antibody drugs. The analysis conducted in~\cite{DBLP:conf/cmsb/BallisBFO24} matches previous findings, and makes it possible to readily inspect new hypotheses.
+The encoding of RSs is made possible by setting up a specific rewrite theory, called \textbf{ccReact}, which is expressive enough to capture the relevant aspects of the protein signaling networks.
+%incorporate reactions and guarded contexts.
+%The approach is then validated on a biological case study taken from~\cite{derHeyde2014}, aimed to identify the best drug treatment for three different breast cancer representative cell lines: BT474, SKBR3 and HCC1954. This is achieved by studying the behavior of the protein signaling networks for the HER2-positive breast cancer subtype in the presence of different combinations of monoclonal antibody drugs.
+The analysis conducted in~\cite{DBLP:conf/cmsb/BallisBFO24} matches previous findings, and makes it possible to readily inspect new hypotheses.
 
 \subparagraph*{Features of interest.}
-Besides reachability analysis, mostly concerned with the possibility to reach certain attractors, the distinguishing feature of this case study is the possibility to model check behavioural specifications written in LTL and CTL, also in the presence of guarded contexts specifications.
+Besides reachability analysis, mostly concerned with the possibility to reach certain attractors, the distinguishing feature of this case study is the possibility to model check RSs against behavioural properties written in LTL and CTL (also in the presence of guarded contexts).
 
 \subparagraph*{Experimental set up.}
-The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from an RSs specification, which is the translated to \textbf{ccReact} and then queried using Maude facilities. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to GROOVE presented in the previous section, i.e., no preprocessing is necessary.
+The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from an RS specification,\todo{How was that obtained?} which is translated to \textbf{ccReact}\todo{How?} and then queried using Maude. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to GROOVE presented in the previous section, i.e., no preprocessing is necessary.
 
 \subparagraph*{Analysis goals.}
 The goal of the analysis is to exploit model checking to validate or refute some behavioural hypotheses of RSs.
@@ -24,4 +27,7 @@ Does there exist at least one path where that treatment is successful?
 Do all paths prevent reaching a steady state in which a AKT is present?
 
 \subparagraph*{GROOVE experimentation.}
-TO BE COMPLETED
+
+Like Maude, GROOVE has built-in model checking capabilities for both LTL and CTL properties; for the purpose of this paper, we included this case study to show the replication of the results of \cite{DBLP:conf/cmsb/BallisBFO24}.
+
+

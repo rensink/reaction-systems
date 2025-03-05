@@ -1,0 +1,22 @@
+digraph G {
+
+node [shape=box, style="filled, rounded"]
+edge [arrowhead = vee]
+
+"e;egf;hrg.korep;0" [ label = "e;egf;hrg.korep;0", fillcolor=white];
+"korep;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "korep;akt;erk12;mtor;p70s6k;pkca;plcg", fillcolor=white];
+"korep;erk12;mtor;p70s6k;pkca;plcg" [ label = "korep;erk12;mtor;p70s6k;pkca;plcg", fillcolor=white];
+"korep;erk12;p70s6k;pkca;plcg" [ label = "korep;erk12;p70s6k;pkca;plcg", fillcolor=white];
+"korep;erk12;plcg" [ label = "korep;erk12;plcg", fillcolor=white];
+
+"korep;erk12;p70s6k;pkca;plcg" -> "korep;erk12;p70s6k;pkca;plcg" [ label = "e" ];
+"korep;erk12;p70s6k;pkca;plcg" -> "korep;erk12;mtor;p70s6k;pkca;plcg" [ label = "p" ];
+"korep;akt;erk12;mtor;p70s6k;pkca;plcg" -> "korep;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "e" ];
+"korep;akt;erk12;mtor;p70s6k;pkca;plcg" -> "korep;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "p" ];
+"korep;erk12;mtor;p70s6k;pkca;plcg" -> "korep;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "e" ];
+"korep;erk12;mtor;p70s6k;pkca;plcg" -> "korep;akt;erk12;mtor;p70s6k;pkca;plcg" [ label = "p" ];
+"korep;erk12;plcg" -> "korep;erk12;p70s6k;pkca;plcg" [ label = "e" ];
+"korep;erk12;plcg" -> "korep;erk12;mtor;p70s6k;pkca;plcg" [ label = "p" ];
+"e;egf;hrg.korep;0" -> "korep;erk12;plcg" [ label = "e;egf;hrg" ];
+
+}

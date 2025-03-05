@@ -9,17 +9,22 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>184 117 61 36</string>
+                <string>183 117 63 36</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Forbidden</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>flag:forbidden</string>
             </attr>
         </edge>
     </graph>

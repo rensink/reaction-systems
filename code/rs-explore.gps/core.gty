@@ -26,7 +26,7 @@
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>616 370 19 19</string>
+                <string>588 352 75 54</string>
             </attr>
         </node>
         <node id="n5">
@@ -109,11 +109,6 @@
                 <string>type:Step</string>
             </attr>
         </edge>
-        <edge from="n3" to="n2">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n3" to="n0">
             <attr name="label">
                 <string>move</string>
@@ -122,9 +117,19 @@
                 <string>210 3 403 492 402 564 238 566 237 490 11</string>
             </attr>
         </edge>
+        <edge from="n3" to="n2">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n4" to="n4">
             <attr name="label">
                 <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>flag:forbidden</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">

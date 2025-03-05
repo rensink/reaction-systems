@@ -9,15 +9,26 @@ search for steady state with the attractor akt when the context provides
 {e, t} at every step
 the name ket stands for k(ontext providing) e and t (at every step)
 
+LTL formulas:
+F(G(akt))
+G(erbb2 -> X(erbb2))
+
+Observation: this is a 2-state process in which erbb2 and akt do not occur
+
 
 BT747korep.xxx files (medium LTS)
 observe the interactions when either e(rlotinib) or p(ertuzumab) drugs
 are supplied, 
-For this process, Maude reports that there Exists at least one path 
-where that treatment is successful, but not All paths avoid a steady 
-state where AKT is present.
-(see modal formula in the paper)
+For this process, Maude reports that 
+(i) there Exists at least one path where that treatment is successful
+(ii) not All paths avoid a steady state where AKT is present.
+(see modal formulas in the paper)
 the name korep stands for k(ontext providing) e op p (at every step)
+
+CTL formulas to encode this property
+-------------------------------
+(i) EF (isSteady ∧ ¬akt) holds
+(ii) AF (isSteady ∧ ¬akt) does not hold
 
 BT747korept.xxx files (larger LTS)
 observe any possible combination of e/p/t drugs at every step
@@ -29,6 +40,14 @@ that PDK1 is a product of the acti- vation of the ErbB-1 receptor).
 (see modal formulas in the paper)
 the name korept stands for k(ontext providing) e op p or t (at every step)
 
+LTL Formulas to encode these properties:
+------------------------------------
+LTL
+(i) G(pdk1 → (FG akt))
+    GROOVE: G(test-entity-present("pdk1") -> (FG test-entity-present("akt")))
+(ii) erbb1 R ¬pdk1 => is equivalent to !(pdk1 U !errb1)
+    GROOVE: 
+
 BT747kge.xxx files (uses guarded contexts)
 by permanently providing the drug e(rlotinib) the attractor AKT is never 
 produced. 
@@ -39,3 +58,7 @@ For that, consider the process that provides e iff erbb1 or erbb2 is present.
 Maude checks that the production of AKT can be also inhibited by providing e(rlotinib) only when receptor ErbB-1 and ErbB-2 are active.
 (see modal formulas in the paper)
 the name kge stands for k(ontext providing) g(uarded) e 
+
+CTL Formula to encode this property
+-------------------------------
+EG EF(io-state → ¬akt)

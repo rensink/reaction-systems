@@ -10,8 +10,8 @@ search for steady state with the attractor akt when the context provides
 the name ket stands for k(ontext providing) e and t (at every step)
 
 LTL formulas:
-F(G(akt))
-G(erbb2 -> X(erbb2))
+F(G(akt)): does not hold (correctly)
+G(erbb2 -> X(erbb2)): holds (correctly)
 
 Observation: this is a 2-state process in which erbb2 and akt do not occur
 
@@ -27,8 +27,8 @@ the name korep stands for k(ontext providing) e op p (at every step)
 
 CTL formulas to encode this property
 -------------------------------
-(i) EF (steady & !akt) holds
-(ii) AF (steady & !akt) does not hold
+(i) EF (steady & !akt) holds (correctly)
+(ii) AF (steady & !akt) does not hold (correctly)
 
 (The EX and AX are there because currently the )
 BT747korept.xxx files (larger LTS)
@@ -44,8 +44,8 @@ the name korept stands for k(ontext providing) e op p or t (at every step)
 LTL Formulas to encode these properties:
 ------------------------------------
 LTL
-(i) G(pdk1 -> (FG akt)) holds
-(ii) erbb1 R !pdk1: holds
+(i) G(pdk1 -> (FG akt)) holds (correctly)
+(ii) erbb1 R !pdk1: holds (correctly)
 
 
 BT747kge.xxx files (uses guarded contexts)
@@ -61,4 +61,4 @@ the name kge stands for k(ontext providing) g(uarded) e
 
 CTL Formula to encode this property
 -------------------------------
-EG EF !akt
+EG EF !akt : does not hold (incorrectly): what are IOStates? The property seems to differ from the one ectually checked by the Maude code (which is F(steady -> !akt))

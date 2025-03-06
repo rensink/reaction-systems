@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="graph" edgeids="false" edgemode="directed" id="toy-reactions">
+    <graph role="graph" edgeids="false" edgemode="directed" id="running.reactions">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -74,14 +74,24 @@
                 <string>type:nomilk</string>
             </attr>
         </edge>
-        <edge from="n5" to="n5">
+        <edge from="n5" to="n1">
             <attr name="label">
-                <string>type:Reaction</string>
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n5" to="n0">
             <attr name="label">
                 <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n2">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:Reaction</string>
             </attr>
         </edge>
         <edge from="n5" to="n4">
@@ -92,19 +102,14 @@
                 <string>658 2 316 132 161 216 11</string>
             </attr>
         </edge>
-        <edge from="n5" to="n1">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n5" to="n2">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n6" to="n6">
             <attr name="label">
                 <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n1">
+            <attr name="label">
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n6" to="n3">
@@ -128,19 +133,14 @@
                 <string>337 6 154 127 161 216 11</string>
             </attr>
         </edge>
-        <edge from="n6" to="n1">
+        <edge from="n7" to="n2">
             <attr name="label">
-                <string>reactant</string>
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
             <attr name="label">
                 <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n7" to="n2">
-            <attr name="label">
-                <string>product</string>
             </attr>
         </edge>
         <edge from="n7" to="n2">

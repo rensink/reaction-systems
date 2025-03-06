@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="graph" edgeids="false" edgemode="directed" id="toy-student">
+    <graph role="graph" edgeids="false" edgemode="directed" id="running.student">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -206,12 +206,12 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:anger</string>
+                <string>let:name="anger"</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>let:name="anger"</string>
+                <string>type:anger</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -221,12 +221,12 @@
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>type:cappuccino</string>
+                <string>let:name="cappuccino"</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>let:name="cappuccino"</string>
+                <string>type:cappuccino</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">
@@ -256,12 +256,12 @@
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>flag:present</string>
+                <string>let:name="cpowder"</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>let:name="cpowder"</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -271,12 +271,12 @@
         </edge>
         <edge from="n5" to="n5">
             <attr name="label">
-                <string>type:espresso</string>
+                <string>let:name="espresso"</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
             <attr name="label">
-                <string>let:name="espresso"</string>
+                <string>type:espresso</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">
@@ -286,12 +286,12 @@
         </edge>
         <edge from="n6" to="n6">
             <attr name="label">
-                <string>type:Forbidden</string>
+                <string>let:name="Forbidden"</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">
             <attr name="label">
-                <string>let:name="Forbidden"</string>
+                <string>type:Forbidden</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
@@ -299,9 +299,9 @@
                 <string>id:getcappuccino</string>
             </attr>
         </edge>
-        <edge from="n7" to="n7">
+        <edge from="n7" to="n8">
             <attr name="label">
-                <string>type:State</string>
+                <string>next</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
@@ -309,9 +309,9 @@
                 <string>let:name="getcappuccino"</string>
             </attr>
         </edge>
-        <edge from="n7" to="n8">
+        <edge from="n7" to="n7">
             <attr name="label">
-                <string>next</string>
+                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n7" to="n9">
@@ -334,14 +334,14 @@
                 <string>let:name="getcappuccino_0"</string>
             </attr>
         </edge>
-        <edge from="n8" to="n2">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n8" to="n27">
             <attr name="label">
                 <string>move</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n2">
+            <attr name="label">
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
@@ -364,14 +364,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n9" to="n27">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-        </edge>
         <edge from="n9" to="n1">
             <attr name="label">
                 <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n27">
+            <attr name="label">
+                <string>move</string>
             </attr>
         </edge>
         <edge from="n10" to="n10">
@@ -379,9 +379,9 @@
                 <string>id:gettea</string>
             </attr>
         </edge>
-        <edge from="n10" to="n10">
+        <edge from="n10" to="n11">
             <attr name="label">
-                <string>type:State</string>
+                <string>next</string>
             </attr>
         </edge>
         <edge from="n10" to="n10">
@@ -389,9 +389,9 @@
                 <string>let:name="gettea"</string>
             </attr>
         </edge>
-        <edge from="n10" to="n11">
+        <edge from="n10" to="n10">
             <attr name="label">
-                <string>next</string>
+                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n10" to="n12">
@@ -404,16 +404,6 @@
                 <string>id:gettea_0</string>
             </attr>
         </edge>
-        <edge from="n11" to="n11">
-            <attr name="label">
-                <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n11" to="n11">
-            <attr name="label">
-                <string>let:name="gettea_0"</string>
-            </attr>
-        </edge>
         <edge from="n11" to="n27">
             <attr name="label">
                 <string>move</string>
@@ -424,19 +414,19 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n12" to="n12">
+        <edge from="n11" to="n11">
             <attr name="label">
-                <string>id:gettea_1</string>
+                <string>let:name="gettea_0"</string>
             </attr>
         </edge>
-        <edge from="n12" to="n12">
+        <edge from="n11" to="n11">
             <attr name="label">
                 <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n12" to="n12">
             <attr name="label">
-                <string>let:name="gettea_1"</string>
+                <string>id:gettea_1</string>
             </attr>
         </edge>
         <edge from="n12" to="n27">
@@ -444,14 +434,24 @@
                 <string>move</string>
             </attr>
         </edge>
+        <edge from="n12" to="n1">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n12">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
         <edge from="n12" to="n32">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="n12" to="n1">
+        <edge from="n12" to="n12">
             <attr name="label">
-                <string>product</string>
+                <string>let:name="gettea_1"</string>
             </attr>
         </edge>
         <edge from="n13" to="n13">
@@ -476,12 +476,12 @@
         </edge>
         <edge from="n14" to="n14">
             <attr name="label">
-                <string>type:State</string>
+                <string>let:name="nil"</string>
             </attr>
         </edge>
         <edge from="n14" to="n14">
             <attr name="label">
-                <string>let:name="nil"</string>
+                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n15" to="n15">
@@ -491,12 +491,12 @@
         </edge>
         <edge from="n15" to="n15">
             <attr name="label">
-                <string>type:nomilk</string>
+                <string>let:name="nomilk"</string>
             </attr>
         </edge>
         <edge from="n15" to="n15">
             <attr name="label">
-                <string>let:name="nomilk"</string>
+                <string>type:nomilk</string>
             </attr>
         </edge>
         <edge from="n16" to="n16">
@@ -509,6 +509,11 @@
                 <string>type:Reaction</string>
             </attr>
         </edge>
+        <edge from="n16" to="n0">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n16" to="n16">
             <attr name="label">
                 <string>let:name="react_0"</string>
@@ -517,11 +522,6 @@
         <edge from="n16" to="n0">
             <attr name="label">
                 <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n16" to="n0">
-            <attr name="label">
-                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n16" to="n13">
@@ -536,17 +536,7 @@
         </edge>
         <edge from="n17" to="n17">
             <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n17" to="n17">
-            <attr name="label">
                 <string>let:name="react_1"</string>
-            </attr>
-        </edge>
-        <edge from="n17" to="n1">
-            <attr name="label">
-                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n17" to="n6">
@@ -554,24 +544,19 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n18" to="n18">
-            <attr name="label">
-                <string>id:react_2</string>
-            </attr>
-        </edge>
-        <edge from="n18" to="n18">
+        <edge from="n17" to="n17">
             <attr name="label">
                 <string>type:Reaction</string>
             </attr>
         </edge>
-        <edge from="n18" to="n18">
+        <edge from="n17" to="n1">
             <attr name="label">
-                <string>let:name="react_2"</string>
+                <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n18" to="n2">
+        <edge from="n18" to="n18">
             <attr name="label">
-                <string>product</string>
+                <string>id:react_2</string>
             </attr>
         </edge>
         <edge from="n18" to="n3">
@@ -589,14 +574,24 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="n19" to="n19">
+        <edge from="n18" to="n18">
             <attr name="label">
-                <string>id:react_3</string>
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n2">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n18">
+            <attr name="label">
+                <string>let:name="react_2"</string>
             </attr>
         </edge>
         <edge from="n19" to="n19">
             <attr name="label">
-                <string>type:Reaction</string>
+                <string>id:react_3</string>
             </attr>
         </edge>
         <edge from="n19" to="n19">
@@ -614,6 +609,11 @@
                 <string>reactant</string>
             </attr>
         </edge>
+        <edge from="n19" to="n19">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
         <edge from="n19" to="n4">
             <attr name="label">
                 <string>reactant</string>
@@ -629,14 +629,9 @@
                 <string>id:react_4</string>
             </attr>
         </edge>
-        <edge from="n20" to="n20">
+        <edge from="n20" to="n4">
             <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n20" to="n20">
-            <attr name="label">
-                <string>let:name="react_4"</string>
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n20" to="n4">
@@ -644,9 +639,14 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n20" to="n4">
+        <edge from="n20" to="n20">
             <attr name="label">
-                <string>reactant</string>
+                <string>let:name="react_4"</string>
+            </attr>
+        </edge>
+        <edge from="n20" to="n20">
+            <attr name="label">
+                <string>type:Reaction</string>
             </attr>
         </edge>
         <edge from="n21" to="n21">
@@ -654,24 +654,24 @@
                 <string>id:react_5</string>
             </attr>
         </edge>
-        <edge from="n21" to="n21">
-            <attr name="label">
-                <string>type:Reaction</string>
-            </attr>
-        </edge>
-        <edge from="n21" to="n21">
-            <attr name="label">
-                <string>let:name="react_5"</string>
-            </attr>
-        </edge>
         <edge from="n21" to="n13">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
+        <edge from="n21" to="n21">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
         <edge from="n21" to="n0">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n21" to="n21">
+            <attr name="label">
+                <string>let:name="react_5"</string>
             </attr>
         </edge>
         <edge from="n21" to="n0">
@@ -684,6 +684,16 @@
                 <string>id:react_6</string>
             </attr>
         </edge>
+        <edge from="n22" to="n31">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n22" to="n35">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n22" to="n22">
             <attr name="label">
                 <string>type:Reaction</string>
@@ -694,24 +704,19 @@
                 <string>let:name="react_6"</string>
             </attr>
         </edge>
-        <edge from="n22" to="n31">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n22" to="n32">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n22" to="n35">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n23" to="n23">
             <attr name="label">
                 <string>id:react_7</string>
+            </attr>
+        </edge>
+        <edge from="n23" to="n35">
+            <attr name="label">
+                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n23" to="n23">
@@ -729,24 +734,9 @@
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n23" to="n35">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n24" to="n24">
             <attr name="label">
                 <string>id:refill</string>
-            </attr>
-        </edge>
-        <edge from="n24" to="n24">
-            <attr name="label">
-                <string>type:State</string>
-            </attr>
-        </edge>
-        <edge from="n24" to="n24">
-            <attr name="label">
-                <string>let:name="refill"</string>
             </attr>
         </edge>
         <edge from="n24" to="n25">
@@ -759,14 +749,24 @@
                 <string>next</string>
             </attr>
         </edge>
+        <edge from="n24" to="n24">
+            <attr name="label">
+                <string>let:name="refill"</string>
+            </attr>
+        </edge>
+        <edge from="n24" to="n24">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
         <edge from="n25" to="n25">
             <attr name="label">
                 <string>id:refill_0</string>
             </attr>
         </edge>
-        <edge from="n25" to="n25">
+        <edge from="n25" to="n24">
             <attr name="label">
-                <string>type:Step</string>
+                <string>move</string>
             </attr>
         </edge>
         <edge from="n25" to="n25">
@@ -774,14 +774,14 @@
                 <string>let:name="refill_0"</string>
             </attr>
         </edge>
+        <edge from="n25" to="n25">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
         <edge from="n25" to="n15">
             <attr name="label">
                 <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n25" to="n24">
-            <attr name="label">
-                <string>move</string>
             </attr>
         </edge>
         <edge from="n26" to="n26">
@@ -794,29 +794,19 @@
                 <string>type:Step</string>
             </attr>
         </edge>
-        <edge from="n26" to="n26">
-            <attr name="label">
-                <string>let:name="refill_1"</string>
-            </attr>
-        </edge>
         <edge from="n26" to="n24">
             <attr name="label">
                 <string>move</string>
             </attr>
         </edge>
+        <edge from="n26" to="n26">
+            <attr name="label">
+                <string>let:name="refill_1"</string>
+            </attr>
+        </edge>
         <edge from="n27" to="n27">
             <attr name="label">
                 <string>id:student</string>
-            </attr>
-        </edge>
-        <edge from="n27" to="n27">
-            <attr name="label">
-                <string>type:State</string>
-            </attr>
-        </edge>
-        <edge from="n27" to="n27">
-            <attr name="label">
-                <string>let:name="student"</string>
             </attr>
         </edge>
         <edge from="n27" to="n30">
@@ -834,19 +824,19 @@
                 <string>next</string>
             </attr>
         </edge>
+        <edge from="n27" to="n27">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n27">
+            <attr name="label">
+                <string>let:name="student"</string>
+            </attr>
+        </edge>
         <edge from="n28" to="n28">
             <attr name="label">
                 <string>id:student_0</string>
-            </attr>
-        </edge>
-        <edge from="n28" to="n28">
-            <attr name="label">
-                <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n28" to="n28">
-            <attr name="label">
-                <string>let:name="student_0"</string>
             </attr>
         </edge>
         <edge from="n28" to="n0">
@@ -864,14 +854,19 @@
                 <string>move</string>
             </attr>
         </edge>
-        <edge from="n29" to="n29">
+        <edge from="n28" to="n28">
             <attr name="label">
-                <string>id:student_1</string>
+                <string>let:name="student_0"</string>
+            </attr>
+        </edge>
+        <edge from="n28" to="n28">
+            <attr name="label">
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n29" to="n29">
             <attr name="label">
-                <string>type:Step</string>
+                <string>id:student_1</string>
             </attr>
         </edge>
         <edge from="n29" to="n29">
@@ -884,14 +879,19 @@
                 <string>move</string>
             </attr>
         </edge>
+        <edge from="n29" to="n0">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n29" to="n3">
             <attr name="label">
                 <string>product</string>
             </attr>
         </edge>
-        <edge from="n29" to="n0">
+        <edge from="n29" to="n29">
             <attr name="label">
-                <string>reactant</string>
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n30" to="n30">
@@ -901,22 +901,22 @@
         </edge>
         <edge from="n30" to="n30">
             <attr name="label">
-                <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n30" to="n30">
-            <attr name="label">
                 <string>let:name="student_2"</string>
-            </attr>
-        </edge>
-        <edge from="n30" to="n27">
-            <attr name="label">
-                <string>move</string>
             </attr>
         </edge>
         <edge from="n30" to="n13">
             <attr name="label">
                 <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n30" to="n30">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
+        <edge from="n30" to="n27">
+            <attr name="label">
+                <string>move</string>
             </attr>
         </edge>
         <edge from="n31" to="n31">
@@ -959,19 +959,24 @@
                 <string>type:Token</string>
             </attr>
         </edge>
-        <edge from="n33" to="n33">
-            <attr name="label">
-                <string>let:name="token_0"</string>
-            </attr>
-        </edge>
         <edge from="n33" to="n24">
             <attr name="label">
                 <string>current</string>
             </attr>
         </edge>
+        <edge from="n33" to="n33">
+            <attr name="label">
+                <string>let:name="token_0"</string>
+            </attr>
+        </edge>
         <edge from="n34" to="n34">
             <attr name="label">
                 <string>id:token_1</string>
+            </attr>
+        </edge>
+        <edge from="n34" to="n27">
+            <attr name="label">
+                <string>current</string>
             </attr>
         </edge>
         <edge from="n34" to="n34">
@@ -982,11 +987,6 @@
         <edge from="n34" to="n34">
             <attr name="label">
                 <string>let:name="token_1"</string>
-            </attr>
-        </edge>
-        <edge from="n34" to="n27">
-            <attr name="label">
-                <string>current</string>
             </attr>
         </edge>
         <edge from="n35" to="n35">
@@ -1001,12 +1001,12 @@
         </edge>
         <edge from="n35" to="n35">
             <attr name="label">
-                <string>flag:present</string>
+                <string>let:name="tpowder"</string>
             </attr>
         </edge>
         <edge from="n35" to="n35">
             <attr name="label">
-                <string>let:name="tpowder"</string>
+                <string>flag:present</string>
             </attr>
         </edge>
     </graph>

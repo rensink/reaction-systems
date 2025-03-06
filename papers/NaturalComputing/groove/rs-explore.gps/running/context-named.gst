@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="graph" edgeids="false" edgemode="directed" id="toy-context-named">
+    <graph role="graph" edgeids="false" edgemode="directed" id="running.context-named">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -124,12 +124,17 @@
                 <string>type:espresso</string>
             </attr>
         </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
         <edge from="n5" to="n6">
             <attr name="label">
                 <string>next</string>
             </attr>
             <attr name="layout">
-                <string>500 0 132 280 132 240 132 142 11</string>
+                <string>500 0 157 301 132 240 164 120 11</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -145,9 +150,14 @@
                 <string>428 18 157 301 233 378 11</string>
             </attr>
         </edge>
-        <edge from="n5" to="n5">
+        <edge from="n6" to="n6">
             <attr name="label">
-                <string>type:State</string>
+                <string>let:name="getcappucino_0"</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n6" to="n12">
@@ -155,12 +165,7 @@
                 <string>move</string>
             </attr>
             <attr name="layout">
-                <string>407 -11 245 125 299 125 11</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n6">
-            <attr name="label">
-                <string>let:name="getcappucino_0"</string>
+                <string>407 -11 164 120 355 125 11</string>
             </attr>
         </edge>
         <edge from="n6" to="n2">
@@ -171,17 +176,17 @@
                 <string>371 30 135 119 132 51 11</string>
             </attr>
         </edge>
-        <edge from="n6" to="n6">
+        <edge from="n7" to="n7">
             <attr name="label">
-                <string>type:Step</string>
+                <string>let:name="getcappuccino_1"</string>
             </attr>
         </edge>
-        <edge from="n7" to="n1">
+        <edge from="n7" to="n4">
             <attr name="label">
-                <string>product</string>
+                <string>reactant</string>
             </attr>
             <attr name="layout">
-                <string>214 -1 233 378 291 451 352 449 11</string>
+                <string>421 31 233 378 181 449 11</string>
             </attr>
         </edge>
         <edge from="n7" to="n12">
@@ -192,9 +197,12 @@
                 <string>74 1 233 378 290 262 344 261 355 125 14</string>
             </attr>
         </edge>
-        <edge from="n7" to="n7">
+        <edge from="n7" to="n1">
             <attr name="label">
-                <string>let:name="getcappuccino_1"</string>
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>214 -1 233 378 291 451 352 449 11</string>
             </attr>
         </edge>
         <edge from="n7" to="n7">
@@ -202,12 +210,17 @@
                 <string>type:Step</string>
             </attr>
         </edge>
-        <edge from="n7" to="n4">
+        <edge from="n8" to="n8">
             <attr name="label">
-                <string>reactant</string>
+                <string>let:name="gettea"</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n10">
+            <attr name="label">
+                <string>next</string>
             </attr>
             <attr name="layout">
-                <string>421 31 233 378 181 449 11</string>
+                <string>465 -17 529 303 495 336 465 381 11</string>
             </attr>
         </edge>
         <edge from="n8" to="n8">
@@ -223,30 +236,9 @@
                 <string>500 0 529 303 564 240 599 176 11</string>
             </attr>
         </edge>
-        <edge from="n8" to="n10">
-            <attr name="label">
-                <string>next</string>
-            </attr>
-            <attr name="layout">
-                <string>465 -17 529 303 495 336 465 381 11</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>let:name="gettea"</string>
-            </attr>
-        </edge>
         <edge from="n9" to="n9">
             <attr name="label">
                 <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n17">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-            <attr name="layout">
-                <string>253 0 599 176 620 383 11</string>
             </attr>
         </edge>
         <edge from="n9" to="n12">
@@ -262,14 +254,25 @@
                 <string>let:name="gettea_0"</string>
             </attr>
         </edge>
+        <edge from="n9" to="n17">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+            <attr name="layout">
+                <string>253 0 599 176 620 383 11</string>
+            </attr>
+        </edge>
         <edge from="n10" to="n17">
             <attr name="label">
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="n10" to="n10">
+        <edge from="n10" to="n1">
             <attr name="label">
-                <string>type:Step</string>
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>190 0 465 381 425 450 352 449 11</string>
             </attr>
         </edge>
         <edge from="n10" to="n12">
@@ -280,12 +283,9 @@
                 <string>78 -2 465 381 428 261 362 256 355 125 14</string>
             </attr>
         </edge>
-        <edge from="n10" to="n1">
+        <edge from="n10" to="n10">
             <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>190 0 465 381 425 450 352 449 11</string>
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n10" to="n10">
@@ -298,17 +298,17 @@
                 <string>type:idle</string>
             </attr>
         </edge>
+        <edge from="n12" to="n12">
+            <attr name="label">
+                <string>let:name="student"</string>
+            </attr>
+        </edge>
         <edge from="n12" to="n13">
             <attr name="label">
                 <string>next</string>
             </attr>
             <attr name="layout">
                 <string>500 0 355 125 395 155 444 227 11</string>
-            </attr>
-        </edge>
-        <edge from="n12" to="n12">
-            <attr name="label">
-                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n12" to="n15">
@@ -319,6 +319,11 @@
                 <string>159 -12 355 125 504 114 598 120 11</string>
             </attr>
         </edge>
+        <edge from="n12" to="n12">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
         <edge from="n12" to="n14">
             <attr name="label">
                 <string>next</string>
@@ -327,35 +332,14 @@
                 <string>500 0 355 125 313 169 264 226 11</string>
             </attr>
         </edge>
-        <edge from="n12" to="n12">
-            <attr name="label">
-                <string>let:name="student"</string>
-            </attr>
-        </edge>
         <edge from="n13" to="n13">
             <attr name="label">
                 <string>type:Step</string>
             </attr>
         </edge>
-        <edge from="n13" to="n0">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-            <attr name="layout">
-                <string>101 -11 444 227 448 311 354 310 11</string>
-            </attr>
-        </edge>
         <edge from="n13" to="n13">
             <attr name="label">
                 <string>let:name="student_0"</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n8">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-            <attr name="layout">
-                <string>372 -22 444 227 491 262 529 303 11</string>
             </attr>
         </edge>
         <edge from="n13" to="n16">
@@ -366,9 +350,38 @@
                 <string>588 33 444 227 451 170 11</string>
             </attr>
         </edge>
+        <edge from="n13" to="n0">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+            <attr name="layout">
+                <string>101 -11 444 227 448 311 354 310 11</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n8">
+            <attr name="label">
+                <string>move</string>
+            </attr>
+            <attr name="layout">
+                <string>372 -22 444 227 491 262 529 303 11</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n0">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+            <attr name="layout">
+                <string>103 3 264 226 251 310 354 310 11</string>
+            </attr>
+        </edge>
         <edge from="n14" to="n14">
             <attr name="label">
                 <string>let:name="student_1"</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n14">
+            <attr name="label">
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n14" to="n5">
@@ -387,25 +400,17 @@
                 <string>407 -28 264 226 224 165 11</string>
             </attr>
         </edge>
-        <edge from="n14" to="n14">
-            <attr name="label">
-                <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n0">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-            <attr name="layout">
-                <string>103 3 264 226 251 310 354 310 11</string>
-            </attr>
-        </edge>
         <edge from="n15" to="n11">
             <attr name="label">
                 <string>product</string>
             </attr>
             <attr name="layout">
                 <string>589 -35 596 104 596 53 11</string>
+            </attr>
+        </edge>
+        <edge from="n15" to="n15">
+            <attr name="label">
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n15" to="n12">
@@ -419,11 +424,6 @@
         <edge from="n15" to="n15">
             <attr name="label">
                 <string>let:name="student_2"</string>
-            </attr>
-        </edge>
-        <edge from="n15" to="n15">
-            <attr name="label">
-                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n16" to="n16">

@@ -327,6 +327,11 @@
                 <string>let:name="danger"</string>
             </attr>
         </edge>
+        <edge from="danger" to="danger">
+            <attr name="label">
+                <string>flag:forbidden</string>
+            </attr>
+        </edge>
         <node id="diabete">
         </node>
         <edge from="diabete" to="diabete">
@@ -886,6 +891,11 @@
         <edge from="major" to="major">
             <attr name="label">
                 <string>let:name="major"</string>
+            </attr>
+        </edge>
+        <edge from="major" to="major">
+            <attr name="label">
+                <string>flag:forbidden</string>
             </attr>
         </edge>
         <node id="minor">

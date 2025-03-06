@@ -6,21 +6,6 @@
         </attr>
         <node id="Entity">
         </node>
-        <edge from="Entity" to="Entity">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="Entity" to="Entity">
-            <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="Entity" to="Entity">
-            <attr name="label">
-                <string>flag:present</string>
-            </attr>
-        </edge>
         <node id="acei">
         </node>
         <edge from="acei" to="acei">
@@ -247,11 +232,6 @@
         <edge from="danger" to="Entity">
             <attr name="label">
                 <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="danger" to="danger">
-            <attr name="label">
-                <string>flag:forbidden</string>
             </attr>
         </edge>
         <node id="diabete">
@@ -648,11 +628,6 @@
         <edge from="major" to="Entity">
             <attr name="label">
                 <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="major" to="major">
-            <attr name="label">
-                <string>flag:forbidden</string>
             </attr>
         </edge>
         <node id="minor">

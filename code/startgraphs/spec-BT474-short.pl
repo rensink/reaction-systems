@@ -73,8 +73,9 @@ advreactions(Rs) :- myreactions(Rs). % an adversary with the same reactions
 
 % mycontext("[k,ket]").
 % mycontext("[k,korep]").
-mycontext("[k,korept]").
-% mycontext("[k,kge]").
+% mycontext("[{e,egf,hrg}.korep]").
+% mycontext("[k,korept]").
+mycontext("[k,kge]").
 advcontext(K) :- mycontext(K). % an adversary with the same reactions context
 
 myenvironment("[

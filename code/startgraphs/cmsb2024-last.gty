@@ -6,6 +6,11 @@
         </attr>
         <node id="Entity">
         </node>
+        <edge from="Entity" to="Entity">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
         <node id="acei">
         </node>
         <edge from="acei" to="acei">

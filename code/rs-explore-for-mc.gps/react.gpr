@@ -31,7 +31,7 @@
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>932 260 49 54</string>
+                <string>947 277 19 19</string>
             </attr>
         </node>
         <node id="n6">
@@ -54,6 +54,16 @@
                 <string>636 71 19 19</string>
             </attr>
         </node>
+        <node id="n10">
+            <attr name="layout">
+                <string>1048 277 19 19</string>
+            </attr>
+        </node>
+        <node id="n11">
+            <attr name="layout">
+                <string>1044 192 19 19</string>
+            </attr>
+        </node>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:Reaction</string>
@@ -69,14 +79,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n0" to="n4">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n2">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n4">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -187,6 +197,26 @@
         <edge from="n9" to="n4">
             <attr name="label">
                 <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>cnew:</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>type:Started</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n11">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>existsx:</string>
             </attr>
         </edge>
     </graph>

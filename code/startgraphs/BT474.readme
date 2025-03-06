@@ -27,9 +27,10 @@ the name korep stands for k(ontext providing) e op p (at every step)
 
 CTL formulas to encode this property
 -------------------------------
-(i) EF (isSteady ∧ ¬akt) holds
-(ii) AF (isSteady ∧ ¬akt) does not hold
+(i) EF (steady & !akt) holds
+(ii) AF (steady & !akt) does not hold
 
+(The EX and AX are there because currently the )
 BT747korept.xxx files (larger LTS)
 observe any possible combination of e/p/t drugs at every step
 Maude proves that 
@@ -43,10 +44,9 @@ the name korept stands for k(ontext providing) e op p or t (at every step)
 LTL Formulas to encode these properties:
 ------------------------------------
 LTL
-(i) G(pdk1 → (FG akt))
-    GROOVE: G(test-entity-present("pdk1") -> (FG test-entity-present("akt")))
-(ii) erbb1 R ¬pdk1 => is equivalent to !(pdk1 U !errb1)
-    GROOVE: 
+(i) G(pdk1 -> (FG akt)) holds
+(ii) erbb1 R !pdk1: holds
+
 
 BT747kge.xxx files (uses guarded contexts)
 by permanently providing the drug e(rlotinib) the attractor AKT is never 
@@ -61,4 +61,4 @@ the name kge stands for k(ontext providing) g(uarded) e
 
 CTL Formula to encode this property
 -------------------------------
-EG EF(io-state → ¬akt)
+EG EF !akt

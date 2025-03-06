@@ -34,6 +34,11 @@
                 <string>653 224 19 19</string>
             </attr>
         </node>
+        <node id="n6">
+            <attr name="layout">
+                <string>368 63 19 19</string>
+            </attr>
+        </node>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:Entity</string>
@@ -102,6 +107,11 @@
         <edge from="n5" to="n4">
             <attr name="label">
                 <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:Started</string>
             </attr>
         </edge>
     </graph>

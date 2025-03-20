@@ -22,25 +22,17 @@ In this paper, we use the so-called \emph{algebraic approach} to graph transform
 %\end{itemize}
 %
 
-\textbf{Graphs are \emph{directed} and \emph{typed}}, meaning that nodes and edges have labels, and edges have a direction (going from their \emph{source} to their \emph{target}). Besides binary edges, nodes can also have \emph{flags} (which are actually self-loops that act as additional, optional labels on nodes) and \emph{attributes} (which are actually binary edges whose target node is a data value, e.g., an integer or a string).
+\textbf{Graphs} are \emph{simple} and \emph{typed}, meaning that there is at most one edge of a given type between any two nodes and that all nodes and edges are labelled through a morphism to a given (fixed) \emph{type graph}. Edges are \emph{directed} (going from their \emph{source} to their \emph{target}). Besides binary edges, nodes can also have \emph{flags} (which are actually self-loops that act as additional, optional labels on nodes) and \emph{attributes} (which are actually binary edges whose target node is a data value, e.g., an integer or a string).
 
-\textbf{\GROOVE graphs are \emph{simple}} (rather than \emph{multi-sorted}), meaning that there is at most one edge of a given type between any two nodes, and similarly, at most one flag of a given type on any node. If an edge or flag is added where one exists already, this does not change the graph.
-%\todo{RB: moved up by one position}
+\textbf{Rules}, in their simplest form, consist of a left hand side (LHS) and right hand side (RHS). Rule applicability is established by \emph{matching} the LHS to the graph in question, and where a match exists, removing nodes and edges that are in the LHS but not in the RHS, and vice versa, adding nodes and edges that are in the RHS but not in the LHS. In addition, however, \GROOVE supports \emph{quantified} rules, which can simultaneously be applied to multiple places in the same graph. An example is shown in \Cref{fig:context} below.
 
-\textbf{Rules application.}
-%\todo{RB: slightly changed}
-Rules consist of a left hand side (LHS) and right hand side (RHS). Rule applicability is established by \emph{matching} the LHS to the graph in question, and where a match exists, removing nodes and edges that are in the LHS but not in the RHS, and vice versa, adding nodes and edges that are in the RHS but not in the LHS.
+\textbf{Evolution} of a graph is defined on the basis of a graph transformation \emph{system}, which is a set of rules applied to a graph at hand, giving rise to a modified graph to which every rule can be applied again, and so forth. On top of this, \GROOVE allows for \emph{control programs} that can specify in what order rules may be applied. By exploring the potential evolution of a graph in all ways allowed by the control program, \GROOVE constructs the \emph{state space} of the graph transformation system, in the form of a \emph{labelled transition system} consisting of all reachable graphs and the rule applications between them.
 
-\textbf{\GROOVE rule application}.
+\textbf{Analysis} consists of the exploration of the state space for a given initial graph, rule system and (optional) control program. The exploration can be tuned by built-in strategies for searching and model checking.
 %\todo{RB: slightly rearranged}
-While a graph transformation \emph{system} is a set of rules, where every rule can be applied to a graph at hand, giving rise to a modified graph to which every rule can be applied again, and so forth, \GROOVE allows for \emph{control programs} that can specify in what order rules may be applied.
+%The core functionality of \GROOVE is to explore the set of reachable graphs, given a graph transformation system (with or without control program) and an initial graph. With this as the basis, there are built-in strategies for searching and model checking.
 
-\textbf{\GROOVE rules may be \emph{quantified}}, meaning that they can simultaneously be applied to multiple places in the same graph. An example is shown in \Cref{fig:context} below.%\todo{RB: moved down by one position}
-
-\textbf{\GROOVE analysis capabilities.}
-%\todo{RB: slightly rearranged}
-The core functionality of \GROOVE is to explore the set of reachable graphs, given a graph transformation system (with or without control program) and an initial graph. With this as the basis, there are built-in strategies for searching and model checking.
-
+\medskip\noindent
 The power of graph transformation lies in its generality: many systems naturally lend themselves to be modelled as graphs, and algebraic rules --- especially quantified ones --- provide a rich framework to specify their evolution. This is in fact our motivation for using it the current paper: reaction systems can straightforwardly be interpreted as graphs. \Cref{fig:core-type} shows the core types for the relevant concepts of that interpretation. (The colours just support the visualisation and have no semantics of their own.)
 
 \begin{figure}
@@ -50,5 +42,5 @@ The power of graph transformation lies in its generality: many systems naturally
 \label{fig:core-type}
 \end{figure}
 %
-Note especially the (abstract) supertype \Rule with subtypes \Reaction and \Step: the former is the type for the set $A$ of a Reaction System ${\cal A}=(S,A)$, whereas the latter is used to represent triples $(R,I,P)$ in a context RS process (\Cref{def:LTSforRS}). The $S$-subsets $R$, $I$, and $P$, in turn, are represented by nodes of type \Entity to which there is an outgoing edge of type \reactant, \inhibitor or \product. The flag \present is used to label the entities occurring in a state $W$. Finally, the structure of (guarded) context processes is captured by \State entities, with \nextt-edges to the \Step{}s that can be nondeterministally chosen; the subsequent process after such a \Step is given by its outgoing \move-edge. \Token nodes are used to model which \State{}s are currently active.
+Note especially the (abstract) supertype \Rule with subtypes \Reaction and \Step: the former is the type for the elements of $A$ in a Reaction System ${\cal A}=(S,A)$, whereas the latter is used to represent triples $(R,I,P)$ in a context RS process (\Cref{def:LTSforRS}). The set $S$ is represented by nodes of type \Entity; for a given \Rule, the subsets $R$, $I$, and $P$ of $S$ are those \Entity{}s to which there is an outgoing edge labelled \reactant, \inhibitor or \product. The flag \present is used to label the entities occurring in a state $W$. Finally, the structure of (guarded) context processes is captured by \State entities, with \nextt-edges to the \Step{}s that can be nondeterministally chosen; the subsequent process after such a \Step is determined by its outgoing \move-edge. \Token nodes are used to model which \State{}s are currently active.
 

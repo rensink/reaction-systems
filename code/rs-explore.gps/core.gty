@@ -6,7 +6,7 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>228 480 19 19</string>
+                <string>200 471 75 36</string>
             </attr>
         </node>
         <node id="n1">
@@ -26,7 +26,7 @@
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>588 352 75 54</string>
+                <string>610 376 19 19</string>
             </attr>
         </node>
         <node id="n5">
@@ -34,11 +34,11 @@
                 <string>399 266 19 19</string>
             </attr>
         </node>
-        <node id="n6">
-            <attr name="layout">
-                <string>614 474 19 19</string>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>color:120,32,110</string>
             </attr>
-        </node>
+        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:State</string>
@@ -52,6 +52,11 @@
         <edge from="n0" to="n3">
             <attr name="label">
                 <string>next</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>color:192,79,21</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -72,6 +77,11 @@
         <edge from="n2" to="n2">
             <attr name="label">
                 <string>abs:</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>color:59,125,35</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -124,6 +134,11 @@
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
+                <string>color:11,118,160</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
                 <string>type:Entity</string>
             </attr>
         </edge>
@@ -148,16 +163,6 @@
             </attr>
         </edge>
         <edge from="n5" to="n2">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n6">
-            <attr name="label">
-                <string>type:Forbidden</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n4">
             <attr name="label">
                 <string>sub:</string>
             </attr>

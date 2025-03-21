@@ -6,7 +6,7 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>228 480 19 19</string>
+                <string>200 471 75 36</string>
             </attr>
         </node>
         <node id="n1">
@@ -26,7 +26,7 @@
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>616 370 19 19</string>
+                <string>610 376 19 19</string>
             </attr>
         </node>
         <node id="n5">
@@ -34,14 +34,19 @@
                 <string>399 266 19 19</string>
             </attr>
         </node>
-        <node id="n6">
-            <attr name="layout">
-                <string>614 474 19 19</string>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>color:120,32,110</string>
             </attr>
-        </node>
+        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:State</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>string:name</string>
             </attr>
         </edge>
         <edge from="n0" to="n3">
@@ -49,19 +54,19 @@
                 <string>next</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>string:name</string>
+                <string>color:192,79,21</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>type:Token</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>string:name</string>
             </attr>
         </edge>
         <edge from="n1" to="n0">
@@ -76,6 +81,16 @@
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
+                <string>color:59,125,35</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:Rule</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
                 <string>flag:fired</string>
             </attr>
         </edge>
@@ -86,17 +101,12 @@
         </edge>
         <edge from="n2" to="n4">
             <attr name="label">
-                <string>product</string>
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n2" to="n4">
             <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>type:Rule</string>
+                <string>product</string>
             </attr>
         </edge>
         <edge from="n2" to="n4">
@@ -104,9 +114,9 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n3" to="n2">
+        <edge from="n3" to="n3">
             <attr name="label">
-                <string>sub:</string>
+                <string>type:Step</string>
             </attr>
         </edge>
         <edge from="n3" to="n0">
@@ -117,14 +127,14 @@
                 <string>210 3 403 492 402 564 238 566 237 490 11</string>
             </attr>
         </edge>
-        <edge from="n3" to="n3">
+        <edge from="n3" to="n2">
             <attr name="label">
-                <string>type:Step</string>
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
-                <string>string:name</string>
+                <string>color:11,118,160</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -134,7 +144,17 @@
         </edge>
         <edge from="n4" to="n4">
             <attr name="label">
+                <string>flag:forbidden</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
                 <string>flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>string:name</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -143,16 +163,6 @@
             </attr>
         </edge>
         <edge from="n5" to="n2">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n6">
-            <attr name="label">
-                <string>type:Forbidden</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n4">
             <attr name="label">
                 <string>sub:</string>
             </attr>

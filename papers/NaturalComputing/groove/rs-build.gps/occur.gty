@@ -6,12 +6,12 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>197 128 75 36</string>
+                <string>225 136 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>380 118 75 54</string>
+                <string>408 135 19 19</string>
             </attr>
         </node>
         <node id="n2">
@@ -21,32 +21,42 @@
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>400 226 36 36</string>
+                <string>408 234 19 19</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>245 204 75 18</string>
+                <string>273 203 19 19</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>124 202 49 54</string>
+                <string>139 219 19 19</string>
             </attr>
         </node>
         <node id="n6">
             <attr name="layout">
-                <string>25 134 38 18</string>
+                <string>34 133 19 19</string>
             </attr>
         </node>
         <node id="n7">
             <attr name="layout">
-                <string>30 213 31 18</string>
+                <string>35 220 19 19</string>
             </attr>
         </node>
         <node id="n8">
             <attr name="layout">
-                <string>299 31 66 36</string>
+                <string>322 39 19 19</string>
+            </attr>
+        </node>
+        <node id="n9">
+            <attr name="layout">
+                <string>139 316 19 19</string>
+            </attr>
+        </node>
+        <node id="n10">
+            <attr name="layout">
+                <string>271 316 19 19</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -62,6 +72,11 @@
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n8">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n0" to="n5">
@@ -84,12 +99,7 @@
         </edge>
         <edge from="n0" to="n2">
             <attr name="label">
-                <string>of</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n8">
-            <attr name="label">
-                <string>sub:</string>
+                <string>abs:of</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -124,7 +134,7 @@
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>color:59,125,35</string>
+                <string>import:</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -162,6 +172,11 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n4" to="n10">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
         <edge from="n5" to="n5">
             <attr name="label">
                 <string>color:59,125,35</string>
@@ -185,6 +200,11 @@
         <edge from="n5" to="n0">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n9">
+            <attr name="label">
+                <string>of</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">
@@ -230,6 +250,26 @@
         <edge from="n8" to="n8">
             <attr name="label">
                 <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>import:</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>import:</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>type:Reaction</string>
             </attr>
         </edge>
     </graph>

@@ -39,27 +39,27 @@
                 <string>186 151 53 18</string>
             </attr>
         </node>
-        <node id="n8">
+        <node id="n7">
             <attr name="layout">
                 <string>261 140 23 18</string>
             </attr>
         </node>
-        <node id="n9">
+        <node id="n8">
             <attr name="layout">
                 <string>291 109 43 18</string>
             </attr>
         </node>
-        <node id="n10">
+        <node id="n9">
             <attr name="layout">
                 <string>320 43 31 18</string>
             </attr>
         </node>
-        <node id="n11">
+        <node id="n10">
             <attr name="layout">
                 <string>308 76 19 18</string>
             </attr>
         </node>
-        <node id="n12">
+        <node id="n11">
             <attr name="layout">
                 <string>312 9 51 18</string>
             </attr>
@@ -69,24 +69,19 @@
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:am</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n5">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
+        <edge from="n0" to="n0">
             <attr name="label">
-                <string>color:11,118,160</string>
+                <string>type:am</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:anger</string>
+                <string>color:11,118,160</string>
             </attr>
         </edge>
         <edge from="n1" to="n5">
@@ -94,19 +89,24 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>type:anger</string>
+            </attr>
+        </edge>
         <edge from="n2" to="n2">
             <attr name="label">
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>type:cappuccino</string>
-            </attr>
-        </edge>
         <edge from="n2" to="n5">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:cappuccino</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">
@@ -154,24 +154,34 @@
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n6" to="n6">
-            <attr name="label">
-                <string>type:espresso</string>
-            </attr>
-        </edge>
         <edge from="n6" to="n5">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n8" to="n8">
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:espresso</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
             <attr name="label">
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n8" to="n8">
+        <edge from="n7" to="n5">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
             <attr name="label">
                 <string>type:idle</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>color:11,118,160</string>
             </attr>
         </edge>
         <edge from="n8" to="n5">
@@ -179,6 +189,11 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>type:nomilk</string>
+            </attr>
+        </edge>
         <edge from="n9" to="n9">
             <attr name="label">
                 <string>color:11,118,160</string>
@@ -186,7 +201,7 @@
         </edge>
         <edge from="n9" to="n9">
             <attr name="label">
-                <string>type:nomilk</string>
+                <string>type:tcoin</string>
             </attr>
         </edge>
         <edge from="n9" to="n5">
@@ -199,24 +214,19 @@
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n10" to="n10">
-            <attr name="label">
-                <string>type:tcoin</string>
-            </attr>
-        </edge>
         <edge from="n10" to="n5">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n11" to="n11">
+        <edge from="n10" to="n10">
             <attr name="label">
-                <string>color:11,118,160</string>
+                <string>type:tea</string>
             </attr>
         </edge>
         <edge from="n11" to="n11">
             <attr name="label">
-                <string>type:tea</string>
+                <string>color:11,118,160</string>
             </attr>
         </edge>
         <edge from="n11" to="n5">
@@ -224,19 +234,9 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n12" to="n12">
-            <attr name="label">
-                <string>color:11,118,160</string>
-            </attr>
-        </edge>
-        <edge from="n12" to="n12">
+        <edge from="n11" to="n11">
             <attr name="label">
                 <string>type:tpowder</string>
-            </attr>
-        </edge>
-        <edge from="n12" to="n5">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
     </graph>

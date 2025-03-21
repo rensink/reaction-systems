@@ -4,23 +4,6 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="Forbidden">
-        </node>
-        <edge from="Forbidden" to="Forbidden">
-            <attr name="label">
-                <string>id:Forbidden</string>
-            </attr>
-        </edge>
-        <edge from="Forbidden" to="Forbidden">
-            <attr name="label">
-                <string>type:Forbidden</string>
-            </attr>
-        </edge>
-        <edge from="Forbidden" to="Forbidden">
-            <attr name="label">
-                <string>let:name="Forbidden"</string>
-            </attr>
-        </edge>
         <node id="am">
         </node>
         <edge from="am" to="am">
@@ -53,6 +36,23 @@
         <edge from="anger" to="anger">
             <attr name="label">
                 <string>let:name="anger"</string>
+            </attr>
+        </edge>
+        <node id="bang">
+        </node>
+        <edge from="bang" to="bang">
+            <attr name="label">
+                <string>id:bang</string>
+            </attr>
+        </edge>
+        <edge from="bang" to="bang">
+            <attr name="label">
+                <string>type:bang</string>
+            </attr>
+        </edge>
+        <edge from="bang" to="bang">
+            <attr name="label">
+                <string>let:name="bang"</string>
             </attr>
         </edge>
         <node id="cappuccino">
@@ -272,7 +272,7 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="react_1" to="Forbidden">
+        <edge from="react_1" to="bang">
             <attr name="label">
                 <string>product</string>
             </attr>

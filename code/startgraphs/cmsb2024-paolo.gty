@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph role="type" edgeids="false" edgemode="directed" id="type">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="Entity">
+        </node>
+        <edge from="Entity" to="Entity">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <node id="acei">
+        </node>
+        <edge from="acei" to="acei">
+            <attr name="label">
+                <string>type:acei</string>
+            </attr>
+        </edge>
+        <edge from="acei" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="afib">
+        </node>
+        <edge from="afib" to="afib">
+            <attr name="label">
+                <string>type:afib</string>
+            </attr>
+        </edge>
+        <edge from="afib" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="alert_dup">
+        </node>
+        <edge from="alert_dup" to="alert_dup">
+            <attr name="label">
+                <string>type:alert_dup</string>
+            </attr>
+        </edge>
+        <edge from="alert_dup" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="apixaban">
+        </node>
+        <edge from="apixaban" to="apixaban">
+            <attr name="label">
+                <string>type:apixaban</string>
+            </attr>
+        </edge>
+        <edge from="apixaban" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="arb">
+        </node>
+        <edge from="arb" to="arb">
+            <attr name="label">
+                <string>type:arb</string>
+            </attr>
+        </edge>
+        <edge from="arb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="atenolol">
+        </node>
+        <edge from="atenolol" to="atenolol">
+            <attr name="label">
+                <string>type:atenolol</string>
+            </attr>
+        </edge>
+        <edge from="atenolol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="below55">
+        </node>
+        <edge from="below55" to="below55">
+            <attr name="label">
+                <string>type:below55</string>
+            </attr>
+        </edge>
+        <edge from="below55" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="benazepril">
+        </node>
+        <edge from="benazepril" to="benazepril">
+            <attr name="label">
+                <string>type:benazepril</string>
+            </attr>
+        </edge>
+        <edge from="benazepril" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="bisoprolol">
+        </node>
+        <edge from="bisoprolol" to="bisoprolol">
+            <attr name="label">
+                <string>type:bisoprolol</string>
+            </attr>
+        </edge>
+        <edge from="bisoprolol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="captopril">
+        </node>
+        <edge from="captopril" to="captopril">
+            <attr name="label">
+                <string>type:captopril</string>
+            </attr>
+        </edge>
+        <edge from="captopril" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="carvedilol">
+        </node>
+        <edge from="carvedilol" to="carvedilol">
+            <attr name="label">
+                <string>type:carvedilol</string>
+            </attr>
+        </edge>
+        <edge from="carvedilol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="cbb">
+        </node>
+        <edge from="cbb" to="cbb">
+            <attr name="label">
+                <string>type:cbb</string>
+            </attr>
+        </edge>
+        <edge from="cbb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="chlorothiazide">
+        </node>
+        <edge from="chlorothiazide" to="chlorothiazide">
+            <attr name="label">
+                <string>type:chlorothiazide</string>
+            </attr>
+        </edge>
+        <edge from="chlorothiazide" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="consensus_acei">
+        </node>
+        <edge from="consensus_acei" to="consensus_acei">
+            <attr name="label">
+                <string>type:consensus_acei</string>
+            </attr>
+        </edge>
+        <edge from="consensus_acei" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="dabigatran">
+        </node>
+        <edge from="dabigatran" to="dabigatran">
+            <attr name="label">
+                <string>type:dabigatran</string>
+            </attr>
+        </edge>
+        <edge from="dabigatran" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="danger">
+        </node>
+        <edge from="danger" to="danger">
+            <attr name="label">
+                <string>type:danger</string>
+            </attr>
+        </edge>
+        <edge from="danger" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="diabete">
+        </node>
+        <edge from="diabete" to="diabete">
+            <attr name="label">
+                <string>type:diabete</string>
+            </attr>
+        </edge>
+        <edge from="diabete" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="diltiazem">
+        </node>
+        <edge from="diltiazem" to="diltiazem">
+            <attr name="label">
+                <string>type:diltiazem</string>
+            </attr>
+        </edge>
+        <edge from="diltiazem" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="diseases">
+        </node>
+        <edge from="diseases" to="diseases">
+            <attr name="label">
+                <string>type:diseases</string>
+            </attr>
+        </edge>
+        <edge from="diseases" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="doac">
+        </node>
+        <edge from="doac" to="doac">
+            <attr name="label">
+                <string>type:doac</string>
+            </attr>
+        </edge>
+        <edge from="doac" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="doac_danger">
+        </node>
+        <edge from="doac_danger" to="doac_danger">
+            <attr name="label">
+                <string>type:doac_danger</string>
+            </attr>
+        </edge>
+        <edge from="doac_danger" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="doac_fail">
+        </node>
+        <edge from="doac_fail" to="doac_fail">
+            <attr name="label">
+                <string>type:doac_fail</string>
+            </attr>
+        </edge>
+        <edge from="doac_fail" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="doac_int">
+        </node>
+        <edge from="doac_int" to="doac_int">
+            <attr name="label">
+                <string>type:doac_int</string>
+            </attr>
+        </edge>
+        <edge from="doac_int" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="doac_ok">
+        </node>
+        <edge from="doac_ok" to="doac_ok">
+            <attr name="label">
+                <string>type:doac_ok</string>
+            </attr>
+        </edge>
+        <edge from="doac_ok" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="doac_test">
+        </node>
+        <edge from="doac_test" to="doac_test">
+            <attr name="label">
+                <string>type:doac_test</string>
+            </attr>
+        </edge>
+        <edge from="doac_test" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="flecainide">
+        </node>
+        <edge from="flecainide" to="flecainide">
+            <attr name="label">
+                <string>type:flecainide</string>
+            </attr>
+        </edge>
+        <edge from="flecainide" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_apixaban">
+        </node>
+        <edge from="get_apixaban" to="get_apixaban">
+            <attr name="label">
+                <string>type:get_apixaban</string>
+            </attr>
+        </edge>
+        <edge from="get_apixaban" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_atenolol">
+        </node>
+        <edge from="get_atenolol" to="get_atenolol">
+            <attr name="label">
+                <string>type:get_atenolol</string>
+            </attr>
+        </edge>
+        <edge from="get_atenolol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_benazepril">
+        </node>
+        <edge from="get_benazepril" to="get_benazepril">
+            <attr name="label">
+                <string>type:get_benazepril</string>
+            </attr>
+        </edge>
+        <edge from="get_benazepril" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_bisoprolol">
+        </node>
+        <edge from="get_bisoprolol" to="get_bisoprolol">
+            <attr name="label">
+                <string>type:get_bisoprolol</string>
+            </attr>
+        </edge>
+        <edge from="get_bisoprolol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_captopril">
+        </node>
+        <edge from="get_captopril" to="get_captopril">
+            <attr name="label">
+                <string>type:get_captopril</string>
+            </attr>
+        </edge>
+        <edge from="get_captopril" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_carvedilol">
+        </node>
+        <edge from="get_carvedilol" to="get_carvedilol">
+            <attr name="label">
+                <string>type:get_carvedilol</string>
+            </attr>
+        </edge>
+        <edge from="get_carvedilol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_chlorothiazide">
+        </node>
+        <edge from="get_chlorothiazide" to="get_chlorothiazide">
+            <attr name="label">
+                <string>type:get_chlorothiazide</string>
+            </attr>
+        </edge>
+        <edge from="get_chlorothiazide" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_dabigatran">
+        </node>
+        <edge from="get_dabigatran" to="get_dabigatran">
+            <attr name="label">
+                <string>type:get_dabigatran</string>
+            </attr>
+        </edge>
+        <edge from="get_dabigatran" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_diltiazem">
+        </node>
+        <edge from="get_diltiazem" to="get_diltiazem">
+            <attr name="label">
+                <string>type:get_diltiazem</string>
+            </attr>
+        </edge>
+        <edge from="get_diltiazem" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_flecainide">
+        </node>
+        <edge from="get_flecainide" to="get_flecainide">
+            <attr name="label">
+                <string>type:get_flecainide</string>
+            </attr>
+        </edge>
+        <edge from="get_flecainide" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_indapamide">
+        </node>
+        <edge from="get_indapamide" to="get_indapamide">
+            <attr name="label">
+                <string>type:get_indapamide</string>
+            </attr>
+        </edge>
+        <edge from="get_indapamide" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_irbesartan">
+        </node>
+        <edge from="get_irbesartan" to="get_irbesartan">
+            <attr name="label">
+                <string>type:get_irbesartan</string>
+            </attr>
+        </edge>
+        <edge from="get_irbesartan" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_olmesortan">
+        </node>
+        <edge from="get_olmesortan" to="get_olmesortan">
+            <attr name="label">
+                <string>type:get_olmesortan</string>
+            </attr>
+        </edge>
+        <edge from="get_olmesortan" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_propranolol">
+        </node>
+        <edge from="get_propranolol" to="get_propranolol">
+            <attr name="label">
+                <string>type:get_propranolol</string>
+            </attr>
+        </edge>
+        <edge from="get_propranolol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_verapamil">
+        </node>
+        <edge from="get_verapamil" to="get_verapamil">
+            <attr name="label">
+                <string>type:get_verapamil</string>
+            </attr>
+        </edge>
+        <edge from="get_verapamil" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_vkant">
+        </node>
+        <edge from="get_vkant" to="get_vkant">
+            <attr name="label">
+                <string>type:get_vkant</string>
+            </attr>
+        </edge>
+        <edge from="get_vkant" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_warfarin">
+        </node>
+        <edge from="get_warfarin" to="get_warfarin">
+            <attr name="label">
+                <string>type:get_warfarin</string>
+            </attr>
+        </edge>
+        <edge from="get_warfarin" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="has_fib">
+        </node>
+        <edge from="has_fib" to="has_fib">
+            <attr name="label">
+                <string>type:has_fib</string>
+            </attr>
+        </edge>
+        <edge from="has_fib" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="heart_rate">
+        </node>
+        <edge from="heart_rate" to="heart_rate">
+            <attr name="label">
+                <string>type:heart_rate</string>
+            </attr>
+        </edge>
+        <edge from="heart_rate" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="hyper">
+        </node>
+        <edge from="hyper" to="hyper">
+            <attr name="label">
+                <string>type:hyper</string>
+            </attr>
+        </edge>
+        <edge from="hyper" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="indapamide">
+        </node>
+        <edge from="indapamide" to="indapamide">
+            <attr name="label">
+                <string>type:indapamide</string>
+            </attr>
+        </edge>
+        <edge from="indapamide" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="irbesartan">
+        </node>
+        <edge from="irbesartan" to="irbesartan">
+            <attr name="label">
+                <string>type:irbesartan</string>
+            </attr>
+        </edge>
+        <edge from="irbesartan" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="major">
+        </node>
+        <edge from="major" to="major">
+            <attr name="label">
+                <string>type:major</string>
+            </attr>
+        </edge>
+        <edge from="major" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="minor">
+        </node>
+        <edge from="minor" to="minor">
+            <attr name="label">
+                <string>type:minor</string>
+            </attr>
+        </edge>
+        <edge from="minor" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="moderate">
+        </node>
+        <edge from="moderate" to="moderate">
+            <attr name="label">
+                <string>type:moderate</string>
+            </attr>
+        </edge>
+        <edge from="moderate" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="nsbb">
+        </node>
+        <edge from="nsbb" to="nsbb">
+            <attr name="label">
+                <string>type:nsbb</string>
+            </attr>
+        </edge>
+        <edge from="nsbb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="olmesortan">
+        </node>
+        <edge from="olmesortan" to="olmesortan">
+            <attr name="label">
+                <string>type:olmesortan</string>
+            </attr>
+        </edge>
+        <edge from="olmesortan" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="origin">
+        </node>
+        <edge from="origin" to="origin">
+            <attr name="label">
+                <string>type:origin</string>
+            </attr>
+        </edge>
+        <edge from="origin" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="over75">
+        </node>
+        <edge from="over75" to="over75">
+            <attr name="label">
+                <string>type:over75</string>
+            </attr>
+        </edge>
+        <edge from="over75" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="propranolol">
+        </node>
+        <edge from="propranolol" to="propranolol">
+            <attr name="label">
+                <string>type:propranolol</string>
+            </attr>
+        </edge>
+        <edge from="propranolol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="sbb">
+        </node>
+        <edge from="sbb" to="sbb">
+            <attr name="label">
+                <string>type:sbb</string>
+            </attr>
+        </edge>
+        <edge from="sbb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_acei">
+        </node>
+        <edge from="stop_acei" to="stop_acei">
+            <attr name="label">
+                <string>type:stop_acei</string>
+            </attr>
+        </edge>
+        <edge from="stop_acei" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_arb">
+        </node>
+        <edge from="stop_arb" to="stop_arb">
+            <attr name="label">
+                <string>type:stop_arb</string>
+            </attr>
+        </edge>
+        <edge from="stop_arb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_cbb">
+        </node>
+        <edge from="stop_cbb" to="stop_cbb">
+            <attr name="label">
+                <string>type:stop_cbb</string>
+            </attr>
+        </edge>
+        <edge from="stop_cbb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_doac">
+        </node>
+        <edge from="stop_doac" to="stop_doac">
+            <attr name="label">
+                <string>type:stop_doac</string>
+            </attr>
+        </edge>
+        <edge from="stop_doac" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_flec">
+        </node>
+        <edge from="stop_flec" to="stop_flec">
+            <attr name="label">
+                <string>type:stop_flec</string>
+            </attr>
+        </edge>
+        <edge from="stop_flec" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_nsbb">
+        </node>
+        <edge from="stop_nsbb" to="stop_nsbb">
+            <attr name="label">
+                <string>type:stop_nsbb</string>
+            </attr>
+        </edge>
+        <edge from="stop_nsbb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_sbb">
+        </node>
+        <edge from="stop_sbb" to="stop_sbb">
+            <attr name="label">
+                <string>type:stop_sbb</string>
+            </attr>
+        </edge>
+        <edge from="stop_sbb" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_td">
+        </node>
+        <edge from="stop_td" to="stop_td">
+            <attr name="label">
+                <string>type:stop_td</string>
+            </attr>
+        </edge>
+        <edge from="stop_td" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_vkant">
+        </node>
+        <edge from="stop_vkant" to="stop_vkant">
+            <attr name="label">
+                <string>type:stop_vkant</string>
+            </attr>
+        </edge>
+        <edge from="stop_vkant" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stop_warf">
+        </node>
+        <edge from="stop_warf" to="stop_warf">
+            <attr name="label">
+                <string>type:stop_warf</string>
+            </attr>
+        </edge>
+        <edge from="stop_warf" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="td">
+        </node>
+        <edge from="td" to="td">
+            <attr name="label">
+                <string>type:td</string>
+            </attr>
+        </edge>
+        <edge from="td" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="verapamil">
+        </node>
+        <edge from="verapamil" to="verapamil">
+            <attr name="label">
+                <string>type:verapamil</string>
+            </attr>
+        </edge>
+        <edge from="verapamil" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="vkant">
+        </node>
+        <edge from="vkant" to="vkant">
+            <attr name="label">
+                <string>type:vkant</string>
+            </attr>
+        </edge>
+        <edge from="vkant" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="warfarin">
+        </node>
+        <edge from="warfarin" to="warfarin">
+            <attr name="label">
+                <string>type:warfarin</string>
+            </attr>
+        </edge>
+        <edge from="warfarin" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>

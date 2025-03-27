@@ -63,7 +63,7 @@ So the system can be written as
 \).
 
 
-Using BioReSolve, we can generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is angry, shown in light coral.\todo{The figure includes the process Forbidden, which should be removed}
+Using BioReSolve, we can generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
 Note that, as \am is initially not present, it means that the initial time is in the afternoon.
 To improve readability, the nodes of the LTS are labelled by the list of context processes and entities, omitting reactions, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context, i.e., the components in $D\cup C$ extracted from the full label $\obs{\obs{D}{R',I',C}}{R,I,P}$. The label $0$ stands for the emptyset.
 %As a general strategy for BioReSolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\emptyset,\{\Forbidden\})$.
@@ -73,5 +73,4 @@ To improve readability, the nodes of the LTS are labelled by the list of context
 \caption{LTS of the toy example.\label{fig:toylts}}
 \end{figure}
 
-In this particular example, we wish to analyze why \anger is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of $\anger$ was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.\todo{Shouldn't the entity \espresso not also be produced in the trace?}
-%the production of $\Forbidden$ was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.
+In this particular example, we wish to analyze why \bang is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of \bang was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.

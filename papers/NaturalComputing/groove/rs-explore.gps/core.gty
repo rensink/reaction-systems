@@ -6,32 +6,32 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>200 471 75 36</string>
+                <string>81 221 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>229 375 19 19</string>
+                <string>82 116 19 19</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>395 380 19 19</string>
+                <string>248 121 19 19</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>394 482 19 19</string>
+                <string>247 223 19 19</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>610 376 19 19</string>
+                <string>463 117 19 19</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>399 266 19 19</string>
+                <string>252 7 19 19</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -119,17 +119,17 @@
                 <string>type:Step</string>
             </attr>
         </edge>
+        <edge from="n3" to="n2">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n0">
             <attr name="label">
                 <string>move</string>
             </attr>
             <attr name="layout">
-                <string>210 3 403 492 402 564 238 566 237 490 11</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n2">
-            <attr name="label">
-                <string>sub:</string>
+                <string>483 0 261 245 261 282 90 282 90 252 11</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">

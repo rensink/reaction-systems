@@ -6,62 +6,52 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>251 278 19 19</string>
+                <string>57 253 53 18</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>522 232 19 19</string>
+                <string>325 198 59 36</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>389 204 19 19</string>
+                <string>201 170 40 36</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>636 281 19 19</string>
+                <string>442 247 53 36</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>404 70 19 19</string>
+                <string>231 45 11 18</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>947 277 19 19</string>
+                <string>633 243 49 36</string>
             </attr>
         </node>
         <node id="n6">
             <attr name="layout">
-                <string>948 183 19 19</string>
+                <string>653 158 11 18</string>
             </attr>
         </node>
         <node id="n7">
             <attr name="layout">
-                <string>817 277 19 19</string>
+                <string>548 241 34 36</string>
             </attr>
         </node>
         <node id="n8">
             <attr name="layout">
-                <string>826 184 19 19</string>
+                <string>562 157 11 18</string>
             </attr>
         </node>
         <node id="n9">
             <attr name="layout">
-                <string>636 71 19 19</string>
-            </attr>
-        </node>
-        <node id="n10">
-            <attr name="layout">
-                <string>1048 277 19 19</string>
-            </attr>
-        </node>
-        <node id="n11">
-            <attr name="layout">
-                <string>1044 192 19 19</string>
+                <string>463 46 11 18</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -79,14 +69,14 @@
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n0" to="n2">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n4">
             <attr name="label">
                 <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n2">
+            <attr name="label">
+                <string>inhibitor</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -197,26 +187,6 @@
         <edge from="n9" to="n4">
             <attr name="label">
                 <string>in</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n10">
-            <attr name="label">
-                <string>cnew:</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n10">
-            <attr name="label">
-                <string>type:Started</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n11">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n11" to="n11">
-            <attr name="label">
-                <string>existsx:</string>
             </attr>
         </edge>
     </graph>

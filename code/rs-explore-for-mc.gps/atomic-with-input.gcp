@@ -1,0 +1,3 @@
+recipe fire() {
+  try start; markInput; context; react;
+}

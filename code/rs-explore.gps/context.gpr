@@ -79,17 +79,17 @@
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
                 <string>new:flag:present</string>
             </attr>
         </edge>
         <edge from="n0" to="n2">
             <attr name="label">
                 <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -117,37 +117,6 @@
                 <string>in</string>
             </attr>
         </edge>
-        <edge from="n3" to="n3">
-            <attr name="label">
-                <string>type:Step</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n3">
-            <attr name="label">
-                <string>new:flag:fired</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n5">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n11">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-            <attr name="layout">
-                <string>310 2 445 150 390 365 11</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n9">
-            <attr name="label">
-                <string>inhibitor</string>
-            </attr>
-            <attr name="layout">
-                <string>314 0 430 150 224 364 11</string>
-            </attr>
-        </edge>
         <edge from="n3" to="n6">
             <attr name="label">
                 <string>at</string>
@@ -158,7 +127,38 @@
                 <string>product</string>
             </attr>
             <attr name="layout">
-                <string>315 -3 462 150 582 361 11</string>
+                <string>315 -3 450 129 594 382 11</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n5">
+            <attr name="label">
+                <string>move</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n9">
+            <attr name="label">
+                <string>inhibitor</string>
+            </attr>
+            <attr name="layout">
+                <string>314 0 450 129 204 385 11</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n11">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+            <attr name="layout">
+                <string>310 2 450 129 385 386 11</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>type:Step</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>new:flag:fired</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -208,17 +208,17 @@
         </edge>
         <edge from="n9" to="n9">
             <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n9">
-            <attr name="label">
                 <string>not=sub1:flag:present</string>
             </attr>
         </edge>
         <edge from="n9" to="n8">
             <attr name="label">
                 <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n10" to="n10">
@@ -238,12 +238,12 @@
         </edge>
         <edge from="n11" to="n11">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>use=sub2:flag:present</string>
             </attr>
         </edge>
         <edge from="n11" to="n11">
             <attr name="label">
-                <string>use=sub2:flag:present</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n11" to="n7">

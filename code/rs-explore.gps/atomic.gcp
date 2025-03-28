@@ -1,3 +1,4 @@
+// This explores the RS atomically
 recipe fire() {
   context; react;
 }

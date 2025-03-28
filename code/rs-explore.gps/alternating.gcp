@@ -1,3 +1,4 @@
+// This fully explores the RS by alternation of the context and react rules
 alap {
   context; react;
 }

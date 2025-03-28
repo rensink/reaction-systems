@@ -6,32 +6,32 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>200 471 75 36</string>
+                <string>74 257 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>229 375 19 19</string>
+                <string>75 153 19 19</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>395 380 19 19</string>
+                <string>241 158 19 19</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>394 482 19 19</string>
+                <string>240 260 19 19</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>610 376 19 19</string>
+                <string>456 154 19 19</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>399 266 19 19</string>
+                <string>245 44 19 19</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -119,17 +119,17 @@
                 <string>type:Step</string>
             </attr>
         </edge>
+        <edge from="n3" to="n2">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n0">
             <attr name="label">
                 <string>move</string>
             </attr>
             <attr name="layout">
-                <string>210 3 403 492 402 564 238 566 237 490 11</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n2">
-            <attr name="label">
-                <string>sub:</string>
+                <string>465 0 250 281 250 321 84 321 84 288 11</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -140,11 +140,6 @@
         <edge from="n4" to="n4">
             <attr name="label">
                 <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>flag:forbidden</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">

@@ -19,12 +19,7 @@
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>flag:forbidden</string>
+                <string>type:Forbidden</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">

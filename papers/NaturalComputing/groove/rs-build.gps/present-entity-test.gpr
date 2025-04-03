@@ -10,6 +10,9 @@
         <attr name="actionRole">
             <string>condition</string>
         </attr>
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
                 <string>207 117 36 36</string>
@@ -27,12 +30,12 @@
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>flag:present</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">

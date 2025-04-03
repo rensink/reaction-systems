@@ -6,42 +6,52 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>284 133 53 54</string>
+                <string>301 150 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>300 49 11 18</string>
+                <string>296 48 19 19</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>387 144 38 18</string>
+                <string>396 143 19 19</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>555 143 31 18</string>
+                <string>561 142 19 19</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>480 53 11 18</string>
+                <string>476 52 19 19</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>42 147 31 18</string>
+                <string>48 146 19 19</string>
             </attr>
         </node>
         <node id="n6">
             <attr name="layout">
-                <string>171 133 49 54</string>
+                <string>186 150 19 19</string>
             </attr>
         </node>
         <node id="n7">
             <attr name="layout">
-                <string>123 50 11 18</string>
+                <string>119 49 19 19</string>
+            </attr>
+        </node>
+        <node id="n8">
+            <attr name="layout">
+                <string>652 54 11 18</string>
+            </attr>
+        </node>
+        <node id="n9">
+            <attr name="layout">
+                <string>648 150 19 19</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -76,20 +86,20 @@
         </edge>
         <edge from="n2" to="n3">
             <attr name="label">
+                <string>new:current</string>
+            </attr>
+            <attr name="layout">
+                <string>500 0 406 153 409 200 568 198 571 152 11</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n3">
+            <attr name="label">
                 <string>del:fresh</string>
             </attr>
         </edge>
         <edge from="n2" to="n4">
             <attr name="label">
                 <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n3">
-            <attr name="label">
-                <string>new:current</string>
-            </attr>
-            <attr name="layout">
-                <string>500 0 406 153 409 200 568 198 571 152 11</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">
@@ -112,9 +122,9 @@
                 <string>type:State</string>
             </attr>
         </edge>
-        <edge from="n5" to="n6">
+        <edge from="n5" to="n7">
             <attr name="label">
-                <string>del:fresh</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n5" to="n6">
@@ -125,9 +135,9 @@
                 <string>500 0 58 156 60 222 199 222 196 160 11</string>
             </attr>
         </edge>
-        <edge from="n5" to="n7">
+        <edge from="n5" to="n6">
             <attr name="label">
-                <string>at</string>
+                <string>del:fresh</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">
@@ -153,6 +163,31 @@
         <edge from="n7" to="n7">
             <attr name="label">
                 <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>del:flag:fresh</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>new:flag:last</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n8">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
     </graph>

@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="forbidden">
+    <graph role="rule" edgeids="false" edgemode="directed" id="present">
+        <attr name="transitionLabel">
+            <string>%s</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
+        <attr name="actionRole">
+            <string>condition</string>
+        </attr>
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
-                <string>125 107 36 18</string>
+                <string>208 114 40 36</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>135 186 19 19</string>
+                <string>208 212 36 18</string>
             </attr>
         </node>
+        <edge from="n0" to="n1">
+            <attr name="label">
+                <string>name</string>
+            </attr>
+        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>color:11,118,160</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
@@ -26,12 +40,12 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:Forbidden</string>
+                <string>parout:0</string>
             </attr>
         </edge>
-        <edge from="n1" to="n0">
+        <edge from="n1" to="n1">
             <attr name="label">
-                <string>sub:</string>
+                <string>string:</string>
             </attr>
         </edge>
     </graph>

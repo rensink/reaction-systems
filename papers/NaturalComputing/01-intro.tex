@@ -12,6 +12,7 @@ Each reaction relies on some reactants, inhibitors, and products to mimic two fu
 At each time instant, the next state of the system is determined by the products of all enabled reactions plus some additional entities that are possibly provided by environment.
 Unlike traditional models of concurrency, like Petri nets, the theory of RS is based on three principles: \emph{no permanency}, any entity vanishes unless it is sustained by a reaction; \emph{no competition}, an entity is either available for all reactions, or it is not available at all; and \emph{no counting}, the exact concentration level of available entities is ignored.
 Moreover, due to the use of inhibitors, RS can exhibit non monotonic behaviour, in the sense that what can be done with less resources is not necessarily replicable with more resources.
+While \emph{closed} RS work in isolation, \emph{interactive processes} are dealt with by providing suitable environments that provide a sequence of stimuli at each step: they are set of entities that can be used to trigger or inhibit some reactions. A common example involves using contexts to analyze how drug administration affects organisms modeled as sets of reactions.
 Since their introduction, RS have been successfully applied to the analysis of complex systems in many different fields~\cite{ABP14,CMMBM12,Az17,OY16,DBLP:journals/ijfcs/EhrenfeuchtMR10,DBLP:journals/ijfcs/EhrenfeuchtMR11}.
 Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena~\cite{??}, led to experimenting with environments that exhibit nondeterministic and recursive behaviour.
 Then, performing reachability and causal analysis required the exploration of large state spaces for which the available prototype tool~\cite{DBLP:journals/tcs/BrodoBF21} struggled in terms of  memory consumption and response time.
@@ -23,31 +24,32 @@ Importantly, from a practical point of view, there are a number of (academic) to
 \begin{enumerate}%[label=\emph{(\roman*)}]
 \item nested (i.e., quantified) rules, which capture simultaneous changes in all neighbourhoods that satisfy certain application conditions, rather than only locally in one such neighbourhood at a time; 
 \item exploration of the set of reachable graphs (under the given rules) using various strategies;
-\item model checking functionalities that can be used to validate previous findings as well to explore and support the study of new modal properties.
+\item model checking functionalities that can be used to validate previous findings as well to explore and support the study of new behavioural and structural properties.
 \end{enumerate}
 
 The main research question that motivated our study is: 
 \emph{how can GT help in addressing the analysis of Reaction Systems?} 
-For this purpose, we encode a given RS as a single graph, upon which a small number of (predefined) rules operate to simulate the correct semantics. The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
+For this purpose, we encode a given RS as a single graph, upon which a small number of (predefined) rules operate to simulate the correct semantics. 
+
+The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, the core rule is drawn as follows:
+
+\medskip
 
 \begin{center}
 \includegraphics[scale=.40]{react}
 \end{center}
 
+\medskip
+
 To parse this, note that (in the GROOVE rule syntax) the red structure must be absent for the rule to apply; moreover, green labels are added and blue ones deleted upon rule application. The \ilab{present} flag signals whether an \blab{Entity} is considered to be currently present; hence, creating or deleting that flag comes down to creating or deleting the \blab{Entity}. The $\forall$-nodes impose the desired quantification, causing a single application of this rule to model the firing of all enabled \blab{Reaction}s, even if there are thousands of them.
+Similarly for the simultaneous deletion of all \blab{Entity}s.
 
-Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved by encoding the context specification in the initial graph and exploiting a second predefined rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules: First 
+Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved by encoding the context specification in the initial graph and exploiting a second predefined rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules: first one of the alternative provision is selected by the context (possibly upon inspection of the current state, but also nondeterministically or a combination of both), and then all enabled reactions are executed.
 
-\medskip\noindent
+After fixing the strictly necessary background on RS and GROOVE, we illustrate the overall blueprint and main features of our implementation by exploiting a small vending machine example.
+The subsequent experimentation is concerned with revisiting previous case studies from the literature on RS to see how GROOVE can be used to enhance their analysis.
 Our first results are encouraging: GROOVE seems capable to explore larger Reaction Systems 
 %is well beyond what other tools have been able to achieve, 
 by halving the analysis time of both reachability and causal analyses.
-More precisely, we are able to find a trace towards unwanted patterns (if they exist) among millions of reachable configurations using different heuristics; then, we can also prune the trace to extract a graphical representation of the causal history of that entities, at least as far as reactants are concerned.
-
-Action Points:
-\begin{itemize}
-\item Develop toy example
-\item Think about possible extensions
-\end{itemize}
-
+More precisely, we are able to find a trace towards unwanted patterns (if they exist) among millions of reachable configurations using different heuristics; then, we can also prune the trace to extract a graphical representation of the causal history of that entities. Using the built-in model checker it is also possible to confirm the results of previous studies, as well as to prove new interesting properties.
 

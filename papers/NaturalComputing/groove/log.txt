@@ -1,0 +1,53 @@
+Grammar:        explore-rs-working
+Start graph:    cmsb2024-paolo
+Control:        alternating
+Exploration:    dfs / ruleapp(rule=context) / infinite
+Max mem (-Xmx): 12288M
+Timestamp:      Fri Mar 28 18:24:27 CET 2025
+
+Time (ms):          2463596
+Space (kB):         2054606
+
+States:       3243008
+Transitions:  20606799
+
+Exploration result: 2933210 states, 0 transitions
+
+---------------------------------------------------
+
+Grammar:        explore-rs-working
+Start graph:    cmsb2024-paolo
+Control:        alternating
+Exploration:    dfsurule(mode=Positive, rule=forbidden) / ruleapp(rule=forbidden) / infinite
+Max mem (-Xmx): 12288M
+Timestamp:      Tue Apr 01 16:23:11 CEST 2025
+Command line:   -P .\explore-rs-working.gps\full-exploration-alternating.properties -D typeGraph+=cmsb2024-paolo cmsb-major-forbidden -s dfsurule:forbidden -a ruleapp:forbidden .\explore-rs-working.gps cmsb2024-paolo
+
+Time (ms):          2447635
+Space (kB):         8248993
+
+States:       3044572
+Transitions:  15399523
+
+Exploration result: 91133 states, 0 transitions
+
+---------------------------------------------------
+
+Grammar:        explore-rs-working
+Start graph:    cmsb2024-paolo
+Control:        alternating
+Exploration:    crule(mode=Positive, rule=forbidden) / formula(formula=forbidden) / infinite
+Max mem (-Xmx): 12288M
+Timestamp:      Tue Apr 01 21:39:45 CEST 2025
+Command line:   -P .\explore-rs-working.gps\full-exploration-alternating.properties -D typeGraph+=cmsb2024-paolo cmsb-major-forbidden -s crule:forbidden -a formula:forbidden .\explore-rs-working.gps cmsb2024-paolo
+
+Time (ms):          3676669
+Space (kB):         3333967
+
+States:       2410055
+Transitions:  14673873
+
+Exploration result: 91133 states, 0 transitions
+
+---------------------------------------------------
+

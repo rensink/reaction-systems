@@ -6,32 +6,32 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>81 221 19 19</string>
+                <string>74 257 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>82 116 19 19</string>
+                <string>75 153 19 19</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>248 121 19 19</string>
+                <string>241 158 19 19</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>247 223 19 19</string>
+                <string>240 260 19 19</string>
             </attr>
         </node>
         <node id="n4">
             <attr name="layout">
-                <string>463 117 19 19</string>
+                <string>456 154 19 19</string>
             </attr>
         </node>
         <node id="n5">
             <attr name="layout">
-                <string>252 7 19 19</string>
+                <string>245 44 19 19</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -129,7 +129,7 @@
                 <string>move</string>
             </attr>
             <attr name="layout">
-                <string>483 0 261 245 261 282 90 282 90 252 11</string>
+                <string>465 0 250 281 250 321 84 321 84 288 11</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -140,11 +140,6 @@
         <edge from="n4" to="n4">
             <attr name="label">
                 <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>flag:forbidden</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">

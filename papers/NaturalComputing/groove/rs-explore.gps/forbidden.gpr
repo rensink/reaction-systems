@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
     <graph role="rule" edgeids="false" edgemode="directed" id="forbidden">
-        <attr name="$version">
-            <string>curly</string>
-        </attr>
         <attr name="actionRole">
             <string>forbidden</string>
         </attr>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
-                <string>183 117 63 36</string>
+                <string>188 108 53 54</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>type:Forbidden</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>flag:present</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>flag:forbidden</string>
             </attr>
         </edge>
     </graph>

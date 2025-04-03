@@ -14,7 +14,7 @@ Unlike traditional models of concurrency, like Petri nets, the theory of RS is b
 Moreover, due to the use of inhibitors, RS can exhibit non monotonic behaviour, in the sense that what can be done with less resources is not necessarily replicable with more resources.
 While \emph{closed} RS work in isolation, \emph{interactive processes} are dealt with by providing suitable environments that provide a sequence of stimuli at each step: they are set of entities that can be used to trigger or inhibit some reactions. A common example involves using contexts to analyze how drug administration affects organisms modeled as sets of reactions.
 Since their introduction, RS have been successfully applied to the analysis of complex systems in many different fields~\cite{ABP14,CMMBM12,Az17,OY16,DBLP:journals/ijfcs/EhrenfeuchtMR10,DBLP:journals/ijfcs/EhrenfeuchtMR11}.
-Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena~\cite{??}, led to experimenting with environments that exhibit nondeterministic and recursive behaviour.
+Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena~\cite{DBLP:conf/cmsb/BowlesBBFGM24,datamod2023}, led to experimenting with environments that exhibit nondeterministic and recursive behaviour.
 Then, performing reachability and causal analysis required the exploration of large state spaces for which the available prototype tool~\cite{DBLP:journals/tcs/BrodoBF21} struggled in terms of  memory consumption and response time.
  
 Graph Transformation (GT)~\cite{DBLP:series/eatcs/EhrigEPT06,DBLP:books/sp/HeckelT20} is a modelling technique that is widely applicable in problem domains where the objects of study have an inherent graphical structure, and the task at hand is to study their properties and evolution. Besides the graphs themselves, the core concept is that of a (transformation) \emph{rule} capturing a particular change to such a graph. Rules can be used, for instance, to describe the change of a system over time, but can also be instrumental in composing and decomposing graphs and so exposing structural properties.
@@ -46,8 +46,12 @@ Similarly for the simultaneous deletion of all \blab{Entity}s.
 
 Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved by encoding the context specification in the initial graph and exploiting a second predefined rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules: first one of the alternative provision is selected by the context (possibly upon inspection of the current state, but also nondeterministically or a combination of both), and then all enabled reactions are executed.
 
-After fixing the strictly necessary background on RS and GROOVE, we illustrate the overall blueprint and main features of our implementation by exploiting a small vending machine example.
-The subsequent experimentation is concerned with revisiting previous case studies from the literature on RS to see how GROOVE can be used to enhance their analysis.
+After fixing the strictly necessary background on RS (\S~\ref{sec:RS}) and GROOVE (\S~\ref{sec:GTS}), we illustrate in \S~\ref{sec:RS2GTS} the overall rationale, blueprint and main features of our implementation  by exploiting a small running example that models a vending machine (\S~\ref{sec:student}).
+The subsequent experimentation (\S~\ref{sec:experiments}) is concerned with revisiting previous case studies from the literature on RS to see how GROOVE can be used to enhance their analysis. 
+In particular, we tackle 
+the comorbidity treatment analysis from~\cite{DBLP:conf/cmsb/BowlesBBFGM24} in \S~\ref{sec:cmsb2024}, 
+the protein signaling networks analysis from~\cite{DBLP:conf/cmsb/BallisBFO24} in \S~\ref{sec:ccReact}, and
+the T cell differentiation analysis from~\cite{datamod2023} in \S~\ref{sec:datamod2023}.
 Our first results are encouraging: GROOVE seems capable to explore larger Reaction Systems 
 %is well beyond what other tools have been able to achieve, 
 by halving the analysis time of both reachability and causal analyses.

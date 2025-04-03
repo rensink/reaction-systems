@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="test-state-current">
+    <graph role="rule" edgeids="false" edgemode="directed" id="current">
         <attr name="transitionLabel">
             <string>Current: %s</string>
+        </attr>
+        <attr name="$version">
+            <string>curly</string>
         </attr>
         <attr name="actionRole">
             <string>condition</string>
         </attr>
         <attr name="enabled">
             <string>false</string>
-        </attr>
-        <attr name="$version">
-            <string>curly</string>
         </attr>
         <node id="n0">
             <attr name="layout">
@@ -28,14 +28,14 @@
                 <string>343 124 38 18</string>
             </attr>
         </node>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:State</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n1">
             <attr name="label">
                 <string>name</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:State</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">

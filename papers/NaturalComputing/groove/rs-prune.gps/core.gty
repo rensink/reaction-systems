@@ -34,14 +34,14 @@
                 <string>245 44 19 19</string>
             </attr>
         </node>
+        <node id="n6">
+            <attr name="layout">
+                <string>454 252 19 19</string>
+            </attr>
+        </node>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>color:120,32,110</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n3">
-            <attr name="label">
-                <string>next</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
@@ -54,14 +54,19 @@
                 <string>string:name</string>
             </attr>
         </edge>
+        <edge from="n0" to="n3">
+            <attr name="label">
+                <string>next</string>
+            </attr>
+        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>color:192,79,21</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
+        <edge from="n1" to="n0">
             <attr name="label">
-                <string>type:Token</string>
+                <string>current</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -69,9 +74,9 @@
                 <string>string:name</string>
             </attr>
         </edge>
-        <edge from="n1" to="n0">
+        <edge from="n1" to="n1">
             <attr name="label">
-                <string>current</string>
+                <string>type:Token</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -82,21 +87,6 @@
         <edge from="n2" to="n2">
             <attr name="label">
                 <string>color:59,125,35</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>flag:fired</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>string:name</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n4">
-            <attr name="label">
-                <string>reactant</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -114,6 +104,26 @@
                 <string>product</string>
             </attr>
         </edge>
+        <edge from="n2" to="n4">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>flag:fired</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>string:name</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n2">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n3">
             <attr name="label">
                 <string>type:Step</string>
@@ -127,19 +137,9 @@
                 <string>465 0 249 269 250 321 84 321 83 266 11</string>
             </attr>
         </edge>
-        <edge from="n3" to="n2">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n4" to="n4">
             <attr name="label">
                 <string>color:11,118,160</string>
-            </attr>
-        </edge>
-        <edge from="n4" to="n4">
-            <attr name="label">
-                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -152,14 +152,29 @@
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n5" to="n5">
+        <edge from="n4" to="n4">
             <attr name="label">
-                <string>type:Reaction</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n5" to="n2">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:Reaction</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n4">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:Forbidden</string>
             </attr>
         </edge>
     </graph>

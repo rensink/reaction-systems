@@ -1,0 +1,12 @@
+// This fully explores the RS by alternation of the context and react rules
+function fire() {
+  context; react;
+}
+
+fire;
+fire;
+fire;
+fire;
+fire;
+fire;
+fire;

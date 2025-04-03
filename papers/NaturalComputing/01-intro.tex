@@ -1,8 +1,8 @@
 % !TEX root =  ./main.tex
 
-\section{Introduction: TEXT TAKEN FROM RS2024 ABSTRACT}
+\section{Introduction}
 
-We explore the capabilities of  a state-of-the-art toolset based on graph transformation  to perform reachability and causal analysis of Reaction Systems.
+We explore the capabilities of a state-of-the-art toolset based on graph transformation to perform reachability, causal analysis and verification of complex systems modelled using Reaction Systems.
 
 Reaction systems (RS)~\cite{DBLP:journals/fuin/EhrenfeuchtR07} are a computational model inspired by the functioning of biochemical reactions within living cells. 
 %The primary motivation behind RS is to provide a simple yet expressive model for understanding and analyzing processes in natural and artificial systems.
@@ -11,18 +11,24 @@ Each reaction relies on some reactants, inhibitors, and products to mimic two fu
 %Facilitation means that a reaction can occur only if all of its reactants are present, while inhibition means that a reaction cannot occur if any of its inhibitors is present. 
 At each time instant, the next state of the system is determined by the products of all enabled reactions plus some additional entities that are possibly provided by environment.
 Unlike traditional models of concurrency, like Petri nets, the theory of RS is based on three principles: \emph{no permanency}, any entity vanishes unless it is sustained by a reaction; \emph{no competition}, an entity is either available for all reactions, or it is not available at all; and \emph{no counting}, the exact concentration level of available entities is ignored.
-Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena, led to experiment with environments that exhibit nondeterministic and recursive behaviour.
+Moreover, due to the use of inhibitors, RS can exhibit non monotonic behaviour, in the sense that what can be done with less resources is not necessarily replicable with more resources.
+Since their introduction, RS have been successfully applied to the analysis of complex systems in many different fields~\cite{ABP14,CMMBM12,Az17,OY16,DBLP:journals/ijfcs/EhrenfeuchtMR10,DBLP:journals/ijfcs/EhrenfeuchtMR11}.
+Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena~\cite{??}, led to experimenting with environments that exhibit nondeterministic and recursive behaviour.
 Then, performing reachability and causal analysis required the exploration of large state spaces for which the available prototype tool~\cite{DBLP:journals/tcs/BrodoBF21} struggled in terms of  memory consumption and response time.
  
 Graph Transformation (GT)~\cite{DBLP:series/eatcs/EhrigEPT06,DBLP:books/sp/HeckelT20} is a modelling technique that is widely applicable in problem domains where the objects of study have an inherent graphical structure, and the task at hand is to study their properties and evolution. Besides the graphs themselves, the core concept is that of a (transformation) \emph{rule} capturing a particular change to such a graph. Rules can be used, for instance, to describe the change of a system over time, but can also be instrumental in composing and decomposing graphs and so exposing structural properties.
+Since RS can be derived from Boolean network models and visualized themselves as suitable networks of reactions, it is quite natural trying to embed them within the GT framework to take advantage of well established analysis techniques.
 
-Importantly for the utility of the technique, there are a number of (academic) tools supporting its use. The research described here crucially relies on \href{https://groove.cs.utwente.nl}{GROOVE}~\cite{DBLP:journals/sttt/GhamarianMRZZ12}, one of the most prominent tools in this area, which was designed precisely to enable GT-based system analysis of the kind described above. Two features of GROOVE that are essential for the purpose of this research are
+Importantly, from a practical point of view, there are a number of (academic) tools supporting the use of GT. The research described here crucially relies on \href{https://groove.cs.utwente.nl}{GROOVE}~\cite{DBLP:journals/sttt/GhamarianMRZZ12}, one of the most prominent tools in this area, which was designed precisely to enable GT-based system analysis of the kind described above. The features of GROOVE that are essential for the purpose of this research are
 \begin{enumerate}%[label=\emph{(\roman*)}]
-\item nested (i.e., quantified) rules, which capture simultaneous changes in all neighbourhoods that satisfy certain application conditions, rather than only locally in one such neighbourhood at a time; and
-\item exploration of the set of reachable graphs (under the given rules) using various strategies.
+\item nested (i.e., quantified) rules, which capture simultaneous changes in all neighbourhoods that satisfy certain application conditions, rather than only locally in one such neighbourhood at a time; 
+\item exploration of the set of reachable graphs (under the given rules) using various strategies;
+\item model checking functionalities that can be used to validate previous findings as well to explore and support the study of new modal properties.
 \end{enumerate}
 
-We are in the process of investigating how GT can help in addressing the analysis questions in Reaction Systems. For this purpose, we encode a given RS as a single graph, upon which a small number of (fixed) rules operate to simulate the correct semantics. The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
+The main research question that motivated our study is: 
+\emph{how can GT help in addressing the analysis of Reaction Systems?} 
+For this purpose, we encode a given RS as a single graph, upon which a small number of (predefined) rules operate to simulate the correct semantics. The core rule describes the simultaneous firing of all \blab{Reaction}s of which no \lab{inhibitor}s and all \lab{reactant}s are present; the firing results in the presence of all \lab{product}s. Simultaneously, all currently present \blab{Entity}s are removed. In GROOVE syntax, this looks as follows:
 
 \begin{center}
 \includegraphics[scale=.40]{react}
@@ -30,7 +36,7 @@ We are in the process of investigating how GT can help in addressing the analysi
 
 To parse this, note that (in the GROOVE rule syntax) the red structure must be absent for the rule to apply; moreover, green labels are added and blue ones deleted upon rule application. The \ilab{present} flag signals whether an \blab{Entity} is considered to be currently present; hence, creating or deleting that flag comes down to creating or deleting the \blab{Entity}. The $\forall$-nodes impose the desired quantification, causing a single application of this rule to model the firing of all enabled \blab{Reaction}s, even if there are thousands of them.
 
-Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved through a second rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules.
+Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved by encoding the context specification in the initial graph and exploiting a second predefined rule, not shown here. A configuration is reachable if it can be constructed by the alternating application of both rules: First 
 
 \medskip\noindent
 Our first results are encouraging: GROOVE seems capable to explore larger Reaction Systems 

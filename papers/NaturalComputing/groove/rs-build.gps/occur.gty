@@ -11,12 +11,12 @@
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>408 135 19 19</string>
+                <string>380 117 75 54</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>220 47 27 18</string>
+                <string>224 46 19 19</string>
             </attr>
         </node>
         <node id="n3">
@@ -74,11 +74,6 @@
                 <string>string:name</string>
             </attr>
         </edge>
-        <edge from="n0" to="n8">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n5">
             <attr name="label">
                 <string>predecessor</string>
@@ -97,6 +92,11 @@
                 <string>reactant</string>
             </attr>
         </edge>
+        <edge from="n0" to="n8">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n0" to="n2">
             <attr name="label">
                 <string>abs:of</string>
@@ -110,6 +110,11 @@
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>flag:fresh</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -167,14 +172,14 @@
                 <string>type:ReactionOcc</string>
             </attr>
         </edge>
-        <edge from="n4" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n4" to="n10">
             <attr name="label">
                 <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n0">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n5" to="n5">
@@ -197,14 +202,14 @@
                 <string>flag:last</string>
             </attr>
         </edge>
-        <edge from="n5" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n5" to="n9">
             <attr name="label">
                 <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n0">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">

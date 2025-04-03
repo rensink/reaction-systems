@@ -41,20 +41,20 @@ The benefit of using GROOVE in this case study is that, besides identifying situ
 GROOVE can be used for full state space generation, for instance to count the number of ways a minor, moderate or major risk can arise. Some statistics are:
 
 \begin{center}
-\begin{tabular}{llr}
+\begin{tabular}{lrr}
 \bf Measurement & \bf Count (\#states) & Time (s) \\
 \hline
 Total states & 309.798 & 2.464 \\
 Major risks & 91.113 & 2.447 \\
 Moderate risks & & \\
-Minor risks & & 
+Minor risks & 24 & 2.218
 \end{tabular}
 \end{center}
 
 By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. For instance, the following table shows how many major risks occur after a fixed number of reaction steps.
 
 \begin{center}
-\begin{tabular}{llr}
+\begin{tabular}{lrr}
 \bf Number of steps & \bf Count (\#states) & Time (s) \\
 \hline
 3 & & \\

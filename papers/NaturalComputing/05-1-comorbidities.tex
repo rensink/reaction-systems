@@ -42,38 +42,48 @@ GROOVE can be used for full state space generation, for instance to count the nu
 
 \begin{center}
 \begin{tabular}{lrr}
-\bf Measurement & \bf Count (\#states) & Time (s) \\
+\bf Measurement & \bf States & \bf Time (s) \\
 \hline
-Total states & 309.798 & 2.464 \\
-Major risks & 91.113 & 2.447 \\
-Moderate risks & & \\
-Minor risks & 24 & 2.218
+Total states   & 309.798 & 2.464 \\
+Major risks    &  91.113 & 2.447 \\
+Moderate risks &  97.805 & 1.534 \\
+Minor risks    &      24 & 2.218
 \end{tabular}
 \end{center}
 
-By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. For instance, the following table shows how many major risks occur after a fixed number of reaction steps.
+At first sight, the number of major (and moderate) risks seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total configurations, and there may very well be entities whose presence or absence does not causally contribute to a risk (essentially because they do not occur in its occurrence graph). Thus, configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
+ 
+\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. For instance, the following table shows how many major risks occur after a fixed number of reaction steps.
 
 \begin{center}
 \begin{tabular}{lrr}
-\bf Number of steps & \bf Count (\#states) & Time (s) \\
+\bf Steps & \bf Risks & Time (s) \\
 \hline
-3 & & \\
-4 & & \\
-5 & & \\
-Minor risks & & 
+3 &       0 &    3 \\
+4 &     716 &    8 \\
+5 &  10.033 &  158 \\
+6 &  45.932 &  390 \\
+7 & 119.932 & 1241 \\
 \end{tabular}
 \end{center}
 
-Alternatively we can stop after having found a predetermined number of risks. By setting the exploration strategy to breadth-first search, it is guaranteed that the risks found are those reached after the shortest number of steps, meaning they are the easiest to analyze visually. For instance, \Cref{fig:cmsb-occurrence} shows the occurrence graph of the ``shortest path'' risk.
+Note that the results (in terms of number of risks found) are not entirely comparable to those in the first table, since by explicitly counting the length of the trace we lose the ability to identify cyclic behaviour; hence if the same configuration (in terms of entities present) can reoccur after (say) 4 and 6 steps, then any major risk directly derived from that configuration will be counted twice, after 5 and 7 steps, respectively.
+
+\medskip\noindent Alternatively, we can stop exploring after having found a predetermined number of risks. By setting the exploration strategy to breadth-first search, it is guaranteed that the risks found are those reached after the shortest number of steps, meaning they are the easiest to analyze visually. For instance, \Cref{fig:cmsb-pruned} shows the occurrence graph of the first major risk found in this way.
 
 \begin{figure}
+\centering
+\includegraphics[scale=.3]{./figs/cmsb-pruned}
 \caption{Occurrence graph of a major risk.}
-\label{fig:cmsb-occurrence}
+\label{fig:cmsb-pruned}
 \end{figure}
 
-\begin{quote}\it
-Here I would like to give some figures about state space size and performance, preferably both for GROOVE and for BioResolve. In particular: how many states in total? how many states if we stop exploring once a risk has been found? How many risks? (Maybe subdivided onto minor, moderate, major.) Also, we need to make a definite choice of the version we want to use.
-\end{quote}
+The patient configuration in question is a combination of ``has\_fib'', ``afib'' and ``heart\_rate''; the combination of the first two leads to the prescription of fleacinide and the second to the prescription of diltiazem, the combination of which should, however, be avoided. By counting the longest chain of \StepOcc-nodes, it is confirmed that it indeed takes 4 steps to establish this risk.
 
+\medskip\noindent Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
+\begin{itemize}
+\item The time needed to analyze the entire state space is around 41 minutes \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve.
 
+\item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE --- given, of course, suitable rule systems that encode the chosen notion of causal dependency.
+\end{itemize}
 

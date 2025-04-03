@@ -6,7 +6,7 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>150 144 36 18</string>
+                <string>149 144 37 18</string>
             </attr>
         </node>
         <node id="n1">
@@ -16,7 +16,7 @@
         </node>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:minor</string>
+                <string>type:moderate</string>
             </attr>
         </edge>
         <edge from="n0" to="n1">

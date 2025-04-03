@@ -4,41 +4,41 @@
 
 %The paper~\cite{DBLP:conf/cmsb/BowlesBBFGM24} introduced the notion of RS with guarded contexts, recalled in \Cref{sec:RS}.
 %to model scenarios where the entities to be provided by the context are dependent upon the current state, which is a common situation arising, e.g., in drug administration and \emph{in silico} experiments. 
-This case was studied in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}, where it was used as motivation for the introduction of RS with guarded contexts, recalled in \Cref{sec:RS}. It concerns the risk reduction of medication harm in the treatment of patients with comorbidities; i.e., patients with two or more long-term chronic conditions (such as diabetes, hypertension, cardiovascular diseases, chronic kidney disease, cancer, chronic obstructive pulmonary disease, among many others), who are therefore subject to follow several treatment plans simultaneously, called \emph{clinical guidelines}~\cite{feder1999using,woolf1999potential}. Since clinical guidelines address a single disease, comorbidities easily lead to  \emph{polypharmacy}, where 5 or more medications must be administered, increasing the risk of adverse drug reactions, or of making certain drugs less effective when combined~\cite{Gut12}. Using formal methods for risk mitigation intends to help doctors choose between alternative treatment options as well as to point out missing conditions that could be helpful to revise and update clinical guidelines. 
+This case was studied in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}, where guarded contexts were introduced to handle key features of medical treatments. It concerns the risk mitigation of medication harm in the treatment of patients with comorbidities; i.e., patients with two or more long-term chronic conditions (such as diabetes, hypertension, cardiovascular diseases, chronic kidney disease, cancer, chronic obstructive pulmonary disease, among many others), who are therefore subject to follow several treatment plans simultaneously, called \emph{clinical guidelines}~\cite{feder1999using,woolf1999potential}. Since clinical guidelines address a single disease, comorbidities easily lead to  \emph{polypharmacy}, where 5 or more medications must be administered, increasing the risk of adverse drug reactions, or of making certain drugs less effective when combined~\cite{Gut12}. Using formal methods for risk mitigation intends to help doctors choose between alternative treatment options as well as to point out missing conditions that could be helpful to revise and update clinical guidelines. 
+
+\subparagraph*{Analysis goals.}
+The goal of the analysis is to explore the combination of clinical guidelines in the presence of comorbidities and for different patient profiles to detect if major risks can arise from the treatments and which profiles are exposed at severe risks.\todo{This reads like a duplication}
 
 \subparagraph*{Features of interest.}
 In this case study, reachability and causal analysis are key issues.
 Specifically, reachability is used to address questions such as \emph{can the combination of clinical guidelines expose the patient at serious risks because of drugs interference?}
 Then, in the affirmative case, causal analysis can help to detect which medical decisions would be directly responsible for causing serious harm as well as to point out  which alternative treatment would be available, if any.
-We have selected this case study because the use of guarded contexts poses new challenges in terms of causal analysis: an external choice, apparently made by the context, might in fact be the only option available given the actual state of the system. \todo{A: I don't quite get it - what is the new challenge?}
+We selected this case study because the use of guarded contexts introduces new challenges for the causal analysis of RS: while existing approaches typically focus on identifying combinations of drugs administered within the context that may have caused harm, they often fail to highlight the medical decisions that led to their administration.\todo{A: I don't quite get it - what is the new challenge? R: revised}
 
 \subparagraph*{Experimental set up.}
 The RS encoding proposed in~\cite{DBLP:conf/cmsb/BowlesBBFGM24} relies on a formal representation of patient profiles, medical guidelines and adverse drug reactions.
 
-For medical guidelines, it takes in input the event structure modelling of therapies introduced in~\cite{BC17c}. Roughly, to each event $e$ there is an identifier $\mathsf{E}_e$ defined as a sum of processes, one for each outgoing arc of $e$. If some guard is attached to the arc, then the corresponding alternative is also guarded. When some drug prescription for $d$ is present in a node, then the corresponding choice produces $\mathsf{get}\_d$. Similarly, if the therapy requires stopping some drug $d$, the entity $\mathsf{stop}\_d$ is produced.
-Concurrent events are activated separately.\todo{This sentence is not clear to me.}
+For each drug $d$ that appears in the therapies, we consider three corresponding entities $\mathsf{get}\_d$, $\mathsf{stop}\_d$  and $d$: the first represents the prescription of $d$ by the doctor, the second the removal of $d$ from the current treatment and the third the intake of the drug by the patient. For handling multiple drugs of the same class $c$, we exploit analogous entities $\mathsf{stop}\_c$  and $c$.
 
-The patient profile is determined by the conditions that trigger the treatment (e.g., headache, hypertension) and by the conditions that appear in the arc labels of the event structure (e.g., pregnant, asthma). We call them \emph{features}. The patient profile is thus just a combination of features. Correspondingly, there is one context $\mathsf{K}_f = \emptyset.\mathsf{Empty} + \{f\}.\mathsf{Empty}$ for each feature $f$, and any possible combination of features is accounted for by their parallel composition $\prod_f \mathsf{K}_f$. Alternatively, specific profiles can be investigated by removing some alternatives from each $\mathsf{K}_f$.\todo{Why is this useful?}
-Once the profile is determined by the context, it is preserved during the rest of the computation by reactions of the form $(\{f\},\emptyset,\{f\})$, one for each feature.
+For medical guidelines, it takes in input the event structure modelling of therapies introduced in~\cite{BC17c}. Roughly, to each event $e$ there is an identifier $\mathsf{E}_e$ defined as a sum of processes, one for each outgoing arc of $e$. If some guard is attached to the arc, then the corresponding alternative is also guarded. The prescription of a drug $d$ is modelled by the provision of the entity $\mathsf{get}\_d$. Similarly, if the therapy requires stopping the drug $d$, the entity $\mathsf{stop}\_d$ is produced.
 
-For each drug $d$ that appears in the therapies, we consider three corresponding entities $\mathsf{get}\_d$, $\mathsf{stop}\_d$  and $d$: the first represents the prescription of $d$ by the doctor, the second the removal of $d$ from the current treatment and the third the intake of the drug by the patient. 
-Entities $\mathsf{get}\_d$ and $\mathsf{stop}\_d$ will be provided by the context that models the guideline, as discussed above. 
-For each drug, $d$ there will be the following reactions: $(\{\mathsf{get}\_d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the intake of the drug $d$ as for doctor prescription, and $(\{d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the prosecution of the therapy.\todo{What is $c$ here?}
+The patient profile is determined by the conditions that trigger the treatment (e.g., headache, hypertension) and by the conditions that appear in the arc labels of the event structure (e.g., pregnant, asthma). We call them \emph{features}. Correspondingly, there is one context $\mathsf{K}_f = \{f\}.\mathsf{Empty}$ for each feature $f$, and a patient profile is just a combination of features $\prod_f \mathsf{K}_f$. 
+Once the profile is determined by the context, it is preserved during the rest of the computation by reactions of the form $(\{f\},\varnothing,\{f\})$, one for each feature.
+Accounting for all possible combination of features in a single model can be done by considering the context $\prod_f (\mathsf{K}_f + \mathsf{Empty})$. 
+
+For each drug $d$ of class $c$, there will be the following reactions: $(\{\mathsf{get}\_d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the intake of the drug $d$ as for doctor prescription, and $(\{d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the prosecution of the therapy.
 Adverse drug reactions are provided in the form of so-called ADR tables.
 Each row corresponds to a set of medications $M$, a textual description of their side effects and risks when used in combination, and a severity level $m$ (e.g., minor, moderate, major).
-Each row translates to a reaction $(M,\emptyset,\{m\})$. 
-
-\subparagraph*{Analysis goals.}
-The goal of the analysis is to explore the combination of clinical guidelines in the presence of comorbidities and for different patient profiles to detect if major risks can arise from the treatments and which profiles are exposed at severe risks.\todo{This reads like a duplication}
+Each row translates to a reaction $(M,\varnothing,\{m\})$. 
 
 \subparagraph*{Previous approach.}
 The approach outlined in~\cite{DBLP:conf/cmsb/BowlesBBFGM24} has been used to synthesize the patient profiles that are more at risk, as a support for dynamic guideline revision: by refining guarded contexts to prevent severe effects for specific patients, we can readily check the efficacy of the changes.
 
-\subparagraph*{GROOVE experimentation.}
+\subparagraph*{\GROOVE experimentation.}
 
-The benefit of using GROOVE in this case study is that, besides identifying situations where a risk is found, the corresponding occurrence graph can be easily generated, using the process outlined in \Cref{sec:RS2GTS}. This provides a means to medical experts to more easily analyze root causes: for any risk that has been identified, what is the causal structure of the steps and entities leading up to it?
+The benefit of using \GROOVE in this case study is that, besides identifying situations where a risk is found, the corresponding occurrence graph can be easily generated, using the process outlined in \Cref{sec:RS2GTS}. This provides a means to medical experts to more easily analyze root causes: for any risk that has been identified, what is the causal structure of the steps and entities leading up to it?
 
-GROOVE can be used for full state space generation, for instance to count the number of ways a minor, moderate or major risk can arise. Some statistics are:
+\GROOVE can be used for full state space generation, for instance to count the number of ways a minor, moderate or major risk can arise. Some statistics are:
 
 \begin{center}
 \begin{tabular}{lrr}

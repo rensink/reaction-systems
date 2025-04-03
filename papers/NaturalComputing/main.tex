@@ -74,22 +74,46 @@
 %%%%  template package for technical guidance.
 %%%%%=============================================================================%%%%
 
-%% as per the requirement new theorem styles can be included as shown below
-\theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}%  meant for continuous numbers
-%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
-%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
-\newtheorem{proposition}[theorem]{Proposition}% 
-%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+%%% as per the requirement new theorem styles can be included as shown below
+%\theoremstyle{thmstyleone}%
+%\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+%\newtheorem{proposition}[theorem]{Proposition}% 
+%%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+%
+%\theoremstyle{thmstyletwo}%
+%\newtheorem{example}{Example}%
+%\newtheorem{remark}{Remark}%
+%
+%\theoremstyle{thmstylethree}%
+%\newtheorem{definition}{Definition}%
 
-\theoremstyle{thmstyletwo}%
+
+\newtheoremstyle{thmwithspace}% Nome dello stile
+  {5pt}% Spazio sopra
+  {5pt}% Spazio sotto
+  {\itshape}% Corpo del teorema
+  {}% Indentazione
+  {\bfseries}% Stile dell'intestazione
+  {.}% Punteggiatura dopo l'intestazione
+  { }% Spazio dopo l'intestazione
+  {}% Specifica personalizzata per l'intestazione
+
+%\theoremstyle{thmstyletwo}%
+\theoremstyle{thmwithspace}%
 \newtheorem{example}{Example}%
 \newtheorem{remark}{Remark}%
-
-\theoremstyle{thmstylethree}%
+%
+%\theoremstyle{thmstylethree}%
+\theoremstyle{thmwithspace}%
 \newtheorem{definition}{Definition}%
+\newtheorem{theorem}{Theorem}%
+\newtheorem{lemma}[theorem]{Lemma}%
+\newtheorem{proposition}[theorem]{Proposition}%
+\newtheorem{corollary}[theorem]{Corollary}%
 
-\raggedbottom
+%\raggedbottom
 %%\unnumbered% uncomment this for unnumbered level heads
 
 %%%%%% To display ORCID Logo with link, Please add below definition and copy the ORCID_Color.eps in the manuscript package %%%%%
@@ -124,11 +148,11 @@
 
 \affil*[2]{\orgdiv{CS Dept.}, \orgname{University of Twente}, \orgaddress{\street{Hallenweg 19}, \city{Enschede}, \postcode{7522}, \country{Netherlands}}}
 
-\abstract{We explore the capabilities of GROOVE, a state-of-the-art toolset based on graph transformation systems, to perform reachability and causal analysis of Reaction Systems.
-Our results are still preliminary, but encouraging, as in the presence of large state spaces GROOVE outperforms available applications by halving the analysis time of both reachability and causal analyses.
-From the point of view of GROOVE, the implementation of Reaction Systems provided some interesting insights on the most convenient way to model certain computational requirements through negative and nested application conditions.}
+\abstract{We explore the capabilities of \GROOVE, a state-of-the-art toolset based on graph transformation systems, to perform reachability and causal analysis of Reaction Systems.
+Our results are still preliminary, but encouraging, as in the presence of large state spaces \GROOVE outperforms available applications by halving the analysis time of both reachability and causal analyses.
+From the point of view of \GROOVE, the implementation of Reaction Systems provided some interesting insights on the most convenient way to model certain computational requirements through negative and nested application conditions.}
 
-\keywords{Reaction Systems, Graph Transformation, GROOVE, \textcolor{red}{Other keywords}}
+\keywords{Reaction Systems, Graph Transformation, \GROOVE, \textcolor{red}{Other keywords}}
 
 %%\pacs[JEL Classification]{D8, H51}
 

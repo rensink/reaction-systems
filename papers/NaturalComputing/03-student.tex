@@ -2,16 +2,16 @@
 
 \section{Running Example: a Toy Vending Machine}\label{sec:student}
 
-To illustrate some basic concepts of RSs and, in the next section, of the proposed encoding, we model a system composed of a student and a vending machine as a toy example.
+To illustrate some basic concepts of RSs and, in the next section, of the proposed \GROOVE encoding, we model a system composed of a student and a vending machine as a toy example.
 The vending machine accepts two different kinds of coins and can dispense either a cappuccino or an expresso when a coffee coin is inserted or a tea if a tea coin is inserted. A cappuccino is dispensed if some milk is available, otherwise expresso is produced.
 Assuming the powder for preparing coffee and tea are always present, the corresponding process can be written as follows:
 \[
 \begin{array}{lll}
 \mathsf{VM} & \triangleq & (\{\ccoin,\cpowder\},\{\nomilk\},\{\cappuccino\})\\
-& | & (\{\ccoin,\cpowder,\nomilk\},\emptyset,\{\espresso\})\\
-& | & (\{\tcoin,\tpowder\},\emptyset,\{\tea\})\\
-& | & (\{\cpowder\},\emptyset,\{\cpowder\})\\
-& | & (\{\tpowder\},\emptyset,\{\tpowder\})\\
+& | & (\{\ccoin,\cpowder,\nomilk\},\varnothing,\{\espresso\})\\
+& | & (\{\tcoin,\tpowder\},\varnothing,\{\tea\})\\
+& | & (\{\cpowder\},\varnothing,\{\cpowder\})\\
+& | & (\{\tpowder\},\varnothing,\{\tpowder\})\\
 \end{array}
 \]
 
@@ -19,27 +19,27 @@ A refill context process can, nondeterministically, refill the machine with milk
 \[
 \begin{array}{lll}
 \mathsf{Refill} & \triangleq & \{\nomilk\}.\mathsf{Refill}
-+ \emptyset.\mathsf{Refill}
++ \varnothing.\mathsf{Refill}
 \end{array}
 \]
 
 The student process is very simple: she takes cappuccino in the morning and tea in the afternoon, otherwise she gets angry.
 \[
 \begin{array}{rll}
-\mathsf{Student} & \triangleq & (\{\am\},\emptyset,\{\ccoin\}).\mathsf{GetCappuccino}\\
-& + & (\emptyset,\{\am\},\{\tcoin\}).\mathsf{GetTea}\\
+\mathsf{Student} & \triangleq & (\{\am\},\varnothing,\{\ccoin\}).\mathsf{GetCappuccino}\\
+& + & (\varnothing,\{\am\},\{\tcoin\}).\mathsf{GetTea}\\
 & + & \{\idle\}.\mathsf{Student}\\
-\mathsf{GetCappuccino} & \triangleq & (\{\cappuccino\},\emptyset,\emptyset).\mathsf{Student}\\
-& + & (\{\espresso\},\emptyset,\{\anger\}).\mathsf{Student}\\
-\mathsf{GetTea} & \triangleq & (\{\tea\},\emptyset,\emptyset).\mathsf{Student}\\
-& + & (\emptyset,\{\tea\},\{\anger\}).\mathsf{Student}\\
+\mathsf{GetCappuccino} & \triangleq & (\{\cappuccino\},\varnothing,\varnothing).\mathsf{Student}\\
+& + & (\{\espresso\},\varnothing,\{\anger\}).\mathsf{Student}\\
+\mathsf{GetTea} & \triangleq & (\{\tea\},\varnothing,\varnothing).\mathsf{Student}\\
+& + & (\varnothing,\{\tea\},\{\anger\}).\mathsf{Student}\\
 \end{array}
 \]
 
-Once emerged, anger cause the banging of the machine:
+Once emerged, anger causes the banging of the machine:
 \[
 \begin{array}{lll}
-\mathsf{Anger} & \triangleq & (\{\anger\},\emptyset,\{\bang\})
+\mathsf{Anger} & \triangleq & (\{\anger\},\varnothing,\{\bang\})
 \end{array}
 \]
 
@@ -52,21 +52,21 @@ Finally, two more reactions model the passage of time (morning vs afternoon) whi
 \]
 
 We assume that, initially, both entitities $\cpowder$ and $\tpowder$ are present.
-So the system can be written as 
-\(
+So the system can be coded as the guarded RS process
+\[
 [\,\mathsf{Refill}
 | \mathsf{Student}
 | \{\cpowder,\tpowder\} 
 | \mathsf{VM}
 | \mathsf{Anger}
-| \mathsf{Day}\,]
-\).
+| \mathsf{Day}\,] .
+\]
 
 
 Using BioReSolve, we can generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
 Note that, as \am is initially not present, it means that the initial time is in the afternoon.
 To improve readability, the nodes of the LTS are labelled by the list of context processes and entities, omitting reactions, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context, i.e., the components in $D\cup C$ extracted from the full label $\obs{\obs{D}{R',I',C}}{R,I,P}$. The label $0$ stands for the emptyset.
-%As a general strategy for BioReSolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\emptyset,\{\Forbidden\})$.
+%As a general strategy for BioReSolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\varnothing,\{\Forbidden\})$.
 
 \begin{figure}
 \includegraphics[scale=.3]{./figs/toylts}

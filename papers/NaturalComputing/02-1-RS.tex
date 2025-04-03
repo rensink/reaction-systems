@@ -6,13 +6,13 @@ First, we briefly account for the classical set theoretic definition of Reaction
 
 
 \subparagraph*{RS basics.}
-A Reaction System is a pair ${\cal A} = (S, A)$, where $S$ is the finite set of \emph{entities}, and $A$ is a finite set of \emph{reactions} of the form $a = (R,I,P)$, with $R, I, P\subseteq S$ and $R \cap I = \emptyset$. 
+A Reaction System is a pair ${\cal A} = (S, A)$, where $S$ is the finite set of \emph{entities}, and $A$ is a finite set of \emph{reactions} of the form $a = (R,I,P)$, with $R, I, P\subseteq S$ and $R \cap I = \varnothing$. 
 The sets $R, I, P$ are the sets of \emph{reactants}, \emph{inhibitors}, and  \emph{products}, respectively. 
-Without loss of generality, we admit the use of empty sets as reactants or inhibitors.
+Without loss of generality, we admit the use of empty sets as reactants, inhibitors, and products.
 %
-Given the current state $W\subseteq S$, a reaction $a = (R,I,P)$ is enabled in $W$ if all its reactants are present (i.e., $R\subseteq W$) and all its inhibitors absent (i.e., $W \cap I = \emptyset$).
+Given the current state $W\subseteq S$, a reaction $a = (R,I,P)$ is enabled in $W$ if all its reactants are present (i.e., $R\subseteq W$) and all its inhibitors absent (i.e., $W \cap I = \varnothing$).
 The \emph{result} of the reaction $a$ on the current state $W$ is $P$ if $a$ is enabled, and
-$\emptyset$ otherwise.
+$\varnothing$ otherwise.
 The result of all reactions $A$ on the current state $W$, is the union of the results of all reactions.
 %
 The no-permanency principle of RSs dictates that entities disappear if not sustained by some reaction.
@@ -24,7 +24,6 @@ Inspired by Plotkin's Structural Operational Semantics approach~\cite{DBLP:journ
 \begin{definition}[RS processes]\label{def:LTSforRS}
 %Let $S$ be a set of entities. 
 \emph{RS processes} are defined by the grammar below:
-
 \begin{eqnarray*}
 \mathsf{P} & := & [\mathsf{M}]
 \\
@@ -34,7 +33,7 @@ Inspired by Plotkin's Structural Operational Semantics approach~\cite{DBLP:journ
 \end{eqnarray*}
 
 \noindent
-where $R$, $I$, $P$, $C$, and $D$ are sets of entities (with $P\neq \emptyset$ and $R\cap I=\emptyset$) and $X$ is a context identifier drawn from a family of (recursive) definitions $\Delta \triangleq\{X_j=\mathsf{K}_j\}_{j\in J}$, called the \emph{environment}.
+where $R$, $I$, $P$, $C$, and $D$ are sets of entities (with $R\cap I=\varnothing$) and $X$ is a context identifier drawn from a family of (recursive) definitions $\Delta \triangleq\{X_j=\mathsf{K}_j\}_{j\in J}$, called the \emph{environment}.
 \end{definition}
 
 Roughly, a RS process  $\mathsf{P}$ embeds a \emph{mixture} process $\mathsf{M}$ obtained as the parallel composition of some reactions $(R,I,P)$, some available entities $D$ (if any), and some \emph{context} process $\mathsf{K}$.
@@ -44,13 +43,13 @@ the nil context $\nil$ that stops the computation;
 the guarded context $(R,I,C).\mathsf{K}$ that makes the entities $C$ available to the reactions if the reactants $R$ are present and the inhibitors $I$ are absent, and then will behave as $\mathsf{K}$ at the next step;
 the non-deterministic choice $\mathsf{K}_1+\mathsf{K}_2$ that can behave as either  $\mathsf{K}_1$ or $\mathsf{K}_2$;  
 the context identifier $X$ that behaves as $\mathsf{K}$ for $X=\mathsf{K}\in \Delta$.
-We write $C.\mathsf{K}$ as a shorthand for the trivially guarded process $(\emptyset,\emptyset,C).\mathsf{K}$ and we assume the recursive context $\mathsf{Emp}=\emptyset.\mathsf{Emp}$ is always defined.
+We write $C.\mathsf{K}$ as a shorthand for the trivially guarded process $(\varnothing,\varnothing,C).\mathsf{K}$ and we assume the recursive context $\mathsf{Emp}=\varnothing.\mathsf{Emp}$ is always defined.
 
 
-We say that $\mathsf{P}$ and $\mathsf{P}'$ are structurally equivalent, written $\mathsf{P} \equiv \mathsf{P}'$, when they denote the same term up to the laws of Abelian monoids (unit, associativity and commutativity) for  parallel composition $\cdot | \cdot$, with $\emptyset$ as the unit, and the laws of idempotent Abelian monoids for choice $\cdot +\cdot$, with $\nil$ as the unit. We also assume $D_1 | D_2 \equiv D_1\cup D_2$ for any $D_1,D_2\subseteq S$.
+We say that $\mathsf{P}$ and $\mathsf{P}'$ are structurally equivalent, written $\mathsf{P} \equiv \mathsf{P}'$, when they denote the same term up to the laws of Abelian monoids (unit, associativity and commutativity) for  parallel composition $\cdot | \cdot$, with $\varnothing$ as the unit, and the laws of idempotent Abelian monoids for choice $\cdot +\cdot$, with $\nil$ as the unit. We also assume $D_1 | D_2 \equiv D_1\cup D_2$ for any $D_1,D_2\subseteq S$.
 Indexed sums and parallel compositions are denoted, respectively, by $\sum_{i\in I} \mathsf{K}_i$ and $\prod_{i\in I} \mathsf{M}_i$.
 
-The SOS semantics of  RS processes is defined by the SOS rules in Fig.~\ref{fig:guardforRS2nd}.
+The SOS semantics of  RS processes is defined by the SOS rules in \Cref{fig:guardforRS2nd}.
 A transition label $\ell$, written $\obs{\obs{D}{R',I',C}}{R,I,P}$, records:
 the available entities $D$; the entities $C$ provided by the guarded contexts, assuming all entities in $R'$ are present and those in $I'$ are absent;
 the set $R$ of entities whose presence enables or disables some reactions;
@@ -62,41 +61,44 @@ $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 \begin{figure*}[t]
 		$$  
 		\infer[(\textit{\scriptsize{Ent}})]
-		{D \xrightarrow{\obs{\obs{D}{\emptyset,\emptyset,\emptyset}}{\emptyset,\emptyset,\emptyset}}\emptyset}
+		{D \xrightarrow{\obs{\obs{D}{\varnothing,\varnothing,\varnothing}}{\varnothing,\varnothing,\varnothing}}\varnothing}
 		{}
-		\qquad
+		\qquad\qquad
 		\infer[(\textit{\scriptsize{Cxt}})]
-		{(R,I,C).\mathsf{K} \xrightarrow{\obs{\obs{\emptyset}{R,I,C}}{\emptyset,\emptyset,\emptyset}}\mathsf{K}}{}
+		{(R,I,C).\mathsf{K} \xrightarrow{\obs{\obs{\varnothing}{R,I,C}}{\varnothing,\varnothing,\varnothing}}\mathsf{K}}{}
 		$$
+		\smallskip
 		$$
 		\infer[(\textit{\scriptsize Suml})]
 		{\mathsf{K}_1 + \mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_1}
 		{\mathsf{K}_1 \xrightarrow{\ell}\mathsf{K}'_1}
-		\qquad
+		\qquad\qquad
 		\infer[(\textit{\scriptsize Sumr})]
 		{\mathsf{K}_1 + \mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_2}
 		{\mathsf{K}_2 \xrightarrow{\ell}\mathsf{K}'_2}
-		\qquad
+		\qquad\qquad
 		\infer[(\textit{\scriptsize Rec})]
 		{X \xrightarrow{\ell}\mathsf{K}'}
 		{X=\mathsf{K}\in\Delta & \mathsf{K} \xrightarrow{\ell}\mathsf{K}'}
 		$$
+		\smallskip
 		$$
 		\infer[(\textit{\scriptsize Pro})]
-		{(R,I,P)  \xrightarrow{\obs{\obs{\emptyset}{\emptyset,\emptyset,\emptyset}}{R,I,P}}(R,I,P)|P}
+		{(R,I,P)  \xrightarrow{\obs{\obs{\varnothing}{\varnothing,\varnothing,\varnothing}}{R,I,P}}(R,I,P)|P}
 		{}
-		\qquad
+		\qquad\qquad
 		\infer[(\textit{\scriptsize Inh})]
-		{(R,I,P)  \xrightarrow{\obs{\obs{\emptyset}{\emptyset,\emptyset,\emptyset}}{J,Q,\emptyset}}(R,I,P)}
-		{J \subseteq I & Q \subseteq R & J\cup Q\neq \emptyset}
+		{(R,I,P)  \xrightarrow{\obs{\obs{\varnothing}{\varnothing,\varnothing,\varnothing}}{J,Q,\varnothing}}(R,I,P)}
+		{J \subseteq I & Q \subseteq R & J\cup Q\neq \varnothing}
 		$$
+		\smallskip
 		$$
 		\infer[(\textit{\scriptsize Par})]
 		{\mathsf{M}_1~|~\mathsf{M}_2\xrightarrow{\ell_1\cup\ell_2} \mathsf{M}'_1~|~\mathsf{M}'_2}
 		{\mathsf{M}_1 \xrightarrow{\ell_1} \mathsf{M}'_1 &
 		\mathsf{M}_2 \xrightarrow{\ell_2} \mathsf{M}'_2 &
 			\ell_1\frown \ell_2 }
-		\qquad
+		\qquad\qquad
 		\infer[(\textit{\scriptsize Sys})]
 		{[\mathsf{M}]\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} [\mathsf{M}']}
 		{\mathsf{M}\xrightarrow{\obs{\obs{D}{R',I',C}}{R,I,P}} \mathsf{M}' &
@@ -114,9 +116,9 @@ $(R,I,P)$ is enabled in $W\triangleq (D\cup C)$.
 \obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
 \\
 \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
-\triangleq (\textstyle\bigcup_{i=1,2} D_i\cup  R'_i) \cap (I'_1 \cup I'_2) = \emptyset
+\triangleq (\textstyle\bigcup_{i=1,2} D_i\cup  R'_i) \cap (I'_1 \cup I'_2) = \varnothing
 \wedge
-(\bigcup_{i=1,2} D_i\cup  C_i\cup  R_i) \cap (I_1 \cup I_2) = \emptyset \\[5pt]
+(\bigcup_{i=1,2} D_i\cup  C_i\cup  R_i) \cap (I_1 \cup I_2) = \varnothing \\[5pt]
 \obs{\obs{D_1}{R'_1,I'_1,C_1}}{R_1,I_1,P_1}
 \cup
 \obs{\obs{D_2}{R'_2,I'_2,C_2}}{R_2,I_2,P_2}
@@ -136,14 +138,14 @@ Rules $(\textit{Suml})$ and $(\textit{Sumr})$ select a move of either the left o
 By rule $(\textit{Rec})$, a context identifier $X$ behaves according to its defining process $\mathsf{K}$.
 
 The rule $(\textit{Pro})$ assumes the reaction $(R,I,P)$ is enabled: it records its reactants, inhibitors, and products in the label, and leaves the reaction  available at the next step, together with its products $P$.
-The rule $(\textit{Inh})$ records in the label the reasons why the reaction $(R,I,P)$ should not be executed: possibly some inhibiting entities $(J \subseteq I)$ are present or some reactants $(Q \subseteq R)$ are missing, with $J \cup Q \neq \emptyset$, as at least one cause is needed.
+The rule $(\textit{Inh})$ records in the label the reasons why the reaction $(R,I,P)$ should not be executed: possibly some inhibiting entities $(J \subseteq I)$ are present or some reactants $(Q \subseteq R)$ are missing, with $J \cup Q \neq \varnothing$, as at least one cause is needed.
 
-The rule $(\textit{Par})$ puts two processes in parallel by pooling their labels and joining all labels components. We write $\ell_1\cup\ell_2$ for the component-wise union of labels, while the sanity check $\ell_1\frown\ell_2$ is required to guarantee that labels of reactants and inhibitors are consistent (see definitions in Fig.~\ref{fig:guardforRS2nd}).
+The rule $(\textit{Par})$ puts two processes in parallel by pooling their labels and joining all labels components. We write $\ell_1\cup\ell_2$ for the component-wise union of labels, while the sanity check $\ell_1\frown\ell_2$ is required to guarantee that labels of reactants and inhibitors are consistent (see definitions in \Cref{fig:guardforRS2nd}).
 
 Finally, the rule $(\textit{Sys})$ checks that all the needed reactants are available in the system. Checking the absence of inhibitors  is not necessary, thanks to the sanity check in rule $(\textit{Par})$.
 Note that, while the enabling of $(R,I,C).\mathsf{K}$ requires the presence of reactants $R$ and the absence of inhibitors $I$ w.r.t. the set of current entities $D$, in the case of reactions $(R,I,P)$, the check is performed w.r.t. the current state $W=D\cup C$.
 More importantly, the products $C$ are made available immediately from the context, not at the next step.
 It is worthy to mention that a conditional prefixed process that is not enabled behaves as the $\nil$ process.
 
-A first concrete example of RS that exposes most of the features is presented in Section~\ref{sec:student}.
+A first concrete example of RS that exposes most features is presented in \Cref{sec:student}.
 

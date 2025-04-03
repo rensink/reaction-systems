@@ -36,9 +36,40 @@ The approach outlined in~\cite{DBLP:conf/cmsb/BowlesBBFGM24} has been used to sy
 
 \subparagraph*{GROOVE experimentation.}
 
-The benefit of using GROOVE in this case study is that, besides identifying situations where a major risk is found, the corresponding occurrence graph can be easily generated, using the process outlined in \Cref{sec:RS2GTS}. This provides a means to the medical experts to more easily analyze root causes: for any major risk that has been identified, what is the causal structure of the steps and entities leading up to that risk?
+The benefit of using GROOVE in this case study is that, besides identifying situations where a risk is found, the corresponding occurrence graph can be easily generated, using the process outlined in \Cref{sec:RS2GTS}. This provides a means to medical experts to more easily analyze root causes: for any risk that has been identified, what is the causal structure of the steps and entities leading up to it?
 
-GROOVE can be used for full state space generation, or can (alternatively) be invoked so as to stop after having found a predetermined number of risks. By setting the exploration strategy to breadth-first search, it is guaranteed that the risks found are those reached after the shortest number of steps, meaning they are the easiest to analyze. Some statistics are:
+GROOVE can be used for full state space generation, for instance to count the number of ways a minor, moderate or major risk can arise. Some statistics are:
+
+\begin{center}
+\begin{tabular}{llr}
+\bf Measurement & \bf Count (\#states) & Time (s) \\
+\hline
+Total states & 309.798 & 2.464 \\
+Major risks & 91.113 & 2.447 \\
+Moderate risks & & \\
+Minor risks & & 
+\end{tabular}
+\end{center}
+
+By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. For instance, the following table shows how many major risks occur after a fixed number of reaction steps.
+
+\begin{center}
+\begin{tabular}{llr}
+\bf Number of steps & \bf Count (\#states) & Time (s) \\
+\hline
+3 & & \\
+4 & & \\
+5 & & \\
+Minor risks & & 
+\end{tabular}
+\end{center}
+
+Alternatively we can stop after having found a predetermined number of risks. By setting the exploration strategy to breadth-first search, it is guaranteed that the risks found are those reached after the shortest number of steps, meaning they are the easiest to analyze visually. For instance, \Cref{fig:cmsb-occurrence} shows the occurrence graph of the ``shortest path'' risk.
+
+\begin{figure}
+\caption{Occurrence graph of a major risk.}
+\label{fig:cmsb-occurrence}
+\end{figure}
 
 \begin{quote}\it
 Here I would like to give some figures about state space size and performance, preferably both for GROOVE and for BioResolve. In particular: how many states in total? how many states if we stop exploring once a risk has been found? How many risks? (Maybe subdivided onto minor, moderate, major.) Also, we need to make a definite choice of the version we want to use.

@@ -2,6 +2,43 @@
 
 \section{Auxiliary Material}
 
+\subsection{Auxiliary Material for the toy running example}
+
+\begin{figure}[t]
+\begin{minipage}{0.9\linewidth}
+\footnotesize
+\begin{verbatim}
+myentities([cpowder,tpowder]).
+
+myreactions([
+    react([idle],[am],[am]),
+    react([am],[idle],[am]),
+    react([ccoin,cpowder],[nomilk],[cappuccino]),
+    react([ccoin,cpowder,nomilk],[],[espresso]),
+    react([tcoin,tpowder],[],[tea]),
+    react([cpowder],[],[cpowder]),
+    react([tpowder],[],[tpowder]),
+    react([anger],[],[bang]) ]).
+
+mycontext("[refill,student]").
+
+myenvironment("[
+    refill = ({nomilk}.refill 
+            + {}.refill),
+    student = (?{},{am},{tcoin}?.gettea 
+             + ?{am},{},{ccoin}?.getcappuccino 
+             + {idle}.student),
+    gettea = (?{tea},{},{}?.student
+            + ?{},{tea},{anger}?.student),
+    getcappuccino = (?{cappuccino},{},{}?.student 
+                    + ?{espresso},{},{anger}?.student) ]").
+\end{verbatim}
+\end{minipage}
+\caption{\BioResolve implementation of the vending machine RS from \Cref{sec:student}.}
+\label{fig:bioresolve:toy}
+\end{figure}
+
+
 \subsection{Auxiliary Material for the T cell differentiation case study}
 
 \begin{figure}[t]
@@ -50,6 +87,69 @@
 %\end{verbatim}
 	\caption{Boolean updates of the T Cell differentiation model from \cite{puniya2018mechanistic}, available at \cite{ModelCellCollective}.}
 	\label{fig:boolean-formulas}
+\end{figure}
+
+\begin{figure}[t]
+\begin{minipage}{0.9\linewidth}
+\footnotesize
+\begin{verbatim}
+myreactions([
+    react([stat5],[gata3,il21r,il6r],[foxp3]),
+    react([stat5],[gata3,il21r,stat3],[foxp3]),
+    react([tgfbr],[gata3,il21r,il6r],[foxp3]),
+    react([tgfbr],[gata3,il21r,stat3],[foxp3]),
+    react([gata3],[tbet],[gata3]),
+    react([nfat,stat6],[foxp3,rorgt,tbet,tgfb],[gata3]),
+    react([stat5],[foxp3,rorgt,tbet,tgfb],[gata3]),
+    react([nfat,nfkb,stat4],[stat3,stat6],[ifng]),
+    react([nfkb],[],[ifng]),
+    react([tbet],[stat3],[ifng]),
+    react([ifng,nfat],[],[ifngr]),
+    react([ifnge,nfat],[],[ifngr]),
+    react([il12,nfat],[],[il12r]),
+    react([tbet],[],[il12r]),
+    react([tcr],[gata3],[il12r]),
+    react([il17,il23r,stat3],[stat1,stat5],[il17]),
+    react([rorgt],[stat1],[il17]),
+    react([il12,il18],[stat6],[il18r]),
+    react([nfat,nfkb],[tbet],[il2]),
+    react([nfat,stat3],[],[il21]),
+    react([il21],[],[il21r]),
+    react([il23,stat3],[tbet],[il23r]),
+    react([stat3],[],[il23r]),
+    react([il2,nfat],[],[il2r]),
+    react([stat4],[gata3],[il2r]),
+    react([gata3,nfat],[stat1],[il4]),
+    react([il4],[socs1],[il4r]),
+    react([il4e],[],[il4r]),
+    react([rorgt],[],[il6]),
+    react([il6],[],[il6r]),
+    react([il6e],[],[il6r]),
+    react([il18r],[],[irak]),
+    react([ifngr],[socs1],[jak1]),
+    react([tcr],[foxp3],[nfat]),
+    react([irak],[foxp3],[nfkb]),
+    react([il21r,stat3,tgfbr],[foxp3,gata3,tbet],[rorgt]),
+    react([il6r,stat3,tgfbr],[foxp3,gata3,tbet],[rorgt]),
+    react([stat1],[],[socs1]),
+    react([tbet],[],[socs1]),
+    react([il27,nfat],[],[stat1]),
+    react([jak1],[],[stat1]),
+    react([il21r],[],[stat3]),
+    react([il23r],[],[stat3]),
+    react([il6r],[],[stat3]),
+    react([il12,il12r],[gata3],[stat4]),
+    react([il2r],[],[stat5]),
+    react([il4r],[ifng,socs1],[stat6]),
+    react([stat1],[foxp3,rorgt],[tbet]),
+    react([stat4],[foxp3,rorgt],[tbet]),
+    react([tbet],[foxp3,ifng,il12,rorgt],[tbet]),
+    react([nfat,tgfb],[],[tgfbr]) ]).
+    
+\end{verbatim}
+\end{minipage}
+\caption{\BioResolve implementation of the T cell case study from \Cref{sec:datamod2023}.}
+\label{fig:bioresolve:tcell}
 \end{figure}
 
 \subsection{Auxiliary Material for the comorbidity treatement case study}

@@ -22,9 +22,9 @@ For each drug $d$ that appears in the therapies, we consider three corresponding
 
 For medical guidelines, it takes in input the event structure modelling of therapies introduced in~\cite{BC17c}. Roughly, to each event $e$ there is an identifier $\mathsf{E}_e$ defined as a sum of processes, one for each outgoing arc of $e$. If some guard is attached to the arc, then the corresponding alternative is also guarded. The prescription of a drug $d$ is modelled by the provision of the entity $\mathsf{get}\_d$. Similarly, if the therapy requires stopping the drug $d$, the entity $\mathsf{stop}\_d$ is produced.
 
-The patient profile is determined by the conditions that trigger the treatment (e.g., headache, hypertension) and by the conditions that appear in the arc labels of the event structure (e.g., pregnant, asthma). We call them \emph{features}. Correspondingly, there is one context $\mathsf{K}_f = \{f\}.\mathsf{Empty}$ for each feature $f$, and a patient profile is just a combination of features $\prod_f \mathsf{K}_f$. 
+The patient profile is determined by the conditions that trigger the treatment (e.g., headache, hypertension) and by the conditions that appear in the arc labels of the event structure (e.g., pregnant, asthma). We call them \emph{features}. Correspondingly, there is one context $\mathsf{K}_f = \{f\}.\mathsf{Emp}$ for each feature $f$, and a patient profile is just a combination of features $\prod_f \mathsf{K}_f$. 
 Once the profile is determined by the context, it is preserved during the rest of the computation by reactions of the form $(\{f\},\varnothing,\{f\})$, one for each feature.
-Accounting for all possible combination of features in a single model can be done by considering the context $\prod_f (\mathsf{K}_f + \mathsf{Empty})$. 
+Accounting for all possible combination of features in a single model can be done by considering the context $\prod_f (\mathsf{K}_f + \mathsf{Emp})$. 
 
 For each drug $d$ of class $c$, there will be the following reactions: $(\{\mathsf{get}\_d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the intake of the drug $d$ as for doctor prescription, and $(\{d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the prosecution of the therapy.
 Adverse drug reactions are provided in the form of so-called ADR tables.

@@ -17,7 +17,7 @@ This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of wh
 
 \medskip\noindent\textbf{Transform.}
 %
-The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, in which all entities in the problem at hand are provided with their own type (essentially for performance reasons: it speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two self-explanatory fragments of the start graph are shown in \Cref{fig:toy}.
+The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This is achieved by running the \verb=main_do(rs2gts)= directive of \BioResolve, which produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, in which all entities in the problem at hand are provided with their own type (essentially for performance reasons: it speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two self-explanatory fragments of the start graph are shown in \Cref{fig:toy}.
 
 \begin{figure}
 \centering

@@ -17,8 +17,14 @@ The goal of the analysis is to exploit model checking to validate or refute some
 Besides reachability analysis, mostly concerned with the possibility to reach certain attractors, the distinguishing feature of this case study is the possibility to model check RSs with guarded contexts against behavioural properties written in LTL and CTL.
 
 \subparagraph*{Experimental set up.}
-The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from a RS specification, which is manually coded in \textbf{ccReact} and queried using Maude state exploration techniques and built-in model checkers. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to \GROOVE presented in the previous section, i.e., no preprocessing is necessary.
-
+The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from a RS specification, which is manually coded in \textbf{ccReact} and queried using Maude state exploration techniques and built-in model checkers. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to \GROOVE presented in the previous section, i.e., no preprocessing is necessary. The \BioResolve specification is in \Cref{fig:bioresolve:psn} in \Cref{app:psn}.
+The following properties have been experimented with:
+\begin{enumerate}
+\item searching for the the presence/absence of the attractor \texttt{akt} in steady states of the BT747 cell line, where the context \verb=[k,ket]= is considered;
+\item in order to observe the interactions when either \texttt{e}rlotinib or \texttt{p}ertuzumab are supplied, the context \verb=[{e,egf,hrg}.korep]= is considered and Maude reports that there exists at least one path where that treatment is successful, but not all paths avoid a steady state where \texttt{akt} is present;
+\item using the context \verb=[k,korept]=, it is shown that, regardless the drug used, once \texttt{pdk1} is present, inevitably the steady state includes \texttt{akt}; and that \texttt{pdk1} never appears before \texttt{erbb1} is produced (which basically means that \texttt{pdk1} is a product of the activation of the \texttt{erbb1} receptor);
+\item finally, using the context \verb=[k,kge]=, it is shown that by permanently providing the drug \texttt{e}rlotinib and the stimulus (\texttt{egf} and \texttt{hrg}), the attractor \texttt{akt} is never produced. Moreover, Maude checks that the production of \texttt{akt} can be also inhibited by providing \texttt{e}rlotinib only when receptors \texttt{erbb1} and \texttt{erbb2} are active.
+\end{enumerate}
 
 \subparagraph*{Previous approach.}
 \textbf{ccReact} allowed to perform reachability analysis directly exploiting the \texttt{search} command of Maude. 

@@ -38,8 +38,76 @@ myenvironment("[
 \label{fig:bioresolve:toy}
 \end{figure}
 
+\subsection{Auxiliary Material for the Comorbidity Treatment Case Study}
 
-\subsection{Auxiliary Material for the T cell differentiation case study}
+\subsection{Auxiliary Material for the Protein Signaling Networks Case Study}\label{app:psn}
+
+\begin{figure}[t]
+\begin{minipage}{0.9\linewidth}
+\footnotesize
+\begin{verbatim}
+myentities([]).
+
+myreactions([
+    react([akt],[],[akt]),
+    react([erbb3],[],[akt]),
+    react([mtor],[],[akt]),
+    react([pdk1],[],[akt]),
+    react([erbb1],[e,p],[erbb1]),
+    react([egf],[e,p],[erbb1]),
+    react([plcg],[e,p],[erbb1]),
+    react([erbb2],[e,t,p],[erbb2]),
+    react([egf],[e,t,p],[erbb2]),
+    react([erbb3],[e,t,p],[erbb2]),
+    react([erbb3],[e,p],[erbb3]),
+    react([hrg],[e,p],[erbb3]),
+    react([erk12],[],[erk12]),
+    react([egf],[],[erk12]),
+    react([p],[],[erk12]),
+    react([mek12],[],[erk12]),
+    react([mek12],[],[mek12]),
+    react([erbb1],[],[mek12]),
+    react([erbb2],[],[mek12]),
+    react([erbb3],[],[mek12]),
+    react([mtor],[],[mtor]),
+    react([p],[],[mtor]),
+    react([akt],[],[mtor]),
+    react([p70s6k],[],[p70s6k]),
+    react([akt],[],[p70s6k]),
+    react([mtor],[],[p70s6k]),
+    react([erk12],[],[p70s6k]),
+    react([pdk1],[],[pdk1]),
+    react([erbb1],[],[pdk1]),
+    react([erbb2],[],[pdk1]),
+    react([erbb3],[],[pdk1]),
+    react([mek12],[],[pdk1]),
+    react([pkca],[],[pkca]),
+    react([plcg],[],[pkca]),
+    react([plcg],[],[plcg]),
+    react([egf],[],[plcg]),
+    react([erbb1],[],[plcg]),
+    react([erbb2],[],[plcg]),
+    react([erbb3],[],[plcg]) ]).
+
+myenvironment("[
+    k = {egf,hrg}.k,
+    ket = {e,t}.ket,
+    korep = ({e}.korep + {p}.korep),
+    korept = ({e}.korept + {p}.korept + {t}.korept),
+    kge = (?{erbb1},{},{e}?.kge 
+          + ?{erbb2},{},{e}?.kge 
+          + ?{},{erbb1,erbb2},{}?.kge) ]").
+
+\end{verbatim}
+\end{minipage}
+\caption{\BioResolve implementation of the protein signaling network case study from \Cref{sec:ccReact}.}
+\label{fig:bioresolve:psn}
+\end{figure}
+
+    
+
+
+\subsection{Auxiliary Material for the T Cell Differentiation Case Study}
 
 \begin{figure}[t]
 	\begin{center}
@@ -152,6 +220,4 @@ myreactions([
 \label{fig:bioresolve:tcell}
 \end{figure}
 
-\subsection{Auxiliary Material for the comorbidity treatement case study}
 
-\subsection{Auxiliary Material for the ... case study}

@@ -1,9 +1,0 @@
-// Line 1 of Fig. 6 in LTL
-X(present("afib") & present("heart_rate") & present("consensus_acei") & !present("over75") & !present("doac_int") & present("hyper") -> G !forbidden)
-X(present(\"afib\") & present(\"heart_rate\") & present(\"consensus_acei\") & !present(\"over75\") & !present(\"doac_int\") & present(\"hyper\") -> G !forbidden)
-
-// Line 1 of Fig. 6 in CTL
-AX(present("afib") & present("heart_rate") & present("consensus_acei") & !present("over75") & !present("doac_int") & present("hyper") -> EF forbidden)
-AX(present(\"afib\") & present(\"heart_rate\") & present(\"consensus_acei\") & !present(\"over75\") & !present(\"doac_int\") & present(\"hyper\") -> EF forbidden)
-
-AG !forbidden

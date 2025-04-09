@@ -6,4 +6,9 @@ function fire() {
 fire;
 fire;
 fire;
-fire;
+try { forbidden; }
+else {
+  fire;
+  try { forbidden; }
+  else { halt }
+}

@@ -19,7 +19,11 @@ else {
       else {
         fire;
         try { forbidden; }
-        else { halt }
+        else {
+          fire;
+          try { forbidden; }
+          else { halt }
+        }
       }
     }
   }

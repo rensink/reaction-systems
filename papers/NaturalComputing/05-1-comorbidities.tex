@@ -28,7 +28,7 @@ Accounting for all possible combination of features in a single model can be don
 
 For each drug $d$ of class $c$, there will be the following reactions: $(\{\mathsf{get}\_d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the intake of the drug $d$ as for doctor prescription, and $(\{d\},\{\mathsf{stop}\_d,\mathsf{stop}\_c\},\{d,c\})$ modelling the prosecution of the therapy.
 Adverse drug reactions are provided in the form of so-called ADR tables.
-Each row corresponds to a set of medications $M$, a textual description of their side effects and risks when used in combination, and a severity level $m$ (e.g., minor, moderate, major).
+Each row corresponds to a set of medications $M$, a textual description of their side effects and risks when used in combination, and a severity level $m$ (e.g., \minor, \moderate, \major).
 Each row translates to a reaction $(M,\varnothing,\{m\})$. 
 
 \subparagraph*{Previous approach.}
@@ -36,36 +36,47 @@ The approach outlined in~\cite{DBLP:conf/cmsb/BowlesBBFGM24} has been used to sy
 
 \subparagraph*{\GROOVE experimentation.}
 
-The benefit of using \GROOVE in this case study is that, besides identifying situations where a risk is found, the corresponding occurrence graph can be easily generated, using the process outlined in \Cref{sec:RS2GTS}. This provides a means to medical experts to more easily analyze root causes: for any risk that has been identified, what is the causal structure of the steps and entities leading up to it?
+The benefit of using \GROOVE in this case study is that, besides identifying situations where a risk is found, for any risk so identified the corresponding occurrence graph of a risk can be generated, using the process outlined in \Cref{sec:RS2GTS}. This provides a means for medical experts to more easily analyze root causes: for any risk that has been identified, what is the causal structure of the steps and entities leading up to it?
 
-\GROOVE can be used for full state space generation, for instance to count the number of ways a minor, moderate or major risk can arise. Some statistics are:
+\GROOVE can be used for full state space generation, for instance to count the number of ways a minor, moderate or major risk can arise. Some statistics can be found in \Cref{tab:cmsb-experiments}.
 
-\begin{center}
-\begin{tabular}{lrr}
-\bf Measurement & \bf States & \bf Time (s) \\
+\begin{figure}\centering
+\subcaptionbox{Full exploration\label{fig:cmsb-full}}{
+\begin{tabular}{lcrr}
+\bf Measurement & \bf Search & \bf Count & \bf Time \\
+                & \bf method &           & \bf  (s) \\
+\hline\hline
+Total states   & BFS & 309 798 & 3 368 \\
+Total states   & DFS & 309 798 & 2 464 \\
 \hline
-Total states   & 309.798 & 2.464 \\
-Major risks    &  91.113 & 2.447 \\
-Moderate risks &  97.805 & 1.534 \\
-Minor risks    &      24 & 2.218
-\end{tabular}
-\end{center}
+Major risks    & DFS &  91 113 & 2 447 \\
+Moderate risks & DFS &  97 805 & 1 534 \\
+Maj\&Mod risks & DFS &  61 976 & 2 727 \\
+Minor risks    & DFS &      24 & 2 218
+\end{tabular}}
 
-At first sight, the number of major (and moderate) risks seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total configurations, and there may very well be entities whose presence or absence does not causally contribute to a risk (essentially because they do not occur in its occurrence graph). Thus, configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
+\subcaptionbox{Major risks after number of steps\label{fig:cmsb-steps}}{
+\begin{tabular}{rrrr}
+\bf Steps & \bf Total & \bf New   & \bf Time \\
+          & \bf Risks & \bf Risks & \bf  (s) \\
+\hline\hline
+3 &       0 &       0 &     3 \\
+4 &     716 &     716 &    10 \\
+5 &   9 317 &   8 601 &    70 \\
+6 &  35 899 &  26 582 &   425 \\
+7 &  73 591 &  37 693 & 2 277 \\
+8 &  81 691 &   8 099 &       \\
+9 &  88 631 &         & 3 105        
+\end{tabular}}
+\caption{States, risks and execution time}
+\label{tab:cmsb-experiments}
+\end{figure}
+
+At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
+
+The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which both a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
  
-\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. For instance, the following table shows how many major risks occur after a fixed number of reaction steps.
-
-\begin{center}
-\begin{tabular}{lrr}
-\bf Steps & \bf Risks & Time (s) \\
-\hline
-3 &       0 &    3 \\
-4 &     716 &    8 \\
-5 &  10.033 &  158 \\
-6 &  45.932 &  390 \\
-7 & 119.932 & 1241 \\
-\end{tabular}
-\end{center}
+\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. The second table in \Cref{tab:cmsb-experiments} shows how many major risks occur after a fixed number of reaction steps.
 
 Note that the results (in terms of number of risks found) are not entirely comparable to those in the first table, since by explicitly counting the length of the trace we lose the ability to identify cyclic behaviour; hence if the same configuration (in terms of entities present) can reoccur after (say) 4 and 6 steps, then any major risk directly derived from that configuration will be counted twice, after 5 and 7 steps, respectively.
 
@@ -79,6 +90,9 @@ Note that the results (in terms of number of risks found) are not entirely compa
 \end{figure}
 
 The patient configuration in question is a combination of ``has\_fib'', ``afib'' and ``heart\_rate''; the combination of the first two leads to the prescription of fleacinide and the second to the prescription of diltiazem, the combination of which should, however, be avoided. By counting the longest chain of \StepOcc-nodes, it is confirmed that it indeed takes 4 steps to establish this risk.
+
+\medskip\noindent We can also use \GROOVE to replicate the findings of  \cite[Fig.\ 6]{DBLP:conf/cmsb/BowlesBBFGM24} in terms of the relation between patient profiles and risks, using model checking. Recall that the reaction system starts by having the context produce initial entities, and in this particular case study, the first move of the context is to select a patient profile; hence the initial state has $2^9=512$ outgoing transitions, whose target state corresponds to the chosen profile. Moreover, the rule \forbidden tests for the presence of a \Forbidden entity in a state. Therefore, a formula of the shape
+$AX(\bigwedge_i f_i \rightarrow EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether that combination of features will always lead to a potential risk.
 
 \medskip\noindent Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
 \begin{itemize}

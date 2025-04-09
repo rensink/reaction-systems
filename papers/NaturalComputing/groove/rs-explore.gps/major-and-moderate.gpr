@@ -1,48 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="present">
-        <attr name="transitionLabel">
-            <string>%s</string>
-        </attr>
-        <attr name="actionRole">
-            <string>condition</string>
-        </attr>
+    <graph role="rule" edgeids="false" edgemode="directed" id="major-and-moderate">
         <attr name="$version">
             <string>curly</string>
         </attr>
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
-                <string>208 114 40 36</string>
+                <string>205 125 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>208 212 36 18</string>
+                <string>318 120 59 36</string>
             </attr>
         </node>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:major</string>
+            </attr>
+        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>flag:present</string>
             </attr>
         </edge>
-        <edge from="n0" to="n1">
+        <edge from="n1" to="n1">
             <attr name="label">
-                <string>name</string>
-            </attr>
-        </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:Entity</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>parout:0</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>string:</string>
+                <string>type:moderate</string>
             </attr>
         </edge>
     </graph>

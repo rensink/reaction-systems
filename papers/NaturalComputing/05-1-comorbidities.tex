@@ -55,18 +55,21 @@ Maj\&Mod risks & DFS &  61 976 & 2 727 \\
 Minor risks    & DFS &      24 & 2 218
 \end{tabular}}
 
-\subcaptionbox{Major risks after number of steps\label{fig:cmsb-steps}}{
-\begin{tabular}{rrrr}
-\bf Steps & \bf Total & \bf New   & \bf Time \\
-          & \bf Risks & \bf Risks & \bf  (s) \\
+\subcaptionbox{Bounded BFS exploration\label{fig:cmsb-steps}}{
+\begin{tabular}{rrr}
+\bf Explore & \bf Total & \bf New   \\ % & \bf Time
+\bf depth   & \bf risks & \bf risks \\ % & \bf  (s)
 \hline\hline
-3 &       0 &       0 &     3 \\
-4 &     716 &     716 &    10 \\
-5 &   9 317 &   8 601 &    70 \\
-6 &  35 899 &  26 582 &   425 \\
-7 &  73 591 &  37 693 & 2 277 \\
-8 &  81 691 &   8 099 &       \\
-9 &  88 631 &         & 3 105        
+ 3 &      0 &       0 \\ % &     3
+ 4 &    716 &     716 \\ % &    10
+ 5 &  9 317 &   8 601 \\ % &    70
+ 6 & 35 899 &  26 582 \\ % &   425
+ 7 & 73 591 &  37 693 \\ % & 2 277
+ 8 & 81 691 &   8 100 \\ % & 1 765
+ 9 & 88 631 &   6 940 \\ % & 1 875
+10 & 89 733 &   1 102 \\ % & 2 368
+11 & 90 573 &     840 \\ % & 2 443
+12 & 91 133 &     560    % & 2 784
 \end{tabular}}
 \caption{States, risks and execution time}
 \label{tab:cmsb-experiments}

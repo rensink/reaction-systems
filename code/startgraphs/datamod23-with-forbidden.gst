@@ -4,6 +4,23 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
+        <node id="Forbidden">
+        </node>
+        <edge from="Forbidden" to="Forbidden">
+            <attr name="label">
+                <string>id:Forbidden</string>
+            </attr>
+        </edge>
+        <edge from="Forbidden" to="Forbidden">
+            <attr name="label">
+                <string>type:Forbidden</string>
+            </attr>
+        </edge>
+        <edge from="Forbidden" to="Forbidden">
+            <attr name="label">
+                <string>let:name="Forbidden"</string>
+            </attr>
+        </edge>
         <node id="foxp3">
         </node>
         <edge from="foxp3" to="foxp3">
@@ -692,6 +709,11 @@
         <edge from="react_0" to="tbet">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_0" to="Forbidden">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="react_0" to="gata3">
@@ -1804,6 +1826,11 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
+        <edge from="react_30" to="Forbidden">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
         <edge from="react_30" to="gata3">
             <attr name="label">
                 <string>product</string>
@@ -2152,6 +2179,11 @@
         <edge from="react_40" to="tgfb">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="react_40" to="Forbidden">
+            <attr name="label">
+                <string>product</string>
             </attr>
         </edge>
         <edge from="react_40" to="gata3">

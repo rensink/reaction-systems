@@ -21,7 +21,7 @@
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>240 260 19 19</string>
+                <string>222 251 54 36</string>
             </attr>
         </node>
         <node id="n4">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="cmsb2024-paolo">
+    <graph role="type" edgeids="false" edgemode="directed" id="cmsb.cmsb2024-paolo">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -364,14 +364,14 @@
                 <string>739 287 19 19</string>
             </attr>
         </node>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>type:acei</string>
-            </attr>
-        </edge>
         <edge from="n0" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:acei</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -394,12 +394,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n3" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n3">
             <attr name="label">
                 <string>type:apixaban</string>
             </attr>
         </edge>
-        <edge from="n3" to="n25">
+        <edge from="n4" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -409,7 +414,7 @@
                 <string>type:arb</string>
             </attr>
         </edge>
-        <edge from="n4" to="n25">
+        <edge from="n5" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -419,7 +424,7 @@
                 <string>type:atenolol</string>
             </attr>
         </edge>
-        <edge from="n5" to="n25">
+        <edge from="n6" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -429,7 +434,7 @@
                 <string>type:below55</string>
             </attr>
         </edge>
-        <edge from="n6" to="n25">
+        <edge from="n7" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -439,7 +444,7 @@
                 <string>type:benazepril</string>
             </attr>
         </edge>
-        <edge from="n7" to="n25">
+        <edge from="n8" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -447,11 +452,6 @@
         <edge from="n8" to="n8">
             <attr name="label">
                 <string>type:bisoprolol</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
@@ -474,14 +474,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n11" to="n11">
-            <attr name="label">
-                <string>type:cbb</string>
-            </attr>
-        </edge>
         <edge from="n11" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>type:cbb</string>
             </attr>
         </edge>
         <edge from="n12" to="n12">
@@ -504,14 +504,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n14" to="n14">
-            <attr name="label">
-                <string>type:dabigatran</string>
-            </attr>
-        </edge>
         <edge from="n14" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n14">
+            <attr name="label">
+                <string>type:dabigatran</string>
             </attr>
         </edge>
         <edge from="n15" to="n15">
@@ -534,14 +534,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n17" to="n17">
-            <attr name="label">
-                <string>type:diltiazem</string>
-            </attr>
-        </edge>
         <edge from="n17" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n17" to="n17">
+            <attr name="label">
+                <string>type:diltiazem</string>
             </attr>
         </edge>
         <edge from="n18" to="n18">
@@ -574,12 +574,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n21" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n21" to="n21">
             <attr name="label">
                 <string>type:doac_fail</string>
             </attr>
         </edge>
-        <edge from="n21" to="n25">
+        <edge from="n22" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -587,11 +592,6 @@
         <edge from="n22" to="n22">
             <attr name="label">
                 <string>type:doac_int</string>
-            </attr>
-        </edge>
-        <edge from="n22" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n23" to="n23">
@@ -604,14 +604,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n24" to="n24">
-            <attr name="label">
-                <string>type:doac_test</string>
-            </attr>
-        </edge>
         <edge from="n24" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n24" to="n24">
+            <attr name="label">
+                <string>type:doac_test</string>
             </attr>
         </edge>
         <edge from="n25" to="n25">
@@ -619,12 +619,17 @@
                 <string>type:Entity</string>
             </attr>
         </edge>
+        <edge from="n26" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n26" to="n26">
             <attr name="label">
                 <string>type:flecainide</string>
             </attr>
         </edge>
-        <edge from="n26" to="n25">
+        <edge from="n27" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -632,11 +637,6 @@
         <edge from="n27" to="n27">
             <attr name="label">
                 <string>type:get_apixaban</string>
-            </attr>
-        </edge>
-        <edge from="n27" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n28" to="n28">
@@ -649,14 +649,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n29" to="n29">
-            <attr name="label">
-                <string>type:get_benazepril</string>
-            </attr>
-        </edge>
         <edge from="n29" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n29">
+            <attr name="label">
+                <string>type:get_benazepril</string>
             </attr>
         </edge>
         <edge from="n30" to="n30">
@@ -669,12 +669,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n31" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n31" to="n31">
             <attr name="label">
                 <string>type:get_captopril</string>
             </attr>
         </edge>
-        <edge from="n31" to="n25">
+        <edge from="n32" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -682,11 +687,6 @@
         <edge from="n32" to="n32">
             <attr name="label">
                 <string>type:get_carvedilol</string>
-            </attr>
-        </edge>
-        <edge from="n32" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n33" to="n33">
@@ -699,12 +699,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n34" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n34" to="n34">
             <attr name="label">
                 <string>type:get_dabigatran</string>
             </attr>
         </edge>
-        <edge from="n34" to="n25">
+        <edge from="n35" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -714,7 +719,7 @@
                 <string>type:get_diltiazem</string>
             </attr>
         </edge>
-        <edge from="n35" to="n25">
+        <edge from="n36" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -722,11 +727,6 @@
         <edge from="n36" to="n36">
             <attr name="label">
                 <string>type:get_flecainide</string>
-            </attr>
-        </edge>
-        <edge from="n36" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n37" to="n37">
@@ -739,12 +739,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n38" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n38" to="n38">
             <attr name="label">
                 <string>type:get_irbesartan</string>
             </attr>
         </edge>
-        <edge from="n38" to="n25">
+        <edge from="n39" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -752,11 +757,6 @@
         <edge from="n39" to="n39">
             <attr name="label">
                 <string>type:get_olmesortan</string>
-            </attr>
-        </edge>
-        <edge from="n39" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n40" to="n40">
@@ -769,14 +769,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n41" to="n41">
-            <attr name="label">
-                <string>type:get_verapamil</string>
-            </attr>
-        </edge>
         <edge from="n41" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n41" to="n41">
+            <attr name="label">
+                <string>type:get_verapamil</string>
             </attr>
         </edge>
         <edge from="n42" to="n42">
@@ -789,12 +789,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n43" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n43" to="n43">
             <attr name="label">
                 <string>type:get_warfarin</string>
             </attr>
         </edge>
-        <edge from="n43" to="n25">
+        <edge from="n44" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -804,7 +809,7 @@
                 <string>type:has_fib</string>
             </attr>
         </edge>
-        <edge from="n44" to="n25">
+        <edge from="n45" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -814,7 +819,7 @@
                 <string>type:heart_rate</string>
             </attr>
         </edge>
-        <edge from="n45" to="n25">
+        <edge from="n46" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -822,11 +827,6 @@
         <edge from="n46" to="n46">
             <attr name="label">
                 <string>type:hyper</string>
-            </attr>
-        </edge>
-        <edge from="n46" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n47" to="n47">
@@ -849,12 +849,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n49" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n49" to="n49">
             <attr name="label">
                 <string>type:major</string>
             </attr>
         </edge>
-        <edge from="n49" to="n25">
+        <edge from="n50" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -864,7 +869,7 @@
                 <string>type:minor</string>
             </attr>
         </edge>
-        <edge from="n50" to="n25">
+        <edge from="n51" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -872,11 +877,6 @@
         <edge from="n51" to="n51">
             <attr name="label">
                 <string>type:moderate</string>
-            </attr>
-        </edge>
-        <edge from="n51" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n52" to="n52">
@@ -899,14 +899,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n54" to="n54">
-            <attr name="label">
-                <string>type:origin</string>
-            </attr>
-        </edge>
         <edge from="n54" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n54" to="n54">
+            <attr name="label">
+                <string>type:origin</string>
             </attr>
         </edge>
         <edge from="n55" to="n55">
@@ -929,12 +929,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n57" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n57" to="n57">
             <attr name="label">
                 <string>type:sbb</string>
             </attr>
         </edge>
-        <edge from="n57" to="n25">
+        <edge from="n58" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -944,7 +949,7 @@
                 <string>type:stop_acei</string>
             </attr>
         </edge>
-        <edge from="n58" to="n25">
+        <edge from="n59" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -952,11 +957,6 @@
         <edge from="n59" to="n59">
             <attr name="label">
                 <string>type:stop_arb</string>
-            </attr>
-        </edge>
-        <edge from="n59" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n60" to="n60">
@@ -969,14 +969,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n61" to="n61">
-            <attr name="label">
-                <string>type:stop_doac</string>
-            </attr>
-        </edge>
         <edge from="n61" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n61" to="n61">
+            <attr name="label">
+                <string>type:stop_doac</string>
             </attr>
         </edge>
         <edge from="n62" to="n62">
@@ -999,12 +999,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n64" to="n25">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n64" to="n64">
             <attr name="label">
                 <string>type:stop_sbb</string>
             </attr>
         </edge>
-        <edge from="n64" to="n25">
+        <edge from="n65" to="n25">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -1012,11 +1017,6 @@
         <edge from="n65" to="n65">
             <attr name="label">
                 <string>type:stop_td</string>
-            </attr>
-        </edge>
-        <edge from="n65" to="n25">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n66" to="n66">
@@ -1029,14 +1029,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n67" to="n67">
-            <attr name="label">
-                <string>type:stop_warf</string>
-            </attr>
-        </edge>
         <edge from="n67" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n67" to="n67">
+            <attr name="label">
+                <string>type:stop_warf</string>
             </attr>
         </edge>
         <edge from="n68" to="n68">
@@ -1069,14 +1069,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n71" to="n71">
-            <attr name="label">
-                <string>type:warfarin</string>
-            </attr>
-        </edge>
         <edge from="n71" to="n25">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n71" to="n71">
+            <attr name="label">
+                <string>type:warfarin</string>
             </attr>
         </edge>
     </graph>

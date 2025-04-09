@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="toy-student">
+    <graph role="type" edgeids="false" edgemode="directed" id="running.toy-student">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -104,12 +104,17 @@
                 <string>sub:</string>
             </attr>
         </edge>
+        <edge from="n3" to="n6">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n3">
             <attr name="label">
                 <string>type:cappuccino</string>
             </attr>
         </edge>
-        <edge from="n3" to="n6">
+        <edge from="n4" to="n6">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -119,7 +124,7 @@
                 <string>type:ccoin</string>
             </attr>
         </edge>
-        <edge from="n4" to="n6">
+        <edge from="n5" to="n6">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -127,11 +132,6 @@
         <edge from="n5" to="n5">
             <attr name="label">
                 <string>type:cpowder</string>
-            </attr>
-        </edge>
-        <edge from="n5" to="n6">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n6" to="n6">
@@ -144,12 +144,17 @@
                 <string>type:Entity</string>
             </attr>
         </edge>
+        <edge from="n7" to="n6">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n7" to="n7">
             <attr name="label">
                 <string>type:espresso</string>
             </attr>
         </edge>
-        <edge from="n7" to="n6">
+        <edge from="n8" to="n6">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -157,11 +162,6 @@
         <edge from="n8" to="n8">
             <attr name="label">
                 <string>type:idle</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n6">
-            <attr name="label">
-                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
@@ -204,14 +204,14 @@
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>type:Forbidden</string>
-            </attr>
-        </edge>
         <edge from="n13" to="n6">
             <attr name="label">
                 <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n13">
+            <attr name="label">
+                <string>type:Forbidden</string>
             </attr>
         </edge>
     </graph>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="markInput">
+    <graph role="rule" edgeids="false" edgemode="directed" id="maude.markInput">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -32,6 +32,11 @@
                 <string>forall:</string>
             </attr>
         </edge>
+        <edge from="n1" to="n0">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>flag:present</string>
@@ -39,17 +44,12 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>new:flag:input</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n0">
-            <attr name="label">
-                <string>at</string>
+                <string>new:flag:input</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -57,14 +57,14 @@
                 <string>del:flag:input</string>
             </attr>
         </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
         <edge from="n2" to="n3">
             <attr name="label">
                 <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">

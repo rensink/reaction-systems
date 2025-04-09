@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="major-and-moderate">
+    <graph role="type" edgeids="false" edgemode="directed" id="cmsb.major-forbidden">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <attr name="enabled">
-            <string>false</string>
-        </attr>
         <node id="n0">
             <attr name="layout">
-                <string>205 125 19 19</string>
+                <string>159 144 19 19</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>318 120 59 36</string>
+                <string>140 67 63 18</string>
             </attr>
         </node>
+        <edge from="n0" to="n1">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:major</string>
             </attr>
         </edge>
-        <edge from="n0" to="n0">
-            <attr name="label">
-                <string>flag:present</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>flag:present</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>type:moderate</string>
+                <string>type:Forbidden</string>
             </attr>
         </edge>
     </graph>

@@ -11,34 +11,34 @@ Full state space generation
 ---------------------------
 
 - DFS without forbidden detection:
-  -P cmsb.properties -D "disabledRules+=fired present forbidden" .\rs-explore.gps
+  -P cmsb.properties -D "ruleEnabling=+forbidden" .\rs-explore.gps
   
 - BFS without forbidden detection:
-  -P cmsb.properties -D "disabledRules+=fired present forbidden" -s bfs .\rs-explore.gps
+  -P cmsb.properties -D "ruleEnabling=forbidden" -s bfs .\rs-explore.gps
   
 - DFS with major forbidden detection:
-  -P cmsb.properties -D "disabledRules+=fired present" -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
+  -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
   
 - DFS with moderate forbidden detection:
-  -P cmsb.properties -D "disabledRules+=fired present" -D "typeGraph+=cmsb.moderate-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
+  -P cmsb.properties -D "typeGraph+=cmsb.moderate-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
   
 - DFS with minor forbidden detection:
-  -P cmsb.properties -D "disabledRules+=fired present" -D "typeGraph+=cmsb.minor-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
+  -P cmsb.properties -D "typeGraph+=cmsb.minor-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
   
 - DFS with major+moderate forbidden detection:
-  -P cmsb.properties -D "disabledRules=fired present forbidden maude.markInput maude.start maude.steady" -s uptorule:dfs->cmsb.major-and-moderate -a formula:cmsb.major-and-moderate .\rs-explore.gps
+  -P cmsb.properties -D "ruleEnabling=-forbidden +cmsb.major-and-moderate" -s uptorule:dfs->cmsb.major-and-moderate -a formula:cmsb.major-and-moderate .\rs-explore.gps
 
 
 Bounded DFS generation
 ----------------------
 - Up to step n, major risks:
-  -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -D "disabledRules+=fired present" -s uptorule:dfs2n->forbidden -a formula:forbidden .\rs-explore.gps
+  -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs2n->forbidden -a formula:forbidden .\rs-explore.gps
 
 
 Model checking
 --------------
 - Generation of the model: call the Generator with
-  -P cmsb.properties -D "disabledRules+=fired" -D "controlProgram=atomic" -o cmsb.aut .\rs-explore.gps
+  -P cmsb.properties -D "ruleEnabling=+present" -D "controlProgram=atomic" -o cmsb.aut .\rs-explore.gps
 
 - Model checking: call the ModelChecker with
   -ctl property cmsb.aut

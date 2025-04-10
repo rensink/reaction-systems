@@ -37,6 +37,7 @@
 \newcommand{\cpowder}{{\text{\sffamily cpowder}}\xspace}
 \newcommand{\tpowder}{{\text{\sffamily tpowder}}\xspace}
 \newcommand{\nomilk}{{\text{\sffamily nomilk}}\xspace}
+\newcommand{\milk}{{\text{\sffamily nomilk}}\xspace}
 \newcommand{\cappuccino}{{\text{\sffamily cappuccino}}\xspace}
 \newcommand{\espresso}{{\text{\sffamily espresso}}\xspace}
 \newcommand{\tea}{{\text{\sffamily tea}}\xspace}
@@ -76,3 +77,19 @@
 \newcommand{\contextR}{{\text{\sffamily context}}\xspace}
 \newcommand{\reactR}{{\text{\sffamily react}}\xspace}
 \newcommand{\firedR}{{\text{\sffamily fired}}\xspace}
+
+\lstdefinelanguage{control}{
+  keywords={recipe}
+}%
+\lstdefinestyle{control}{
+ language=control,                     % should be clear
+ tabsize=8,                            % 
+ keepspaces=true                       % I know best
+ basicstyle=\small\sffamily,           % keep things small and plain
+ commentstyle=\itshape                 % comments italic
+ keywordstyle=\bfseries                % keywords bold
+}              
+\lstset{columns=fullflexible}                 
+\lstset{style=control}                 
+\lstset{basicstyle=\small\sffamily}      % have to say this again (but why?)
+\lstset{xleftmargin=1cm}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="toy-student">
+    <graph role="type" edgeids="false" edgemode="directed" id="running.toy-student">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -199,14 +199,14 @@
                 <string>color:11,118,160</string>
             </attr>
         </edge>
-        <edge from="n9" to="n5">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge from="n9" to="n9">
             <attr name="label">
                 <string>type:tcoin</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n5">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
         <edge from="n10" to="n10">

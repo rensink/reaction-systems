@@ -2,9 +2,9 @@
 
 \section{Encoding of RS in GT}\label{sec:RS2GTS}
 
-As an alternative to BioResolve, we investigate the use of graph transformation and \GROOVE to generate the underlying LTS of a given Reaction System, on the basis of a start graph (plus dedicated specialised type graph) obtained by transformation from the RS specification. Depending on what one wants to analyse, the various capabilities of \GROOVE can then be put into play.
+As an alternative to BioResolve, we investigate the use of graph transformation and \GROOVE to generate the underlying LTS of a given Reaction System, on the basis of a start graph obtained by transformation from the RS specification. Because the start graph will typically include special \Entity subtype, it comes together with an additional type graph where those are specified. Depending on what one wants to analyse, the various strengths and capabilities of \GROOVE then come into play.
 
-For instance, one possibility is to use the model checking capabilities built into \GROOVE to check for temporal patterns of entity generation in the transition system. Another way to proceed is to focus on a given trace and build its \emph{occurrence graph}, which contains all the rule occurrences and entity instances present in that trace --- analogous, in fact, to the way a Petri net process captures a particular behaviour of a Petri Net. If the trace in question leads to a state in which an undesirable entity is present (such as the $\bang$ entity in our toy example), we can also \emph{prune} the occurrence graph, again using graph transformation, to keep only those rule occurrences and entity instances that directly contributed to the existence of the undesirable entity.
+For instance, one possibility is to use \GROOVE's model checking capabilities to check for temporal patterns of entity generation in the transition system. Another way to proceed is to focus on a given trace and build its \emph{occurrence graph}, which contains all the rule occurrences and entity instances present in that trace --- analogous, in fact, to the way a Petri net process captures a particular behaviour. If the trace in question leads to a state in which a forbidden entity is present (such as the $\bang$ entity in our toy example), we can also \emph{prune} the occurrence graph, again using graph transformation, to keep only those rule occurrences and entity instances that directly contributed to the existence of the forbidden entity.
 
 This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of which will be explained in some more detail in the remainder of this section.	
 
@@ -17,7 +17,7 @@ This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of wh
 
 \medskip\noindent\textbf{Transform.}
 %
-The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This is achieved by running the \verb=main_do(rs2gts)= directive of \BioResolve, which produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, in which all entities in the problem at hand are provided with their own type (essentially for performance reasons: it speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire \BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two self-explanatory fragments of the start graph are shown in \Cref{fig:toy}.
+The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This is achieved by running the \verb=main_do(rs2gts)= directive of \BioResolve, which produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, which specifies subtypes of \Entity for all entities in the problem at hand (essentially for performance reasons: relying on dedicated types speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire \BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two self-explanatory fragments of the start graph are shown in \Cref{fig:toy}.
 
 \begin{figure}
 \centering
@@ -30,7 +30,7 @@ The first step is a text-to-model transformation from a problem specification in
 
 \medskip\noindent\textbf{Explore.}
 %
-The dynamics of Reaction Systems is encoded as a combination of two rules, \contextR and \reactR, which are scheduled to fire in alternation. \contextR encodes the simultaneous firing of all context processes (nondeterministically selecting an enabled \Step from every \State with a \Token), whereas \reactR encodes the (deterministic) simultaneous firing of all enabled \Reaction{}s, while simultaneously erasing all \Entity{}s that were not just produced. The production or erasure of an \Entity is encoded through the creation or deletion of a \present flag on a (persistent) \Entity node, \emph{not} by the creation or deletion of the node itself. In addition, to keep track of which nondeterministic choices were actually taken, the \contextR rule marks the \Step{}s that were selected with a \fired flag, which is subsequently erased by the reaction rule; a third rule called \firedR (actually a \emph{condition}, which in \GROOVE is a rule that does not modify the graph) checks for the occurrences of the \fired flag and so exposes the names of the \Rule{}s that have fired in the transition system.
+The dynamics of Reaction Systems is encoded as a combination of two rules, \contextR and \reactR, which are scheduled to fire in alternation. \contextR encodes the simultaneous firing of all context processes (nondeterministically selecting an enabled \Step from every \State with a \Token), whereas \reactR encodes the (deterministic) simultaneous firing of all enabled \Reaction{}s, while simultaneously erasing all \Entity{}s that were not just produced. The production or erasure of an \Entity is encoded through the creation or deletion of a \present flag on a (persistent) \Entity node, \emph{not} by the creation or deletion of the node itself. In addition, to keep track of which nondeterministic choices were actually taken, the \contextR rule marks the \Step{}s that were selected with a \fired flag, which is subsequently erased by the \reactR rule. % A third rule called \firedR (actually a \emph{condition}, which in \GROOVE is a rule that does not modify the graph) checks for the occurrences of the \fired flag and so exposes the names of the \Rule{}s that have fired in the transition system.
 
 \begin{figure}
 \centering
@@ -41,10 +41,27 @@ The dynamics of Reaction Systems is encoded as a combination of two rules, \cont
 %
 \Cref{fig:context} shows the first (and most intricate) of these rules, viz.\ the one for the context firing. This is a quantified rule, which can be read as follows: \uline{For all} \State{}s with a \Token, \uline{there is} a \nextt{} \Step such that \uline{for all} \inhibitor{}s \uline{there is no} \present flag whereas \uline{for all} \reactant{}s \uline{there is} a \present flag; moreover, when the rule is applied, \uline{all} \product{}s of the selected \Step{}s receive a \present flag, the \Step{}s themselves receive a \fired flag, and all \Token{}s move to the successor \State{}s. Colour coding is used in the visual representation to distinguish the quantifier nodes $\forall$ and $\exists$ (both in purple), as well as the mandatory absence (red), deletion (blue) and creation (green) of edges and flags.\footnote{This colour coding is \GROOVE-specific and entirely separate from the problem-specific colouring of the graph nodes in Figures \ref{fig:core-type} and~\ref{fig:toy}; in fact, to avoid confusion, the problem-specific colouring is \emph{not} used in the rule view.}
 
-\GROOVE can be set generate the entire state space, which is essentially the same as the one produced by \BioResolve (see \Cref{fig:toylts}), but it can also be asked to search the for the first reachable state in which the \Forbidden entity appears, using breadth-first search. (In fact, the pattern for which \GROOVE searches is itself determined by a rule, which in this case merely tests for the presence of \Forbidden). When found, the trace to the undesirable state can be saved as a \emph{control program} that drives the next stage of \GROOVE exploration. In particular, besides the alternating application of the \contextR and \reactR rule --- the core of the Reaction System semantics --- this control program records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the undesirable state. Here is the control program for our running example:
+To mimic the \BioResolve semantics as closely as possible, we can instruct \GROOVE to regard every pair of \contextR- and \reactR-transitions as an atomic transaction, corresponding precisely to a transition in \BioResolve (though not with the same label), and then generate the entire state space. This is achieved through a control program of the form
+%
+\begin{lstlisting}[keywordstyle=\bfseries,morekeywords={recipe}]
+recipe fire() {
+  context; react;
+}
+\end{lstlisting}
+%
+where a ``recipe'' is the keyword for a transaction wrapping the body. With this in place, the GUI-based version of \GROOVE produces the transition system displayed in \Cref{fig:toy-gts} (which can also be exported to a range of standard formats), which is easily (visually) checked to be essentially isomorphic to the one in \Cref{fig:toylts}.
+
+\begin{figure}
+\centering
+\includegraphics[scale=.2]{figs/toy-gts}
+\caption{\GROOVE LTS of the toy example}
+\label{fig:toy-gts}
+\end{figure}
+
+Alternatively, we can (for instance) ask \GROOVE to search the for the first reachable state in which the \Forbidden entity appears, using breadth-first search. (In fact, the state property for which \GROOVE searches is itself determined by a rule, which in this case merely tests for the presence of a \Forbidden entity). When found, the trace to the forbidden state can be saved as a control program that drives the next stage of \GROOVE exploration. In particular, using the alternating application of the \contextR and \reactR rules (rather than the transactional variant used for \Cref{fig:toy-gts}) this control program also records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the forbidden state. Here is the control program for the shortest trace to state \textsf{\itshape s17} in our running example:
 
 \begin{center}
-\begin{lstlisting}[basicstyle=\sffamily\small,columns=fullflexible,xleftmargin=1cm]
+\begin{lstlisting}
 context;
 fired("student_2");
 fired("refill_1");
@@ -71,7 +88,7 @@ The purpose of this phase is to build an occurrence graph that explains how \For
 \item From each \Step occurrence to all directly preceding \Step occurrences.
 \end{itemize}
 %
-Note that this is restricted to \emph{positive} dependencies.\todo{We could point out the modelling trick of using \espresso as a reactant of \anger, instead of \cappuccino as an inhibitor} The representation of negative dependencies is a research question in its own, and is outside the scope of this paper;\todo{Refer to literature} \Cref{fig:occur-type} shows the occurrence type graph. 
+Note that this is restricted to \emph{positive} dependencies. In fact, we have constructed our example so that there are no inhibitors in the \Rule{}s that fire in the trace above; if we would rely on an entity \milk that inhibits the production of \espresso, rather than on \nomilk as a reactant, the occurrence graph for \bang would not include \milk; and likewise if we would use \cappuccino as an inhibitor for \anger rather than \espresso as a reactant for it. The representation of negative dependencies is a research question in its own, and is outside the scope of this paper;\todo{Refer to literature} \Cref{fig:occur-type} shows the occurrence type graph. 
 
 \begin{figure}
 \centering

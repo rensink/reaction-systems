@@ -4,6 +4,9 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
                 <string>276 171 19 19</string>
@@ -64,11 +67,6 @@
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n1" to="n4">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n1">
             <attr name="label">
                 <string>type:Entity</string>
@@ -76,12 +74,17 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>flag:present</string>
+                <string>use=presentIsInput:flag:input</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>use=presentIsInput:flag:input</string>
+                <string>flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n4">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">

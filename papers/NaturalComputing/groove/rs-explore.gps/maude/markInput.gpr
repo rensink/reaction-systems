@@ -7,6 +7,9 @@
         <attr name="actionRole">
             <string>transformer</string>
         </attr>
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <node id="n0">
             <attr name="layout">
                 <string>66 34 19 19</string>
@@ -32,6 +35,11 @@
                 <string>forall:</string>
             </attr>
         </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>flag:present</string>
+            </attr>
+        </edge>
         <edge from="n1" to="n0">
             <attr name="label">
                 <string>at</string>
@@ -39,7 +47,7 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>flag:present</string>
+                <string>new:flag:input</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -47,14 +55,9 @@
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>new:flag:input</string>
-            </attr>
-        </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>del:flag:input</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n2" to="n3">
@@ -64,7 +67,7 @@
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>del:flag:input</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">

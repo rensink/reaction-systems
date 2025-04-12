@@ -10,9 +10,9 @@ The \BioResolve specification for the toy running example about the interaction 
 \begin{minipage}{0.9\linewidth}
 \footnotesize
 \begin{verbatim}
-myentities([cpowder,tpowder]).
+myentities([cpowder,tpowder]). % initial set D0
 
-myreactions([
+myreactions([                  % list of reactions
     react([idle],[am],[am]),
     react([am],[idle],[am]),
     react([ccoin,cpowder],[nomilk],[cappuccino]),
@@ -22,9 +22,9 @@ myreactions([
     react([tpowder],[],[tpowder]),
     react([anger],[],[bang]) ]).
 
-mycontext("[refill,student]").
+mycontext("[refill,student]"). % context processes
 
-myenvironment("[
+myenvironment("[               % context definitions
     refill = ({nomilk}.refill 
             + {}.refill),
     student = (?{},{am},{tcoin}?.gettea 
@@ -46,6 +46,226 @@ The \BioResolve specification for the comorbidity case study presented in~\cite{
 
 \begin{figure*}[t]
 \fontsize{6}{0}
+\[
+\begin{array}{rcl}
+\mathsf{D}_0 & \triangleq & \varnothing
+\\[-4pt]
+\mathsf{Feats} &  \triangleq 
+& (\{\mathsf{hyper}\},\varnothing,\{\mathsf{hyper}\})
+\mid  (\{\mathsf{afib}\},\varnothing,\{\mathsf{afib}\})
+\mid  (\{\mathsf{has\_fib}\},\varnothing,\{\mathsf{has\_fib}\})
+\mid  (\{\mathsf{heart\_rate}\},\varnothing,\{\mathsf{heart\_rate}\})
+\mid  (\{\mathsf{consensus\_acei}\},\varnothing,\{\mathsf{consensus\_acei}\})
+\\[-4pt] & \mid &  (\{\mathsf{over75}\},\varnothing,\{\mathsf{over75}\})
+\mid  (\{\mathsf{below55}\},\varnothing,\{\mathsf{below55}\})
+\mid  (\{\mathsf{diabete}\},\varnothing,\{\mathsf{diabete}\})
+\mid  (\{\mathsf{origin}\},\varnothing,\{\mathsf{origin}\})
+\\[-4pt] & \mid &  (\{\mathsf{doac\_int}\},\varnothing,\{\mathsf{doac\_int}\})
+\mid  (\{\mathsf{hyper}\},\varnothing,\{\mathsf{diseases}\})
+\mid  (\{\mathsf{diabete}\},\varnothing,\{\mathsf{diseases}\})
+\\[-4pt]
+\mathsf{Drugs} &  \triangleq 
+& (\{\mathsf{get\_diltiazem}\},\{\mathsf{stop\_cbb}\},\{\mathsf{diltiazem},\mathsf{cbb}\})
+\mid  (\{\mathsf{diltiazem}\},\{\mathsf{stop\_cbb}\},\{\mathsf{diltiazem},\mathsf{cbb}\})
+\mid  (\{\mathsf{get\_verapamil}\},\{\mathsf{stop\_cbb}\},\{\mathsf{verapamil},\mathsf{cbb}\})
+\\[-4pt] & \mid &  (\{\mathsf{verapamil}\},\{\mathsf{stop\_cbb}\},\{\mathsf{verapamil},\mathsf{cbb}\})
+\mid  (\{\mathsf{diltiazem},\mathsf{verapamil}\},\{\mathsf{stop\_cbb}\},\{\mathsf{alert\_dup}\})
+%
+\mid  (\{\mathsf{get\_propranolol}\},\{\mathsf{stop\_nsbb}\},\{\mathsf{propranolol},\mathsf{nsbb}\})
+\\[-4pt] & \mid &  (\{\mathsf{propranolol}\},\{\mathsf{stop\_nsbb}\},\{\mathsf{propranolol},\mathsf{nsbb}\})
+\mid  (\{\mathsf{get\_carvedilol}\},\{\mathsf{stop\_nsbb}\},\{\mathsf{carvedilol},\mathsf{nsbb}\})
+\mid  (\{\mathsf{carvedilol}\},\{\mathsf{stop\_nsbb}\},\{\mathsf{carvedilol},\mathsf{nsbb}\})
+\\[-4pt] & \mid &  (\{\mathsf{propranolol},\mathsf{carvedilol}\},\{\mathsf{stop\_nsbb}\},\{\mathsf{alert\_dup}\})
+%
+\mid  (\{\mathsf{get\_bisoprolol}\},\{\mathsf{stop\_sbb}\},\{\mathsf{bisoprolol},\mathsf{sbb}\})
+\mid  (\{\mathsf{bisoprolol}\},\{\mathsf{stop\_sbb}\},\{\mathsf{bisoprolol},\mathsf{sbb}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_atenolol}\},\{\mathsf{stop\_sbb}\},\{\mathsf{atenolol},\mathsf{sbb}\})
+\mid  (\{\mathsf{atenolol}\},\{\mathsf{stop\_sbb}\},\{\mathsf{atenolol},\mathsf{sbb}\})
+\mid  (\{\mathsf{bisoprolol},\mathsf{atenolol}\},\{\mathsf{stop\_sbb}\},\{\mathsf{alert\_dup}\})
+%
+\\[-4pt] & \mid &  (\{\mathsf{get\_flecainide}\},\{\mathsf{stop\_flec}\},\{\mathsf{flecainide}\})
+\mid  (\{\mathsf{flecainide}\},\{\mathsf{stop\_flec}\},\{\mathsf{flecainide}\})
+\mid  (\{\mathsf{get\_warfarin}\},\{\mathsf{stop\_warf}\},\{\mathsf{warfarin}\})
+\\[-4pt] & \mid &  (\{\mathsf{warfarin}\},\{\mathsf{stop\_warf}\},\{\mathsf{warfarin}\})
+%
+\mid  (\{\mathsf{get\_apixaban}\},\{\mathsf{stop\_doac}\},\{\mathsf{apixaban},\mathsf{doac}\})
+\mid  (\{\mathsf{apixaban}\},\{\mathsf{stop\_doac}\},\{\mathsf{apixaban},\mathsf{doac}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_dabigatran}\},\{\mathsf{stop\_doac}\},\{\mathsf{dabigatran},\mathsf{doac}\})
+\mid  (\{\mathsf{dabigatran}\},\{\mathsf{stop\_doac}\},\{\mathsf{dabigatran},\mathsf{doac}\})
+\mid  (\{\mathsf{apixaban},\mathsf{dabigatran}\},\{\mathsf{stop\_doac}\},\{\mathsf{alert\_dup}\})
+%
+\\[-4pt] & \mid &  (\{\mathsf{get\_vkant}\},\{\mathsf{stop\_vkant}\},\{\mathsf{vkant}\})
+\mid  (\{\mathsf{vkant}\},\{\mathsf{stop\_vkant}\},\{\mathsf{vkant}\})
+%
+\mid  (\{\mathsf{get\_benazepril}\},\{\mathsf{stop\_acei}\},\{\mathsf{benazepril},\mathsf{acei}\})
+\\[-4pt] & \mid &  (\{\mathsf{benazepril}\},\{\mathsf{stop\_acei}\},\{\mathsf{benazepril},\mathsf{acei}\})
+\mid  (\{\mathsf{get\_captopril}\},\{\mathsf{stop\_acei}\},\{\mathsf{captopril},\mathsf{acei}\})
+\mid  (\{\mathsf{captopril}\},\{\mathsf{stop\_acei}\},\{\mathsf{captopril},\mathsf{acei}\})
+\\[-4pt] & \mid &  (\{\mathsf{benazepril},\mathsf{captopril}\},\{\mathsf{stop\_acei}\},\{\mathsf{alert\_dup}\})
+%
+\mid  (\{\mathsf{get\_olmesortan}\},\{\mathsf{stop\_arb}\},\{\mathsf{olmesortan},\mathsf{arb}\})
+\mid  (\{\mathsf{olmesortan}\},\{\mathsf{stop\_arb}\},\{\mathsf{olmesortan},\mathsf{arb}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_irbesartan}\},\{\mathsf{stop\_arb}\},\{\mathsf{irbesartan},\mathsf{arb}\})
+\mid  (\{\mathsf{irbesartan}\},\{\mathsf{stop\_arb}\},\{\mathsf{irbesartan},\mathsf{arb}\})
+\mid  (\{\mathsf{olmesortan},\mathsf{irbesartan}\},\{\mathsf{stop\_arb}\},\{\mathsf{alert\_dup}\})
+%
+\\[-4pt] & \mid &  (\{\mathsf{get\_indapamide}\},\{\mathsf{stop\_td}\},\{\mathsf{indapamide},\mathsf{td}\})
+\mid  (\{\mathsf{indapamide}\},\{\mathsf{stop\_td}\},\{\mathsf{indapamide},\mathsf{td}\})
+\mid  (\{\mathsf{get\_chlorothiazide}\},\{\mathsf{stop\_td}\},\{\mathsf{chlorothiazide},\mathsf{td}\})
+\\[-4pt] & \mid &  (\{\mathsf{chlorothiazide}\},\{\mathsf{stop\_td}\},\{\mathsf{chlorothiazide},\mathsf{td}\})
+\mid  (\{\mathsf{indapamide},\mathsf{chlorothiazide}\},\{\mathsf{stop\_td}\},\{\mathsf{alert\_dup}\})
+%
+\mid  (\{\mathsf{doac}\},\{\mathsf{doac\_ok},\mathsf{doac\_fail}\},\{\mathsf{doac\_test}\})
+\\[-4pt] & \mid &  (\{\mathsf{doac\_ok}\},\{\mathsf{doac\_fail}\},\{\mathsf{doac\_ok}\})
+\mid  (\{\mathsf{doac\_fail}\},\{\mathsf{doac\_ok}\},\{\mathsf{doac\_fail}\})
+\mid  (\{\mathsf{doac}\},\{\mathsf{doac\_fail},\mathsf{stop\_doac}\},\{\mathsf{doac\_danger}\})
+\\[-4pt] & \mid &  (\{\mathsf{doac}\},\{\mathsf{doac\_danger},\mathsf{stop\_doac}\},\{\mathsf{danger}\})
+\\[-4pt]
+\mathsf{ADR} &  \triangleq 
+& (\{\mathsf{get\_apixaban},\mathsf{get\_diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_apixaban},\mathsf{diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{apixaban},\mathsf{get\_diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{apixaban},\mathsf{diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_apixaban},\mathsf{get\_verapamil}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_apixaban},\mathsf{verapamil}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{apixaban},\mathsf{get\_verapamil}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{apixaban},\mathsf{verapamil}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_dabigatran},\mathsf{get\_diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_dabigatran},\mathsf{diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{dabigatran},\mathsf{get\_diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{dabigatran},\mathsf{diltiazem}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_dabigatran},\mathsf{get\_verapamil}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{get\_dabigatran},\mathsf{verapamil}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{dabigatran},\mathsf{get\_verapamil}\},\varnothing,\{\mathsf{major}\})
+\\[-4pt] & \mid &  (\{\mathsf{dabigatran},\mathsf{verapamil}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{get\_dabigatran},\mathsf{get\_carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_dabigatran},\mathsf{carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{dabigatran},\mathsf{get\_carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{dabigatran},\mathsf{carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_warfarin},\mathsf{get\_benazepril}\},\varnothing,\{\mathsf{minor}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_warfarin},\mathsf{benazepril}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{warfarin},\mathsf{get\_benazepril}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{warfarin},\mathsf{benazepril}\},\varnothing,\{\mathsf{minor}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_warfarin},\mathsf{get\_indapamide}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{get\_warfarin},\mathsf{indapamide}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{warfarin},\mathsf{get\_indapamide}\},\varnothing,\{\mathsf{minor}\})
+\\[-4pt] & \mid &  (\{\mathsf{warfarin},\mathsf{indapamide}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{get\_warfarin},\mathsf{get\_chlorothiazide}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{get\_warfarin},\mathsf{chlorothiazide}\},\varnothing,\{\mathsf{minor}\})
+\\[-4pt] & \mid &  (\{\mathsf{warfarin},\mathsf{get\_chlorothiazide}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{warfarin},\mathsf{chlorothiazide}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{get\_warfarin},\mathsf{get\_propranolol}\},\varnothing,\{\mathsf{minor}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_warfarin},\mathsf{propranolol}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{warfarin},\mathsf{get\_propranolol}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{warfarin},\mathsf{propranolol}\},\varnothing,\{\mathsf{minor}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_flecainide},\mathsf{get\_diltiazem}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{diltiazem}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{flecainide},\mathsf{get\_diltiazem}\},\varnothing,\{\mathsf{major}\})
+\\[-4pt] & \mid &  (\{\mathsf{flecainide},\mathsf{diltiazem}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{get\_verapamil}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{verapamil}\},\varnothing,\{\mathsf{major}\})
+\\[-4pt] & \mid &  (\{\mathsf{flecainide},\mathsf{get\_verapamil}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{flecainide},\mathsf{verapamil}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{get\_bisoprolol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_flecainide},\mathsf{bisoprolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{flecainide},\mathsf{get\_bisoprolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{flecainide},\mathsf{bisoprolol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_flecainide},\mathsf{get\_atenolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{atenolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{flecainide},\mathsf{get\_atenolol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{flecainide},\mathsf{atenolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{get\_propranolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{propranolol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{flecainide},\mathsf{get\_propranolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{flecainide},\mathsf{propranolol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{get\_flecainide},\mathsf{get\_carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{get\_flecainide},\mathsf{carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{flecainide},\mathsf{get\_carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{flecainide},\mathsf{carvedilol}\},\varnothing,\{\mathsf{moderate}\})
+\\[-4pt] & \mid &  (\{\mathsf{major}\},\varnothing,\{\mathsf{major}\})
+\mid  (\{\mathsf{moderate}\},\varnothing,\{\mathsf{moderate}\})
+\mid  (\{\mathsf{minor}\},\varnothing,\{\mathsf{minor}\})
+\mid  (\{\mathsf{alert\_dup}\},\varnothing,\{\mathsf{alert\_dup}\})
+\mid  (\{\mathsf{danger}\},\varnothing,\{\mathsf{danger}\})
+\\[-4pt]
+\mathsf{eafib1} &  \triangleq 
+& (\varnothing,\{\mathsf{afib}\},\varnothing).\mathsf{eafib1} + (\{\mathsf{afib}\},\varnothing,\varnothing).\mathsf{ehr}
+\\[-4pt]
+\mathsf{ehr} &  \triangleq 
+& (\varnothing,\{\mathsf{heart\_rate}\},\varnothing).\mathsf{ehr} + (\{\mathsf{heart\_rate}\},\varnothing,\varnothing).\mathsf{ebb}
+\\[-4pt]
+\mathsf{ebb} &  \triangleq 
+& \varnothing.\mathsf{ebb} + \mathsf{e\_cbb} + \mathsf{e\_nsbb} + \mathsf{e\_sbb}
+\\[-4pt]
+\mathsf{e\_cbb} &  \triangleq 
+& (\varnothing,\{\mathsf{verapamil}\},\{\mathsf{get\_diltiazem}\}).\mathsf{empty} + (\varnothing,\{\mathsf{diltiazem}\},\{\mathsf{get\_verapamil}\}).\mathsf{empty}
+\\[-4pt]
+\mathsf{e\_nsbb} &  \triangleq 
+& (\varnothing,\{\mathsf{carvedilol}\},\{\mathsf{get\_propranolol}\}).\mathsf{empty} + (\varnothing,\{\mathsf{propranolol}\},\{\mathsf{get\_carvedilol}\}).\mathsf{empty}
+\\[-4pt]
+\mathsf{e\_sbb} &  \triangleq 
+& (\varnothing,\{\mathsf{atenolol}\},\{\mathsf{get\_bisoprolol}\}).\mathsf{empty} + (\varnothing,\{\mathsf{bisoprolol}\},\{\mathsf{get\_atenolol}\}).\mathsf{empty}
+\\[-4pt]
+\mathsf{eafib2} &  \triangleq 
+& (\varnothing,\{\mathsf{afib}\},\varnothing).\mathsf{eafib2} + (\{\mathsf{afib}\},\varnothing,\varnothing).\mathsf{ehf}
+\\[-4pt]
+\mathsf{ehf} &  \triangleq 
+& (\varnothing,\{\mathsf{has\_fib}\},\varnothing).\mathsf{ehf} + (\{\mathsf{has\_fib}\},\varnothing,\varnothing).\mathsf{eflec}
+\\[-4pt]
+\mathsf{eflec} &  \triangleq 
+& \varnothing.\mathsf{eflec} + \mathsf{e\_flec}
+\\[-4pt]
+\mathsf{e\_flec} &  \triangleq 
+& \{\mathsf{get\_flecainide}\}.\mathsf{empty}
+\\[-4pt]
+\mathsf{eafib3} &  \triangleq 
+& (\varnothing,\{\mathsf{afib}\},\varnothing).\mathsf{eafib3} + (\{\mathsf{afib}\},\varnothing,\varnothing).\mathsf{econs}
+\end{array}
+%myenvironment("[
+%  econs = (?{},{heart_rate,has_fib},{}?.econs + ?{},{consensus_acei},{}?.econs 
+%           + ?{consensus_acei,heart_rate},{},{}?.estroke + ?{consensus_acei,has_fib},{},{}?.estroke),
+%  estroke = (?{},{diseases,over75},{}?.ewarf + ?{over75},{doac_fail,doac_int},{}?.edoac + ?{diseases},{doac_fail,doac_int},{}?.edoac 
+%           + ?{over75,doac_fail},{},{}?.evkant + ?{over75,doac_int},{},{}?.evkant + ?{diseases,doac_fail},{},{}?.evkant + ?{diseases,doac_int},{},{}?.evkant),
+%  ewarf = ({}.ewarf + e_warf),
+%  e_warf = {get_warfarin}.empty,
+%  edoac = ({}.edoac + e_doac),
+%  e_doac = (?{},{dabigatran},{get_apixaban}?.e_doacfail + ?{},{apixaban},{get_dabigatran}?.e_doacfail),
+%  e_doacfail = (?{doac_fail},{},{stop_doac}?.evkant + ?{},{doac_fail},{}?.e_doacfail),
+%  evkant = ({}.evkant + e_vkant),
+%  e_vkant = {get_vkant}.empty,	
+%  ghyper = (?{},{hyper},{}?.ghyper + ?{hyper},{},{}?.g1),
+%  g1 = (?{diabete},{},{}?.g2 + ?{below55},{diabete,origin},{}?.g2 + ?{},{below55,diabete},{}?.g3 + ?{origin},{diabete},{}?.g3),
+%  g2 = ({}.g2 + <1,e_acei>.g4 + <1,e_arb>.g5),
+%  g3 = ({}.g3 + <1,e_cbb>.g6),
+%  g4 = ({}.g4 + <1,e_cbb>.g7 + <1,e_td>.g8),
+%  g5 = ({}.g5 + <1,e_cbb>.g9 + <1,e_td>.g10),
+%  g6 = ({}.g6 + <1,e_acei>.g7 + <1,e_arb>.g9 + <1,e_td>.g11),
+%  g7 = ({}.g7 + <1,e_arb>.etd + <1,e_td>.earb),
+%  g8 = ({}.g8 + <1,e_arb>.ecbb + <1,e_cbb>.earb),
+%  g9 = ({}.g9 + <1,e_acei>.etd + <1,e_td>.eacei),
+%  g10 = ({}.g10 + <1,e_acei>.ecbb + <1,e_cbb>.eacei),
+%  g11 = ({}.g11 + <1,e_acei>.earb + <1,e_arb>.eacei),
+%  ecbb = ({}.ecbb + e_cbb),
+%  eacei = ({}.eacei + e_acei),
+%  e_acei = (?{},{captopril},{get_benazepril}?.empty + ?{},{benazepril},{get_captopril}?.empty),
+%  earb = ({}.earb + e_arb),
+%  e_arb = (?{},{irbesartan},{get_olmesortan}?.empty + ?{},{olmesortan},{get_irbesartan}?.empty),
+%  etd = ({}.etd + e_td),
+%  e_td = (?{},{chlorothiazide},{get_indapamide}?.empty + ?{},{indapamide},{get_chlorothiazide}?.empty),
+%  k_doac = (?{doac_test},{},{doac_ok}?.empty + ?{doac_test},{},{doac_fail}?.empty + ?{},{doac_test},{}?.k_doac),
+%  empty = {}.empty,
+%  kafib = ({afib}.empty + empty),
+%  khf = ({has_fib}.empty + empty),
+%  khr = ({heart_rate}.empty + empty),
+%  kcons = ({consensus_acei}.empty + empty),
+%  kage = ({over75}.empty + {below55}.empty + empty),
+%  kdiabete = ({diabete}.empty + empty),
+%  kdoacint = ({doac_int}.empty + empty),
+%  khyper = ({hyper}.empty + empty),
+%  korigin = ({origin}.empty + empty) ]"). 
+%
+%mycontext("[eafib1,eafib2,eafib3,ghyper,kafib,khf,khr,kcons,kage,kdiabete,kdoacint,khyper,korigin,k_doac]").
+\]
 \begin{verbatim}
 myentities([]).
 

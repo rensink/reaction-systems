@@ -43,8 +43,8 @@ The benefit of using \GROOVE in this case study is that, besides identifying sit
 \begin{figure}\centering
 \subcaptionbox{Full exploration\label{fig:cmsb-full}}{
 \begin{tabular}{lcrr}
-\bf Measurement & \bf Search & \bf Count & \bf Time \\
-                & \bf method &           & \bf  (s) \\
+\bf Measurement & \bf Search & \bf State & \bf Time \\
+                & \bf method & \bf count & \bf  (s) \\
 \hline\hline
 Total states   & BFS & 309 798 & 3 368 \\
 Total states   & DFS & 309 798 & 2 464 \\
@@ -56,20 +56,20 @@ Minor risks    & DFS &      24 & 2 218
 \end{tabular}}
 
 \subcaptionbox{Bounded BFS exploration\label{fig:cmsb-steps}}{
-\begin{tabular}{rrr}
-\bf Explore & \bf Total & \bf New   \\ % & \bf Time
-\bf depth   & \bf risks & \bf risks \\ % & \bf  (s)
+\begin{tabular}{rrrr}
+\bf Explore & \bf Total & \bf New   & \bf State \\ % & \bf Time
+\bf depth   & \bf risks & \bf risks & \bf count \\ % & \bf  (s)
 \hline\hline
- 3 &      0 &       0 \\ % &     3
- 4 &    716 &     716 \\ % &    10
- 5 &  9 317 &   8 601 \\ % &    70
- 6 & 35 899 &  26 582 \\ % &   425
- 7 & 73 591 &  37 693 \\ % & 2 277
- 8 & 81 691 &   8 100 \\ % & 1 765
- 9 & 88 631 &   6 940 \\ % & 1 875
-10 & 89 733 &   1 102 \\ % & 2 368
-11 & 90 573 &     840 \\ % & 2 443
-12 & 91 133 &     560    % & 2 784
+ 3 &      0 &       0 & \\ % &     3
+ 4 &    716 &     716 & \\ % &    10
+ 5 &  9 317 &   8 601 & \\ % &    70
+ 6 & 35 899 &  26 582 & \\ % &   425
+ 7 & 73 591 &  37 693 & \\ % & 2 277
+ 8 & 81 691 &   8 100 & \\ % & 1 765
+ 9 & 88 631 &   6 940 & \\ % & 1 875
+10 & 89 733 &   1 102 & \\ % & 2 368
+11 & 90 573 &     840 & \\ % & 2 443
+12 & 91 133 &     560 &    % & 2 784
 \end{tabular}}
 \caption{States, risks and execution time}
 \label{tab:cmsb-experiments}
@@ -88,14 +88,42 @@ Note that the results (in terms of number of risks found) are not entirely compa
 \begin{figure}
 \centering
 \includegraphics[scale=.3]{./figs/cmsb-pruned}
-\caption{Occurrence graph of a major risk.}
+\caption{Occurrence graph of a major risk}
 \label{fig:cmsb-pruned}
 \end{figure}
 
 The patient configuration in question is a combination of ``has\_fib'', ``afib'' and ``heart\_rate''; the combination of the first two leads to the prescription of fleacinide and the second to the prescription of diltiazem, the combination of which should, however, be avoided. By counting the longest chain of \StepOcc-nodes, it is confirmed that it indeed takes 4 steps to establish this risk.
 
 \medskip\noindent We can also use \GROOVE to replicate the findings of  \cite[Fig.\ 6]{DBLP:conf/cmsb/BowlesBBFGM24} in terms of the relation between patient profiles and risks, using model checking. Recall that the reaction system starts by having the context produce initial entities, and in this particular case study, the first move of the context is to select a patient profile; hence the initial state has $2^9=512$ outgoing transitions, whose target state corresponds to the chosen profile. Moreover, the rule \forbidden tests for the presence of a \Forbidden entity in a state. Therefore, a formula of the shape
-$AX(\bigwedge_i f_i \rightarrow EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether that combination of features will always lead to a potential risk.
+$AX(\bigwedge_i f_i \rightarrow EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether all patient profiles with that combination of features contain a potential risk.
+
+Concretely, in the case study at hand, \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24} contains the table reproduced in \Cref{fig:table-from-cmsb2024}. This claims that, \emph{precisely} in the combination of features where the green ones are present and the red ones absent, a major risk may occur. This translates to the CTL formula in the same figure.
+
+\begin{figure*}
+\centering
+\includegraphics[scale=.4]{./figs/table-from-cmsb2024}\begin{lstlisting}[basicstyle=\ttfamily\small,xleftmargin=0cm]
+AX((afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper |
+    afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         |
+    afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         |
+    afib & has_fib              & consensus_acei                                 & !doac_int & hyper |
+    afib & has_fib                                                                           & hyper |
+    afib & has_fib & heart_rate                                                                      )
+   <-> EF forbidden)"
+\end{lstlisting}
+\caption{CTL encoding of part of \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24}}
+\label{fig:table-from-cmsb2024}
+\end{figure*}
+
+Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied. The time taken for this check consists of the following components:
+
+\begin{center}
+\begin{tabular}{lr}
+Generating the model: &  s \\
+Checking the formula: & 86 s 
+\end{tabular}
+\end{center}
+%
+(The reason to split up these running times is that the model can be reused for other CTL checks.)
 
 \medskip\noindent Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
 \begin{itemize}

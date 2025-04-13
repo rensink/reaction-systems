@@ -1,60 +1,79 @@
 CMSB experiments
 ================
 
-- Call the Generator with
-  java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -jar \Path\To\Groove\bin\Generator.jar
-
-- Call the ModelChecker with
-  java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -cp \Path\To\Groove\bin\Generator.jar nl.utwente.groove.explore.ModelChecker 
+# The following instructions are for Windows Powershell
+# Define a Generator call with
+function generator {
+  java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -jar \Path\To\Groove\bin\Generator.jar @args
+}
+# Define a ModelChecker call with
+function modelchecker {
+  java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -cp \Path\To\Groove\bin\Generator.jar nl.utwente.groove.verify.CTLModelChecker @args
+}
 
 Full state space generation
 ---------------------------
 
-- DFS without forbidden detection:
-  -P cmsb.properties -D "ruleEnabling=+forbidden" .\rs-explore.gps
+# DFS without forbidden detection:
+generator -P cmsb.properties -D "ruleEnabling=+forbidden" .\rs-explore.gps
   
-- BFS without forbidden detection:
-  -P cmsb.properties -D "ruleEnabling=forbidden" -s bfs .\rs-explore.gps
+# BFS without forbidden detection:
+generator -P cmsb.properties -D "ruleEnabling=forbidden" -s bfs .\rs-explore.gps
   
-- DFS with major forbidden detection:
-  -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
+# DFS with major forbidden detection:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
   
-- DFS with moderate forbidden detection:
-  -P cmsb.properties -D "typeGraph+=cmsb.moderate-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
+# DFS with moderate forbidden detection:
+generator -P cmsb.properties -D "typeGraph+=cmsb.moderate-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
   
-- DFS with minor forbidden detection:
-  -P cmsb.properties -D "typeGraph+=cmsb.minor-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
+# DFS with minor forbidden detection:
+generator -P cmsb.properties -D "typeGraph+=cmsb.minor-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
   
-- DFS with major+moderate forbidden detection:
-  -P cmsb.properties -D "ruleEnabling=-forbidden +cmsb.major-and-moderate" -s uptorule:dfs->cmsb.major-and-moderate -a formula:cmsb.major-and-moderate .\rs-explore.gps
+# DFS with major+moderate forbidden detection:
+generator -P cmsb.properties -D "ruleEnabling=-forbidden +cmsb.major-and-moderate" -s uptorule:dfs->cmsb.major-and-moderate -a formula:cmsb.major-and-moderate .\rs-explore.gps
 
 
 Bounded DFS generation
 ----------------------
-- Up to step n, major risks:
-  -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs2n->forbidden -a formula:forbidden .\rs-explore.gps
-
+# Up to step 4, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs8->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 5, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs10->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 6, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs12->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 7, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs14->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 8, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs16->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 9, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs18->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 10, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs20->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 11, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs22->forbidden -a formula:forbidden .\rs-explore.gps
+# Up to step 12, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs24->forbidden -a formula:forbidden .\rs-explore.gps
 
 Model checking
 --------------
-- Generation of the model: call the Generator with
-  -P cmsb.properties -D "ruleEnabling=+present" -D "controlProgram=atomic" -o cmsb.aut .\rs-explore.gps
+# Generation of the model: call the Generator with
+generator -P cmsb.properties -D "ruleEnabling=+present" -D "controlProgram=atomic" -o cmsb.aut .\rs-explore.gps
 
-- Model checking: call the ModelChecker with
-  -ctl property cmsb.aut
-  where property is
+# Model checking: call the ModelChecker with
+modelchecker -ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF forbidden)" `
+modelchecker -ctl "AX(afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         -> EF forbidden)" `
+modelchecker -ctl "AX(afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         -> EF forbidden)" `
+modelchecker -ctl "AX(afib & has_fib              & consensus_acei                                 & !doac_int & hyper -> EF forbidden)" `
+modelchecker -ctl "AX(afib & has_fib                                                                           & hyper -> EF forbidden)" `
+modelchecker -ctl "AX(afib & has_fib & heart_rate                                                                      -> EF forbidden)" `
+             .\cmsb2024.aut
 
--ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF forbidden)" `
--ctl "AX(afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         -> EF forbidden)" `
--ctl "AX(afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         -> EF forbidden)" `
--ctl "AX(afib & has_fib              & consensus_acei                                 & !doac_int & hyper -> EF forbidden)" `
--ctl "AX(afib & has_fib                                                                           & hyper -> EF forbidden)" `
--ctl "AX(afib & has_fib & heart_rate                                                                      -> EF forbidden)" `
-
--ctl "AX((afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper | `
-          afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         | `
-          afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         | `
-          afib & has_fib              & consensus_acei                                 & !doac_int & hyper | `
-          afib & has_fib                                                                           & hyper | `
-          afib & has_fib & heart_rate                                                                      ) <-> EF forbidden)"
+modelchecker -ctl `
+  "AX((afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper | `
+       afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         | `
+       afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         | `
+       afib & has_fib              & consensus_acei                                 & !doac_int & hyper | `
+       afib & has_fib                                                                           & hyper | `
+       afib & has_fib & heart_rate                                                                      ) <-> EF forbidden)" `
+	   .\cmsb2024.aut
 

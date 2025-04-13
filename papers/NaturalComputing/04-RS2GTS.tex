@@ -111,7 +111,7 @@ recipe react() {
 %
 \medskip\noindent\textbf{Prune.}
 %
-Unfortunately, the occurrence graph built by the rule system described above is too large to be useful: it contains \emph{all} entities and rule occurrences produced by the trace, not just the dependencies of the undesired \Forbidden entity. Moreover, the entire start graph is also (still) present. Therefore, in a third phase, all redundant information is pruned. This is achieved by first marking all transitive backward dependencies of \Forbidden, and then removing all unmarked nodes. Since this is straightforward, and of no particular interest in the context of this paper, we omit the details of the \GROOVE rule system for this phase. Its outcome for our running example is shown in \Cref{fig:toy-pruned}.
+The occurrence graph built by the rule system described above is too large to be useful: it contains \emph{all} entity instances and rule occurrences produced by the trace, not just the dependencies of the undesired \Forbidden entity. Moreover, the entire start graph is also (still) present. Therefore, in a third phase, all redundant information is pruned. This is achieved by first marking all transitive backward dependencies, and then removing all unmarked nodes. Since this is straightforward, and of no particular interest in the context of this paper, we omit the details of the \GROOVE rule system for this phase. Its outcome for our running example is shown in \Cref{fig:toy-pruned}.
 
 
 \begin{figure}
@@ -121,7 +121,7 @@ Unfortunately, the occurrence graph built by the rule system described above is 
 \label{fig:toy-pruned}
 \end{figure}
 
-The pruned occurrence graph visualises the causal effect chain already explained informally at the end of \Cref{sec:student}: the presence of a \ccoin, which itself depends on \am, combined with \cpowder and \nomilk causes the production of \espresso, after which the student produces \anger, which is \Forbidden.
+The pruned occurrence graph visualises the causal effect chain already explained informally at the end of \Cref{sec:student}: the presence of a \ccoin, which itself depends on \am, combined with \cpowder and \nomilk causes the production of \espresso, after which the student produces \anger and then \bang, which is \Forbidden.
 
 \begin{comment}
 \begin{quote}\it Notes:

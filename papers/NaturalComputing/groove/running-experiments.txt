@@ -25,5 +25,7 @@ Producing the occurrence graph
   -P .\running-build.properties -D "controlProgram+=running" -f running-occur.gst .\rs-build.gps\
 
 - Copy the occurrence graph to the prune system
-  cp cp .\running-occur.gst .\rs-prune.gps\
+  cp .\running-occur.gst .\rs-prune.gps\
 
+- Prune the occurrence graph
+  -P .\running-prune.properties -f running-pruned.gst .\rs-prune.gps\ .\running-occur.gst

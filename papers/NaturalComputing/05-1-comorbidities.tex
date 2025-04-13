@@ -13,7 +13,7 @@ The goal of the analysis is to explore the combination of clinical guidelines in
 In this case study, reachability and causal analysis are key issues.
 Specifically, reachability is used to address questions such as \emph{can the combination of clinical guidelines expose the patient at serious risks because of drugs interference?}
 Then, in the affirmative case, causal analysis can help to detect which medical decisions would be directly responsible for causing serious harm as well as to point out  which alternative treatment would be available, if any.
-We selected this case study because the use of guarded contexts introduces new challenges for the causal analysis of RS: while existing approaches typically focus on identifying combinations of drugs administered within the context that may have caused harm, they often fail to highlight the medical decisions that led to their administration.\todo{A: I don't quite get it - what is the new challenge? R: revised}
+We selected this case study because the use of guarded contexts introduces new challenges for the causal analysis of RS: while existing approaches typically focus on identifying combinations of drugs administered within the context that may have caused harm, they often fail to highlight the medical decisions that led to their administration.
 
 \subparagraph*{Experimental set up.}
 The RS encoding proposed in~\cite{DBLP:conf/cmsb/BowlesBBFGM24} relies on a formal representation of patient profiles, medical guidelines and adverse drug reactions.
@@ -55,7 +55,7 @@ Maj\&Mod risks & DFS &  61 976 & 2 727 \\
 Minor risks    & DFS &      24 & 2 218
 \end{tabular}}
 
-\subcaptionbox{Bounded BFS exploration\label{fig:cmsb-steps}}{
+\subcaptionbox{Bounded BFS exploration (tabular)\label{fig:cmsb-steps}}{
 \begin{tabular}{rrrr}
 \bf Explore & \bf Total & \bf New   & \bf State \\ % & \bf Time
 \bf depth   & \bf risks & \bf risks & \bf count \\ % & \bf  (s)
@@ -69,8 +69,10 @@ Minor risks    & DFS &      24 & 2 218
  9 & 88 631 &   6 940 & \\ % & 1 875
 10 & 89 733 &   1 102 & \\ % & 2 368
 11 & 90 573 &     840 & \\ % & 2 443
-12 & 91 133 &     560 &    % & 2 784
+12 & 91 133 &     560 & 2 410 055   % & 2 784
 \end{tabular}}
+\subcaptionbox{Bounded BFS exploration (chart)\label{fig:cmsb-trends}}{
+\includegraphics[scale=.6]{figs/cmsb-trends}}
 \caption{States, risks and execution time}
 \label{tab:cmsb-experiments}
 \end{figure}

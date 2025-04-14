@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph role="type" edgeids="false" edgemode="directed" id="maude.BT474">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n0">
+            <attr name="layout">
+                <string>76 7 19 19</string>
+            </attr>
+        </node>
+        <node id="n1">
+            <attr name="layout">
+                <string>4 100 19 19</string>
+            </attr>
+        </node>
+        <node id="n2">
+            <attr name="layout">
+                <string>180 7 19 19</string>
+            </attr>
+        </node>
+        <node id="n3">
+            <attr name="layout">
+                <string>191 192 19 19</string>
+            </attr>
+        </node>
+        <node id="n4">
+            <attr name="layout">
+                <string>277 7 19 19</string>
+            </attr>
+        </node>
+        <node id="n5">
+            <attr name="layout">
+                <string>92 192 19 19</string>
+            </attr>
+        </node>
+        <node id="n6">
+            <attr name="layout">
+                <string>18 192 19 19</string>
+            </attr>
+        </node>
+        <node id="n7">
+            <attr name="layout">
+                <string>291 192 19 19</string>
+            </attr>
+        </node>
+        <node id="n8">
+            <attr name="layout">
+                <string>191 283 19 19</string>
+            </attr>
+        </node>
+        <node id="n9">
+            <attr name="layout">
+                <string>191 392 19 19</string>
+            </attr>
+        </node>
+        <node id="n10">
+            <attr name="layout">
+                <string>391 192 19 19</string>
+            </attr>
+        </node>
+        <node id="n11">
+            <attr name="layout">
+                <string>380 78 19 19</string>
+            </attr>
+        </node>
+        <node id="n12">
+            <attr name="layout">
+                <string>191 100 19 19</string>
+            </attr>
+        </node>
+        <node id="n13">
+            <attr name="layout">
+                <string>391 299 19 19</string>
+            </attr>
+        </node>
+        <node id="n14">
+            <attr name="layout">
+                <string>14 300 19 19</string>
+            </attr>
+        </node>
+        <node id="n15">
+            <attr name="layout">
+                <string>92 392 19 19</string>
+            </attr>
+        </node>
+        <node id="n16">
+            <attr name="layout">
+                <string>292 392 19 19</string>
+            </attr>
+        </node>
+        <edge from="n0" to="n0">
+            <attr name="label">
+                <string>type:akt</string>
+            </attr>
+        </edge>
+        <edge from="n0" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>type:e</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:egf</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>type:erbb1</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:erbb2</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:erbb3</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
+            <attr name="label">
+                <string>type:erk12</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>type:hrg</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
+            <attr name="label">
+                <string>type:mek12</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n10">
+            <attr name="label">
+                <string>type:mtor</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>type:p</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n12">
+            <attr name="label">
+                <string>type:p70s6k</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n13">
+            <attr name="label">
+                <string>type:pdk1</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n14">
+            <attr name="label">
+                <string>type:pkca</string>
+            </attr>
+        </edge>
+        <edge from="n14" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n15" to="n15">
+            <attr name="label">
+                <string>type:plcg</string>
+            </attr>
+        </edge>
+        <edge from="n15" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n16">
+            <attr name="label">
+                <string>type:t</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n3">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>

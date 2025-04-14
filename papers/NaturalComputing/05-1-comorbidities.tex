@@ -104,15 +104,15 @@ Concretely, in the case study at hand, \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM2
 \begin{figure*}
 \centering
 \includegraphics[scale=.4]{./figs/table-from-cmsb2024}\begin{lstlisting}[basicstyle=\ttfamily\small,xleftmargin=0cm]
-AX((afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper |
-    afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         |
-    afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         |
-    afib & has_fib              & consensus_acei                                 & !doac_int & hyper |
-    afib & has_fib                                                                           & hyper |
-    afib & has_fib & heart_rate                                                                      )
-   <-> EF forbidden)"
+AX( (afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper |
+     afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         |
+     afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         |
+     afib & has_fib              & consensus_acei                                 & !doac_int & hyper |
+     afib & has_fib                                                                           & hyper |
+     afib & has_fib & heart_rate                                                                      )
+   <-> EF forbidden)
 \end{lstlisting}
-\caption{CTL encoding of part of \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24}}
+\caption{CTL encoding of the major risk profiles found in \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24}}
 \label{fig:table-from-cmsb2024}
 \end{figure*}
 

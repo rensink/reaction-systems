@@ -62,9 +62,9 @@ Minor risks    & DFS &      24 & 2 218
 \hline\hline
  3 &      0 &       0 &         0 \\ % &     3
  4 &    716 &     716 &    18 045 \\ % &    10
- 5 &  9 317 &   8 601 & \\ % &    70
- 6 & 35 899 &  26 582 & \\ % &   425
- 7 & 73 591 &  37 693 & \\ % & 2 277
+ 5 &  9 317 &   8 601 &   145 202 \\ % &    70
+ 6 & 35 899 &  26 582 &   630 986 \\ % &   425
+ 7 & 73 591 &  37 693 & 1 444 184 \\ % & 2 277
  8 & 81 691 &   8 100 & 1 875 086 \\ % & 1 765
  9 & 88 631 &   6 940 & 2 101 134 \\ % & 1 875
 10 & 89 733 &   1 102 & 2 300 038 \\ % & 2 368
@@ -81,9 +81,7 @@ At first sight, the number of major (and moderate) risks reported in \Cref{tab:c
 
 The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which both a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
  
-\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. The second table in \Cref{tab:cmsb-experiments} shows how many major risks occur after a fixed number of reaction steps.
-
-Note that the results (in terms of number of risks found) are not entirely comparable to those in the first table, since by explicitly counting the length of the trace we lose the ability to identify cyclic behaviour; hence if the same configuration (in terms of entities present) can reoccur after (say) 4 and 6 steps, then any major risk directly derived from that configuration will be counted twice, after 5 and 7 steps, respectively.
+\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. The second table in \Cref{tab:cmsb-experiments} shows how many major risks occur after a fixed number of reaction steps, and also how much of the total state space is involved.
 
 \medskip\noindent Alternatively, we can stop exploring after having found a predetermined number of risks. By setting the exploration strategy to breadth-first search, it is guaranteed that the risks found are those reached after the shortest number of steps, meaning they are the easiest to analyze visually. For instance, \Cref{fig:cmsb-pruned} shows the occurrence graph of the first major risk found in this way.
 
@@ -100,7 +98,7 @@ The patient configuration in question is a combination of ``has\_fib'', ``afib''
 $AX(\bigwedge_i f_i \rightarrow EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether all patient profiles with that combination of features contain a potential risk.
 
 Concretely, in the case study at hand, \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24} contains the table reproduced in \Cref{fig:table-from-cmsb2024}. This claims that, \emph{precisely} in the combination of features where the green ones are present and the red ones absent, a major risk may occur. This translates to the CTL formula in the same figure.
-
+%
 \begin{figure*}
 \centering
 \includegraphics[scale=.4]{./figs/table-from-cmsb2024}\begin{lstlisting}[basicstyle=\ttfamily\small,xleftmargin=0cm]
@@ -115,22 +113,23 @@ AX( (afib           & heart_rate & consensus_acei & !over75                     
 \caption{CTL encoding of the major risk profiles found in \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24}}
 \label{fig:table-from-cmsb2024}
 \end{figure*}
-
+%
 Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied. The time taken for this check consists of the following components:
 
 \begin{center}
 \begin{tabular}{lr}
-Generating the model: &  s \\
-Checking the formula: & 86 s 
+Model generation: &  s \\
+Model checking: & 86 s 
 \end{tabular}
 \end{center}
 %
 (The reason to split up these running times is that the model can be reused for other CTL checks.)
 
-\medskip\noindent Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
+\subparagraph*{Discussion.}
+
+Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
 \begin{itemize}
-\item The time needed to analyze the entire state space is around 41 minutes \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve.
+\item The time needed to analyze the entire state space is around 41 minutes for \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve.
 
 \item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE --- given, of course, suitable rule systems that encode the chosen notion of causal dependency.
 \end{itemize}
-

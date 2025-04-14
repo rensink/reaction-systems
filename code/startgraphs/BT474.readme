@@ -3,19 +3,21 @@ We consider the "short-term network for BT474" scenario
 In all considered scenarios the stimuli hrg and egf are always provided 
 at every step.
 
-
+1. BT474-1-ket
+--------------
 BT747ket.xxx files (simplest LTS)
 search for steady state with the attractor akt when the context provides 
 {e, t} at every step
 the name ket stands for k(ontext providing) e and t (at every step)
 
 LTL formulas:
-F(G(akt)): does not hold (correctly)
+F(G(maude.steady -> akt)): does not hold (correctly)
 G(erbb2 -> X(erbb2)): holds (correctly)
 
 Observation: this is a 2-state process in which erbb2 and akt do not occur
 
-
+2. BT474-2-korep
+----------------
 BT747korep.xxx files (medium LTS)
 observe the interactions when either e(rlotinib) or p(ertuzumab) drugs
 are supplied, 
@@ -30,7 +32,8 @@ CTL formulas to encode this property
 (i) EF (steady & !akt) holds (correctly)
 (ii) AF (steady & !akt) does not hold (correctly)
 
-(The EX and AX are there because currently the )
+3. BT474-3-korept
+-----------------
 BT747korept.xxx files (larger LTS)
 observe any possible combination of e/p/t drugs at every step
 Maude proves that 
@@ -44,10 +47,11 @@ the name korept stands for k(ontext providing) e op p or t (at every step)
 LTL Formulas to encode these properties:
 ------------------------------------
 LTL
-(i) G(pdk1 -> (FG akt)) holds (correctly)
+(i) G(pdk1 -> (FG (steady -> akt))) holds (correctly)
 (ii) erbb1 R !pdk1: holds (correctly)
 
-
+4. BT474-4-kge
+--------------
 BT747kge.xxx files (uses guarded contexts)
 by permanently providing the drug e(rlotinib) the attractor AKT is never 
 produced. 
@@ -61,4 +65,4 @@ the name kge stands for k(ontext providing) g(uarded) e
 
 CTL Formula to encode this property
 -------------------------------
-EG EF !akt : does not hold (incorrectly): what are IOStates? The property seems to differ from the one ectually checked by the Maude code (which is F(steady -> !akt))
+EG EF (steady -> !akt) : does not hold (incorrectly): what are IOStates? The property seems to differ from the one actually checked by the Maude code (which is F(steady -> !akt))

@@ -7,9 +7,6 @@
         <attr name="actionRole">
             <string>transformer</string>
         </attr>
-        <attr name="enabled">
-            <string>false</string>
-        </attr>
         <node id="n0">
             <attr name="layout">
                 <string>66 34 19 19</string>
@@ -22,7 +19,7 @@
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>150 113 19 19</string>
+                <string>150 103 19 19</string>
             </attr>
         </node>
         <node id="n3">
@@ -37,12 +34,12 @@
         </edge>
         <edge from="n1" to="n1">
             <attr name="label">
-                <string>flag:present</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n1" to="n0">
+        <edge from="n1" to="n1">
             <attr name="label">
-                <string>at</string>
+                <string>flag:present</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -50,24 +47,24 @@
                 <string>new:flag:input</string>
             </attr>
         </edge>
-        <edge from="n1" to="n1">
-            <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n2">
-            <attr name="label">
-                <string>type:Entity</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n3">
+        <edge from="n1" to="n0">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
             <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
                 <string>del:flag:input</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n3">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n3" to="n3">

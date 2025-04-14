@@ -1,0 +1,18 @@
+% To use this figure in your LaTeX document
+% import the package groove/resources/groove2tikz.sty
+%
+\begin{tikzpicture}[scale=.7,name prefix=rs-explore-gts-]
+\node[start_node, active] (s0) {\ml{\uline{\textit{s0}}}};
+\node[state_node] (s4) [right=.7 of s0] {\ml{\uline{\textit{s4}}\\\textit{erbb1}\\\textit{erbb2}\\\textit{erbb3}\\\textit{erk12}\\\textit{plcg}}};
+\node[state_node] (s8) [right=.7 of s4] {\ml{\uline{\textit{s8}}\\\textit{akt}\\\textit{erk12}\\\textit{mek12}\\\textit{p70s6k}\\\textit{pdk1}\\\textit{pkca}\\\textit{plcg}}};
+\node[state_node] (s11) [right=.7 of s8] {\ml{\uline{\textit{s11}}\\\textit{akt}\\\textit{erbb1}\\\textit{erbb2}\\\textit{erbb3}\\\textit{erk12}\\\textit{mek12}\\\textit{mtor}\\\textit{p70s6k}\\\textit{pdk1}\\\textit{pkca}\\\textit{plcg}}};
+\node[state_node] (s15) [right=.7 of s11] {\ml{\uline{\textit{s15}}\\\textit{akt}\\\textit{erk12}\\\textit{mek12}\\\textit{mtor}\\\textit{p70s6k}\\\textit{pdk1}\\\textit{pkca}\\\textit{plcg}}};
+\node[state_node] (s18) [right=.7 of s15] {\ml{\uline{\textit{s18}}\\\textit{akt}\\\textit{erbb1}\\\textit{erbb2}\\\textit{erbb3}\\\textit{erk12}\\\textit{mek12}\\\textit{mtor}\\\textit{p70s6k}\\\textit{pdk1}\\\textit{pkca}\\\textit{plcg}}};
+
+\path[trans_edge](s0.east) -- node[lab] {\ml{fire}} (s4) ;
+\path[trans_edge](s4.east) -- node[lab] {\ml{fire}} (s8) ;
+\path[trans_edge](s8.east) -- node[lab] {\ml{fire}} (s11) ;
+\path[trans_edge](s11.east) -- node[lab] {\ml{fire}} (s15) ;
+\path[trans_edge](s15.15) -- node[lab] {\ml{fire}} (s18.165) ;
+\path[trans_edge](s18.195) -- node[lab] {\ml{fire}} (s15.345) ;
+\end{tikzpicture}

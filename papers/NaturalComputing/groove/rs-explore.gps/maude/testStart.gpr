@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="maude.start">
+    <graph role="rule" edgeids="false" edgemode="directed" id="maude.testStart">
         <attr name="$version">
             <string>curly</string>
         </attr>
         <attr name="actionRole">
             <string>transformer</string>
-        </attr>
-        <attr name="enabled">
-            <string>false</string>
         </attr>
         <node id="n0">
             <attr name="layout">

@@ -21,9 +21,12 @@ Besides reachability analysis, mostly concerned with the possibility to reach ce
 The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from a RS specification, which is manually coded in \textbf{ccReact} and queried using Maude state exploration techniques and built-in model checkers. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to \GROOVE presented in the previous section, i.e., no preprocessing is necessary. The \BioResolve specification is in \Cref{fig:bioresolve:psn} in \Cref{app:psn}.
 The following properties have been experimented with:
 \begin{enumerate}
-\item searching for the the presence/absence of the attractor \texttt{akt} in steady states of the BT747 cell line, where the context \verb=[k,ket]= is considered;
+\item searching for the the presence/absence of the attractor \texttt{akt} in steady states of the BT747 cell line,\todo{Is this really about steady states? The LTL formula on page 14, line 4 of the paper specifies \texttt{io-state}, not \texttt{isSteady}.} where the context \verb=[k,ket]= is considered;
+
 \item in order to observe the interactions when either \texttt{e}rlotinib or \texttt{p}ertuzumab are supplied, the context \verb=[{e,egf,hrg}.korep]= is considered and Maude reports that there exists at least one path where that treatment is successful, but not all paths avoid a steady state where \texttt{akt} is present;
+
 \item using the context \verb=[k,korept]=, it is shown that, regardless the drug used, once \texttt{pdk1} is present, inevitably the steady state includes \texttt{akt}; and that \texttt{pdk1} never appears before \texttt{erbb1} is produced (which basically means that \texttt{pdk1} is a product of the activation of the \texttt{erbb1} receptor);
+
 \item finally, using the context \verb=[k,kge]=, it is shown that by permanently providing the drug \texttt{e}rlotinib and the stimulus (\texttt{egf} and \texttt{hrg}), the attractor \texttt{akt} is never produced. Moreover, Maude checks that the production of \texttt{akt} can be also inhibited by providing \texttt{e}rlotinib only when receptors \texttt{erbb1} and \texttt{erbb2} are active.
 \end{enumerate}
 
@@ -36,6 +39,77 @@ Do all paths prevent reaching a steady state in which a AKT is present?
 
 \subparagraph*{\GROOVE experimentation.}
 
-Like Maude, \GROOVE has built-in model checking capabilities for both LTL and CTL properties; below, we show how to replicate the results of \cite{DBLP:conf/cmsb/BallisBFO24}.
+Like Maude, \GROOVE has built-in model checking capabilities for both LTL and CTL properties; below, we show how to replicate the results of \cite{DBLP:conf/cmsb/BallisBFO24}, for the four scenarios listed above.
 
-It should be said that the state space of this case study is relatively small.
+The main challenge in replicating the results is that some of the properties to be checked are formulated in terms of \emph{steady states} of the reaction system, which are essentially one-state attractors, that is, states in which the context and reactions together reproduce exactly the entities of that state again. Though \GROOVE detects such a loop as a matter of course, it is a structural property of the LTS and not a state property available for model checking. In order to be able to reason about steadiness, we have to remember \emph{input entities}, i.e., entities that were present in the source state, and compare them to \emph{present entities}, i.e., those that have been produced in the target state. Moreover, we should not accidentally mark the start state as steady even if it has neither inputs nor present entities. \Cref{fig:maude-mc} shows the additional rules that achieve this, together with the modified recipe defined by
+%
+\begin{lstlisting}
+recipe fire() {
+  try testStart; markInput; context; react;
+}
+\end{lstlisting}
+%
+The resulting \steadyR condition is given (using quantifier syntax) in \Cref{fig:maude-steady}.
+
+\begin{figure}\centering
+\subcaptionbox{Rule \testStartR\label{fig:maude-testStart}}{
+\includegraphics[scale=.2]{figs/maude-testStart}
+}\qquad\qquad
+\subcaptionbox{Rule \markInputR\label{fig:maude-markInput}}{
+\includegraphics[scale=.2]{figs/maude-markInput}
+}
+\subcaptionbox{Condition \steadyR\label{fig:maude-steady}}{
+\includegraphics[scale=.2]{figs/maude-steady}
+}
+\caption{Additional rules and condition for detecting steadiness}
+\label{fig:maude-mc}
+\end{figure}
+
+\begin{enumerate}
+\item Given the context \verb=[k,ket]=, \GROOVE confirms the status of the following LTL properties:
+\begin{itemize}
+\item \verb=FG(steady -> akt)= is not satisfied; \GROOVE produces a counter-example.
+
+\item \verb=G(erbb2 -> X(erbb2))= is satisfied.
+\end{itemize}
+
+\item Given the context \verb=[{e,egf,hrg}.korep]=, \GROOVE confirms the status of the following CTL properties:
+\begin{itemize}
+\item \verb=EF (steady & !akt)= is satisfied;
+\item \verb=AF (steady & !akt)= is not satisfied.
+\end{itemize}
+
+\item Given the context \verb=[k,korept]=, \GROOVE confirms the status of the following LTL properties:
+\begin{itemize}
+\item \verb=G(pdk1 -> FG(steady -> akt))= is satisfied;
+\item \verb=erbb1 R !pdk1= is satisfied.
+\end{itemize}
+
+\item Given the context \verb=[k,kge]=, \GROOVE confirms the status of the following CTL property:
+\begin{itemize}
+\item \verb=EG EF (steady -> !akt)= is satisfied. 
+\end{itemize}
+However, we want to point out that this property does not actually provide any useful guarantees, because the predicate \verb=steady= (both in \cite{DBLP:conf/cmsb/BallisBFO24} and in our encoding explained above) only tests for \emph{single-state} attractors. If the reaction system ends up in a multi-state loop, \verb=steady= will never be satisfied and hence the implication \verb=steady -> !akt= is \emph{always} satisfied, irregardless of whether or not \verb=akt= holds. Indeed, the state space of this scenario, visually reproduced in \Cref{fig:maude-gts}, has such a multi-state attractor (consisting of states \textit{s15} and \textit{s18}); in both of those states the predicate \verb=akt= holds, yet the state space as a whole satisfies the CTL property above.
+\end{enumerate}
+%
+\begin{figure}\centering
+\scalebox{.9}{\input{figs/maude-gts.tikz}}
+\caption{GTS for cancer scenario~4}
+\label{fig:maude-gts}
+\end{figure}
+%
+In replicating the results from \cite{DBLP:conf/cmsb/BallisBFO24}, we have had to make a few adjustments. The LTL formulas reported in \cite[Page~14]{DBLP:conf/cmsb/BallisBFO24} for scenarios 1 and~3 are actually \emph{not} literally the ones above, but use the predicate \verb=io-state= rather than \verb=isSteady=. We believe this to be erroneous, judging from the explanatory text, which is phrased in terms of steady states.\todo{A: Please check}
+
+As a final observation, we note that the numbers of states in all these scenarios is actually quite small. We have already shown the 6-state scenario~4 in \Cref{fig:maude-gts}; the size of the others is given by the following table.
+%
+\begin{center}
+\begin{tabular}{rlr}
+\bf Nr. & \bf Context & \bf States \\
+\hline\hline
+1 & \tt [k,ket] & 4 \\
+2 & \tt [{e,egf,hrg}.korep] & 10 \\
+3 & \tt [k,korept] & 32 \\
+4 & \tt [k,kge] & 6
+\end{tabular}
+\end{center}
+

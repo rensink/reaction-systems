@@ -100,7 +100,7 @@ Note that this is restricted to \emph{positive} dependencies. In fact, we have c
 As indicated in \Cref{fig:chain}, the occurrence graph is produced by another \GROOVE rule system, using the same start graph but driven by the control program previously created in the explore phase, encoding (as we have seen) the trace to the undesirable state. The occurrence graph semantics consists of rules with the same names (\reactR, \contextR and \firedR), but different functionality: in particular, rather than manipulating \present flags, the \reactR rule now creates \RuleOcc- and \EntityInst-nodes together with their dependencies. This is a non-trivial procedure that in fact itself requires several successive stages. Though the details of these stages are not of sufficient interest to include in this paper, we want to point out that breaking down a single rule (\reactR, in this case) into multiple stages is opposed to the usual view, engrained in algebraic graph transformation, that a rule embodies a single, atomic change to a graph. This contradiction is solved by another feature of \GROOVE, namely \emph{recipes}. A recipe is a procedural control abstraction that has transactional semantics, and hence for the purpose of exploration acts just like an atomic rule; however, its body may consist of an arbitrary control (sub-)program. In the occurrence graph semantics, therefore, \reactR is actually not a rule but a recipe, defined as
 
 \begin{center}
-\begin{lstlisting}[basicstyle=\sffamily\small,columns=fullflexible,xleftmargin=1cm,keywords={recipe},literate={-}{-}1]
+\begin{lstlisting}[]
 recipe react() {
   entities-age;
   react-produce;

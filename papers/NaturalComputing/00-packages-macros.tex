@@ -22,6 +22,7 @@
 % Load hyperref (and then cleveref) last
 \usepackage{hyperref}
 \usepackage{cleveref}
+\usepackage{groove2tikz}
 
 \captionsetup[subfigure]{justification=centering}
 
@@ -77,9 +78,12 @@
 \newcommand{\contextR}{{\text{\sffamily context}}\xspace}
 \newcommand{\reactR}{{\text{\sffamily react}}\xspace}
 \newcommand{\firedR}{{\text{\sffamily fired}}\xspace}
+\newcommand{\steadyR}{{\text{\sffamily steady}}\xspace}
+\newcommand{\testStartR}{{\text{\sffamily testStart}}\xspace}
+\newcommand{\markInputR}{{\text{\sffamily markInput}}\xspace}
 
 \lstdefinelanguage{control}{
-  keywords={recipe}
+  keywords={recipe,try}
 }%
 \lstdefinestyle{control}{
  language=control,                     % should be clear
@@ -93,3 +97,4 @@
 \lstset{style=control}                 
 \lstset{basicstyle=\small\sffamily}      % have to say this again (but why?)
 \lstset{xleftmargin=1cm}
+\lstset{literate={-}{-}1}

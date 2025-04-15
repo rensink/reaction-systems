@@ -77,9 +77,10 @@ Minor risks    & DFS &      24 & 2 218
 \label{tab:cmsb-experiments}
 \end{figure}
 
-At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
+\todo{RB: added sentence}
+The first two lines show that depth-first exploration strategy (DFS) is generally more convenient that breadth-first (BFS), so we rely on the former for the subsequent lines. At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
 
-The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which both a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
+The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which \emph{both} a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
  
 \medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. The second table in \Cref{tab:cmsb-experiments} shows how many major risks occur after a fixed number of reaction steps, and also how much of the total state space is involved.
 
@@ -123,6 +124,7 @@ Model checking: & 86 s
 \end{tabular}
 \end{center}
 %
+\todo{RB: missing data?}
 (The reason to split up these running times is that the model can be reused for other CTL checks.)
 
 \subparagraph*{Discussion.}
@@ -131,5 +133,5 @@ Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advant
 \begin{itemize}
 \item The time needed to analyze the entire state space is around 41 minutes for \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve.
 
-\item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE --- given, of course, suitable rule systems that encode the chosen notion of causal dependency.
+\item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE---given, of course, suitable rule systems that encode the chosen notion of causal dependency.
 \end{itemize}

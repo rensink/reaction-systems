@@ -35,29 +35,42 @@ generator -P cmsb.properties -D "ruleEnabling=-forbidden +cmsb.major-and-moderat
 
 Bounded DFS generation
 ----------------------
-# Up to step 4, major risks:
+# Up to step 4, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs8->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 5, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs8=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 5, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs10->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 6, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs10=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 6, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs12->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 7, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs12=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 7, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs14->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 8, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs14=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 8, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs16->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 9, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs16=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 9, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs18->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 10, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs18=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 10, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs20->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 11, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs20=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 11, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs22->forbidden -a formula:forbidden .\rs-explore.gps
-# Up to step 12, major risks:
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs22=>forbidden -a ruleapp:context .\rs-explore.gps
+# Up to step 12, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs24->forbidden -a formula:forbidden .\rs-explore.gps
+generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs24=>forbidden -a ruleapp:context .\rs-explore.gps
 
 Model checking
 --------------
 # Generation of the model: call the Generator with
-generator -P cmsb.properties -D "ruleEnabling=+present" -D "controlProgram=atomic" -o cmsb.aut .\rs-explore.gps
+generator -P cmsb.properties `
+          -D "ruleEnabling=+present" `
+		  -D "typeGraph+=cmsb.major-forbidden" `
+		  -D "controlProgram=atomic" `
+		  -o cmsb.aut .\rs-explore.gps
 
 # Model checking: call the ModelChecker with
 modelchecker -ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF forbidden)" `

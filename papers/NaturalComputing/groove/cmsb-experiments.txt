@@ -62,7 +62,7 @@ generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bf
 # Up to step 12, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs24->forbidden -a formula:forbidden .\rs-explore.gps
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs25=>forbidden -a ruleapp:context .\rs-explore.gps
-# Up to step 12, major risks, counting risks resp. states:
+# Up to step 13, major risks, counting risks resp. states:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs26->forbidden -a formula:forbidden .\rs-explore.gps
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:bfs27=>forbidden -a ruleapp:context .\rs-explore.gps
 
@@ -70,26 +70,42 @@ Model checking
 --------------
 # Generation of the model: call the Generator with
 generator -P cmsb.properties `
-          -D "ruleEnabling=+present" `
-		  -D "typeGraph+=cmsb.major-forbidden" `
+          -D "ruleEnabling=+present +cmsb.major +cmsb.moderate +cmsb.minor -forbidden" `
 		  -D "controlProgram=atomic" `
+		  -a final `
 		  -o cmsb.aut .\rs-explore.gps
 
-# Model checking: call the ModelChecker with
-modelchecker -ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF forbidden)" `
-             -ctl "AX(afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         -> EF forbidden)" `
-             -ctl "AX(afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         -> EF forbidden)" `
-             -ctl "AX(afib & has_fib              & consensus_acei                                 & !doac_int & hyper -> EF forbidden)" `
-             -ctl "AX(afib & has_fib                                                                           & hyper -> EF forbidden)" `
-             -ctl "AX(afib & has_fib & heart_rate                                                                      -> EF forbidden)" `
+# First 6 entries of Fig. 6 of CMSB2024 for major risks
+modelchecker -ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF cmsb.major)" `
+             -ctl "AX(afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         -> EF cmsb.major)" `
+             -ctl "AX(afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         -> EF cmsb.major)" `
+             -ctl "AX(afib & has_fib              & consensus_acei                                 & !doac_int & hyper -> EF cmsb.major)" `
+             -ctl "AX(afib & has_fib                                                                           & hyper -> EF cmsb.major)" `
+             -ctl "AX(afib & has_fib & heart_rate                                                                      -> EF cmsb.major)" `
              .\cmsb2024.aut
 
+# Complete block of Fig. 6 of CMSB2024 for major risks 
 modelchecker -ctl `
   "AX((afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper | `
        afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         | `
        afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         | `
        afib & has_fib              & consensus_acei                                 & !doac_int & hyper | `
        afib & has_fib                                                                           & hyper | `
-       afib & has_fib & heart_rate                                                                      ) <-> EF forbidden)" `
+       afib & has_fib & heart_rate                                                                      ) <-> EF cmsb.major)" `
+	   .\cmsb2024.aut
+
+# Complete block of Fig. 6 of CMSB2024 for moderate risks 
+modelchecker -ctl `
+  "AX((afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper | `
+       afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         | `
+       afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         | `
+       afib & has_fib              & consensus_acei                                 & !doac_int & hyper | `
+       afib & has_fib                                                                           & hyper | `
+       afib & has_fib & heart_rate                                                                      ) <-> EF cmsb.moderate)" `
+	   .\cmsb2024.aut
+
+# Complete block of Fig. 6 of CMSB2024 for minor risks 
+modelchecker -ctl `
+  "AX((afib           & heart_rate & consensus_acei & !over75           & !diabetes            & !hyper ) <-> EF cmsb.minor)" `
 	   .\cmsb2024.aut
 

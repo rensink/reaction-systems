@@ -43,8 +43,8 @@ The benefit of using \GROOVE in this case study is that, besides identifying sit
 \begin{figure}\centering
 \subcaptionbox{Full exploration\label{fig:cmsb-full}}{
 \begin{tabular}{lcrr}
-\bf Measurement & \bf Search & \bf State & \bf Time \\
-                & \bf method & \bf count & \bf  (s) \\
+\bf Measurement & \bf Search & \bf Count & \bf Time \\
+                & \bf method & \bf       & \bf  (s) \\
 \hline\hline
 Total states   & BFS & 309 798 & 3 368 \\
 Total states   & DFS & 309 798 & 2 464 \\
@@ -57,8 +57,8 @@ Minor risks    & DFS &      24 & 2 218
 
 \subcaptionbox{Bounded BFS exploration (tabular)\label{fig:cmsb-steps}}{
 \begin{tabular}{rrrr}
-\bf Explore & \bf Total & \bf New   & \bf Total \\ % & \bf Time
-\bf depth   & \bf risks & \bf risks & \bf states \\ % & \bf  (s)
+\bf Explore & \bf Total & \bf New   & \bf State \\ % & \bf Time
+\bf depth   & \bf risks & \bf risks & \bf count \\ % & \bf  (s)
 \hline\hline
  3 &      0 &       0 &         0 \\ % &     3
  4 &    716 &     716 &    18 045 \\ % &    10
@@ -77,7 +77,7 @@ Minor risks    & DFS &      24 & 2 218
 \label{tab:cmsb-experiments}
 \end{figure}
 
-At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major, \moderate or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
+At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
 
 The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which both a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
  
@@ -118,7 +118,7 @@ Running the CTL model checker built into GROOVE, it reports that this is indeed 
 
 \begin{center}
 \begin{tabular}{lr}
-Model generation: & 9 884 s \\
+Model generation: &  s \\
 Model checking: & 86 s 
 \end{tabular}
 \end{center}

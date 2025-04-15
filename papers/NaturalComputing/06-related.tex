@@ -1,13 +1,48 @@
 % !TEX root =  ./main.tex
 
-\section{Comparison}\label{sec:related}
-(\url{https://www.reactionsystems.org/about-reaction-systems})
+\section{Comparison with Existing Tools}\label{sec:related}
+
+The approach presented in this paper can provide several advantages over existing tools in the literature, including:\footnote{See, e.g., the list of Reaction Systems Computer Environments at \url{https://www.reactionsystems.org/about-reaction-systems}.}
 \begin{itemize}
-\item \BioResolve (A Prolog interpreter for reaction system analysis) \url{https://www.di.unipi.it/~bruni/LTSRS/}
-\item Heresy (Highly efficient reaction system simulator) \url{https://github.com/aresio/HERESY }
-\item WebRSim (Basic reaction system simulator) \url{https://github.com/scolobb/brsim}
-\item CL-RS (\url{https://github.com/mnzluca/cl-rs})
-\item \textbf{ccReact} (An Interacting Language for Reaction Systems based on Maude 3.2.1) \url{https://depot.lipn.univ-paris13.fr/olarte/reaction-systems-maude}
+\item
+\brsim\footnote{Available at \url{https://github.com/scolobb/brsim/}} (Basic Reaction System Simulator, written in Haskell and distributed under the terms of GNU GPLv3 license)~\cite{DBLP:journals/tcs/AzimiGIP15} was the first RS simulator to be made publicly available. 
+Given the reactions of the RS and a context sequence, \brsim is capable of computing the resulting sequence and generating additional annotations for each computation step, such as the enabled reactions.
+Alternatively, \brsim can be executed in an interactive mode, allowing the user to manually provide the context to be used at each step.
+\item
+\WebRSim\footnote{Available at \url{https://github.com/scolobb/brsim}.} is a basic RS simulator that makes all functionalities of  \brsim available through a friendly web interface~\cite{DBLP:conf/birthday/0001RAP18};
+\item 
+\HERESY\footnote{Available at \url{https://github.com/aresio/HERESY}.} is a Highly Efficient REaction SYstem GPU-based simulator, developed using CUDA~\cite{DBLP:journals/tcs/AzimiGIP15}. It features a user-friendly GUI and is designed to exploit the high degree of parallelism offered by modern GPUs to handle very large-scale RSs simulations.
+\item
+\clrs\footnote{Available at \url{https://github.com/mnzluca/cl-rs}.} is an optimized Common Lisp simulator for RSs~\cite{DBLP:journals/fuin/FerrettiLMP20} that can exhibit performances comparable with the GPU-based simulator \textsf{HERESY}. This is achieved by discarding all reactions that cannot produce effects and by encoding RS evolution in terms of matrix-vector multiplications and vector additions.
+\item 
+\BioResolve\footnote{Available at \url{https://www.di.unipi.it/~bruni/LTSRS/}.} is a Prolog interpreter for Reaction System analysis, first proposed in~\cite{DBLP:journals/tcs/BrodoBF21} and later extended in a series of papers to deal with enhanced features, like delays, duration, monitoring, slicing and guarded contexts~\cite{DBLP:journals/nca/BrodoBFGLM23,DBLP:journals/nc/BrodoBF24,DBLP:conf/cmsb/BowlesBBFGM24}. Many capabilities of \BioResolve has been discussed at length in the previous sections.
+\item
+\ccReact\footnote{Available at \url{https://depot.lipn.univ-paris13.fr/olarte/reaction-systems-maude}.} is an interacting language for Reaction Systems based on Maude 3.2.1~\cite{DBLP:conf/cmsb/BallisBFO24}, whose key features have been illustrated in \Cref{sec:ccReact}.
 \end{itemize}
+
+\subparagraph*{Modeling Capabilities.}
+The \GROOVE-based method supports a rich and expressive encoding of RSs, including the most recent features such as the handling of \emph{guarded, recursive, and nondeterministic contexts}.
+Among the other tools, such features are only supported by \BioResolve, but it relies on a Prolog backend, which limits scalability and requires external scripting for improving the performance of many analyses whenever large state generation and exploration is necessitated. Tools such as \HERESY, \WebRSim, and \clrs provide lightweight RS simulators but are limited to basic semantics, lacking support for more advanced interactions with the context or advanced verification features. \ccReact supports temporal logic model checking (LTL/CTL), but not recursive contexts. Moreover, the encoding of RSs in \ccReact is manual and less suited to visual inspection or dynamic causal analysis.
+
+\subparagraph*{Performance and Scalability}
+The ability of \GROOVE to explore large state spaces efficiently is central to our method. Through configurable exploration strategies and a rule-based control mechanism, \GROOVE handles complex RS instances that involve thousands of reachable configurations. Our experiments demonstrate a substantial improvement in analysis time compared to \BioResolve, often reducing execution time by an order of magnitude. Furthermore, the performance of \BioResolve is strongly influenced by the nature of Prolog evaluation strategies, which can lead to excessive memory and time consumption in large case studies.
+In contrast, other tools either consider linear executions only and do not scale to large models or lack optimization strategies necessary for handling non-trivial state spaces. 
+
+\subparagraph*{Causal Analysis and Verification.}
+A key distinguishing feature of our approach is the ability to perform graph-based \emph{causal slicing}. By automatically generating and pruning \emph{occurrence graphs}, \GROOVE provides detailed and visual explanations of how specific states, such as those involving undesirable or forbidden entities, are reached.
+This form of causal reasoning is not available in high-performance tools such as \HERESY, \WebRSim, or \clrs, and is only partially addressed in \ccReact, where the focus is primarily on reachability and temporal properties. 
+\todo{Should we say something about the comparison of \GROOVE and \ccReact performances?}
+\GROOVE's integrated support for CTL and LTL model checking further extends its applicability to behavioral verification, enabling the specification and validation of complex temporal properties. 
+
+\subparagraph*{Summary.}
+In conclusion, the combination of expressive modeling, efficient state space exploration, and integrated causal analysis makes \GROOVE a powerful and versatile full-fledged platform for the study of Reaction Systems. It not only generalizes and extends existing tools, but also opens the door to new forms of analysis that were previously impractical or unsupported.
+
+
+
+
+
+
+
+
 
 

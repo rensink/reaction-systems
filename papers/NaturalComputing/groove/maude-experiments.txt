@@ -22,10 +22,19 @@ generator -P maude.properties -s "ltl:G(erbb2 -> X(erbb2))" .\rs-explore.gps\ ma
 # Scenario 2, context [{e,egf,hrg}.korep]
 # CTL: EF (steady & !akt)
 # CTL: AF (steady & !akt)
+modelchecker `
+  -ctl "EF (steady & !akt)" `
+  -ctl "AF (steady & !akt)" `
+  -g -P maude.properties .\rs-explore.gps\ maude.BT474-2-korep
 
 # Scenario 3, context [k,korept]
 # LTL: G(pdk1 -> FG(steady -> akt))
+generator -P maude.properties -s "ltl:G(pdk1 -> FG(steady -> akt))" .\rs-explore.gps\ maude.BT474-3-korept
 # LTL: erbb1 R !pdk1
+generator -P maude.properties -s "ltl:erbb1 R !pdk1" .\rs-explore.gps\ maude.BT474-3-korept
 
 # Scenario 4, context [k,kge]
 # CTL: EG EF (steady -> !akt)
+modelchecker `
+  -ctl "EG EF (steady -> !akt)" `
+  -g -P maude.properties .\rs-explore.gps\ maude.BT474-4-kge

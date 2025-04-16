@@ -1,0 +1,31 @@
+Maude case experiments
+======================
+
+# The following instructions are for Windows Powershell
+# Define a Generator call with
+function generator {
+  java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -jar \Path\To\Groove\bin\Generator.jar @args
+}
+# Define a ModelChecker call with
+function modelchecker {
+  java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -cp \Path\To\Groove\bin\Generator.jar nl.utwente.groove.verify.CTLModelChecker @args
+}
+
+The model checking experiments
+------------------------------
+# Scenario 1, context [k,ket]
+# LTL: FG(steady -> akt)
+generator -P maude.properties -s "ltl:FG(steady -> akt)" .\rs-explore.gps\ maude.BT474-1-ket
+# LTL: G(erbb2 -> X(erbb2))
+generator -P maude.properties -s "ltl:G(erbb2 -> X(erbb2))" .\rs-explore.gps\ maude.BT474-1-ket
+
+# Scenario 2, context [{e,egf,hrg}.korep]
+# CTL: EF (steady & !akt)
+# CTL: AF (steady & !akt)
+
+# Scenario 3, context [k,korept]
+# LTL: G(pdk1 -> FG(steady -> akt))
+# LTL: erbb1 R !pdk1
+
+# Scenario 4, context [k,kge]
+# CTL: EG EF (steady -> !akt)

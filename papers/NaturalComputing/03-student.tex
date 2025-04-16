@@ -50,7 +50,8 @@ Finally, two more reactions model the passage of time (morning vs afternoon) whi
 \]
 
 We assume that, initially, both entitities $\cpowder$ and $\tpowder$ are present.
-So the system can be coded as the guarded RS process
+So the system is coded as:
+%the guarded RS process
 \[
 [\,\mathsf{Refill}
 | \mathsf{Student}
@@ -61,16 +62,16 @@ So the system can be coded as the guarded RS process
 \]
 
 The complete encoding of the above RS in \BioResolve syntax is reported in \Cref{fig:bioresolve:toy} in the appendix.
-Using the \BioResolve directive \verb=main_do(digraph)=, we can automatically generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
+Using the \BioResolve directive \verb=main_do(digraph)=, we can automatically generate the underlying LTS as in \Cref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
 Note that, as \am is initially not present, it means that the initial time is in the afternoon.
-To improve readability, the nodes of the LTS are labelled by the list of currently active context processes and present entities, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context (see \Cref{rem:shortlts}).\todo{Shorten}
+To improve readability, the nodes of the LTS are labelled by the list of currently active context processes and present entities, and the arcs are labelled by the list of entities provided by the context (see \Cref{rem:shortlts}).\todo{Shorten}
 %, i.e., the components in $D\cup C$ extracted from the full label $\obs{\obs{D}{R',I',C}}{R,I,P}$.
 % The label $0$ stands for the empty set.
 %As a general strategy for \BioResolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\varnothing,\{\Forbidden\})$.
 
 \begin{figure}
 \includegraphics[scale=.3]{./figs/toylts}
-\caption{LTS of the toy example. For brevity we use the notation introduced in \Cref{rem:shortlts}, where node labels only account for the list of (semicolons separated) current contexts and entities and transition labels accounts just for the entities provided by the context.\label{fig:toylts}}
+\caption{LTS of the toy example. For brevity we use the notation introduced in \Cref{rem:shortlts}, where node labels only account for the list of (semicolons separated) current contexts and entities and transition labels carry the entities provided by the context.\label{fig:toylts}}
 \end{figure}
 
 In this particular example, we wish to analyze why \bang is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of \bang was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.

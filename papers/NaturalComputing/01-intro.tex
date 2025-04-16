@@ -31,11 +31,11 @@ Importantly, from a practical point of view, there are a number of (academic) to
 
 The main research question that motivated our study is: 
 \emph{how can GT help in addressing the analysis of Reaction Systems?} 
-For this purpose, we encode a given RS as a single graph, upon which a small number of (predefined) rules operate to simulate the correct semantics. 
+Tothis aim, we encode a given RS as a single graph, upon which a small number of (fixed) rules can simulate the correct semantics. 
 
 \begin{figure}
 \centering
-\includegraphics[scale=.40]{react}
+\includegraphics[scale=.42]{react}
 \caption{Rule for reactions firing}
 \label{fig:reactionfiring}
 \end{figure}
@@ -46,14 +46,14 @@ Similarly for the simultaneous deletion of all \blab{Entity}s.
 
 Our model also supports environments that inject \blab{Entity}s in a controlled manner. This is achieved by encoding the context specification in the initial graph and exploiting a second predefined rule, not shown here (see \Cref{fig:context}). A configuration is reachable if it can be constructed by the alternating application of both rules: first the context produces a set of stimuli (possibly upon inspection of the current state, but also nondeterministically or a combination of both), and then all enabled reactions are executed.
 
-After fixing the strictly necessary background on RSs (\Cref{sec:RS}) and \GROOVE (\Cref{sec:GTS}), we illustrate in \Cref{sec:RS2GTS} the overall rationale, blueprint and main features of our implementation  by exploiting a small running example that models a vending machine (\Cref{sec:student}).
-The subsequent experimentation (\Cref{sec:experiments}) is concerned with revisiting previous case studies from the RS literature to see how \GROOVE can be used to enhance their analysis. 
+After a brief account of RSs (\Cref{sec:RS}) and \GROOVE (\Cref{sec:GTS}), we present the overall rationale, blueprint and key features of our approach in \Cref{sec:RS2GTS} through a simple vending machine example (\Cref{sec:student}).
+The subsequent experimentation in \Cref{sec:experiments} is concerned with revisiting existing RS case studies to assess how \GROOVE can enhance their analysis. 
 In particular, we tackle 
 the comorbidity treatment scenario from~\cite{DBLP:conf/cmsb/BowlesBBFGM24} in \Cref{sec:cmsb2024}, 
 the protein signaling networks analysis from~\cite{DBLP:conf/cmsb/BallisBFO24} in \Cref{sec:ccReact}, and
 the T cell differentiation study from~\cite{datamod2023} in \Cref{sec:datamod2023}.
-Our first results are encouraging: \GROOVE seems capable to explore larger RSs 
+Our results are encouraging: \GROOVE is capable to explore large RSs 
 %is well beyond what other tools have been able to achieve, 
 by using roughly one tenth of the time compared to \BioResolve for both reachability and causal analyses.
 More precisely, we are able to find a trace towards unwanted patterns (if they exist) among hundreds of thousands of reachable configurations using different heuristics; then, we can also prune the trace to extract a graphical representation of the causal history of that entities. Using the built-in model checker it is also possible to confirm the results of previous studies, as well as proving new facts.
-
+A comparison with related tools is drawn in \Cref{sec:related}. Concluding remarks and future directions are discussed in \Cref{sec:conc}.

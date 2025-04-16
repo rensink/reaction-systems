@@ -13,8 +13,8 @@ AR
 - Submit on website & send separate message to editors
 
 RB
-- Read Section 2
-- Read extension of 5.1
-- Shorten case description 5.3
-- Add refs to Section 7
-- Provide list of potential reviewers and cover letter
+- Read Section 2 DONE
+- Read extension of 5.1 DONE
+- Shorten case description 5.3 DONE
+- Add refs to Section 7 DONE
+- Provide list of potential reviewers and cover letter DONE

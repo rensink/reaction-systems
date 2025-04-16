@@ -4,16 +4,17 @@
 
 %The paper~\cite{DBLP:conf/cmsb/BowlesBBFGM24} introduced the notion of RS with guarded contexts, recalled in \Cref{sec:RS}.
 %to model scenarios where the entities to be provided by the context are dependent upon the current state, which is a common situation arising, e.g., in drug administration and \emph{in silico} experiments. 
-This case was studied in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}, where guarded contexts were introduced to handle key features of medical treatments. It concerns the risk mitigation of medication harm in the treatment of patients with comorbidities; i.e., patients with two or more long-term chronic conditions (such as diabetes, hypertension, cardiovascular diseases, chronic kidney disease, cancer, chronic obstructive pulmonary disease, among many others), who are therefore subject to follow several treatment plans simultaneously, called \emph{clinical guidelines}~\cite{feder1999using,woolf1999potential}. Since clinical guidelines address a single disease, comorbidities easily lead to  \emph{polypharmacy}, where 5 or more medications must be administered, increasing the risk of adverse drug reactions, or of making certain drugs less effective when combined~\cite{Gut12}. Using formal methods for risk mitigation intends to help doctors choose between alternative treatment options as well as to point out missing conditions that could be helpful to revise and update clinical guidelines. 
+This case was studied in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}, where guarded contexts were introduced to handle key features of medical treatments. It concerns the risk mitigation of medication harm in the treatment of patients with comorbidities; i.e., patients with two or more long-term chronic conditions (such as diabetes, hypertension, cardiovascular diseases, chronic kidney disease, cancer, chronic obstructive pulmonary disease, among many others), who are therefore subject to follow several treatment plans simultaneously, called \emph{clinical guidelines}~\cite{feder1999using,woolf1999potential}. Since clinical guidelines address a single disease, comorbidities easily lead to  \emph{polypharmacy}, where 5 or more medications must be administered, increasing the risk of adverse drug reactions, or of making certain drugs less effective when combined~\cite{Gut12}. 
 
 \subparagraph*{Analysis goals.}
 The goal of the analysis is to explore the combination of clinical guidelines in the presence of comorbidities and for different patient profiles to detect if major risks can arise from the treatments and which profiles are exposed at severe risks.\todo{This reads like a duplication}
+Using formal methods for risk mitigation intends to help doctors choose between alternative treatment options as well as to point out missing conditions that could be helpful to revise and update clinical guidelines. 
 
 \subparagraph*{Features of interest.}
 In this case study, reachability and causal analysis are key issues.
 Specifically, reachability is used to address questions such as \emph{can the combination of clinical guidelines expose the patient at serious risks because of drugs interference?}
 Then, in the affirmative case, causal analysis can help to detect which medical decisions would be directly responsible for causing serious harm as well as to point out  which alternative treatment would be available, if any.
-We selected this case study because the use of guarded contexts introduces new challenges for the causal analysis of RS: while existing approaches typically focus on identifying combinations of drugs administered within the context that may have caused harm, they often fail to highlight the medical decisions that led to their administration.
+We selected this case study because the use of guarded contexts introduces new challenges for the causal analysis of RSs: while existing approaches typically focus on identifying combinations of drugs administered within the context that may have caused harm, they often fail to highlight the medical decisions that led to their administration.
 
 \subparagraph*{Experimental set up.}
 The RS encoding proposed in~\cite{DBLP:conf/cmsb/BowlesBBFGM24} relies on a formal representation of patient profiles, medical guidelines and adverse drug reactions.
@@ -119,7 +120,8 @@ AX( (afib           & heart_rate & consensus_acei & !over75                     
 \end{figure*}
 
 In order to replicate these results, we can use CTL model checking. For instance the relevant CTL property for the major risks is shown in 
-\Cref{fig:table-from-cmsb2024}. Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied, as are the corresponding characteristic properties for the moderate and minor risks. The following table reports the time taken for these checks:
+\Cref{fig:table-from-cmsb2024}. Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied, as are the corresponding characteristic properties for the moderate and minor risks. The following table reports \todo{RB: missing values}
+the time taken for these checks:
 
 \begin{center}
 \begin{tabular}{lr}
@@ -136,7 +138,7 @@ Note that the time taken for model generation far exceeds that reported in \Cref
 
 Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
 \begin{itemize}
-\item The time needed to analyze the entire state space is around 41 minutes for \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve.
+\item The time needed to analyze the entire state space is around 41 minutes for \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve for LTS generation.
 
 \item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE---given, of course, suitable rule systems that encode the chosen notion of causal dependency.
 

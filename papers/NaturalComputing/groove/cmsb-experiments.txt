@@ -76,13 +76,14 @@ generator -P cmsb.properties `
 		  -o cmsb.aut .\rs-explore.gps
 
 # First 6 entries of Fig. 6 of CMSB2024 for major risks
-modelchecker -ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF cmsb.major)" `
-             -ctl "AX(afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         -> EF cmsb.major)" `
-             -ctl "AX(afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         -> EF cmsb.major)" `
-             -ctl "AX(afib & has_fib              & consensus_acei                                 & !doac_int & hyper -> EF cmsb.major)" `
-             -ctl "AX(afib & has_fib                                                                           & hyper -> EF cmsb.major)" `
-             -ctl "AX(afib & has_fib & heart_rate                                                                      -> EF cmsb.major)" `
-             .\cmsb2024.aut
+modelchecker `
+  -ctl "AX(afib           & heart_rate & consensus_acei & !over75                       & !doac_int & hyper -> EF cmsb.major)" `
+  -ctl "AX(afib           & heart_rate & consensus_acei & !over75            & diabetes & !doac_int         -> EF cmsb.major)" `
+  -ctl "AX(afib           & heart_rate & consensus_acei &  over75 & !below55            & !doac_int         -> EF cmsb.major)" `
+  -ctl "AX(afib & has_fib              & consensus_acei                                 & !doac_int & hyper -> EF cmsb.major)" `
+  -ctl "AX(afib & has_fib                                                                           & hyper -> EF cmsb.major)" `
+  -ctl "AX(afib & has_fib & heart_rate                                                                      -> EF cmsb.major)" `
+  .\cmsb2024.aut
 
 # Complete block of Fig. 6 of CMSB2024 for major risks 
 modelchecker -ctl `

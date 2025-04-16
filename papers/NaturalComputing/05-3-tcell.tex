@@ -264,7 +264,12 @@ The generation of the LTS is often the bottleneck of the approach, both in terms
 %This analysis contributes to the understanding of the behaviour of the model, to correct it in case some mistakes are identified and to use it for identifying drug targets. We discussed the relation with other approaches in the literature.
 
 \subparagraph*{GROOVE experimentation.}
-TO BE COMPLETED
 
+The capabilities of \GROOVE called upon for this case study are very similar to those in \Cref{sec:cmsb2024}; the main difference lies in the specific interest in attractors. Indeed, in contrast to the situation for comorbidities, here after the initial selection of a profile, the context does not cause any more nondeterminism; hence every profile eventually ends up in such an attractor.
 
+An trace ending in a loop, sometimes called a ``lollipop'', is in fact precisely what LTL properties are checked over; hence an LTL property violation takes the form of a lollipop. Hence, we can find attractors with specific properties by formulating their non-existence in LTL, and then finding a counter-example through LTL model checking. For instance, the following formula denies the reachability of an attractor in which \texttt{tbet} and \texttt{gata3} are both expressed:
+
+\begin{quote}\tt
+! FGF tbet & gata3
+\end{quote}
 

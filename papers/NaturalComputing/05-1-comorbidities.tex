@@ -55,23 +55,26 @@ Maj\&Mod risks & DFS &  61 976 & 2 727 \\
 Minor risks    & DFS &      24 & 2 218
 \end{tabular}}
 
-\subcaptionbox{Bounded BFS exploration (tabular)\label{fig:cmsb-steps}}{
-\begin{tabular}{rrrr}
-\bf Explore & \bf Total & \bf New   & \bf State \\ % & \bf Time
-\bf depth   & \bf risks & \bf risks & \bf count \\ % & \bf  (s)
+\subcaptionbox{Bounded BFS exploration of major risks (tabular)\label{fig:cmsb-steps}}{
+\begin{tabular}{rrrrr}
+\bf Explore & \bf Total & \bf New   & \bf Total    & \bf New    \\ % & \bf Time
+\bf depth   & \bf risks & \bf risks & \bf states & \bf states \\ % & \bf  (s)
 \hline\hline
- 3 &      0 &       0 &         0 \\ % &     3
- 4 &    716 &     716 &    18 045 \\ % &    10
- 5 &  9 317 &   8 601 &   145 202 \\ % &    70
- 6 & 35 899 &  26 582 &   630 986 \\ % &   425
- 7 & 73 591 &  37 693 & 1 444 184 \\ % & 2 277
- 8 & 81 691 &   8 100 & 1 875 086 \\ % & 1 765
- 9 & 88 631 &   6 940 & 2 101 134 \\ % & 1 875
-10 & 89 733 &   1 102 & 2 300 038 \\ % & 2 368
-11 & 90 573 &     840 & 2 359 075 \\ % & 2 443
-12 & 91 133 &     560 & 2 410 055   % & 2 784
+ 1 &      0 &       0 &     769 &     769 \\ % &     3
+ 2 &      0 &       0 &   1 345 &     576 \\ % &     3
+ 3 &      0 &       0 &   1 873 &     528 \\ % &     3
+ 4 &    716 &     716 &   8 133 &   6 260 \\ % &    10
+ 5 &  9 317 &   8 601 &  42 293 &  34 160 \\ % &    70
+ 6 & 35 899 &  26 582 & 126 012 &  83 719 \\ % &   425
+ 7 & 73 591 &  37 693 & 227 866 & 101 854 \\ % & 2 277
+ 8 & 81 691 &   8 100 & 248 420 &  20 554 \\ % & 1 765
+ 9 & 88 631 &   6 940 & 276 924 &  28 504 \\ % & 1 875
+10 & 89 733 &   1 102 & 281 854 &   4 930 \\ % & 2 368
+11 & 90 573 &     840 & 286 054 &   4 200 \\ % & 2 443
+12 & 91 133 &     560 & 288 854 &   2 800
+   % & 2 784
 \end{tabular}}
-\subcaptionbox{Bounded BFS exploration (chart)\label{fig:cmsb-trends}}{
+\subcaptionbox{Bounded BFS exploration of major risks (chart)\label{fig:cmsb-trends}}{
 \includegraphics[scale=.6]{figs/cmsb-trends}}
 \caption{States, risks and execution time}
 \label{tab:cmsb-experiments}
@@ -82,7 +85,7 @@ The first two lines show that depth-first exploration strategy (DFS) is generall
 
 The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which \emph{both} a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
  
-\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. The second table in \Cref{tab:cmsb-experiments} shows how many major risks occur after a fixed number of reaction steps, and also how much of the total state space is involved.
+\medskip\noindent By exploring only up to a certain depth, we can get some idea of the number of steps after which a risk typically appears, which in turn indicates the complexity of the context in which it appears. \Cref{fig:cmsb-steps} shows how many major risks occur after a fixed number of reaction steps, and also how much of the total state space is involved. Note that, in this case, the total state count (reached after 12 steps) stays below that of \Cref{fig:cmsb-full}; this is because in the experiments of \Cref{fig:cmsb-steps} we stop exploration at states where a risk has been found. \Cref{fig:cmsb-trends} shows the same data in a graphical form.
 
 \medskip\noindent Alternatively, we can stop exploring after having found a predetermined number of risks. By setting the exploration strategy to breadth-first search, it is guaranteed that the risks found are those reached after the shortest number of steps, meaning they are the easiest to analyze visually. For instance, \Cref{fig:cmsb-pruned} shows the occurrence graph of the first major risk found in this way.
 
@@ -96,9 +99,9 @@ The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of
 The patient configuration in question is a combination of ``has\_fib'', ``afib'' and ``heart\_rate''; the combination of the first two leads to the prescription of fleacinide and the second to the prescription of diltiazem, the combination of which should, however, be avoided. By counting the longest chain of \StepOcc-nodes, it is confirmed that it indeed takes 4 steps to establish this risk.
 
 \medskip\noindent We can also use \GROOVE to replicate the findings of  \cite[Fig.\ 6]{DBLP:conf/cmsb/BowlesBBFGM24} in terms of the relation between patient profiles and risks, using model checking. Recall that the reaction system starts by having the context produce initial entities, and in this particular case study, the first move of the context is to select a patient profile; hence the initial state has $2^9=512$ outgoing transitions, whose target state corresponds to the chosen profile. Moreover, the rule \forbidden tests for the presence of a \Forbidden entity in a state. Therefore, a formula of the shape
-$AX(\bigwedge_i f_i \rightarrow EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether all patient profiles with that combination of features contain a potential risk.
+$\AX(\bigwedge_i f_i \rightarrow \EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether all patient profiles with that combination of features contain a potential risk.
 
-Concretely, in the case study at hand, \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24} contains the table reproduced in \Cref{fig:table-from-cmsb2024}. This claims that, \emph{precisely} in the combination of features where the green ones are present and the red ones absent, a major risk may occur. This translates to the CTL formula in the same figure.
+Concretely, in the case study at hand, \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24} contains necessary and sufficient criteria for patient profiles to contain major, moderate and minor risks. The part of the table pertaining to major risks is reproduced in \Cref{fig:table-from-cmsb2024}. This should be read as: \emph{precisely} in the combination of features where the green ones are present and the red ones absent, a major risk may occur.
 %
 \begin{figure*}
 \centering
@@ -114,18 +117,20 @@ AX( (afib           & heart_rate & consensus_acei & !over75                     
 \caption{CTL encoding of the major risk profiles found in \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24}}
 \label{fig:table-from-cmsb2024}
 \end{figure*}
-%
-Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied. The time taken for this check consists of the following components:
+
+In order to replicate these results, we can use CTL model checking. For instance the relevant CTL property for the major risks is shown in 
+\Cref{fig:table-from-cmsb2024}. Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied, as are the corresponding characteristic properties for the moderate and minor risks. The following table reports the time taken for these checks:
 
 \begin{center}
 \begin{tabular}{lr}
-Model generation: &  s \\
-Model checking: & 86 s 
+Model generation: & 9 884 s \\
+Major risk characteristic: & 86 s \\
+Moderate risk characteristic: &  s \\
+Minor risk characteristic: &  s \\
 \end{tabular}
 \end{center}
 %
-\todo{RB: missing data?}
-(The reason to split up these running times is that the model can be reused for other CTL checks.)
+Note that the time taken for model generation far exceeds that reported in \Cref{fig:cmsb-full}; the difference lies in the fact that, for this particular model, we combined the alternating \contextR- and \reactR-transitions into atomic \fireR-labelled ones using \GROOVE's recipe feature (briefly discussed in \Cref{sec:RS2GTS}), with the purpose of reducing the model size and hence allowing more efficient CTL checking. Why this should multiply the model generation time by a factor of 4 is currently unclear; investigating this is future work.
 
 \subparagraph*{Discussion.}
 

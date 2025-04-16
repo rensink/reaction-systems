@@ -20,15 +20,15 @@ Alternatively, \brsim can be executed in an interactive mode, allowing the user 
 \ccReact\footnote{Available at \url{https://depot.lipn.univ-paris13.fr/olarte/reaction-systems-maude}.} is an interacting language for Reaction Systems based on Maude 3.2.1~\cite{DBLP:conf/cmsb/BallisBFO24}, whose key features have been illustrated in \Cref{sec:ccReact}.
 \end{itemize}
 
-\subparagraph*{Modeling Capabilities.}
+\subparagraph*{Modeling capabilities.}
 The \GROOVE-based method supports a rich and expressive encoding of RSs, including the most recent features such as the handling of \emph{guarded, recursive, and nondeterministic contexts}.
 Among the other tools, such features are only supported by \BioResolve, but it relies on a Prolog backend, which limits scalability and requires external scripting for improving the performance of many analyses whenever large state generation and exploration is necessitated. Tools such as \HERESY, \WebRSim, and \clrs provide lightweight RS simulators but are limited to basic semantics, lacking support for more advanced interactions with the context or advanced verification features. \ccReact supports temporal logic model checking (LTL/CTL), but not recursive contexts. Moreover, the encoding of RSs in \ccReact is manual and less suited to visual inspection or dynamic causal analysis.
 
-\subparagraph*{Performance and Scalability}
+\subparagraph*{Performance and scalability.}
 The ability of \GROOVE to explore large state spaces efficiently is central to our method. Through configurable exploration strategies and a rule-based control mechanism, \GROOVE handles complex RS instances that involve thousands of reachable configurations. Our experiments demonstrate a substantial improvement in analysis time compared to \BioResolve, often reducing execution time by an order of magnitude. Furthermore, the performance of \BioResolve is strongly influenced by the nature of Prolog evaluation strategies, which can lead to excessive memory and time consumption in large case studies.
 In contrast, other tools either consider linear executions only and do not scale to large models or lack optimization strategies necessary for handling non-trivial state spaces. 
 
-\subparagraph*{Causal Analysis and Verification.}
+\subparagraph*{Causal analysis and verification.}
 A key distinguishing feature of our approach is the ability to perform graph-based \emph{causal slicing}. By automatically generating and pruning \emph{occurrence graphs}, \GROOVE provides detailed and visual explanations of how specific states, such as those involving undesirable or forbidden entities, are reached.
 This form of causal reasoning is not available in high-performance tools such as \HERESY, \WebRSim, or \clrs, and is only partially addressed in \ccReact, where the focus is primarily on reachability and temporal properties. 
 \todo{Should we say something about the comparison of \GROOVE and \ccReact performances?}

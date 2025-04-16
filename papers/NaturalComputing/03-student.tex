@@ -63,8 +63,7 @@ So the system can be coded as the guarded RS process
 The complete encoding of the above RS in \BioResolve syntax is reported in \Cref{fig:bioresolve:toy} in the appendix.
 Using the \BioResolve directive \verb=main_do(digraph)=, we can automatically generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
 Note that, as \am is initially not present, it means that the initial time is in the afternoon.
-\todo{Is there an example where an entity from $D$ is in the label?\\ RB: changed the text and added \Cref{rem:shortlts}} 
-To improve readability, the nodes of the LTS are labelled by the list of currently active context processes and present entities, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context (see \Cref{rem:shortlts}).
+To improve readability, the nodes of the LTS are labelled by the list of currently active context processes and present entities, and the arcs are labelled by the the list of currently available entities, either taken from the result set or provided by the context (see \Cref{rem:shortlts}).\todo{Shorten}
 %, i.e., the components in $D\cup C$ extracted from the full label $\obs{\obs{D}{R',I',C}}{R,I,P}$.
 % The label $0$ stands for the empty set.
 %As a general strategy for \BioResolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\varnothing,\{\Forbidden\})$.

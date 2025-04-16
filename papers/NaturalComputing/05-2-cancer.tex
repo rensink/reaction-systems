@@ -1,8 +1,7 @@
 % !TEX root =  ./main.tex
 
 \subsection{Protein Signaling Networks Analysis}\label{sec:ccReact}
-\textcolor{red}{Check if the studies were also present in: Artur Meski, Wojciech Penczek, Grzegorz Rozenberg: Model checking
-temporal properties of reaction systems. Inf. Sci. 313: 22-42 (2015)}
+
 This case was studied in~\cite{DBLP:conf/cmsb/BallisBFO24}, where it was encoded into the Maude\footnote{\url{https://maude.cs.illinois.edu}.} ecosystem~\cite{DBLP:conf/maude/2007} to take advantage of their built-in LTL and CTL model checker facilities. It is based on a biological case study from~\cite{derHeyde2014}, aimed to identify the best drug treatment for three different breast cancer representative cell lines: BT474, SKBR3 and HCC1954. This is achieved by studying the behavior of the protein signaling networks for the HER2-positive breast cancer subtype in the presence of different combinations of monoclonal antibody drugs.
 %The paper~\cite{DBLP:conf/cmsb/BallisBFO24} encodes RSs into the Maude ecosystem\footnote{\url{https://maude.cs.illinois.edu}.}~\cite{DBLP:conf/maude/2007} to take advantage of the built-in LTL and CTL model checker facilities.
 In a nutshell, Maude is a high-performance reflective language and system based on equational and rewriting logic specification. 
@@ -41,7 +40,7 @@ Do all paths prevent reaching a steady state in which a AKT is present?
 
 Like Maude, \GROOVE has built-in model checking capabilities for both LTL and CTL properties; below, we show how to replicate the results of \cite{DBLP:conf/cmsb/BallisBFO24}, for the four scenarios listed above.
 
-The main challenge in replicating the results is that some of the properties to be checked are formulated in terms of \emph{steady states} of the reaction system, which are essentially one-state attractors, that is, states in which the context and reactions together reproduce exactly the entities of that state again. Though \GROOVE detects such a loop as a matter of course during state space exploration, the loop itself it is a structural property of the LTS and not a state property available for model checking. In order to be able to reason about steadiness, just as in the Maude encoding of\cite{DBLP:conf/cmsb/BallisBFO24}, we have to remember \emph{input entities}, i.e., entities that were present in the source state, and compare them to \emph{output entities}, i.e., those that are present in the target state. Moreover, we should not accidentally mark the start state as steady even if it has neither inputs nor present entities. \Cref{fig:maude-mc} shows the additional rules that achieve this, together with the modified recipe
+The main challenge in replicating the results is that some of the properties to be checked are formulated in terms of \emph{steady states} of the reaction system, which are essentially one-state attractors, that is, states in which the context and reactions together reproduce exactly the entities of that state again. Though \GROOVE detects such a loop as a matter of course, it is a structural property of the LTS and not a state property available for model checking. In order to be able to reason about steadiness, we have to remember \emph{input entities}, i.e., entities that were present in the source state, and compare them to \emph{present entities}, i.e., those that have been produced in the target state. Moreover, we should not accidentally mark the start state as steady even if it has neither inputs nor present entities. \Cref{fig:maude-mc} shows the additional rules that achieve this, together with the modified recipe defined by
 %
 \begin{lstlisting}
 recipe fire() {
@@ -98,7 +97,7 @@ However, we want to point out that this property does not actually provide any u
 \label{fig:maude-gts}
 \end{figure}
 %
-In replicating the results from \cite{DBLP:conf/cmsb/BallisBFO24}, we have had to make a few adjustments. The LTL formulas reported in \cite[Page~14]{DBLP:conf/cmsb/BallisBFO24} for scenarios 1 and~3 are actually \emph{not} literally the ones above, but use the predicate \verb=io-state= rather than \verb=isSteady=. We believe this to be erroneous, judging from the explanatory text, which is phrased in terms of steady states.\todo{A: Please check}
+In replicating the results from \cite{DBLP:conf/cmsb/BallisBFO24}, we have had to make a few adjustments. The LTL formulas reported in \cite[Page~14]{DBLP:conf/cmsb/BallisBFO24} for scenarios 1 and~3 are actually \emph{not} literally the ones above, but use the predicate \verb=io-state= rather than \verb=isSteady=. We believe that the use of \verm=isStead= (or, in our case \steadyR) is more informative and probably the intended version.
 
 As a final observation, we note that the numbers of states in all these scenarios is actually quite small. We have already shown the 6-state scenario~4 in \Cref{fig:maude-gts}; the size of the others is given by the following table.
 %

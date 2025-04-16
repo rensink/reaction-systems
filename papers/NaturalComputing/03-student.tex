@@ -70,8 +70,10 @@ To improve readability, the nodes of the LTS are labelled by the list of current
 %As a general strategy for \BioResolve, we use a special entity named $\Forbidden$ to mark unwanted states: here the entity is produced thanks to the auxiliary reaction $(\{\anger\},\varnothing,\{\Forbidden\})$.
 
 \begin{figure}
-\includegraphics[scale=.3]{./figs/toylts}
+\includegraphics[scale=.3]{./figs/toylts-traced}
 \caption{LTS of the toy example. For brevity we use the notation introduced in \Cref{rem:shortlts}, where node labels only account for the list of (semicolons separated) current contexts and entities and transition labels carry the entities provided by the context.\label{fig:toylts}}
 \end{figure}
 
-In this particular example, we wish to analyze why \bang is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of \bang was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.
+In this particular example, we wish to analyze why \bang is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$ (highlighted in red in \Cref{fig:toylts}). 
+\todo{RB: modified the figure of the LTS to highlight the error trace}
+From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of \bang was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.

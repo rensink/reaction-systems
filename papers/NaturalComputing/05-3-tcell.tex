@@ -3,17 +3,13 @@
 
 \subsection{T cell differentiation analysis}\label{sec:datamod2023}
 
-The paper~\cite{datamod2023} exploits Reaction Systems to analyse T cell differentiation in the immune system, a widely studied biological phenomenon. The starting point for the analysis is a Boolean network model; several of those are available as a \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T-cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
+The paper~\cite{datamod2023} exploits Reaction Systems to analyse T cell differentiation in the immune system. The starting point for the analysis is a Boolean network model; several of those are available as a \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T-cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
 % it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
 
-The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T-cell can receive; all the other nodes represent so-called \emph{transcription factors} and have an associated Boolean update formula that specifies when they are triggered. 
+The Boolean network model is shown in \Cref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T-cell can receive; all the other nodes represent so-called \emph{transcription factors} and have an associated Boolean update formula.
+% that specifies when they are triggered. 
 %The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
-T-cells can manifest four phenotypes, 
-%\texttt{Th1}, \texttt{Th2}, \texttt{Th17} and \texttt{iTreg}, 
-represented by the four transcription factors \texttt{tbet}, \texttt{gata3}, \texttt{rorgt} and \texttt{foxp3}, respectively.
-%The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype is exhibited) is denoted as Th0.
-There exists experimental and computational evidence that a T-cell can manifest more than one phenotype \cite{luckheeram2012cd4+,puniya2018mechanistic}.
 
 \begin{figure}[t]
 	\begin{center}
@@ -24,14 +20,19 @@ There exists experimental and computational evidence that a T-cell can manifest 
 \end{figure}
 
 \subparagraph*{Analysis goals.}
-The reachability analysis must take into account the different combinations of phenotypes that a T cell can express, called a \emph{target} (hence, $2^4=16$ targets overall).
-For example, for the target containing the combination of transcription factors $\{\texttt{tbet},\texttt{gata3}\}$, we must select an attractor that includes at least one state in which $\texttt{tbet}$ is present, at least one state (possibly the same) in which $\texttt{gata3}$ is present, and no state in which either $\texttt{rorgt}$ or $\texttt{foxp3}$ are present. 
-The causal analysis aims to collect the combinations of environmental stimuli that are responsible for leading to that target.
+T cells can manifest four phenotypes, 
+%\texttt{Th1}, \texttt{Th2}, \texttt{Th17} and \texttt{iTreg}, 
+represented by the transcription factors \texttt{tbet}, \texttt{gata3}, \texttt{rorgt} and \texttt{foxp3}.
+%The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype is exhibited) is denoted as Th0.
+The reachability analysis must take into account the different combinations of phenotypes that a T cell can express, called a \emph{target}.
+There exists experimental and computational evidence that a T cell can manifest more than one phenotype \cite{luckheeram2012cd4+,puniya2018mechanistic}, hence, there are $2^4=16$ targets overall.
+For example, for the target $\{\texttt{tbet},\texttt{gata3}\}$, we must select an attractor that includes at least one state in which $\texttt{tbet}$ is present, at least one state (possibly the same) in which $\texttt{gata3}$ is present, and no state in which either $\texttt{rorgt}$ or $\texttt{foxp3}$ are present. 
+The causal analysis aims to collect the environmental stimuli that are responsible for leading to that target.
 
 \subparagraph*{Features of interest.}
 We have selected this case study because it shows the applicability of our method to Boolean networks models, like those available in the public database on the CellCollective platform~\cite{helikar2012cell}. 
 For these models, the most relevant viewpoints are often reachability (e.g., \emph{which phenotypes are reachable?}) and causality (\emph{what is the effect of environmental conditions?}) analyses.
-Their corresponding RSs always use a special kind of nondeterministic persistent context, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, inevitably causing the RS to end up in a loop (called an attractor).
+Their corresponding RSs always use a special kind of nondeterministic persistent context, where at the beginning of the experiment a subset of external stimuli is chosen and then provided at each subsequent step, inevitably causing the RS to end up in an attractor.
 
 \subparagraph*{Experimental set up.}
 
@@ -107,7 +108,7 @@ The RS context can choose any combination of environmental stimuli that will the
 %\end{array}
 %\]
 %
-and then take the context $\prod_s (\mathsf{X}_s + \mathsf{Emp})$.
+and then set the initial context $\prod_s (\mathsf{X}_s + \mathsf{Emp})$.
 %\[
 %\begin{array}{rllrll}
 %\mathsf{X1} & \triangleq & \{\mathsf{TGFb}\}.\mathsf{X11} + \mathsf{Emp} &\quad
@@ -133,7 +134,8 @@ and then take the context $\prod_s (\mathsf{X}_s + \mathsf{Emp})$.
 The resulting LTS has an initial branching into $2^9$ different states, because there are $9$ possible stimuli to be considered. Subsequently, each of the $2^9$ states originates a deterministic computation, leading to some attractors. 
 
 \subparagraph*{Previous approach.}
-The paper~\cite{datamod2023} presented a toolchain (\BioResolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) to study the Boolean network model. Roughly, after translating the Boolean network model to RS specifications the whole LTS  is constructed according to any combination of persistent stimuli that can be provided by the context. \BioResolve returns the LTS as a graph in dot format, which is then loaded by a Python script. Then, attractors related with a target of interest are identified by looking for cycles in the LTS, and a slicing algorithm performs some form of causal analysis, to simplify each computation trace by preserving only the relevant causes of those target entities. 
+The paper~\cite{datamod2023} presented a toolchain (\BioResolve, SWI-Prolog, Python and Python-to-Prolog binding facilitated by the \verb=swiplserver= Python package) to study Boolean network models. Roughly, after translating the Boolean network model to RS specifications the whole LTS  is constructed according to any possible combination of persistent stimuli. \BioResolve returns the LTS as a graph in dot format, which is then loaded by a Python script. Then, attractors related with a target of interest are identified by looking for cycles in the LTS, and a slicing algorithm performs some form of causal analysis.
+%, to simplify each computation trace by preserving only the relevant causes of those target entities. 
 The generation of the LTS is often the bottleneck of the approach, both in terms of time (Prolog performance), but also in terms of space, because \BioResolve can require to allocate a large stack limit size to succeed. 
 
 % 
@@ -263,11 +265,11 @@ The generation of the LTS is often the bottleneck of the approach, both in terms
 %
 %This analysis contributes to the understanding of the behaviour of the model, to correct it in case some mistakes are identified and to use it for identifying drug targets. We discussed the relation with other approaches in the literature.
 
-\subparagraph*{GROOVE experimentation.}
+\subparagraph*{\GROOVE experimentation.}
 
 The capabilities of \GROOVE called upon for this case study are very similar to those in \Cref{sec:cmsb2024}; the main difference lies in the specific interest in attractors. Indeed, in contrast to the situation for comorbidities, here after the initial selection of a profile, the context does not cause any more nondeterminism; hence every profile eventually ends up in such an attractor.
 
-An trace ending in a loop, sometimes called a ``lollipop'', is in fact precisely what LTL properties are checked over; hence an LTL property violation takes the form of a lollipop. Hence, we can find attractors with specific properties by formulating their non-existence in LTL, and then finding a counter-example through LTL model checking. For instance, the following formula denies the reachability of an attractor in which \texttt{tbet} and \texttt{gata3} are both expressed:
+Any trace ending in a loop, sometimes called a ``lollipop'', is in fact precisely what LTL properties are checked over; hence an LTL property violation takes the form of a lollipop. Hence, we can find attractors with specific properties by formulating their non-existence in LTL, and then finding a counter-example through LTL model checking. For instance, the following formula denies the reachability of an attractor in which \texttt{tbet} and \texttt{gata3} are both expressed:
 
 \begin{quote}
 \verb=! FGF tbet & gata3=

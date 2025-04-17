@@ -1,0 +1,55 @@
+// state s0
+context();
+// state s317
+fired("x3_1");
+fired("x2_0");
+fired("x9_0");
+fired("x6_1");
+fired("x7_1");
+fired("x8_0");
+fired("x4_0");
+fired("x5_0");
+fired("x1_1");
+react();
+// state s3191
+context();
+// state s3192
+fired("x51_0");
+fired("x41_0");
+fired("x81_0");
+fired("x91_0");
+fired("x21_0");
+fired("y_0");
+react();
+// state s3193
+context();
+// state s3194
+fired("x51_0");
+fired("x41_0");
+fired("x81_0");
+fired("x91_0");
+fired("x21_0");
+fired("y_0");
+react();
+// state s3195
+context();
+// state s3196
+fired("x51_0");
+fired("x41_0");
+fired("x81_0");
+fired("x91_0");
+fired("x21_0");
+fired("y_0");
+react();
+// state s3197
+context();
+// state s3198
+fired("x51_0");
+fired("x41_0");
+fired("x81_0");
+fired("x91_0");
+fired("x21_0");
+fired("y_0");
+react();
+// state s3199
+datamod.gata3-tbet();

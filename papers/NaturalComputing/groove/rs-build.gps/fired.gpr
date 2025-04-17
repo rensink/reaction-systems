@@ -79,12 +79,7 @@
         </node>
         <node id="n14">
             <attr name="layout">
-                <string>629 504 90 54</string>
-            </attr>
-        </node>
-        <node id="n15">
-            <attr name="layout">
-                <string>612 194 19 19</string>
+                <string>664 521 19 19</string>
             </attr>
         </node>
         <node id="n16">
@@ -97,6 +92,11 @@
                 <string>99 580 19 19</string>
             </attr>
         </node>
+        <node id="n15">
+            <attr name="layout">
+                <string>603 194 36 18</string>
+            </attr>
+        </node>
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>id:e</string>
@@ -104,22 +104,17 @@
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>new:flag:fresh</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n0" to="n0">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>new:flag:fresh</string>
             </attr>
         </edge>
         <edge from="n0" to="n2">
             <attr name="label">
                 <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n3">
-            <attr name="label">
-                <string>next</string>
             </attr>
         </edge>
         <edge from="n1" to="n1">
@@ -130,6 +125,11 @@
         <edge from="n1" to="n17">
             <attr name="label">
                 <string>last</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n3">
+            <attr name="label">
+                <string>next</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -147,19 +147,9 @@
                 <string>type:Step</string>
             </attr>
         </edge>
-        <edge from="n3" to="n9">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n3" to="n3">
             <attr name="label">
                 <string>new:flag:fired</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n15">
-            <attr name="label">
-                <string>name</string>
             </attr>
         </edge>
         <edge from="n3" to="n4">
@@ -167,9 +157,19 @@
                 <string>move</string>
             </attr>
         </edge>
+        <edge from="n3" to="n9">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n3" to="n0">
             <attr name="label">
                 <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n15">
+            <attr name="label">
+                <string>name</string>
             </attr>
         </edge>
         <edge from="n3" to="n7">
@@ -202,14 +202,14 @@
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n7" to="n6">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge from="n7" to="n7">
             <attr name="label">
                 <string>not=sub1:flag:present</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n6">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n8" to="n8">
@@ -229,12 +229,12 @@
         </edge>
         <edge from="n9" to="n9">
             <attr name="label">
-                <string>use=sub2:flag:present</string>
+                <string>type:Entity</string>
             </attr>
         </edge>
         <edge from="n9" to="n9">
             <attr name="label">
-                <string>type:Entity</string>
+                <string>use=sub2:flag:present</string>
             </attr>
         </edge>
         <edge from="n9" to="n5">
@@ -257,11 +257,6 @@
                 <string>in</string>
             </attr>
         </edge>
-        <edge from="n11" to="n1">
-            <attr name="label">
-                <string>del:current</string>
-            </attr>
-        </edge>
         <edge from="n11" to="n11">
             <attr name="label">
                 <string>type:Token</string>
@@ -272,14 +267,14 @@
                 <string>new:fresh</string>
             </attr>
         </edge>
-        <edge from="n12" to="n10">
+        <edge from="n11" to="n1">
             <attr name="label">
-                <string>at</string>
+                <string>del:current</string>
             </attr>
         </edge>
-        <edge from="n12" to="n9">
+        <edge from="n12" to="n12">
             <attr name="label">
-                <string>of</string>
+                <string>type:EntityInst</string>
             </attr>
         </edge>
         <edge from="n12" to="n12">
@@ -287,9 +282,14 @@
                 <string>flag:last</string>
             </attr>
         </edge>
-        <edge from="n12" to="n12">
+        <edge from="n12" to="n9">
             <attr name="label">
-                <string>type:EntityInst</string>
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n12" to="n10">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n13" to="n13">
@@ -300,26 +300,6 @@
         <edge from="n13" to="n13">
             <attr name="label">
                 <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n12">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n17">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n14">
-            <attr name="label">
-                <string>new:product</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n3">
-            <attr name="label">
-                <string>of</string>
             </attr>
         </edge>
         <edge from="n13" to="n13">
@@ -332,6 +312,26 @@
                 <string>let:name=s.name</string>
             </attr>
         </edge>
+        <edge from="n13" to="n14">
+            <attr name="label">
+                <string>new:product</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n3">
+            <attr name="label">
+                <string>of</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n17">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n12">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
         <edge from="n14" to="n14">
             <attr name="label">
                 <string>new:</string>
@@ -339,17 +339,12 @@
         </edge>
         <edge from="n14" to="n14">
             <attr name="label">
-                <string>flag:fresh</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n2">
-            <attr name="label">
-                <string>at</string>
+                <string>type:EntityInst</string>
             </attr>
         </edge>
         <edge from="n14" to="n14">
             <attr name="label">
-                <string>type:EntityInst</string>
+                <string>flag:fresh</string>
             </attr>
         </edge>
         <edge from="n14" to="n14">
@@ -362,14 +357,9 @@
                 <string>of</string>
             </attr>
         </edge>
-        <edge from="n15" to="n15">
+        <edge from="n14" to="n2">
             <attr name="label">
-                <string>string:</string>
-            </attr>
-        </edge>
-        <edge from="n15" to="n15">
-            <attr name="label">
-                <string>parin:0</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge from="n16" to="n16">
@@ -377,14 +367,24 @@
                 <string>forall:</string>
             </attr>
         </edge>
+        <edge from="n17" to="n17">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
         <edge from="n17" to="n16">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n17" to="n17">
+        <edge from="n15" to="n15">
             <attr name="label">
-                <string>type:StepOcc</string>
+                <string>string:</string>
+            </attr>
+        </edge>
+        <edge from="n15" to="n15">
+            <attr name="label">
+                <string>par:0</string>
             </attr>
         </edge>
     </graph>

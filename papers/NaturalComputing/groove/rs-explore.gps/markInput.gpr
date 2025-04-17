@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="maude.markInput">
+    <graph role="rule" edgeids="false" edgemode="directed" id="markInput">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -12,22 +12,27 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>66 34 19 19</string>
+                <string>235 75 11 18</string>
             </attr>
         </node>
         <node id="n1">
             <attr name="layout">
-                <string>64 107 19 19</string>
+                <string>218 130 41 54</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>150 103 19 19</string>
+                <string>306 135 37 36</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>150 35 19 19</string>
+                <string>319 76 11 18</string>
+            </attr>
+        </node>
+        <node id="n4">
+            <attr name="layout">
+                <string>65 24 432 18</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -73,6 +78,16 @@
         <edge from="n3" to="n3">
             <attr name="label">
                 <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>rem:</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>Adds input flags to the currently present entities (for steadiness detection)</string>
             </attr>
         </edge>
     </graph>

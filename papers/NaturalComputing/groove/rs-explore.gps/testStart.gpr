@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="rule" edgeids="false" edgemode="directed" id="maude.testStart">
+    <graph role="rule" edgeids="false" edgemode="directed" id="testStart">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -12,7 +12,12 @@
         </attr>
         <node id="n0">
             <attr name="layout">
-                <string>58 44 44 18</string>
+                <string>146 110 44 18</string>
+            </attr>
+        </node>
+        <node id="n1">
+            <attr name="layout">
+                <string>28 53 308 18</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -23,6 +28,16 @@
         <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:Started</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>rem:</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>Marks the initial state (used for steadiness detection)</string>
             </attr>
         </edge>
     </graph>

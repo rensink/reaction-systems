@@ -1,8 +1,3 @@
-package maude;
-
-import context;
-import react;
-
 // This explores the RS atomically while marking every non-start state
 // with the entities present in the previous ones
 // This allows the detection of steady states

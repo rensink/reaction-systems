@@ -11,7 +11,7 @@ The encoding of RSs is made possible by setting up a specific rewrite theory, ca
 The analysis conducted in~\cite{DBLP:conf/cmsb/BallisBFO24} matches previous findings, and makes it possible to readily inspect new hypotheses.
 
 \subparagraph*{Analysis goals.}
-The goal of the analysis is to validate or refute some behavioural hypotheses of RSs.
+The goal of the analysis is to exploit model checking to validate or refute some behavioural hypotheses of RSs.
 
 \subparagraph*{Features of interest.}
 Besides reachability analysis, mostly concerned with the possibility to reach certain attractors, the distinguishing feature of this case study is the possibility to model check RSs with guarded contexts against behavioural properties written in LTL and CTL.
@@ -20,7 +20,7 @@ Besides reachability analysis, mostly concerned with the possibility to reach ce
 The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from a RS specification, which is manually coded in \textbf{ccReact} and queried using Maude state exploration techniques and built-in model checkers. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to \GROOVE presented in the previous section, i.e., no preprocessing is necessary. The \BioResolve specification is in \Cref{fig:bioresolve:psn} in \Cref{app:psn}.
 The following properties have been experimented with:
 \begin{enumerate}
-\item searching for the the presence/absence of the attractor \texttt{akt} in steady states of the BT747 cell line,\todo{Is this really about steady states? The LTL formula on page 14, line 4 of the paper specifies \texttt{io-state}, not \texttt{isSteady}.} where the context \verb=[k,ket]= is considered;
+\item searching for the the presence/absence of the attractor \texttt{akt} in steady states of the BT747 cell line, where the context \verb=[k,ket]= is considered;
 
 \item in order to observe the interactions when either \texttt{e}rlotinib or \texttt{p}ertuzumab are supplied, the context \verb=[{e,egf,hrg}.korep]= is considered and Maude reports that there exists at least one path where that treatment is successful, but not all paths avoid a steady state where \texttt{akt} is present;
 
@@ -33,8 +33,8 @@ The following properties have been experimented with:
 \textbf{ccReact} allowed to perform reachability analysis directly exploiting the \texttt{search} command of Maude. 
 The formal verification of temporal formulas has been made possible by relying on a general interface to different model checkers for Maude models, called the Unified Maude Model-Checking tool (\texttt{umaudemc})~\cite{DBLP:journals/jlap/RubioMPV21}.
 Some examples of verified temporal formulas are those expressing properties such as:
-\emph{Does there exist at least one path where that treatment is successful?}
-\emph{Do all paths prevent reaching a steady state in which a AKT is present?}
+Does there exist at least one path where that treatment is successful?
+Do all paths prevent reaching a steady state in which a AKT is present?
 
 \subparagraph*{\GROOVE experimentation.}
 

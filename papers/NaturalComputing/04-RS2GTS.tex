@@ -2,16 +2,16 @@
 
 \section{Encoding of RS in GT}\label{sec:RS2GTS}
 
-As an alternative to BioResolve, we investigate the use of graph transformation and \GROOVE to generate the underlying LTS of a given Reaction System, on the basis of a start graph obtained by transformation from the RS specification. Because the start graph will typically include special \Entity subtype, it comes together with an additional type graph where those are specified. Depending on what one wants to analyse, the various strengths and capabilities of \GROOVE then come into play.
+The contribution of this paper is to investigate the use of graph transformation and \GROOVE (rather than \BioResolve) to generate and analyze the LTS of a given Reaction System, on the basis of a start graph obtained by transformation from the RS specification. Because the start graph will typically include special \Entity subtypes, it comes together with an additional type graph where those are specified. Depending on what one wants to analyse, the various strengths and capabilities of \GROOVE then come into play.
 
 For instance, one possibility is to use \GROOVE's model checking capabilities to check for temporal patterns of entity generation in the transition system. Another way to proceed is to focus on a given trace and build its \emph{occurrence graph}, which contains all the rule occurrences and entity instances present in that trace --- analogous, in fact, to the way a Petri net process captures a particular behaviour. If the trace in question leads to a state in which a forbidden entity is present (such as the $\bang$ entity in our toy example), we can also \emph{prune} the occurrence graph, again using graph transformation, to keep only those rule occurrences and entity instances that directly contributed to the existence of the forbidden entity.
 
-This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of which will be explained in some more detail in the remainder of this section.	
+The generation of occurrence graphs involves the tool chain depicted in \Cref{fig:chain}, the phases of which will be explained in some more detail in the remainder of this section.	
 
 \begin{figure}
 \centering
-\includegraphics[scale=.25]{figs/chain}
-\caption{Reaction System exploration and analysis using \GROOVE}
+\includegraphics[scale=.27]{figs/chain}
+\caption{Reaction System exploration and occurrence graph generation using \GROOVE}
 \label{fig:chain}
 \end{figure}
 
@@ -58,7 +58,7 @@ where a ``recipe'' is the keyword for a transaction wrapping the body. With this
 \label{fig:toy-gts}
 \end{figure}
 
-Alternatively, we can (for instance) ask \GROOVE to search the for the first reachable state in which a \Forbidden entity appears, using breadth-first search. (In fact, the state property for which \GROOVE searches is itself determined by a \emph{rule}, which in this case merely tests for the presence of a \Forbidden entity). When found, the trace to the forbidden state can be saved as a control program that drives the next stage of \GROOVE exploration. In particular, using the alternating application of the \contextR and \reactR rules (rather than the transactional variant used for \Cref{fig:toy-gts}) this control program also records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the forbidden state. Here is the control program for the shortest trace to state \textsf{\itshape s17} in our running example:
+Alternatively, we can (for instance) ask \GROOVE to search the for the first reachable state in which a \Forbidden entity appears, using breadth-first search. (In fact, the state property for which \GROOVE searches is itself determined by a \emph{rule}, which in this case merely tests for the presence of a \Forbidden entity). When found, the trace to the forbidden state can be saved as a control program that drives the next stage of \GROOVE exploration. In particular, relying on the alternating application of the \contextR and \reactR rules (rather than the transactional variant used to produce \Cref{fig:toy-gts}), this control program also records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the forbidden state. Here is the control program for the shortest trace to state \textsf{\itshape s17} in our running example:
 
 \begin{center}
 \begin{lstlisting}
@@ -95,9 +95,11 @@ The purpose of this phase is to build an occurrence graph that explains how \For
 \label{fig:occur-type}
 \end{figure}
 %
-With respect to the slicing algorithm used in, e.g., \cite{datamod2023,DBLP:journals/nc/BrodoBF24}, the difference is that our dependencies are based on instances, and that we explicitly include the role occurrences and their precedence. Each of these different kinds of dependencies are visualised both through a specific edge between the relevant instance- and occurrence-nodes, and through an auxiliary \depends-edge on the level of \TreeNode, of which all others are subtypes. Note that this is restricted to \emph{positive} dependencies. In fact, we have constructed our example so that there are no inhibitors in the \Rule{}s that fire in the trace above; if we would rely on an entity \milk that inhibits the production of \espresso, rather than on \nomilk as a reactant, the occurrence graph for \bang would not include \milk; and likewise if we would use \cappuccino as an inhibitor for \anger rather than \espresso as a reactant for it. The representation of negative dependencies is a research question in its own, and is outside the scope of this paper.
+With respect to the slicing algorithm used in, e.g., \cite{datamod2023,DBLP:journals/nc/BrodoBF24}, the difference is that our dependencies are based on instances, and that we explicitly include the rule occurrences and their predecessors. Each of these different kinds of dependencies is visualised both through a specific edge (\product, \reactant or \predecessor) between the relevant instance- and occurrence-nodes, and (for the sake of a more uniform treatment during the next step of \emph{pruning}) through an auxiliary \depends-edge on the level of \TreeNode, of which all others are subtypes.
 
-As indicated in \Cref{fig:chain}, the occurrence graph is produced by another \GROOVE rule system, using the same start graph but driven by the control program previously created in the explore phase, encoding (as we have seen) the trace to the undesirable state. The occurrence graph semantics consists of rules with the same names (\reactR, \contextR and \firedR), but different functionality: in particular, rather than manipulating \present flags, the \reactR rule now creates \RuleOcc- and \EntityInst-nodes together with their dependencies. This is a non-trivial procedure that in fact itself requires several successive stages. Though the details of these stages are not of sufficient interest to include in this paper, we want to point out that breaking down a single rule (\reactR, in this case) into multiple stages is opposed to the usual view, engrained in algebraic graph transformation, that a rule embodies a single, atomic change to a graph. This contradiction is solved by relying once more on \GROOVE recipes: in the occurrence graph semantics \reactR is actually not a rule but a recipe, defined as
+Note that all this is restricted to \emph{positive} dependencies. In fact, we have constructed our example so that there are no inhibitors in the \Rule{}s that fire in the trace above; if we would rely on an entity \milk that inhibits the production of \espresso, rather than on \nomilk as a reactant, the occurrence graph for \bang would not include \milk; and likewise if we would use \cappuccino as an inhibitor for \anger rather than \espresso as a reactant for it. The representation of negative dependencies is a research question in its own, and is outside the scope of this paper.
+
+As indicated in \Cref{fig:chain}, the occurrence graph is produced by another \GROOVE rule system, using the same start graph but driven by the control program previously created in the explore phase, which encodes (as we have seen) the trace to the undesirable state. The occurrence graph semantics consists of rules with the same names (\reactR, \contextR and \firedR), but different functionality: in particular, rather than manipulating \present flags, the \reactR rule now creates \RuleOcc- and \EntityInst-nodes together with their dependencies. This is a non-trivial procedure that in fact itself requires several successive stages. Though the details of these stages are not of sufficient interest to include in this paper, we want to point out that breaking down a single rule (\reactR, in this case) into multiple stages would seem to contradict the tenet of algebraic graph transformation that a rule embodies a single, atomic change to a graph. This contradiction is solved by relying once more on \GROOVE recipes: in the occurrence graph semantics, \reactR is actually not a rule but a recipe, defined as
 
 \begin{center}
 \begin{lstlisting}[]
@@ -109,6 +111,8 @@ recipe react() {
 \end{lstlisting}
 \end{center}
 %
+of which the three atomic steps perform the necessary bookkeeping to correctly produce the occurrence graph.
+
 \medskip\noindent\textbf{Prune.}
 %
 The occurrence graph built by the rule system described above is too large to be useful: it contains \emph{all} entity instances and rule occurrences produced by the trace, not just the dependencies of the undesired \Forbidden entity. Moreover, the entire start graph is also (still) present. Therefore, in a third phase, all redundant information is pruned. This is achieved by first marking all transitive backward dependencies, and then removing all unmarked nodes. Since this is straightforward, and of no particular interest in the context of this paper, we omit the details of the \GROOVE rule system for this phase. Its outcome for our running example is shown in \Cref{fig:toy-pruned} (where we have elided the auxiliary \depends-edges).

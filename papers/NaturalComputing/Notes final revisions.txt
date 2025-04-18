@@ -1,14 +1,14 @@
 AP regarding RS-to-GGT paper
 ----------------------------
 AR
-- Read: Section 2, in particular Remark 1
-- Todo in section 3 (shorten)
-- Critically look at duplication in section 5 case descriptions
-- Add text about CTL in section 5.1
-- Section 5.3: Manually find trace to attractor, produce occurrence graph
-- Report execution times
-- Read (and shorten?) Section 6
-- Read & complement Section 7
+- Read: Section 2, in particular Remark 1 DONE
+- Todo in section 3 (shorten) DONE
+- Critically look at duplication in section 5 case descriptions DONE
+- Add text about CTL in section 5.1 DONE
+- Section 5.3: Manually find trace to attractor, produce occurrence graph DONE
+- Report execution times DONE
+- Read (and shorten?) Section 6 DONE
+- Read & complement Section 7 DONE
 - Add experiment files to appendix
 - Submit on website & send separate message to editors
 

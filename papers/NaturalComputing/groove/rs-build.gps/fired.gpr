@@ -72,14 +72,14 @@
                 <string>261 519 19 19</string>
             </attr>
         </node>
-        <node id="n13">
-            <attr name="layout">
-                <string>466 522 19 19</string>
-            </attr>
-        </node>
         <node id="n14">
             <attr name="layout">
                 <string>664 521 19 19</string>
+            </attr>
+        </node>
+        <node id="n15">
+            <attr name="layout">
+                <string>611 193 19 19</string>
             </attr>
         </node>
         <node id="n16">
@@ -92,9 +92,9 @@
                 <string>99 580 19 19</string>
             </attr>
         </node>
-        <node id="n15">
+        <node id="n13">
             <attr name="layout">
-                <string>603 194 36 18</string>
+                <string>431 504 89 54</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -122,14 +122,14 @@
                 <string>type:State</string>
             </attr>
         </edge>
-        <edge from="n1" to="n17">
-            <attr name="label">
-                <string>last</string>
-            </attr>
-        </edge>
         <edge from="n1" to="n3">
             <attr name="label">
                 <string>next</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n17">
+            <attr name="label">
+                <string>last</string>
             </attr>
         </edge>
         <edge from="n2" to="n2">
@@ -152,16 +152,6 @@
                 <string>new:flag:fired</string>
             </attr>
         </edge>
-        <edge from="n3" to="n4">
-            <attr name="label">
-                <string>move</string>
-            </attr>
-        </edge>
-        <edge from="n3" to="n9">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n3" to="n0">
             <attr name="label">
                 <string>product</string>
@@ -175,6 +165,16 @@
         <edge from="n3" to="n7">
             <attr name="label">
                 <string>inhibitor</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n9">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n4">
+            <attr name="label">
+                <string>move</string>
             </attr>
         </edge>
         <edge from="n4" to="n4">
@@ -292,46 +292,6 @@
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>new:</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>flag:fresh</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>let:name=s.name</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n14">
-            <attr name="label">
-                <string>new:product</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n3">
-            <attr name="label">
-                <string>of</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n17">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n12">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
         <edge from="n14" to="n14">
             <attr name="label">
                 <string>new:</string>
@@ -362,6 +322,16 @@
                 <string>at</string>
             </attr>
         </edge>
+        <edge from="n15" to="n15">
+            <attr name="label">
+                <string>string:</string>
+            </attr>
+        </edge>
+        <edge from="n15" to="n15">
+            <attr name="label">
+                <string>par:0</string>
+            </attr>
+        </edge>
         <edge from="n16" to="n16">
             <attr name="label">
                 <string>forall:</string>
@@ -377,14 +347,39 @@
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n15" to="n15">
+        <edge from="n13" to="n13">
             <attr name="label">
-                <string>string:</string>
+                <string>new:</string>
             </attr>
         </edge>
-        <edge from="n15" to="n15">
+        <edge from="n13" to="n13">
             <attr name="label">
-                <string>par:0</string>
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n13">
+            <attr name="label">
+                <string>let:name=s.name</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n17">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n14">
+            <attr name="label">
+                <string>new:product</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n12">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n3">
+            <attr name="label">
+                <string>of</string>
             </attr>
         </edge>
     </graph>

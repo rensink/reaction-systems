@@ -4,1953 +4,1808 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n159">
+        <node id="n0">
             <attr name="layout">
-                <string>301 1041 19 19</string>
+                <string>342 1124 19 19</string>
             </attr>
         </node>
-        <node id="n151">
+        <node id="n6">
             <attr name="layout">
-                <string>175 1042 19 19</string>
+                <string>169 816 19 19</string>
             </attr>
         </node>
-        <node id="n150">
+        <node id="n9">
             <attr name="layout">
-                <string>425 1170 19 19</string>
+                <string>671 958 19 19</string>
             </attr>
         </node>
-        <node id="n158">
+        <node id="n10">
             <attr name="layout">
-                <string>601 1172 19 19</string>
+                <string>489 816 19 19</string>
             </attr>
         </node>
-        <node id="n229">
+        <node id="n12">
             <attr name="layout">
-                <string>291 334 19 19</string>
+                <string>51 814 19 19</string>
             </attr>
         </node>
-        <node id="n210">
+        <node id="n13">
             <attr name="layout">
-                <string>286 438 19 19</string>
+                <string>499 960 19 19</string>
             </attr>
         </node>
-        <node id="n209">
+        <node id="n14">
             <attr name="layout">
-                <string>289 516 19 19</string>
+                <string>388 817 19 19</string>
             </attr>
         </node>
-        <node id="n174">
-            <attr name="layout">
-                <string>379 831 19 19</string>
-            </attr>
-        </node>
-        <node id="n168">
-            <attr name="layout">
-                <string>487 833 19 19</string>
-            </attr>
-        </node>
-        <node id="n172">
-            <attr name="layout">
-                <string>49 831 19 19</string>
-            </attr>
-        </node>
-        <node id="n239">
-            <attr name="layout">
-                <string>120 240 19 19</string>
-            </attr>
-        </node>
-        <node id="n238">
-            <attr name="layout">
-                <string>121 336 19 19</string>
-            </attr>
-        </node>
-        <node id="n202">
-            <attr name="layout">
-                <string>119 432 19 19</string>
-            </attr>
-        </node>
-        <node id="n201">
-            <attr name="layout">
-                <string>119 515 19 19</string>
-            </attr>
-        </node>
-        <node id="n262">
-            <attr name="layout">
-                <string>128 145 19 19</string>
-            </attr>
-        </node>
-        <node id="n263">
-            <attr name="layout">
-                <string>127 38 19 19</string>
-            </attr>
-        </node>
-        <node id="n237">
-            <attr name="layout">
-                <string>835 248 19 19</string>
-            </attr>
-        </node>
-        <node id="n236">
-            <attr name="layout">
-                <string>833 345 19 19</string>
-            </attr>
-        </node>
-        <node id="n214">
-            <attr name="layout">
-                <string>844 437 19 19</string>
-            </attr>
-        </node>
-        <node id="n213">
-            <attr name="layout">
-                <string>847 525 19 19</string>
-            </attr>
-        </node>
-        <node id="n227">
-            <attr name="layout">
-                <string>692 346 19 19</string>
-            </attr>
-        </node>
-        <node id="n228">
-            <attr name="layout">
-                <string>690 250 19 19</string>
-            </attr>
-        </node>
-        <node id="n260">
-            <attr name="layout">
-                <string>750 130 19 19</string>
-            </attr>
-        </node>
-        <node id="n212">
-            <attr name="layout">
-                <string>442 437 19 19</string>
-            </attr>
-        </node>
-        <node id="n234">
-            <attr name="layout">
-                <string>499 336 19 19</string>
-            </attr>
-        </node>
-        <node id="n204">
-            <attr name="layout">
-                <string>576 436 19 19</string>
-            </attr>
-        </node>
-        <node id="n235">
-            <attr name="layout">
-                <string>399 235 19 19</string>
-            </attr>
-        </node>
-        <node id="n256">
-            <attr name="layout">
-                <string>414 130 19 19</string>
-            </attr>
-        </node>
-        <node id="n261">
-            <attr name="layout">
-                <string>586 41 19 19</string>
-            </attr>
-        </node>
-        <node id="n182">
-            <attr name="layout">
-                <string>356 620 19 19</string>
-            </attr>
-        </node>
-        <node id="n184">
-            <attr name="layout">
-                <string>110 617 19 19</string>
-            </attr>
-        </node>
-        <node id="n183">
-            <attr name="layout">
-                <string>105 707 19 19</string>
-            </attr>
-        </node>
-        <node id="n189">
-            <attr name="layout">
-                <string>478 713 19 19</string>
-            </attr>
-        </node>
-        <node id="n187">
-            <attr name="layout">
-                <string>232 710 19 19</string>
-            </attr>
-        </node>
-        <node id="n188">
-            <attr name="layout">
-                <string>229 619 19 19</string>
-            </attr>
-        </node>
-        <node id="n181">
+        <node id="n15">
             <attr name="layout">
                 <string>357 708 19 19</string>
             </attr>
         </node>
-        <node id="n198">
+        <node id="n17">
+            <attr name="layout">
+                <string>105 707 19 19</string>
+            </attr>
+        </node>
+        <node id="n19">
+            <attr name="layout">
+                <string>232 710 19 19</string>
+            </attr>
+        </node>
+        <node id="n20">
+            <attr name="layout">
+                <string>232 618 19 19</string>
+            </attr>
+        </node>
+        <node id="n21">
+            <attr name="layout">
+                <string>482 711 19 19</string>
+            </attr>
+        </node>
+        <node id="n23">
+            <attr name="layout">
+                <string>852 760 19 19</string>
+            </attr>
+        </node>
+        <node id="n26">
             <attr name="layout">
                 <string>592 615 19 19</string>
             </attr>
         </node>
-        <node id="n190">
+        <node id="n31">
             <attr name="layout">
-                <string>480 617 19 19</string>
+                <string>289 516 19 19</string>
             </attr>
         </node>
-        <node id="n222">
+        <node id="n33">
             <attr name="layout">
-                <string>699 440 19 19</string>
+                <string>449 520 19 19</string>
             </attr>
         </node>
-        <node id="n192">
-            <attr name="layout">
-                <string>849 611 19 19</string>
-            </attr>
-        </node>
-        <node id="n191">
-            <attr name="layout">
-                <string>851 744 19 19</string>
-            </attr>
-        </node>
-        <node id="n221">
+        <node id="n37">
             <attr name="layout">
                 <string>700 584 19 19</string>
             </attr>
         </node>
-        <node id="n197">
+        <node id="n41">
             <attr name="layout">
-                <string>702 744 19 19</string>
+                <string>291 334 19 19</string>
             </attr>
         </node>
-        <node id="n173">
+        <node id="n43">
             <attr name="layout">
-                <string>444 990 19 19</string>
+                <string>399 235 19 19</string>
             </attr>
         </node>
-        <node id="n167">
+        <node id="n48">
             <attr name="layout">
-                <string>618 989 19 19</string>
+                <string>414 130 19 19</string>
             </attr>
         </node>
-        <node id="n154">
+        <node id="n50">
             <attr name="layout">
-                <string>59 1152 19 19</string>
+                <string>586 53 19 19</string>
             </attr>
         </node>
-        <node id="n162">
+        <node id="n24">
             <attr name="layout">
-                <string>161 829 19 19</string>
+                <string>855 614 19 19</string>
             </attr>
         </node>
-        <node id="n171">
+        <node id="n35">
             <attr name="layout">
-                <string>52 1001 19 19</string>
+                <string>857 524 19 19</string>
             </attr>
         </node>
-        <node id="n161">
+        <node id="n44">
             <attr name="layout">
-                <string>164 945 19 19</string>
+                <string>855 343 19 19</string>
             </attr>
         </node>
-        <node id="n166">
+        <node id="n45">
             <attr name="layout">
-                <string>285 832 19 19</string>
+                <string>856 247 19 19</string>
             </attr>
         </node>
-        <node id="n165">
+        <node id="n40">
             <attr name="layout">
-                <string>287 947 19 19</string>
+                <string>700 248 19 19</string>
             </attr>
         </node>
-        <node id="n211">
+        <node id="n39">
             <attr name="layout">
-                <string>441 518 19 19</string>
+                <string>700 345 19 19</string>
             </attr>
         </node>
-        <node id="n203">
+        <node id="n25">
             <attr name="layout">
-                <string>579 518 19 19</string>
+                <string>698 761 19 19</string>
             </attr>
         </node>
-        <edge from="n159" to="n159">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n159" to="n159">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n159" to="n159">
-            <attr name="label">
-                <string>let:name="il4e"</string>
-            </attr>
-        </edge>
-        <edge from="n159" to="n158">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
+        <node id="n22">
             <attr name="layout">
-                <string>128 -12 355 1066 572 1161 11</string>
+                <string>484 617 19 19</string>
             </attr>
-        </edge>
-        <edge from="n151" to="n151">
-            <attr name="label">
-                <string>type:EntityInst</string>
+        </node>
+        <node id="n42">
+            <attr name="layout">
+                <string>515 338 19 19</string>
             </attr>
-        </edge>
-        <edge from="n151" to="n151">
-            <attr name="label">
-                <string>flag:in</string>
+        </node>
+        <node id="n29">
+            <attr name="layout">
+                <string>595 523 19 19</string>
             </attr>
-        </edge>
-        <edge from="n151" to="n151">
-            <attr name="label">
-                <string>let:name="tcr"</string>
+        </node>
+        <node id="n11">
+            <attr name="layout">
+                <string>52 958 19 19</string>
             </attr>
-        </edge>
-        <edge from="n151" to="n150">
-            <attr name="label">
-                <string>depends</string>
+        </node>
+        <node id="n2">
+            <attr name="layout">
+                <string>48 1122 19 19</string>
             </attr>
-        </edge>
-        <edge from="n150" to="n150">
+        </node>
+        <node id="n5">
+            <attr name="layout">
+                <string>168 913 19 19</string>
+            </attr>
+        </node>
+        <node id="n1">
+            <attr name="layout">
+                <string>167 1026 19 19</string>
+            </attr>
+        </node>
+        <node id="n8">
+            <attr name="layout">
+                <string>295 817 19 19</string>
+            </attr>
+        </node>
+        <node id="n7">
+            <attr name="layout">
+                <string>295 914 19 19</string>
+            </attr>
+        </node>
+        <node id="n4">
+            <attr name="layout">
+                <string>294 1023 19 19</string>
+            </attr>
+        </node>
+        <node id="n16">
+            <attr name="layout">
+                <string>358 620 19 19</string>
+            </attr>
+        </node>
+        <node id="n49">
+            <attr name="layout">
+                <string>764 130 19 19</string>
+            </attr>
+        </node>
+        <node id="n32">
+            <attr name="layout">
+                <string>286 427 19 19</string>
+            </attr>
+        </node>
+        <node id="n34">
+            <attr name="layout">
+                <string>450 428 19 19</string>
+            </attr>
+        </node>
+        <node id="n38">
+            <attr name="layout">
+                <string>699 429 19 19</string>
+            </attr>
+        </node>
+        <node id="n36">
+            <attr name="layout">
+                <string>857 427 19 19</string>
+            </attr>
+        </node>
+        <node id="n30">
+            <attr name="layout">
+                <string>597 429 19 19</string>
+            </attr>
+        </node>
+        <node id="n18">
+            <attr name="layout">
+                <string>105 616 19 19</string>
+            </attr>
+        </node>
+        <node id="n27">
+            <attr name="layout">
+                <string>105 514 19 19</string>
+            </attr>
+        </node>
+        <node id="n46">
+            <attr name="layout">
+                <string>107 335 19 19</string>
+            </attr>
+        </node>
+        <node id="n51">
+            <attr name="layout">
+                <string>114 144 19 19</string>
+            </attr>
+        </node>
+        <node id="n52">
+            <attr name="layout">
+                <string>115 50 19 19</string>
+            </attr>
+        </node>
+        <node id="n47">
+            <attr name="layout">
+                <string>110 237 19 19</string>
+            </attr>
+        </node>
+        <node id="n28">
+            <attr name="layout">
+                <string>105 420 19 19</string>
+            </attr>
+        </node>
+        <node id="n3">
+            <attr name="layout">
+                <string>528 1125 19 19</string>
+            </attr>
+        </node>
+        <edge from="n0" to="n0">
             <attr name="label">
                 <string>type:StepOcc</string>
             </attr>
         </edge>
-        <edge from="n150" to="n150">
+        <edge from="n0" to="n0">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n150" to="n150">
+        <edge from="n0" to="n0">
             <attr name="label">
                 <string>let:name="x9_0"</string>
             </attr>
         </edge>
-        <edge from="n150" to="n151">
+        <edge from="n0" to="n1">
             <attr name="label">
                 <string>product</string>
             </attr>
+            <attr name="layout">
+                <string>538 -1 305 1112 205 1056 11</string>
+            </attr>
         </edge>
-        <edge from="n158" to="n158">
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>let:name="nfat"</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n5">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>353 -33 178 825 180 922 11</string>
+            </attr>
+        </edge>
+        <edge from="n9" to="n9">
             <attr name="label">
                 <string>type:StepOcc</string>
             </attr>
         </edge>
-        <edge from="n158" to="n158">
+        <edge from="n9" to="n9">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n158" to="n158">
+        <edge from="n9" to="n9">
             <attr name="label">
-                <string>let:name="x5_0"</string>
+                <string>let:name="x51_0"</string>
             </attr>
         </edge>
-        <edge from="n158" to="n159">
+        <edge from="n9" to="n3">
             <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>160 -18 564 1165 348 1072 11</string>
+                <string>depends</string>
             </attr>
         </edge>
-        <edge from="n229" to="n229">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n229" to="n229">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n229" to="n229">
-            <attr name="label">
-                <string>let:name="react_0"</string>
-            </attr>
-        </edge>
-        <edge from="n229" to="n221">
+        <edge from="n9" to="n3">
             <attr name="label">
                 <string>predecessor</string>
             </attr>
         </edge>
-        <edge from="n229" to="n210">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n229" to="n210">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n229" to="n235">
+        <edge from="n9" to="n10">
             <attr name="label">
                 <string>product</string>
             </attr>
             <attr name="layout">
-                <string>263 -27 317 323 380 266 11</string>
+                <string>273 -4 647 946 518 846 11</string>
             </attr>
         </edge>
-        <edge from="n210" to="n210">
+        <edge from="n10" to="n10">
             <attr name="label">
                 <string>type:EntityInst</string>
             </attr>
         </edge>
-        <edge from="n210" to="n210">
+        <edge from="n10" to="n10">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n210" to="n210">
-            <attr name="label">
-                <string>let:name="gata3"</string>
-            </attr>
-        </edge>
-        <edge from="n210" to="n209">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>548 -34 300 469 302 505 11</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n209">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n209">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n209">
-            <attr name="label">
-                <string>let:name="react_30"</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n197">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n191">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n182">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n182">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n188">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>597 7 287 547 258 605 11</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n188">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-            <attr name="layout">
-                <string>597 7 287 547 258 605 11</string>
-            </attr>
-        </edge>
-        <edge from="n209" to="n210">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>488 -30 293 505 292 469 11</string>
-            </attr>
-        </edge>
-        <edge from="n174" to="n174">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n174" to="n174">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n174" to="n174">
-            <attr name="label">
-                <string>let:name="tcr"</string>
-            </attr>
-        </edge>
-        <edge from="n174" to="n173">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n168" to="n168">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n168" to="n168">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n168" to="n168">
+        <edge from="n10" to="n10">
             <attr name="label">
                 <string>let:name="il4e"</string>
             </attr>
         </edge>
-        <edge from="n168" to="n167">
+        <edge from="n10" to="n9">
             <attr name="label">
                 <string>depends</string>
             </attr>
             <attr name="layout">
-                <string>248 -21 519 864 615 978 11</string>
+                <string>626 -30 498 825 680 967 11</string>
             </attr>
         </edge>
-        <edge from="n172" to="n172">
+        <edge from="n12" to="n12">
             <attr name="label">
                 <string>type:EntityInst</string>
             </attr>
         </edge>
-        <edge from="n172" to="n172">
+        <edge from="n12" to="n12">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n172" to="n172">
+        <edge from="n12" to="n12">
             <attr name="label">
                 <string>let:name="ifnge"</string>
             </attr>
         </edge>
-        <edge from="n172" to="n171">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n239" to="n239">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n239" to="n239">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n239" to="n239">
-            <attr name="label">
-                <string>let:name="stat1"</string>
-            </attr>
-        </edge>
-        <edge from="n239" to="n238">
+        <edge from="n12" to="n11">
             <attr name="label">
                 <string>depends</string>
             </attr>
             <attr name="layout">
-                <string>491 -38 133 271 134 325 11</string>
+                <string>285 -28 60 823 62 967 11</string>
             </attr>
         </edge>
-        <edge from="n238" to="n238">
+        <edge from="n13" to="n13">
             <attr name="label">
-                <string>type:ReactionOcc</string>
+                <string>type:StepOcc</string>
             </attr>
         </edge>
-        <edge from="n238" to="n238">
+        <edge from="n13" to="n13">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n238" to="n238">
+        <edge from="n13" to="n13">
             <attr name="label">
-                <string>let:name="react_26"</string>
+                <string>let:name="x91_0"</string>
             </attr>
         </edge>
-        <edge from="n238" to="n221">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n238" to="n202">
+        <edge from="n13" to="n0">
             <attr name="label">
                 <string>depends</string>
             </attr>
-        </edge>
-        <edge from="n238" to="n202">
-            <attr name="label">
-                <string>reactant</string>
+            <attr name="layout">
+                <string>283 -6 508 969 351 1133 11</string>
             </attr>
         </edge>
-        <edge from="n238" to="n239">
+        <edge from="n13" to="n0">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+            <attr name="layout">
+                <string>283 -6 508 969 351 1133 11</string>
+            </attr>
+        </edge>
+        <edge from="n13" to="n14">
             <attr name="label">
                 <string>product</string>
             </attr>
             <attr name="layout">
-                <string>508 -32 126 325 125 271 11</string>
+                <string>562 -3 487 948 408 847 11</string>
             </attr>
         </edge>
-        <edge from="n202" to="n202">
+        <edge from="n14" to="n14">
             <attr name="label">
                 <string>type:EntityInst</string>
             </attr>
         </edge>
-        <edge from="n202" to="n202">
+        <edge from="n14" to="n14">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n202" to="n202">
+        <edge from="n14" to="n14">
             <attr name="label">
-                <string>let:name="jak1"</string>
+                <string>let:name="tcr"</string>
             </attr>
         </edge>
-        <edge from="n202" to="n201">
+        <edge from="n14" to="n13">
             <attr name="label">
                 <string>depends</string>
             </attr>
             <attr name="layout">
-                <string>487 -27 133 463 133 504 11</string>
+                <string>462 -30 397 826 508 969 11</string>
             </attr>
         </edge>
-        <edge from="n201" to="n201">
+        <edge from="n15" to="n15">
             <attr name="label">
                 <string>type:ReactionOcc</string>
             </attr>
         </edge>
-        <edge from="n201" to="n201">
+        <edge from="n15" to="n15">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n201" to="n201">
-            <attr name="label">
-                <string>let:name="react_4"</string>
-            </attr>
-        </edge>
-        <edge from="n201" to="n197">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n201" to="n191">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n201" to="n184">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n201" to="n184">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n201" to="n202">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>439 -30 125 504 125 463 11</string>
-            </attr>
-        </edge>
-        <edge from="n262" to="n262">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n262" to="n262">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n262" to="n262">
-            <attr name="label">
-                <string>let:name="react_35"</string>
-            </attr>
-        </edge>
-        <edge from="n262" to="n239">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n262" to="n239">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n262" to="n263">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n263" to="n263">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n263" to="n263">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n263" to="n263">
-            <attr name="label">
-                <string>flag:last</string>
-            </attr>
-        </edge>
-        <edge from="n263" to="n263">
-            <attr name="label">
-                <string>let:name="tbet"</string>
-            </attr>
-        </edge>
-        <edge from="n263" to="n262">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n237" to="n237">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n237" to="n237">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n237" to="n237">
-            <attr name="label">
-                <string>let:name="stat6"</string>
-            </attr>
-        </edge>
-        <edge from="n237" to="n236">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>527 -34 848 279 846 334 11</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n236">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n236">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n236">
-            <attr name="label">
-                <string>let:name="react_20"</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n221">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n214">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n214">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n236" to="n237">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>490 34 838 334 840 279 11</string>
-            </attr>
-        </edge>
-        <edge from="n214" to="n214">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n214" to="n214">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n214" to="n214">
-            <attr name="label">
-                <string>let:name="il4r"</string>
-            </attr>
-        </edge>
-        <edge from="n214" to="n213">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>510 -29 858 468 860 514 11</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n213">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n213">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n213">
-            <attr name="label">
-                <string>let:name="react_19"</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n191">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n192">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n192">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n197">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n213" to="n214">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>513 -32 851 514 849 468 11</string>
-            </attr>
-        </edge>
-        <edge from="n227" to="n227">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n227" to="n227">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n227" to="n227">
+        <edge from="n15" to="n15">
             <attr name="label">
                 <string>let:name="react_47"</string>
             </attr>
         </edge>
-        <edge from="n227" to="n221">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n227" to="n222">
+        <edge from="n15" to="n14">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n227" to="n222">
+        <edge from="n15" to="n14">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n227" to="n228">
+        <edge from="n15" to="n16">
             <attr name="label">
                 <string>product</string>
             </attr>
             <attr name="layout">
-                <string>479 -30 697 335 695 281 11</string>
+                <string>423 -2 362 696 363 650 11</string>
             </attr>
         </edge>
-        <edge from="n228" to="n228">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n228" to="n228">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n228" to="n228">
-            <attr name="label">
-                <string>let:name="nfat"</string>
-            </attr>
-        </edge>
-        <edge from="n228" to="n227">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>461 -32 703 281 705 335 11</string>
-            </attr>
-        </edge>
-        <edge from="n260" to="n260">
+        <edge from="n17" to="n17">
             <attr name="label">
                 <string>type:ReactionOcc</string>
             </attr>
         </edge>
-        <edge from="n260" to="n260">
+        <edge from="n17" to="n17">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n260" to="n260">
-            <attr name="label">
-                <string>let:name="react_30"</string>
-            </attr>
-        </edge>
-        <edge from="n260" to="n261">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n260" to="n228">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n260" to="n228">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n260" to="n237">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n260" to="n237">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n212" to="n212">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n212" to="n212">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n212" to="n212">
-            <attr name="label">
-                <string>let:name="stat6"</string>
-            </attr>
-        </edge>
-        <edge from="n212" to="n211">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>444 -34 455 468 454 507 11</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n234">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n234">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n234">
-            <attr name="label">
-                <string>let:name="react_30"</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n221">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n204">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n204">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n212">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n212">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n234" to="n235">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>554 -26 482 325 424 266 11</string>
-            </attr>
-        </edge>
-        <edge from="n204" to="n204">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n204" to="n204">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n204" to="n204">
-            <attr name="label">
-                <string>let:name="nfat"</string>
-            </attr>
-        </edge>
-        <edge from="n204" to="n203">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>625 -36 590 467 592 507 11</string>
-            </attr>
-        </edge>
-        <edge from="n235" to="n235">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n235" to="n235">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n235" to="n235">
-            <attr name="label">
-                <string>let:name="gata3"</string>
-            </attr>
-        </edge>
-        <edge from="n235" to="n234">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>652 -29 435 266 493 325 11</string>
-            </attr>
-        </edge>
-        <edge from="n235" to="n229">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>188 -24 392 266 329 323 11</string>
-            </attr>
-        </edge>
-        <edge from="n256" to="n256">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n256" to="n256">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n256" to="n256">
-            <attr name="label">
-                <string>let:name="react_0"</string>
-            </attr>
-        </edge>
-        <edge from="n256" to="n261">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n256" to="n235">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n256" to="n235">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n261" to="n261">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n261" to="n261">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n261" to="n261">
-            <attr name="label">
-                <string>flag:last</string>
-            </attr>
-        </edge>
-        <edge from="n261" to="n261">
-            <attr name="label">
-                <string>let:name="gata3"</string>
-            </attr>
-        </edge>
-        <edge from="n261" to="n260">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n261" to="n256">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n182" to="n182">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n182" to="n182">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n182" to="n182">
-            <attr name="label">
-                <string>let:name="nfat"</string>
-            </attr>
-        </edge>
-        <edge from="n182" to="n181">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n184" to="n184">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n184" to="n184">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n184" to="n184">
-            <attr name="label">
-                <string>let:name="ifngr"</string>
-            </attr>
-        </edge>
-        <edge from="n184" to="n183">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n183" to="n183">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n183" to="n183">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n183" to="n183">
+        <edge from="n17" to="n17">
             <attr name="label">
                 <string>let:name="react_3"</string>
             </attr>
         </edge>
-        <edge from="n183" to="n172">
+        <edge from="n17" to="n6">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n183" to="n172">
+        <edge from="n17" to="n6">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n183" to="n167">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n183" to="n162">
+        <edge from="n17" to="n12">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n183" to="n162">
+        <edge from="n17" to="n12">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n183" to="n171">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n183" to="n184">
+        <edge from="n17" to="n18">
             <attr name="label">
                 <string>product</string>
             </attr>
-        </edge>
-        <edge from="n183" to="n173">
-            <attr name="label">
-                <string>predecessor</string>
+            <attr name="layout">
+                <string>377 0 110 695 110 646 11</string>
             </attr>
         </edge>
-        <edge from="n189" to="n189">
+        <edge from="n19" to="n19">
             <attr name="label">
                 <string>type:ReactionOcc</string>
             </attr>
         </edge>
-        <edge from="n189" to="n189">
+        <edge from="n19" to="n19">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n189" to="n189">
-            <attr name="label">
-                <string>let:name="react_19"</string>
-            </attr>
-        </edge>
-        <edge from="n189" to="n168">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n189" to="n168">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n189" to="n173">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n189" to="n171">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n189" to="n167">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n189" to="n190">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n187" to="n187">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n187" to="n187">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n187" to="n187">
+        <edge from="n19" to="n19">
             <attr name="label">
                 <string>let:name="react_20"</string>
             </attr>
         </edge>
-        <edge from="n187" to="n171">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n187" to="n166">
+        <edge from="n19" to="n8">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n187" to="n166">
+        <edge from="n19" to="n8">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n187" to="n173">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n187" to="n167">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n187" to="n188">
+        <edge from="n19" to="n20">
             <attr name="label">
                 <string>product</string>
             </attr>
+            <attr name="layout">
+                <string>490 -5 237 698 237 648 11</string>
+            </attr>
         </edge>
-        <edge from="n188" to="n188">
+        <edge from="n20" to="n20">
             <attr name="label">
                 <string>type:EntityInst</string>
             </attr>
         </edge>
-        <edge from="n188" to="n188">
+        <edge from="n20" to="n20">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n188" to="n188">
+        <edge from="n20" to="n20">
             <attr name="label">
                 <string>let:name="stat6"</string>
             </attr>
         </edge>
-        <edge from="n188" to="n187">
+        <edge from="n20" to="n19">
             <attr name="label">
                 <string>depends</string>
             </attr>
+            <attr name="layout">
+                <string>360 -35 241 627 241 719 11</string>
+            </attr>
         </edge>
-        <edge from="n181" to="n181">
+        <edge from="n21" to="n21">
             <attr name="label">
                 <string>type:ReactionOcc</string>
             </attr>
         </edge>
-        <edge from="n181" to="n181">
+        <edge from="n21" to="n21">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n181" to="n181">
-            <attr name="label">
-                <string>let:name="react_47"</string>
-            </attr>
-        </edge>
-        <edge from="n181" to="n171">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n181" to="n173">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n181" to="n174">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n181" to="n174">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n181" to="n167">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n181" to="n182">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n198" to="n198">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n198" to="n198">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n198" to="n198">
-            <attr name="label">
-                <string>let:name="tcr"</string>
-            </attr>
-        </edge>
-        <edge from="n198" to="n197">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>257 -14 625 646 698 733 11</string>
-            </attr>
-        </edge>
-        <edge from="n190" to="n190">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n190" to="n190">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n190" to="n190">
-            <attr name="label">
-                <string>let:name="il4r"</string>
-            </attr>
-        </edge>
-        <edge from="n190" to="n189">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n222" to="n222">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n222" to="n222">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n222" to="n222">
-            <attr name="label">
-                <string>let:name="tcr"</string>
-            </attr>
-        </edge>
-        <edge from="n222" to="n221">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n192" to="n192">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n192" to="n192">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n192" to="n192">
-            <attr name="label">
-                <string>let:name="il4e"</string>
-            </attr>
-        </edge>
-        <edge from="n192" to="n191">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>479 -31 862 642 864 733 11</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n191">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n191">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n191">
-            <attr name="label">
-                <string>let:name="x51_0"</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n158">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n158">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n167">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n167">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n191" to="n192">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>523 -31 856 733 854 642 11</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n221">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n221">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n221">
-            <attr name="label">
-                <string>let:name="x91_0"</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n222">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n197">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n197">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n173">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n173">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n150">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>396 6 699 615 444 1159 11</string>
-            </attr>
-        </edge>
-        <edge from="n221" to="n150">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-            <attr name="layout">
-                <string>396 6 699 615 444 1159 11</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n197">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n197">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n197">
-            <attr name="label">
-                <string>let:name="x91_0"</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n173">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>362 -7 689 775 475 979 11</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n173">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-            <attr name="layout">
-                <string>362 -7 689 775 475 979 11</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n150">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>288 -5 697 775 448 1159 11</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n150">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-            <attr name="layout">
-                <string>288 -5 697 775 448 1159 11</string>
-            </attr>
-        </edge>
-        <edge from="n197" to="n198">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>855 -25 688 733 614 646 11</string>
-            </attr>
-        </edge>
-        <edge from="n173" to="n173">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n173" to="n173">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n173" to="n173">
-            <attr name="label">
-                <string>let:name="x91_0"</string>
-            </attr>
-        </edge>
-        <edge from="n173" to="n174">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n173" to="n150">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-            <attr name="layout">
-                <string>283 -6 435 1021 435 1159 11</string>
-            </attr>
-        </edge>
-        <edge from="n173" to="n150">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-            <attr name="layout">
-                <string>283 -6 435 1021 435 1159 11</string>
-            </attr>
-        </edge>
-        <edge from="n167" to="n167">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n167" to="n167">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n167" to="n167">
-            <attr name="label">
-                <string>let:name="x51_0"</string>
-            </attr>
-        </edge>
-        <edge from="n167" to="n158">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n167" to="n158">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n167" to="n168">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-            <attr name="layout">
-                <string>401 -20 604 978 508 864 11</string>
-            </attr>
-        </edge>
-        <edge from="n154" to="n154">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n154" to="n154">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n154" to="n154">
-            <attr name="label">
-                <string>let:name="x8_0"</string>
-            </attr>
-        </edge>
-        <edge from="n162" to="n162">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n162" to="n162">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n162" to="n162">
-            <attr name="label">
-                <string>let:name="nfat"</string>
-            </attr>
-        </edge>
-        <edge from="n162" to="n161">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n171" to="n171">
-            <attr name="label">
-                <string>type:StepOcc</string>
-            </attr>
-        </edge>
-        <edge from="n171" to="n171">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n171" to="n171">
-            <attr name="label">
-                <string>let:name="x81_0"</string>
-            </attr>
-        </edge>
-        <edge from="n171" to="n172">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n171" to="n154">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n171" to="n154">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n161">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n161">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n161">
-            <attr name="label">
-                <string>let:name="react_47"</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n150">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n162">
-            <attr name="label">
-                <string>product</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n151">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n151">
-            <attr name="label">
-                <string>reactant</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n158">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n161" to="n154">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n166" to="n166">
-            <attr name="label">
-                <string>type:EntityInst</string>
-            </attr>
-        </edge>
-        <edge from="n166" to="n166">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n166" to="n166">
-            <attr name="label">
-                <string>let:name="il4r"</string>
-            </attr>
-        </edge>
-        <edge from="n166" to="n165">
-            <attr name="label">
-                <string>depends</string>
-            </attr>
-        </edge>
-        <edge from="n165" to="n165">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
-            </attr>
-        </edge>
-        <edge from="n165" to="n165">
-            <attr name="label">
-                <string>flag:in</string>
-            </attr>
-        </edge>
-        <edge from="n165" to="n165">
+        <edge from="n21" to="n21">
             <attr name="label">
                 <string>let:name="react_19"</string>
             </attr>
         </edge>
-        <edge from="n165" to="n150">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n165" to="n159">
+        <edge from="n21" to="n10">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n165" to="n159">
+        <edge from="n21" to="n10">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n165" to="n154">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n165" to="n158">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n165" to="n166">
+        <edge from="n21" to="n22">
             <attr name="label">
                 <string>product</string>
             </attr>
-        </edge>
-        <edge from="n211" to="n211">
-            <attr name="label">
-                <string>type:ReactionOcc</string>
+            <attr name="layout">
+                <string>395 1 487 699 489 647 11</string>
             </attr>
         </edge>
-        <edge from="n211" to="n211">
+        <edge from="n23" to="n23">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n23" to="n23">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n211" to="n211">
+        <edge from="n23" to="n23">
+            <attr name="label">
+                <string>let:name="x51_0"</string>
+            </attr>
+        </edge>
+        <edge from="n23" to="n9">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n23" to="n9">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+        </edge>
+        <edge from="n23" to="n24">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>475 -3 857 748 860 644 11</string>
+            </attr>
+        </edge>
+        <edge from="n26" to="n26">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n26" to="n26">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n26" to="n26">
+            <attr name="label">
+                <string>let:name="tcr"</string>
+            </attr>
+        </edge>
+        <edge from="n26" to="n25">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>257 -14 601 624 712 769 11</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n31">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n31">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n31">
+            <attr name="label">
+                <string>let:name="react_30"</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n16">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n16">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n20">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>597 7 298 525 241 627 11</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n20">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+            <attr name="layout">
+                <string>597 7 298 525 241 627 11</string>
+            </attr>
+        </edge>
+        <edge from="n31" to="n32">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>476 -10 293 504 291 468 11</string>
+            </attr>
+        </edge>
+        <edge from="n33" to="n33">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n33" to="n33">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n33" to="n33">
             <attr name="label">
                 <string>let:name="react_20"</string>
             </attr>
         </edge>
-        <edge from="n211" to="n191">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n211" to="n197">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n211" to="n190">
+        <edge from="n33" to="n22">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n211" to="n190">
+        <edge from="n33" to="n22">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n211" to="n212">
+        <edge from="n33" to="n34">
             <attr name="label">
                 <string>product</string>
             </attr>
             <attr name="layout">
-                <string>420 -31 446 507 447 468 11</string>
+                <string>489 -1 454 508 455 458 11</string>
             </attr>
         </edge>
-        <edge from="n203" to="n203">
+        <edge from="n37" to="n37">
             <attr name="label">
-                <string>type:ReactionOcc</string>
+                <string>type:StepOcc</string>
             </attr>
         </edge>
-        <edge from="n203" to="n203">
+        <edge from="n37" to="n37">
             <attr name="label">
                 <string>flag:in</string>
             </attr>
         </edge>
-        <edge from="n203" to="n203">
+        <edge from="n37" to="n37">
             <attr name="label">
-                <string>let:name="react_47"</string>
+                <string>let:name="x91_0"</string>
             </attr>
         </edge>
-        <edge from="n203" to="n198">
+        <edge from="n37" to="n25">
             <attr name="label">
                 <string>depends</string>
             </attr>
         </edge>
-        <edge from="n203" to="n198">
+        <edge from="n37" to="n25">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+        </edge>
+        <edge from="n37" to="n38">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+        </edge>
+        <edge from="n41" to="n41">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n41" to="n41">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n41" to="n41">
+            <attr name="label">
+                <string>let:name="react_0"</string>
+            </attr>
+        </edge>
+        <edge from="n41" to="n32">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n41" to="n32">
             <attr name="label">
                 <string>reactant</string>
             </attr>
         </edge>
-        <edge from="n203" to="n197">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n203" to="n191">
-            <attr name="label">
-                <string>predecessor</string>
-            </attr>
-        </edge>
-        <edge from="n203" to="n204">
+        <edge from="n41" to="n43">
             <attr name="label">
                 <string>product</string>
             </attr>
             <attr name="layout">
-                <string>466 -29 583 507 581 467 11</string>
+                <string>393 -1 317 322 379 265 11</string>
+            </attr>
+        </edge>
+        <edge from="n43" to="n43">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n43" to="n43">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n43" to="n43">
+            <attr name="label">
+                <string>let:name="gata3"</string>
+            </attr>
+        </edge>
+        <edge from="n43" to="n41">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>188 -24 408 244 300 343 11</string>
+            </attr>
+        </edge>
+        <edge from="n43" to="n42">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>652 -29 408 244 508 345 11</string>
+            </attr>
+        </edge>
+        <edge from="n48" to="n48">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n48" to="n48">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n48" to="n48">
+            <attr name="label">
+                <string>let:name="react_0"</string>
+            </attr>
+        </edge>
+        <edge from="n48" to="n43">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n48" to="n43">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n48" to="n50">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>387 -7 460 118 544 80 11</string>
+            </attr>
+        </edge>
+        <edge from="n50" to="n50">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n50" to="n50">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n50" to="n50">
+            <attr name="label">
+                <string>flag:last</string>
+            </attr>
+        </edge>
+        <edge from="n50" to="n50">
+            <attr name="label">
+                <string>let:name="gata3"</string>
+            </attr>
+        </edge>
+        <edge from="n50" to="n49">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>668 -25 595 62 759 139 11</string>
+            </attr>
+        </edge>
+        <edge from="n50" to="n48">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>190 -20 595 62 423 139 11</string>
+            </attr>
+        </edge>
+        <edge from="n24" to="n24">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n24" to="n24">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n24" to="n24">
+            <attr name="label">
+                <string>let:name="il4e"</string>
+            </attr>
+        </edge>
+        <edge from="n24" to="n23">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>479 -31 858 620 861 769 11</string>
+            </attr>
+        </edge>
+        <edge from="n35" to="n35">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n35" to="n35">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n35" to="n35">
+            <attr name="label">
+                <string>let:name="react_19"</string>
+            </attr>
+        </edge>
+        <edge from="n35" to="n36">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>513 -32 856 534 853 446 11</string>
+            </attr>
+        </edge>
+        <edge from="n35" to="n24">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n35" to="n24">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n44" to="n44">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n44" to="n44">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n44" to="n44">
+            <attr name="label">
+                <string>let:name="react_20"</string>
+            </attr>
+        </edge>
+        <edge from="n44" to="n36">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n44" to="n36">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n44" to="n45">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>434 -2 860 331 861 277 11</string>
+            </attr>
+        </edge>
+        <edge from="n45" to="n45">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n45" to="n45">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n45" to="n45">
+            <attr name="label">
+                <string>let:name="stat6"</string>
+            </attr>
+        </edge>
+        <edge from="n45" to="n44">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>527 -34 844 257 846 353 11</string>
+            </attr>
+        </edge>
+        <edge from="n40" to="n40">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n40" to="n40">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n40" to="n40">
+            <attr name="label">
+                <string>let:name="nfat"</string>
+            </attr>
+        </edge>
+        <edge from="n40" to="n39">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>461 -32 699 259 701 355 11</string>
+            </attr>
+        </edge>
+        <edge from="n39" to="n39">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n39" to="n39">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n39" to="n39">
+            <attr name="label">
+                <string>let:name="react_47"</string>
+            </attr>
+        </edge>
+        <edge from="n39" to="n38">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n39" to="n38">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n39" to="n40">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>536 -1 705 333 705 278 11</string>
+            </attr>
+        </edge>
+        <edge from="n25" to="n25">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n25" to="n25">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n25" to="n25">
+            <attr name="label">
+                <string>let:name="x91_0"</string>
+            </attr>
+        </edge>
+        <edge from="n25" to="n13">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>362 -7 712 769 508 969 11</string>
+            </attr>
+        </edge>
+        <edge from="n25" to="n13">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+            <attr name="layout">
+                <string>362 -7 712 769 508 969 11</string>
+            </attr>
+        </edge>
+        <edge from="n25" to="n26">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>677 -5 687 749 611 645 11</string>
+            </attr>
+        </edge>
+        <edge from="n22" to="n22">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n22" to="n22">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n22" to="n22">
+            <attr name="label">
+                <string>let:name="il4r"</string>
+            </attr>
+        </edge>
+        <edge from="n22" to="n21">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>402 -30 489 626 491 720 11</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n42">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n42">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n42">
+            <attr name="label">
+                <string>let:name="react_30"</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n34">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n34">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n30">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n30">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n42" to="n43">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>482 -2 494 326 426 265 11</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n29">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n29">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n29">
+            <attr name="label">
+                <string>let:name="react_47"</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n26">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n26">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n29" to="n30">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>414 1 600 511 602 459 11</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n11">
+            <attr name="label">
+                <string>let:name="x81_0"</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n2">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n2">
+            <attr name="label">
+                <string>predecessor</string>
+            </attr>
+        </edge>
+        <edge from="n11" to="n12">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>476 -7 57 946 56 844 11</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n2" to="n2">
+            <attr name="label">
+                <string>let:name="x8_0"</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>let:name="react_47"</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n1">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n1">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n6">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>463 0 173 901 174 846 11</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n1">
+            <attr name="label">
+                <string>let:name="tcr"</string>
+            </attr>
+        </edge>
+        <edge from="n1" to="n0">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>619 -20 186 1034 351 1133 11</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n8">
+            <attr name="label">
+                <string>let:name="il4r"</string>
+            </attr>
+        </edge>
+        <edge from="n8" to="n7">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>311 -33 296 824 303 924 11</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
+            <attr name="label">
+                <string>let:name="react_19"</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n4">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n4">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n8">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>390 -3 300 902 300 847 11</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n4">
+            <attr name="label">
+                <string>let:name="il4e"</string>
+            </attr>
+        </edge>
+        <edge from="n4" to="n3">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>649 -22 312 1033 537 1139 11</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n16">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n16">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n16">
+            <attr name="label">
+                <string>let:name="nfat"</string>
+            </attr>
+        </edge>
+        <edge from="n16" to="n15">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>423 -29 365 629 366 717 11</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n49">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n49">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n49">
+            <attr name="label">
+                <string>let:name="react_30"</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n40">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n40">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n45">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n45">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n49" to="n50">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>463 1 715 118 633 83 11</string>
+            </attr>
+        </edge>
+        <edge from="n32" to="n32">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n32" to="n32">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n32" to="n32">
+            <attr name="label">
+                <string>let:name="gata3"</string>
+            </attr>
+        </edge>
+        <edge from="n32" to="n31">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>548 -34 295 447 298 525 11</string>
+            </attr>
+        </edge>
+        <edge from="n34" to="n34">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n34" to="n34">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n34" to="n34">
+            <attr name="label">
+                <string>let:name="stat6"</string>
+            </attr>
+        </edge>
+        <edge from="n34" to="n33">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>444 -34 459 448 458 529 11</string>
+            </attr>
+        </edge>
+        <edge from="n38" to="n38">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n38" to="n38">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n38" to="n38">
+            <attr name="label">
+                <string>let:name="tcr"</string>
+            </attr>
+        </edge>
+        <edge from="n38" to="n37">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n36" to="n36">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n36" to="n36">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n36" to="n36">
+            <attr name="label">
+                <string>let:name="il4r"</string>
+            </attr>
+        </edge>
+        <edge from="n36" to="n35">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>510 -29 853 446 856 534 11</string>
+            </attr>
+        </edge>
+        <edge from="n30" to="n30">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n30" to="n30">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n30" to="n30">
+            <attr name="label">
+                <string>let:name="nfat"</string>
+            </attr>
+        </edge>
+        <edge from="n30" to="n29">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>625 -36 593 447 596 529 11</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n18">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n18">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n18">
+            <attr name="label">
+                <string>let:name="ifngr"</string>
+            </attr>
+        </edge>
+        <edge from="n18" to="n17">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>348 -29 119 626 114 716 11</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n27">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n27">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n27">
+            <attr name="label">
+                <string>let:name="react_4"</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n18">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n18">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n27" to="n28">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>432 -3 114 523 114 429 11</string>
+            </attr>
+        </edge>
+        <edge from="n46" to="n46">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n46" to="n46">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n46" to="n46">
+            <attr name="label">
+                <string>let:name="react_26"</string>
+            </attr>
+        </edge>
+        <edge from="n46" to="n28">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n46" to="n28">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n46" to="n47">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>421 2 116 344 119 246 11</string>
+            </attr>
+        </edge>
+        <edge from="n51" to="n51">
+            <attr name="label">
+                <string>type:ReactionOcc</string>
+            </attr>
+        </edge>
+        <edge from="n51" to="n51">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n51" to="n51">
+            <attr name="label">
+                <string>let:name="react_35"</string>
+            </attr>
+        </edge>
+        <edge from="n51" to="n47">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+        </edge>
+        <edge from="n51" to="n47">
+            <attr name="label">
+                <string>reactant</string>
+            </attr>
+        </edge>
+        <edge from="n51" to="n52">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>489 -3 123 153 124 59 11</string>
+            </attr>
+        </edge>
+        <edge from="n52" to="n52">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n52" to="n52">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n52" to="n52">
+            <attr name="label">
+                <string>flag:last</string>
+            </attr>
+        </edge>
+        <edge from="n52" to="n52">
+            <attr name="label">
+                <string>let:name="tbet"</string>
+            </attr>
+        </edge>
+        <edge from="n52" to="n51">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>503 -32 138 60 137 154 11</string>
+            </attr>
+        </edge>
+        <edge from="n47" to="n47">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n47" to="n47">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n47" to="n47">
+            <attr name="label">
+                <string>let:name="stat1"</string>
+            </attr>
+        </edge>
+        <edge from="n47" to="n46">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>491 -38 129 249 130 345 11</string>
+            </attr>
+        </edge>
+        <edge from="n28" to="n28">
+            <attr name="label">
+                <string>type:EntityInst</string>
+            </attr>
+        </edge>
+        <edge from="n28" to="n28">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n28" to="n28">
+            <attr name="label">
+                <string>let:name="jak1"</string>
+            </attr>
+        </edge>
+        <edge from="n28" to="n27">
+            <attr name="label">
+                <string>depends</string>
+            </attr>
+            <attr name="layout">
+                <string>487 -27 128 441 128 524 11</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>flag:in</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n3">
+            <attr name="label">
+                <string>let:name="x5_0"</string>
+            </attr>
+        </edge>
+        <edge from="n3" to="n4">
+            <attr name="label">
+                <string>product</string>
+            </attr>
+            <attr name="layout">
+                <string>289 2 490 1122 339 1053 11</string>
             </attr>
         </edge>
     </graph>

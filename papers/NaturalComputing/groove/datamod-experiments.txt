@@ -14,7 +14,7 @@ function modelchecker {
 Producing the occurrence graph
 ------------------------------
 # Producing the forbidden trace as control program
-generator -P .\datamod.properties -D "ruleEnabling=+fired +datamod.gata3-tbet" -s 'ltl:!GF (present(\"gata3\") & present(\"tbet\"))' -traces -o gata3-tbet.gcp .\rs-explore.gps\
+generator -P .\datamod.properties -D "ruleEnabling=+fired +datamod.gata3-tbet" -s 'ltl:!GF datamod.gata3-tbet' -traces -o gata3-tbet.gcp .\rs-explore.gps\
 
 # For now: manually edit the generated control program gata3-tbet.gcp
 # so it just contains the trace to the first state of the attractor and does not deadlock there
@@ -22,7 +22,7 @@ generator -P .\datamod.properties -D "ruleEnabling=+fired +datamod.gata3-tbet" -
 # Copy the control program to the build system
 cp .\gata3-tbet.gcp .\rs-build.gps\
 
-# Producing the occurrence graph
+# Produce the occurrence graph
 generator -P .\datamod-build.properties -D "controlProgram+=gata3-tbet" -f datamod-occur.gst .\rs-build.gps\
 
 # Copy the occurrence graph to the prune system
@@ -31,4 +31,4 @@ cp .\datamod-occur.gst .\rs-prune.gps\
 # Prune the occurrence graph
 generator -P .\datamod-prune.properties -f datamod-pruned.gst .\rs-prune.gps\ .\datamod-occur.gst
 
-# Layout and (for now) remove transitive dependencies between StepOccs
+# Layout manually

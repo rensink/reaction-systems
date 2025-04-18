@@ -7,7 +7,7 @@
 This case was studied in~\cite{DBLP:conf/cmsb/BowlesBBFGM24}, where guarded contexts were introduced to handle key features of medical treatments. It concerns the risk mitigation of medication harm in the treatment of patients with comorbidities; i.e., patients with two or more long-term chronic conditions (such as diabetes, hypertension, cardiovascular diseases, chronic kidney disease, cancer, chronic obstructive pulmonary disease, among many others), who are therefore subject to follow several treatment plans simultaneously, called \emph{clinical guidelines}~\cite{feder1999using,woolf1999potential}. Since clinical guidelines address a single disease, comorbidities easily lead to  \emph{polypharmacy}, where 5 or more medications must be administered, increasing the risk of adverse drug reactions, or of making certain drugs less effective when combined~\cite{Gut12}. 
 
 \subparagraph*{Analysis goals.}
-The goal of the analysis is to explore the combination of clinical guidelines in the presence of comorbidities and for different patient profiles to detect if major risks can arise from the treatments and which profiles are exposed at severe risks.\todo{This reads like a duplication}
+The goal of the analysis is to explore the combination of clinical guidelines in the presence of comorbidities and for different patient profiles to detect if major risks can arise from the treatments and which profiles are exposed at severe risks.
 Using formal methods for risk mitigation intends to help doctors choose between alternative treatment options as well as to point out missing conditions that could be helpful to revise and update clinical guidelines. 
 
 \subparagraph*{Features of interest.}
@@ -81,8 +81,7 @@ Minor risks    & DFS &      24 & 2 218
 \label{tab:cmsb-experiments}
 \end{figure}
 
-\todo{RB: added sentence}
-The first two lines show that depth-first exploration strategy (DFS) is generally more convenient that breadth-first (BFS), so we rely on the former for the subsequent lines. At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
+The first two lines show that depth-first exploration strategy (DFS) is generally more convenient than breadth-first (BFS), so we rely on the former for the subsequent entries. At first sight, the number of major (and moderate) risks reported in \Cref{tab:cmsb-experiments} seems impossibly large, and evidently implies that there are patient profiles that give rise to many risks. However, this should be interpreted with care: the count refers to the total number of configurations containing a \Forbidden (i.e., \major or \minor) entity, and there may very well be entities whose presence or absence does not causally contribute to that \Forbidden entity --- in other words, which would not appear in its occurrence graph. Configurations counted as separate risks may well reduce to the same causation. To analyse this further, one would have to construct (and prune) the occurrence graphs for all risk configurations, and compare them on that basis. Though this is beyond the scope of this paper, such an analysis is in principle straightforward to carry out in \GROOVE --- it is a matter of combining the three steps in \Cref{fig:chain} into a single rule system.
 
 The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of configurations at which \emph{both} a \major and a \moderate entity appear during the same step; hence, these are counted as both major and moderate risks (partially explaining their high numbers).
  
@@ -97,9 +96,9 @@ The line of \Cref{fig:cmsb-full} headed ``Maj\&Mod risks'' reports the number of
 \label{fig:cmsb-pruned}
 \end{figure}
 
-The patient configuration in question is a combination of ``has\_fib'', ``afib'' and ``heart\_rate''; the combination of the first two leads to the prescription of fleacinide and the second to the prescription of diltiazem, the combination of which should, however, be avoided. By counting the longest chain of \StepOcc-nodes, it is confirmed that it indeed takes 4 steps to establish this risk.
+The patient configuration in question is a combination of \texttt{has\_fib}, \texttt{afib} and \texttt{heart\_rate}; the combination of the first two leads to the prescription of \texttt{fleacinide} and the second to the prescription of \texttt{diltiazem}, the combination of which should, however, be avoided. By counting the longest chain of \StepOcc-nodes, it is confirmed that it indeed takes 4 steps to establish this risk.
 
-\medskip\noindent We can also use \GROOVE to replicate the findings of  \cite[Fig.\ 6]{DBLP:conf/cmsb/BowlesBBFGM24} in terms of the relation between patient profiles and risks, using model checking. Recall that the reaction system starts by having the context produce initial entities, and in this particular case study, the first move of the context is to select a patient profile; hence the initial state has $2^9=512$ outgoing transitions, whose target state corresponds to the chosen profile. Moreover, the rule \forbidden tests for the presence of a \Forbidden entity in a state. Therefore, a formula of the shape
+\medskip\noindent We can also use \GROOVE to replicate the findings of \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24} in terms of the relation between patient profiles and risks, using model checking. Recall that the reaction system starts by having the context produce initial entities, and in this particular case study, the first move of the context is to select a patient profile; hence the initial state has $2^9=512$ outgoing transitions, whose target state corresponds to the chosen profile. Moreover, the rule \forbidden tests for the presence of a \Forbidden entity in a state. Therefore, a formula of the shape
 $\AX(\bigwedge_i f_i \rightarrow \EF \forbidden)$, where each of the $f_i$ specifies the presence or absence of a patient feature, specifies whether all patient profiles with that combination of features contain a potential risk.
 
 Concretely, in the case study at hand, \cite[Fig.~6]{DBLP:conf/cmsb/BowlesBBFGM24} contains necessary and sufficient criteria for patient profiles to contain major, moderate and minor risks. The part of the table pertaining to major risks is reproduced in \Cref{fig:table-from-cmsb2024}. This should be read as: \emph{precisely} in the combination of features where the green ones are present and the red ones absent, a major risk may occur.
@@ -119,28 +118,26 @@ AX( (afib           & heart_rate & consensus_acei & !over75                     
 \label{fig:table-from-cmsb2024}
 \end{figure*}
 
-In order to replicate these results, we can use CTL model checking. For instance the relevant CTL property for the major risks is shown in 
-\Cref{fig:table-from-cmsb2024}. Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied, as are the corresponding characteristic properties for the moderate and minor risks. The following table reports \todo{RB: missing values}
-the time taken for these checks:
+In order to replicate these results, we can use CTL model checking. For instance, the relevant CTL property for the major risks is also shown in \Cref{fig:table-from-cmsb2024}. Running the CTL model checker built into GROOVE, it reports that this is indeed satisfied, as are the corresponding characteristic properties for the moderate and minor risks. The following table reports the time taken for these checks (where the precision of our time measurement is such that the apparent difference between the model checking times is not significant):
 
 \begin{center}
 \begin{tabular}{lr}
 Model generation: & 9 884 s \\
-Major risk characteristic: & 86 s \\
-Moderate risk characteristic: &  s \\
-Minor risk characteristic: &  s \\
+Major risk check: & 67 s \\
+Moderate risk check: & 71 s \\
+Minor risk check: & 65 s \\
 \end{tabular}
 \end{center}
 %
-Note that the time taken for model generation far exceeds that reported in \Cref{fig:cmsb-full}; the difference lies in the fact that, for this particular model, we combined the alternating \contextR- and \reactR-transitions into atomic \fireR-labelled ones using \GROOVE's recipe feature (briefly discussed in \Cref{sec:RS2GTS}), with the purpose of reducing the model size and hence allowing more efficient CTL checking. Why this should multiply the model generation time by a factor of 4 is currently unclear; investigating this is future work.
+Note that the time taken for model generation far exceeds that reported in \Cref{fig:cmsb-full}. The difference lies in the fact that, for this particular model, we combined the alternating \contextR- and \reactR-transitions into atomic \fireR-labelled ones using \GROOVE's recipe feature (briefly discussed in \Cref{sec:RS2GTS}), with the purpose of reducing the model size and hence allowing more efficient CTL checking. Why this should multiply the model generation time by a factor of 4 is currently unclear; investigating this is future work.
 
 \subparagraph*{Discussion.}
 
 Compared to the prior results in \cite{DBLP:conf/cmsb/BowlesBBFGM24}, the advantages of using \GROOVE lie in performance and flexibility:
 \begin{itemize}
-\item The time needed to analyze the entire state space is around 41 minutes for \GROOVE; while not particularly fast, this still compares very favourable to the 5 hours needed by \BioResolve for LTS generation.
+\item The time needed to analyze the entire state space is around 41 minutes for \GROOVE; while not particularly fast, this still compares very favourably to the 5 hours needed by \BioResolve for LTS generation.
 
-\item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE---given, of course, suitable rule systems that encode the chosen notion of causal dependency.
+\item Finding shortest paths to risk configurations and computing occurrence graphs is part of the core functionality of \GROOVE --- given, of course, suitable rule systems that encode the chosen notion of causal dependency.
 
-\item \todo{Something about the CTL ckeck}
+\item The CTL check can be used to immediately confirm the outcome of the slicing algorithm.
 \end{itemize}

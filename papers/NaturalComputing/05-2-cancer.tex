@@ -17,7 +17,7 @@ The goal of the analysis is to validate or refute some behavioural hypotheses of
 Besides reachability analysis, mostly concerned with the possibility to reach certain attractors, the distinguishing feature of this case study is the possibility to model check RSs with guarded contexts against behavioural properties written in LTL and CTL.
 
 \subparagraph*{Experimental set up.}
-The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from a RS specification, which is manually coded in \textbf{ccReact} and queried using Maude state exploration techniques and built-in model checkers. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to \GROOVE presented in the previous section, i.e., no preprocessing is necessary. The \BioResolve specification is in \Cref{fig:bioresolve:psn} in \Cref{app:psn}.
+The technique in~\cite{DBLP:conf/cmsb/BallisBFO24} starts directly from a RS specification, which is manually coded in \textbf{ccReact} and queried using Maude state exploration techniques and built-in model checkers. Likewise, here we can just exploit the direct translation of RSs (with guarded contexts) to \GROOVE presented in the previous section, i.e., no preprocessing is necessary. The \BioResolve specification is in \Cref{fig:bioresolve:psn} in the Appendix.
 The following properties have been experimented with:
 \begin{enumerate}
 \item searching for the the presence/absence of the attractor \texttt{akt} in steady states of the BT747 cell line, where the context \verb=[k,ket]= is considered;

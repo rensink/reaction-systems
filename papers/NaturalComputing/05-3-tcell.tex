@@ -263,7 +263,7 @@ The generation of the LTS is often the bottleneck of the approach, both in terms
 %
 %This analysis contributes to the understanding of the behaviour of the model, to correct it in case some mistakes are identified and to use it for identifying drug targets. We discussed the relation with other approaches in the literature.
 
-\subparagraph*{GROOVE experimentation.}
+\subparagraph*{\GROOVE experimentation.}
 
 The capabilities of \GROOVE called upon for this case study are very similar to those in \Cref{sec:cmsb2024}; the main difference lies in the specific interest in attractors. Indeed, in contrast to the situation for comorbidities, here after the initial selection of a profile, the context does not cause any more nondeterminism; hence every profile eventually ends up in such an attractor.
 
@@ -284,7 +284,7 @@ Both formulas yield a counterexamples, meaning that \texttt{tbet} and \texttt{ga
 
 This complements the observation embodied in \cite[Fig.~8]{datamod2023} that for the combination of \texttt{tbet} and \texttt{gata3}, the context has to provide the stimuli \texttt{ifnge} (produced here by the \StepOcc named \texttt{x81\_0}), \texttt{tcr} (repeatedly produced by \StepOcc{}s named \texttt{x91\_0}) and \texttt{il4e} (also repeatedly produced, by \StepOcc{}s named \texttt{x51\_0}). In more detail, we see that \texttt{tbet} derives, in a linear sequence of four \ReactionOcc{}s, from \texttt{ifnge} and \texttt{tcr}, whereas \texttt{gata3} derives, in 3 successive combinations of simultaneous \ReactionOcc{}s, from \texttt{tcr} and \texttt{il4e}. Moreover, the genes produced along the way are precisely the ones reported in \cite[Fig.~9]{datamod2023}, using the slicing algorithm of that paper, as being relevant for the expression of \texttt{tbet} and \texttt{gata3}.
 
-\medskip\noindent Besides the production of such occurrence graphs for specific cases, \GROOVE can also be used once more to directly confirm the findings of \cite[Figs. 8 and~9]{datamod2023}, by expressing them as CTL formulas similar to the one reported in \Cref{fig:table-from-cmsb2024}.In this context, it is relevant to report that, in contrast to \BioResolve, where (as reported above) time and space performance were a bottleneck in the analysis of this model, \GROOVE can fully explore the state space in approximately 3 seconds.
+\medskip\noindent Besides the production of such occurrence graphs for specific cases, \GROOVE can also be used once more to directly confirm the findings of \cite[Figs. 8 and~9]{datamod2023}, by expressing them as CTL formulas similar to the one reported in \Cref{fig:table-from-cmsb2024}. In this context, it is relevant to report that, in contrast to \BioResolve, where (as reported above) time and space performance were a bottleneck in the analysis of this model, \GROOVE can fully explore the state space in approximately 3 seconds.
 
 \subparagraph*{Discussion}
 

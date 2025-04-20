@@ -1,8 +1,0 @@
-// state s0
-s0--fire-->s6;
-// state s6
-s6--fire-->s13;
-// state s13
-s13--fire-->s17;
-// state s17
-// final state

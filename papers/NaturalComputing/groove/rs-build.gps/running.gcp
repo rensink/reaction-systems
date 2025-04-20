@@ -1,20 +1,21 @@
 // state s0
-context;
+context();
 // state s1
 fired("student_2");
 fired("refill_0");
-react;
+react();
 // state s5
-context;
-// state s9
+context();
+// state s7
 fired("refill_0");
 fired("student_1");
-react;
+react();
 // state s13
-context;
+context();
 // state s15
 fired("getcappuccino_1");
 fired("refill_0");
-react;
+react();
 // state s19
-// final state
+// deadlocked state
+halt

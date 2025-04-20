@@ -1,20 +1,20 @@
 // state s0
-context;
-// state s1
+context();
+// state s2
+fired("refill_0");
 fired("student_2");
-fired("refill_0");
-react;
-// state s5
-context;
+react();
+// state s6
+context();
 // state s9
-fired("refill_0");
 fired("student_1");
-react;
+fired("refill_0");
+react();
 // state s13
-context;
+context();
 // state s15
 fired("getcappuccino_1");
 fired("refill_0");
-react;
+react();
 // state s19
 // final state

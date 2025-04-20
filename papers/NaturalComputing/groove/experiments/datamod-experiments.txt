@@ -23,12 +23,12 @@ generator -P .\datamod.properties -D "ruleEnabling=+fired +datamod.gata3-tbet" -
 cp .\gata3-tbet.gcp .\rs-build.gps\
 
 # Produce the occurrence graph
-generator -P .\datamod-build.properties -D "controlProgram+=gata3-tbet" -f datamod-occur.gst .\rs-build.gps\
+generator -P .\datamod-build.properties -D "controlProgram+=gata3-tbet" -D ruleEnabling=+datamod.gata3-tbet -f datamod-occur.gst .\rs-build.gps\
 
 # Copy the occurrence graph to the prune system
 cp .\datamod-occur.gst .\rs-prune.gps\
 
 # Prune the occurrence graph
-generator -P .\datamod-prune.properties -f datamod-pruned.gst .\rs-prune.gps\ .\datamod-occur.gst
+generator -P .\datamod-prune.properties -D ruleEnabling=+datamod.gata3-tbet -f datamod-pruned.gst .\rs-prune.gps\ .\datamod-occur.gst
 
 # Layout manually

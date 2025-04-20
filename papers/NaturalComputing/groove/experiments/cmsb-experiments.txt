@@ -13,12 +13,11 @@ function modelchecker {
 
 Full state space generation
 ---------------------------
-
 # DFS without forbidden detection:
 generator -P cmsb.properties -D "ruleEnabling=+forbidden" .\rs-explore.gps
   
 # BFS without forbidden detection:
-generator -P cmsb.properties -D "ruleEnabling=forbidden" -s bfs .\rs-explore.gps
+generator -P cmsb.properties -D "ruleEnabling=+forbidden" -s bfs .\rs-explore.gps
   
 # DFS with major forbidden detection:
 generator -P cmsb.properties -D "typeGraph+=cmsb.major-forbidden" -s uptorule:dfs->forbidden -a formula:forbidden .\rs-explore.gps
@@ -32,6 +31,24 @@ generator -P cmsb.properties -D "typeGraph+=cmsb.minor-forbidden" -s uptorule:df
 # DFS with major+moderate forbidden detection:
 generator -P cmsb.properties -D "ruleEnabling=-forbidden +cmsb.major-and-moderate" -s uptorule:dfs->cmsb.major-and-moderate -a formula:cmsb.major-and-moderate .\rs-explore.gps
 
+Occurrence graph generation
+---------------------------
+# Generate the trace to a major-forbidden state
+generator -P .\cmsb.properties -D typeGraph+=cmsb.major-forbidden -D ruleEnabling=+fired -s bfs -a formula:forbidden -r 1 -traces -o cmsb.gcp .\rs-explore.gps\
+
+# Copy the control program to the build system
+cp .\cmsb.gcp .\rs-build.gps\
+
+# Produce the occurrence graph
+generator -P .\cmsb-build.properties -D "controlProgram+=cmsb" -f cmsb-occur.gst .\rs-build.gps\
+
+# Copy the occurrence graph to the prune system
+cp .\cmsb-occur.gst .\rs-prune.gps\
+
+# Prune the occurrence graph
+generator -P .\cmsb-prune.properties -D typeGraph+=cmsb.major-forbidden -f cmsb-pruned.gst .\rs-prune.gps\ .\cmsb-occur.gst
+
+# Layout manually
 
 Bounded DFS generation
 ----------------------

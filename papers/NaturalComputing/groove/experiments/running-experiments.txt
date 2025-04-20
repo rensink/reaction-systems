@@ -31,4 +31,4 @@ generator -P .\running-build.properties -D "controlProgram+=running" -f running-
 cp .\running-occur.gst .\rs-prune.gps\
 
 # Prune the occurrence graph
-generator -P .\running-prune.properties -f running-pruned.gst .\rs-prune.gps\ .\running-occur.gst
+generator -P .\running-prune.properties -f running-pruned.gst .\rs-prune.gps\ running-occur

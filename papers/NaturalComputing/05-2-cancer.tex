@@ -11,7 +11,7 @@ The encoding of RSs is made possible by setting up a specific rewrite theory, ca
 The analysis conducted in~\cite{DBLP:conf/cmsb/BallisBFO24} matches previous findings, and makes it possible to readily inspect new hypotheses.
 
 \subparagraph*{Analysis goals.}
-The goal of the analysis is to exploit model checking to validate or refute some behavioural hypotheses of RSs.
+The goal of the analysis is to validate or refute some behavioural hypotheses of RSs.
 
 \subparagraph*{Features of interest.}
 Besides reachability analysis, mostly concerned with the possibility to reach certain attractors, the distinguishing feature of this case study is the possibility to model check RSs with guarded contexts against behavioural properties written in LTL and CTL.
@@ -33,8 +33,8 @@ The following properties have been experimented with:
 \textbf{ccReact} allowed to perform reachability analysis directly exploiting the \texttt{search} command of Maude. 
 The formal verification of temporal formulas has been made possible by relying on a general interface to different model checkers for Maude models, called the Unified Maude Model-Checking tool (\texttt{umaudemc})~\cite{DBLP:journals/jlap/RubioMPV21}.
 Some examples of verified temporal formulas are those expressing properties such as:
-Does there exist at least one path where that treatment is successful?
-Do all paths prevent reaching a steady state in which a AKT is present?
+\emph{Does there exist at least one path where that treatment is successful?}
+\emph{Do all paths prevent reaching a steady state in which a AKT is present?}
 
 \subparagraph*{\GROOVE experimentation.}
 

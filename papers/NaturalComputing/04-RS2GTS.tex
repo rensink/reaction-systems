@@ -2,16 +2,16 @@
 
 \section{Encoding of RS in GT}\label{sec:RS2GTS}
 
-The contribution of this paper is to investigate the use of graph transformation and \GROOVE (rather than \BioResolve) to generate and analyze the LTS of a given Reaction System, on the basis of a start graph obtained by transformation from the RS specification. Because the start graph will typically include special \Entity subtypes, it comes together with an additional type graph where those are specified. Depending on what one wants to analyse, the various strengths and capabilities of \GROOVE then come into play.
+As an alternative to BioResolve, we investigate the use of graph transformation and \GROOVE to generate the underlying LTS of a given Reaction System, on the basis of a start graph obtained by transformation from the RS specification. Because the start graph will typically include special \Entity subtype, it comes together with an additional type graph where those are specified. Depending on what one wants to analyse, the various strengths and capabilities of \GROOVE then come into play.
 
 For instance, one possibility is to use \GROOVE's model checking capabilities to check for temporal patterns of entity generation in the transition system. Another way to proceed is to focus on a given trace and build its \emph{occurrence graph}, which contains all the rule occurrences and entity instances present in that trace --- analogous, in fact, to the way a Petri net process captures a particular behaviour. If the trace in question leads to a state in which a forbidden entity is present (such as the $\bang$ entity in our toy example), we can also \emph{prune} the occurrence graph, again using graph transformation, to keep only those rule occurrences and entity instances that directly contributed to the existence of the forbidden entity.
 
-The generation of occurrence graphs involves the tool chain depicted in \Cref{fig:chain}, the phases of which will be explained in some more detail in the remainder of this section.	
+This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of which will be explained in some more detail in the remainder of this section.	
 
 \begin{figure}
 \centering
-\includegraphics[scale=.27]{figs/chain}
-\caption{Reaction System exploration and occurrence graph generation using \GROOVE}
+\includegraphics[scale=.25]{figs/chain}
+\caption{Reaction System exploration and analysis using \GROOVE}
 \label{fig:chain}
 \end{figure}
 
@@ -58,7 +58,7 @@ where a ``recipe'' is the keyword for a transaction wrapping the body. With this
 \label{fig:toy-gts}
 \end{figure}
 
-Alternatively, we can (for instance) ask \GROOVE to search the for the first reachable state in which a \Forbidden entity appears, using breadth-first search. (In fact, the state property for which \GROOVE searches is itself determined by a \emph{rule}, which in this case merely tests for the presence of a \Forbidden entity). When found, the trace to the forbidden state can be saved as a control program that drives the next stage of \GROOVE exploration. In particular, relying on the alternating application of the \contextR and \reactR rules (rather than the transactional variant used to produce \Cref{fig:toy-gts}), this control program also records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the forbidden state. Here is the control program for the shortest trace to state \textsf{\itshape s17} in our running example:
+Alternatively, we can (for instance) ask \GROOVE to search the for the first reachable state in which a \Forbidden entity appears, using breadth-first search. (In fact, the state property for which \GROOVE searches is itself determined by a \emph{rule}, which in this case merely tests for the presence of a \Forbidden entity). When found, the trace to the forbidden state can be saved as a control program that drives the next stage of \GROOVE exploration. In particular, using the alternating application of the \contextR and \reactR rules (rather than the transactional variant used for \Cref{fig:toy-gts}) this control program also records the \firedR-applications that tell which \Step{}s have fired: this completely determines how the non-determinism in the context process has been resolved in order to arrive at the forbidden state. Here is the control program for the shortest trace to state \textsf{\itshape s17} in our running example:
 
 \begin{center}
 \begin{lstlisting}

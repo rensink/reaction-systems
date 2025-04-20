@@ -29,6 +29,21 @@
                 <string>476 52 19 19</string>
             </attr>
         </node>
+        <node id="n5">
+            <attr name="layout">
+                <string>48 146 19 19</string>
+            </attr>
+        </node>
+        <node id="n6">
+            <attr name="layout">
+                <string>186 150 19 19</string>
+            </attr>
+        </node>
+        <node id="n7">
+            <attr name="layout">
+                <string>119 49 19 19</string>
+            </attr>
+        </node>
         <node id="n8">
             <attr name="layout">
                 <string>649 51 19 19</string>
@@ -39,19 +54,19 @@
                 <string>649 148 19 19</string>
             </attr>
         </node>
-        <node id="n5">
+        <node id="n10">
             <attr name="layout">
-                <string>48 146 19 19</string>
+                <string>62 332 31 18</string>
             </attr>
         </node>
-        <node id="n7">
+        <node id="n11">
             <attr name="layout">
-                <string>119 49 19 19</string>
+                <string>122 257 11 18</string>
             </attr>
         </node>
-        <node id="n6">
+        <node id="n12">
             <attr name="layout">
-                <string>186 150 19 19</string>
+                <string>162 334 49 18</string>
             </attr>
         </node>
         <edge from="n0" to="n0">
@@ -84,17 +99,17 @@
                 <string>type:Token</string>
             </attr>
         </edge>
+        <edge from="n2" to="n4">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
         <edge from="n2" to="n3">
             <attr name="label">
                 <string>new:current</string>
             </attr>
             <attr name="layout">
                 <string>500 0 406 153 409 200 568 198 571 152 11</string>
-            </attr>
-        </edge>
-        <edge from="n2" to="n4">
-            <attr name="label">
-                <string>at</string>
             </attr>
         </edge>
         <edge from="n2" to="n3">
@@ -113,6 +128,44 @@
             </attr>
         </edge>
         <edge from="n4" to="n4">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n5">
+            <attr name="label">
+                <string>type:State</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n6">
+            <attr name="label">
+                <string>del:fresh</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n6">
+            <attr name="label">
+                <string>new:last</string>
+            </attr>
+            <attr name="layout">
+                <string>500 0 58 156 60 222 199 222 196 160 11</string>
+            </attr>
+        </edge>
+        <edge from="n5" to="n7">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n6">
+            <attr name="label">
+                <string>type:StepOcc</string>
+            </attr>
+        </edge>
+        <edge from="n6" to="n7">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n7" to="n7">
             <attr name="label">
                 <string>forall:</string>
             </attr>
@@ -142,40 +195,32 @@
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n5" to="n5">
+        <edge from="n10" to="n10">
             <attr name="label">
                 <string>type:State</string>
             </attr>
         </edge>
-        <edge from="n5" to="n7">
+        <edge from="n10" to="n12">
+            <attr name="label">
+                <string>del:last</string>
+            </attr>
+        </edge>
+        <edge from="n10" to="n11">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n5" to="n6">
-            <attr name="label">
-                <string>new:last</string>
-            </attr>
-            <attr name="layout">
-                <string>500 0 58 156 60 222 199 222 196 160 11</string>
-            </attr>
-        </edge>
-        <edge from="n5" to="n6">
-            <attr name="label">
-                <string>del:fresh</string>
-            </attr>
-        </edge>
-        <edge from="n7" to="n7">
+        <edge from="n11" to="n11">
             <attr name="label">
                 <string>forall:</string>
             </attr>
         </edge>
-        <edge from="n6" to="n6">
+        <edge from="n12" to="n12">
             <attr name="label">
                 <string>type:StepOcc</string>
             </attr>
         </edge>
-        <edge from="n6" to="n7">
+        <edge from="n12" to="n11">
             <attr name="label">
                 <string>at</string>
             </attr>

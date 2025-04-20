@@ -1,0 +1,51 @@
+// state s0
+context();
+// state s6
+fired("ghyper_0");
+fired("kdoacint_1");
+fired("eafib3_0");
+fired("khf_0");
+fired("eafib1_0");
+fired("k_doac_2");
+fired("korigin_0");
+fired("kage_0");
+fired("kcons_1");
+fired("khyper_1");
+fired("khr_0");
+fired("kdiabete_1");
+fired("eafib2_0");
+fired("kafib_0");
+react();
+// state s774
+context();
+// state s1542
+fired("empty_0");
+fired("eafib2_1");
+fired("k_doac_2");
+fired("eafib1_1");
+fired("eafib3_1");
+fired("ghyper_0");
+react();
+// state s2307
+context();
+// state s2883
+fired("ehf_1");
+fired("ehr_1");
+fired("econs_1");
+fired("empty_0");
+fired("k_doac_2");
+fired("ghyper_0");
+react();
+// state s3627
+context();
+// state s4164
+fired("ghyper_0");
+fired("eflec_1");
+fired("k_doac_2");
+fired("ebb_1");
+fired("empty_0");
+fired("econs_1");
+react();
+// state s11793
+// deadlocked state
+halt

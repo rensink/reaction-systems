@@ -3,7 +3,7 @@
 \section{Running Example: a Toy Vending Machine}\label{sec:student}
 
 To illustrate some basic concepts of RSs and, in the next section, of the proposed \GROOVE encoding, we model a system composed of a student and a vending machine as a toy example.
-The vending machine accepts two different kinds of coins and can dispense either a cappuccino or an expresso when a coffee coin is inserted or a tea if a tea coin is inserted. A cappuccino is dispensed if some milk is available, otherwise expresso is produced.
+The vending machine accepts two different kinds of coins and can dispense either a cappuccino or an espresso when a coffee coin is inserted or a tea if a tea coin is inserted. A cappuccino is dispensed if some milk is available, otherwise espresso is produced.
 Assuming the powder for preparing coffee and tea are always present, the corresponding process can be written as follows:
 \[
 \begin{array}{lll}
@@ -49,7 +49,7 @@ Finally, two more reactions model the passage of time (morning vs afternoon) whi
 \end{array}
 \]
 
-We assume that, initially, both entitities $\cpowder$ and $\tpowder$ are present.
+We assume that, initially, both entities $\cpowder$ and $\tpowder$ are present.
 So the system can be coded as the guarded RS process
 \[
 [\,\mathsf{Refill}
@@ -61,12 +61,13 @@ So the system can be coded as the guarded RS process
 \]
 
 The complete encoding of the above RS in \BioResolve syntax is reported in \Cref{fig:bioresolve:toy} in the appendix.
-Using the \BioResolve directive \verb=main_do(digraph)=, we can automatically generate the underlying LTS as in Fig.~\ref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
+Using the \BioResolve directive \verb=main_do(digraph)=, we can automatically generate the underlying LTS as in \Cref{fig:toylts}: the initial state is in light blue, while there is also a ``bad'' state in which the student is banging the machine, shown in light coral.
 Note that, as \am is initially not present, it means that the initial time is in the afternoon. In drawing the transition system, we have used the representational convention explained in \Cref{rem:shortlts}).
 
 \begin{figure}
-\includegraphics[scale=.3]{./figs/toylts}
-\caption{LTS of the toy example. For brevity we use the notation introduced in \Cref{rem:shortlts}, where node labels only account for the list of (semicolons separated) current contexts and entities and transition labels accounts just for the entities provided by the context.\label{fig:toylts}}
+\includegraphics[scale=.3]{./figs/toylts-traced}
+\caption{LTS of the toy example. For brevity we use the notation introduced in \Cref{rem:shortlts}, where node labels only account for the list of (semicolons separated) current contexts and entities and transition labels carry the entities provided by the context.\label{fig:toylts}}
 \end{figure}
 
-In this particular example, we wish to analyze why \bang is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$. From this trace (highlighted in \Cref{fig:toylts}), using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of \bang was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.
+In this particular example, we wish to analyze why \bang is produced, i.e., what are its causes. By manual inspection we can recover a trace starting from the initial state and leading to the ``bad'' state, e.g., $\xrightarrow{\idle}\xrightarrow{\ccoin;\nomilk}\xrightarrow{\anger}$ (highlighted in red in \Cref{fig:toylts}). 
+From this trace, using the dynamic slicing process described in~\cite{DBLP:journals/nc/BrodoBF24}, we can reconstruct that the production of \bang was due to the prior production of $\anger$, which in turn was caused by the student getting espresso instead of cappuccino, which is because there was $\nomilk$ when a $\ccoin$ was inserted at $\am$.

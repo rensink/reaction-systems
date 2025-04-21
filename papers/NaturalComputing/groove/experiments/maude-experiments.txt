@@ -15,9 +15,9 @@ The model checking experiments
 ------------------------------
 # Scenario 1, context [k,ket]
 # LTL: FG(steady -> akt)
-generator -P maude.properties -s "ltl:FG(steady -> akt)" .\rs-explore.gps\ maude.BT474-1-ket
+generator -P maude.properties -s 'ltl:FG(steady -> present(\"akt\"))' .\rs-explore.gps\ maude.BT474-1-ket
 # LTL: G(erbb2 -> X(erbb2))
-generator -P maude.properties -s "ltl:G(erbb2 -> X(erbb2))" .\rs-explore.gps\ maude.BT474-1-ket
+generator -P maude.properties -s 'ltl:G(present(\"erbb2\") -> X present(\"erbb2\"))' .\rs-explore.gps\ maude.BT474-1-ket
 
 # Scenario 2, context [{e,egf,hrg}.korep]
 # CTL: EF (steady & !akt)
@@ -29,9 +29,9 @@ modelchecker `
 
 # Scenario 3, context [k,korept]
 # LTL: G(pdk1 -> FG(steady -> akt))
-generator -P maude.properties -s "ltl:G(pdk1 -> FG(steady -> akt))" .\rs-explore.gps\ maude.BT474-3-korept
+generator -P maude.properties -s 'ltl:G(present(\"pdk1\") -> FG(steady -> present(\"akt\")))' .\rs-explore.gps\ maude.BT474-3-korept
 # LTL: erbb1 R !pdk1
-generator -P maude.properties -s "ltl:erbb1 R !pdk1" .\rs-explore.gps\ maude.BT474-3-korept
+generator -P maude.properties -s 'ltl:present(\"erbb1\") R !present(\"pdk1\")' .\rs-explore.gps\ maude.BT474-3-korept
 
 # Scenario 4, context [k,kge]
 # CTL: EG EF (steady -> !akt)

@@ -14,7 +14,7 @@ function modelchecker {
 Producing the full state space
 ------------------------------
 # DFS without forbidden detection:
-generator -P running.properties -D "ruleEnabling+=-forbidden +present" .\rs-explore.gps
+generator -P running.properties -D "ruleEnabling=-forbidden +present" -a final .\rs-explore.gps
 
 Producing the occurrence graph
 ------------------------------

@@ -122,14 +122,14 @@ In order to replicate these results, we can use CTL model checking. For instance
 
 \begin{center}
 \begin{tabular}{lr}
-Model generation: & 9 884 s \\
+Model generation: & 2 236 s \\
 Major risk check: & 67 s \\
 Moderate risk check: & 71 s \\
 Minor risk check: & 65 s \\
 \end{tabular}
 \end{center}
 %
-Note that the time taken for model generation far exceeds that reported in \Cref{fig:cmsb-full}. The difference lies in the fact that, for this particular model, we combined the alternating \contextR- and \reactR-transitions into atomic \fireR-labelled ones using \GROOVE's recipe feature (briefly discussed in \Cref{sec:RS2GTS}), with the purpose of reducing the model size and hence allowing more efficient CTL checking. Why this should multiply the model generation time by a factor of 4 is currently unclear; investigating this is future work.
+Note that the time taken for model generation is consistent with that reported in \Cref{fig:cmsb-full}.
 
 \subparagraph*{Discussion.}
 

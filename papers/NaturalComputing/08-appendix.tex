@@ -2,7 +2,7 @@
 
 \section{Auxiliary Material}
 
-\subsection{Auxiliary Material for the toy running example}
+\subsection{Auxiliary Material for the toy running example}\label{app:running}
 
 The \BioResolve specification for the toy running example about the interaction between the student and the vending machine is reported in \Cref{fig:bioresolve:toy}. The corresponding RS has been described in \Cref{sec:student} and it has been used to illustrate some key features of the \GROOVE encoding in \Cref{sec:RS2GTS}.
 
@@ -617,7 +617,7 @@ myenvironment("[
 \label{fig:bioresolve:psn}
 \end{figure}
 
-\subsection{Auxiliary Material for the T Cell Differentiation Case Study}
+\subsection{Auxiliary Material for the T Cell Differentiation Case Study}\label{app:maude}
 
 The \BioResolve specification derived from the Boolean network model (available at \cite{ModelCellCollective}, see \Cref{fig:boolean-formulas}) of the T cell differentiation case study from \cite{puniya2018mechanistic}, and exploited in \cite{datamod2023} is reported in \Cref{fig:bioresolve:tcell}. The corresponding experimentation with \GROOVE has been discussed in \Cref{sec:datamod2023}.
 
@@ -735,4 +735,12 @@ myreactions([
 \label{fig:bioresolve:tcell}
 \end{figure}
 
+\subsection{Auxiliary Material for the \GROOVE experiments}\label{app:groove}
+
+To replicate the \GROOVE experiments reported in \Cref{sec:RS2GTS} (for the toy running example) and \Cref{sec:experiments}, we have included the following supplementary resources with this paper:
+\begin{itemize}
+\item The rule systems described in \Cref{sec:RS2GTS};
+\item The start graphs derived from the \BioResolve specifications in this appendix (\ref{app:running}--\ref{app:maude});
+\item Instructions for calling the \GROOVE generator so as to reproduce all the exploration runs, occurrence graphs and model checking results (using \href{https://github.com/nl-utwente-groove/code/releases/tag/release-7_4_3}{\GROOVE version 7.4.3}).
+\end{itemize}
 

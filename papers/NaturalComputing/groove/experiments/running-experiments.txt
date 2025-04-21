@@ -1,6 +1,8 @@
 Running example experiments
 ===========================
 
+# To replicate, use at least GROOVE version 7.4.3 (see https://github.com/nl-utwente-groove/code/releases/)
+
 # The following instructions are for Windows Powershell
 # Define a Generator call with
 function generator {

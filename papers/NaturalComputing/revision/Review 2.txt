@@ -1,0 +1,11 @@
+Reviewer 2
+
+The paper reports on the use of groove to model, execute and analyse reaction systems. It covers and illustrates the main concepts of the formalism and the tool and then describes the implementation and analysis techniques used, as well as a collection of case studies from the literature.
+
+The text is well written and the motivation is clear. There is a substantial technical contribution and it is shown that the groove tool enables new analyses approaches for reaction system models and improves on the scalability of others. This also results in new insights into the tool itself, how it could be improved to make such analysis easier or more efficient.
+
+One obvious question, that I would like to have discussed, is related to graphical reaction systems, an extension of reaction systems to graphs instead of sets of entities. Since groove is a graph rewriting tool, is the way it models reaction systems extensible to the graphical case?
+
+Some minor comments on page 1:
+- possibly provided by *the* environment
+- these are set*s* of entities 

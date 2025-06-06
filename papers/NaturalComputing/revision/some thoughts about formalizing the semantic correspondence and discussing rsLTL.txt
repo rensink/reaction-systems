@@ -1,0 +1,82 @@
+Hi Arend,
+
+here are some ideas on how to address the main comments raised by the
+reviewers:
+
+1. semantic correspondence between RS semantics and GROOVE
+implementation
+
+- I would make declare even more explcitly that the focus of the paper
+is of an experimental nature rather than a theoretical one
+
+- I would provide some sketch of semantic correspondence of the GROOVE
+implementation just in the appendix
+
+- first we argue that, thanks to Remark 1, any transition can be seen
+as the composition of the following three transitions (I omit parts
+of the labels for readability and assume the source process has the
+shape [D | Ks | Rs])
+
+
+D -- <<D...> --> 0 % provides the available entities
+
+Ks -- <<0,R',I',C>...> --> Ks' % fixes a possible provision of entities 
+C from the context, given that R'\subseteq D and I'\cap D = \emptyset
+
+Rs -- ... --> Rs | P % where P is the result of all reactions Rs on the
+state D\cup C
+
+Then, separately, we show that GROOVE rules match the behaviour of each
+component: entities D are taken into account by each context to decide
+the admissible provision C to be supplied to the reactions
+Since this is a two-step transition, it must be formalised as such:
+reading D but without "deleting" them each context selects one
+admissible move, moves the token to the target continuation and
+marks C as present (rule in Fig. 7); then the rule in Fig. 1 does
+the rest of the job.
+
+I would argue that there is an isomorphism between the transition
+systems: this is immediate to define for the components D and Rs;
+it is less straightforward for contexts, where Tokens must be
+dealt with...
+
+2. relation to rsLTL ("Reaction mining for reaction systems")
+
+the paper (july 2024) considers RS with discrete concentration, where
+roughly multiset of entities are considered and the union of products
+is computed as the max of multiplicities (so that the transition system
+remains finite state and the RS system itself can be encoded in
+ordinary RS, by replicating each entity for the maximum multiplicity
+admitted in the system. For example, if a is produced with multiplicity
+3, it is the same as producing entities a_1, a_2 and a_3.
+
+rsLTL is a just LTL tailored to propositions about concentration levels:
+for example (true U a<1) stands for the reachability of a state where
+a is absent (concentration level strictly less than 1).
+
+in that setting, the context consists of a single automaton, but it
+seems it cannot enable/disable some moves depending on the actual
+available entitied (contrary to what guarded contexts allow us to do).
+
+the experimental section in their paper (section 8) considers some
+sort of mutual exclusion protocol analysis: if we want to compare
+performances I see no other way to see if it can be encoded in
+our setting and run it under different sizes...
+
+as far as I understood, in their paper, via SMT encoding of
+parameterized specs (for representing partially specified components),
+they are also able to compute some realizations of partially specified
+RS that will satisfy some desired (rsLTL) property.
+
+in the comparison we can also make explicit that:
+* they deal with concentration levels, we do not and should pass through 
+the encoding in ordinary RS for the analysis/comparison
+* GROOVE is general purpose and offers many more functionalities, while 
+rsLTL is specialised and focus on property verification
+* all rsLTL properties can be studied in GROOVE
+* GROOVE is not just restricted to LTL
+* GROOVE can handle guarded context, rsLTL does not
+
+That's all I was able to think of...
+
+RB

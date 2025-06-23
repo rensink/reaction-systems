@@ -38,7 +38,7 @@ advcontext(K) :- mycontext(K). % an adversary with the same reactions context
 myreactions([react([il4r],[socs1,ifng],[stat6]),
 react([tgfb,nfat],[void],[tgfbr]),
 react([tbet],[void],[il12r]),
-react([stat4],[gata3],[il12r]),
+react([stat4],[gata3],[il2r]),
 react([tcr],[gata3],[il12r]),
 react([il12,nfat],[void],[il12r]),
 react([il2r],[void],[stat5]),

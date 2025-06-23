@@ -2107,7 +2107,7 @@
                 <string>inhibitor</string>
             </attr>
         </edge>
-        <edge from="react_39" to="il12r">
+        <edge from="react_39" to="il2r">
             <attr name="label">
                 <string>product</string>
             </attr>

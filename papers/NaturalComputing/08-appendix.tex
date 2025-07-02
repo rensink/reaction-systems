@@ -1,5 +1,70 @@
 % !TEX root =  ./main.tex
 
+\section{Semantic correspondence}
+
+In this paper, we claim, but do not prove, that the \GROOVE semantics correctly captures the Reaction Systems transitions recalled in \Cref{sec:RS}. A complete formal proof is outside the scope of this paper, which focusses on experimental results; however, in this section we provide a sketch of such a proof.
+
+As described in \Cref{sec:RS2GTS}, each GROOVE state is a graph consisting of a fixed part (which is the same in every state) and a variable part. The fixed part contains an encoding of
+\begin{enumerate*}[label=\emph{(\roman*)}]
+\item the reaction system $\cal A$ itself, with the entities $S$ given as \Entity-typed nodes, and
+\item the automata of the context processes, with individual processes corresponding to \Token-typed nodes and states given as \State-typed nodes.
+\end{enumerate*} 
+The variable part consisting of \present flags on \Entity nodes and a \current-edge from every \Token to a \State. An RS state $[\mathsf{M}]$, on the other hand, consists of
+%
+\begin{enumerate*}[label=\emph{(\roman*)}]
+\item sets $D$ of currently present entities,
+\item fixed reactions $(R,I,P)$, and
+\item regular context processes $\mathsf K$.
+\end{enumerate*}
+
+A \GROOVE state $G$ is equivalent to an RS state $[\mathsf{M}]$ if:
+%
+\begin{enumerate*}[label=\emph{(\roman*)}]
+\item the union of all $D$ in $[\mathsf{M}]$ corresponds precisely to the set of \Entity nodes that are flagged as \present in a $G$, and
+\item there is a one-to-one correspondence of the $\mathsf K$ in $[\mathsf{M}]$ and the $\Token$-nodes in $G$, such that the \current state of that \Token is the start state of the automaton for $\mathsf K$.
+\end{enumerate*}
+
+We claim that this equivalence establishes a bisimulation between the \GROOVE and RS state spaces. (It is not an isomorphism for two reasons:
+%
+\begin{enumerate*}[label=\emph{(\roman*)}]
+\item $\mathsf{[M]}$ may contain multiple, overlapping sets $D$ whereas $G$ merely encodes their union;
+\item the RS semantics for $\textsf K$ ``consumes'' the process (rules \textit{(Cxt)}--\textit{(Rec)} in \Cref{fig:guardforRS2nd}) whereas $G$ keeps the automaton intact, merely moving the \current pointer.
+\end{enumerate*}
+%
+To prove this claim, we have to show correspondence of the transitions.
+
+Concretely, every $\obs{\obs{D}{R',I',C}}{R,I,P}$-labelled transition corresponds to single application of the recipe \fireR, which in turn consists of applications of rules \contextR (see \Cref{fig:context}) followed by \reactR (see \Cref{fig:react}).
+%
+\begin{figure}
+\centering
+\includegraphics[scale=.2]{figs/react}
+\caption{Rule for reaction firing}
+\label{fig:react}
+\end{figure}
+%
+Both of these rules are universally quantified. Roughly speaking, referring to \Cref{fig:guardforRS2nd}, \contextR simultaneously encodes all sub-transitions of the form
+%
+\[\begin{array}{rcll}
+D & \xrightarrow{\obs{\obs{D}{\emptyset,\emptyset,\emptyset}}
+                     {\emptyset,\emptyset,\emptyset}} & D'
+  & \quad\text{\small{(rule (\textit{Ent}))}} \\
+\mathsf K
+  & \xrightarrow{\obs{\obs{\emptyset}{R',I',C}}
+                     {\emptyset,\emptyset,\emptyset}} & \mathsf K'
+  & \quad\text{\small{(rules (\textit{Cxt})--(\textit{Rec}))}}
+\end{array}\]
+%
+as well as their composition and filtering (rules (\textit{Par})--(\textit{Sys})). \reactR in turns simultaneously encodes all sub-transitions of the form
+%
+\[\begin{array}{rcll}
+(R,I,P)
+  & \xrightarrow{\obs{\obs{\emptyset}
+                     {\emptyset,\emptyset,\emptyset}}{R',I',P'}} & \mathsf M'
+  & \enspace\text{\small{(rules (\textit{Pro})--(\textit{Inh}))}}
+\end{array}\]
+%
+together with their composition with the \contextR-transitions (rule (\textit{Par})) and filtering (rule (\textit{Sys})). (The \fired-flags on the \Step-nodes, added by \contextR and removed again by \reactR, play no role in this correspondence: for the purpose of the equivalence of the \GROOVE and RS semantics, they might be omitted entirely.)
+
 \section{Auxiliary Material}
 
 \subsection{Auxiliary Material for the toy running example}\label{app:running}

@@ -18,11 +18,16 @@ Alternatively, \brsim can be executed in an interactive mode, allowing the user 
 \BioResolve\footnote{Available at \url{https://www.di.unipi.it/~bruni/LTSRS/}.} is a Prolog interpreter for Reaction System analysis, first proposed in~\cite{DBLP:journals/tcs/BrodoBF21} and later extended in a series of papers to deal with enhanced features, like delays, duration, monitoring, slicing and guarded contexts~\cite{DBLP:journals/nca/BrodoBFGLM23,DBLP:journals/nc/BrodoBF24,DBLP:conf/cmsb/BowlesBBFGM24}. Many capabilities of \BioResolve has been discussed at length in the previous sections.
 \item
 \ccReact\footnote{Available at \url{https://depot.lipn.univ-paris13.fr/olarte/reaction-systems-maude}.} is an interacting language for Reaction Systems based on Maude 3.2.1~\cite{DBLP:conf/cmsb/BallisBFO24}, whose key features have been illustrated in \Cref{sec:ccReact}.
+\item
+\ReactICS\footnote{Available at \url{https://github.com/arturmeski/reactics/}.} is a Reaction Systems Verification Toolkit that consists of two main modules for model checking temporal properties expressed in logical languages tailored to reaction systems:
+one that exploits binary decision diagrams (BDD) and bounded model checking;
+the other that translates verification problems in \rsLTL~\cite{DBLP:journals/isci/MeskiPR15}  into satisfiability modulo theories (SMT)~\cite{DBLP:journals/nc/MeskiKMP24}.
 \end{itemize}
 
 \subparagraph*{Modeling capabilities.}
 The \GROOVE-based method supports a rich and expressive encoding of RSs, including the most recent features such as the handling of \emph{guarded, recursive, and nondeterministic contexts}.
 Among the other tools, such features are only supported by \BioResolve, which, however, relies on a Prolog backend that limits scalability and requires external scripting for improving the performance of many analyses whenever large state generation and exploration is necessitated. Tools such as \HERESY, \WebRSim, and \clrs provide lightweight RS simulators but are limited to basic semantics, lacking support for more advanced interactions with the context or advanced verification features. \ccReact supports temporal logic model checking (LTL/CTL), but not recursive contexts. Moreover, the encoding of RSs in \ccReact is manual and less suited to visual inspection or dynamic causal analysis.
+Besides (bounded) model checking of ad hoc designed temporal logics tailored to reaction systems, \ReactICS supports context automata, reactions with concentration levels, parameter/reaction synthesis and parameter optimisation.
 
 \subparagraph*{Performance and scalability.}
 The ability of \GROOVE to explore large state spaces efficiently is central to our method. Through configurable exploration strategies and a rule-based control mechanism, \GROOVE handles complex RS instances that involve thousands of reachable configurations. Our experiments demonstrate a substantial improvement in analysis time compared to \BioResolve, often reducing execution time by an order of magnitude. Furthermore, the performance of \BioResolve is strongly influenced by the nature of Prolog evaluation strategies, which can lead to excessive memory and time consumption in large case studies. With respect to \ccReact, the paper \cite{DBLP:conf/cmsb/BallisBFO24} on which we based our experiments does not provide information on performance, and indeed the system studied there is so small that no useful comparison could be made on that basis. Since Maude, underlying \ccReact, is a long-standing and mature tool, it would be interesting to investigate this in more detail; however, we leave this to future work.
@@ -30,7 +35,7 @@ In contrast, other tools either consider linear executions only and do not scale
 
 \subparagraph*{Causal analysis and verification.}
 A key distinguishing feature of our approach is the ability to perform graph-based \emph{causal slicing}. By automatically generating and pruning \emph{occurrence graphs}, \GROOVE provides detailed and visual explanations of how specific states, such as those involving undesirable or forbidden entities, are reached.
-This form of causal reasoning is not available in high-performance tools such as \HERESY, \WebRSim, or \clrs, and is only partially addressed in \ccReact, where the focus is primarily on reachability and temporal properties. 
+This form of causal reasoning is not available in high-performance tools such as \HERESY, \WebRSim, \clrs, or \ReactICS and is only partially addressed in \ccReact, where the focus is primarily on reachability and temporal properties. 
 \GROOVE's integrated support for CTL and LTL model checking further extends its applicability to behavioral verification, enabling the specification and validation of complex temporal properties. 
 
 \subparagraph*{Summary.}

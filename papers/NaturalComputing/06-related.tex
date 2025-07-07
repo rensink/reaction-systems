@@ -26,19 +26,23 @@ the other that translates verification problems in \rsLTL~\cite{DBLP:journals/is
 }
 \end{itemize}
 
-\subparagraph*{Modeling capabilities.}
+\subparagraph*{Modelling capabilities.}
 The \GROOVE-based method supports a rich and expressive encoding of RSs, including the most recent features such as the handling of \emph{guarded, recursive, and nondeterministic contexts}.
-Among the other tools, such features are only supported by \BioResolve, which, however, relies on a Prolog backend that limits scalability and requires external scripting for improving the performance of many analyses whenever large state generation and exploration is necessitated. Tools such as \HERESY, \WebRSim, and \clrs provide lightweight RS simulators but are limited to basic semantics, lacking support for more advanced interactions with the context or advanced verification features. \ccReact supports temporal logic model checking (LTL/CTL), but not recursive contexts. Moreover, the encoding of RSs in \ccReact is manual and less suited to visual inspection or dynamic causal analysis.
+Among the other tools, such features are only supported by \BioResolve, which, however, relies on a Prolog back-end that limits scalability and requires external scripting for improving the performance of many analyses whenever large state generation and exploration is necessitated. Tools such as \HERESY, \WebRSim, and \clrs provide lightweight RS simulators but are limited to basic semantics, lacking support for more advanced interactions with the context or advanced verification features. \ccReact supports temporal logic model checking (LTL/CTL), but not recursive contexts. Moreover, the encoding of RSs in \ccReact is manual and less suited to visual inspection or dynamic causal analysis.
 \textcolor{blue}{
 In addition to (bounded) model checking of custom temporal logics specifically designed for Reaction Systems, \ReactICS also supports context automata (a slightly less general notion of contexts than the one considered here), reactions with concentration levels, parameter and reaction synthesis, as well as parameter optimization. 
 } 
 
 \subparagraph*{Performance and scalability.}
 The ability of \GROOVE to explore large state spaces efficiently is central to our method. Through configurable exploration strategies and a rule-based control mechanism, \GROOVE handles complex RS instances that involve thousands of reachable configurations. Our experiments demonstrate a substantial improvement in analysis time compared to \BioResolve, often reducing execution time by an order of magnitude. Furthermore, the performance of \BioResolve is strongly influenced by the nature of Prolog evaluation strategies, which can lead to excessive memory and time consumption in large case studies. With respect to \ccReact, the paper \cite{DBLP:conf/cmsb/BallisBFO24} on which we based our experiments does not provide information on performance, and indeed the system studied there is so small that no useful comparison could be made on that basis. Since Maude, underlying \ccReact, is a long-standing and mature tool, it would be interesting to investigate this in more detail; however, we leave this to future work.
-In contrast, other tools either consider linear executions only and do not scale to large models or lack optimization strategies necessary for handling non-trivial state spaces. 
-\textcolor{blue}{
-Contrary to \GROOVE, which is a general purpose tool, not optimized for Reaction Systems, \ReactICS can take advantage of symbolic representations to abstract larger state-spaces.
-}
+In contrast, other tools either consider linear executions only and do not scale to large models or lack optimization strategies necessary for handling non-trivial state spaces.
+
+\textcolor{blue}{%
+Contrary to \GROOVE, which is a general purpose, explicit-state tool, not optimized for Reaction Systems, \ReactICS can take advantage of symbolic representations to abstract much larger state-spaces.
+}%
+\textcolor{olive}{%
+For instance, for the mutual exclusion protocol reported in \cite{DBLP:journals/isci/MeskiPR15,DBLP:journals/fuin/NobilePSMCMB17}, \ReactICS can cope with 37 to 54 processes (depending on the precise analysis) in a matter of hours; in contrast, in comparable time \GROOVE can exhaustively generate the state space of up to 13 processes. Even though the model checking queries in \ReactICS probably do not require full state space exploration, and hence the comparison is skewed, the dedicated methods of \ReactICS clearly pay off.
+}\todo{We could include the table of state space sizes in an appendix?}
 
 \subparagraph*{Causal analysis and verification.}
 A key distinguishing feature of our approach is the ability to perform graph-based \emph{causal slicing}. By automatically generating and pruning \emph{occurrence graphs}, \GROOVE provides detailed and visual explanations of how specific states, such as those involving undesirable or forbidden entities, are reached.
@@ -47,10 +51,10 @@ This form of causal reasoning is not available in high-performance tools such as
 \ReactICS 
 }
 and is only partially addressed in \ccReact, where the focus is primarily on reachability and temporal properties. 
-\GROOVE's integrated support for CTL and LTL model checking further extends its applicability to behavioral verification, enabling the specification and validation of complex temporal properties. 
+\GROOVE's integrated support for CTL and LTL model checking further extends its applicability to behavioural verification, enabling the specification and validation of complex temporal properties. 
 
 \subparagraph*{Summary.}
-In conclusion, the combination of expressive modeling, efficient state space exploration, and integrated causal analysis makes \GROOVE a powerful and versatile full-fledged platform for the study of Reaction Systems. It not only generalizes and extends existing tools, but also opens the door to new forms of analysis that were previously impractical or unsupported.
+In conclusion, the combination of expressive modelling, efficient state space exploration, and integrated causal analysis makes \GROOVE a powerful and versatile full-fledged platform for the study of Reaction Systems. It not only generalizes and extends existing tools, but also opens the door to new forms of analysis that were previously impractical or unsupported.
 
 
 

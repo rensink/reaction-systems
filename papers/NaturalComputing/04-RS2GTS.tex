@@ -17,7 +17,7 @@ This gives rise to the tool chain depicted in \Cref{fig:chain}, the phases of wh
 
 \medskip\noindent\textbf{Transform.}
 %
-The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This is achieved by running the \verb=main_do(rs2gts)= directive of \BioResolve, which produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, which specifies subtypes of \Entity for all entities in the problem at hand (essentially for performance reasons: relying on dedicated types speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire \BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two self-explanatory fragments of the start graph are shown in \Cref{fig:toy}.
+The first step is a text-to-model transformation from a problem specification in \BioResolve syntax into \GROOVE syntax. This is achieved by running the \verb=main_do(rs2gts)= directive of \BioResolve, which produces two artifacts: firstly, an additional type graph, complementary to the one shown in \Cref{fig:core-type}, which specifies one subtype of \Entity for each of the entities in the problem at hand (essentially for performance reasons: relying on dedicated types speeds up the matching step of \GROOVE); and secondly (more importantly) a start graph in which the entire \BioResolve system is encoded as suggested by \Cref{fig:core-type}. For the example system, the additional types as well as two self-explanatory fragments of the start graph are shown in \Cref{fig:toy}.
 
 \begin{figure}
 \centering
@@ -27,6 +27,10 @@ The first step is a text-to-model transformation from a problem specification in
 \caption{Graph representation of running example}
 \label{fig:toy}
 \end{figure}
+
+\textcolor{olive}{%
+We claim that this transformation is semantics-preserving; Appendix~\ref{app:semantics} gives a sketch of the argument. A fully formal statement and proof of semantic correspondence, however, is outside of the scope of this paper.
+}
 
 \medskip\noindent\textbf{Explore.}
 %

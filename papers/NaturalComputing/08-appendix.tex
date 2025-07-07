@@ -1,21 +1,21 @@
 % !TEX root =  ./main.tex
 
-\section{Semantic correspondence}
+\section{Semantic correspondence}\label{app:semantics}
 
 In this paper, we claim, but do not prove, that the \GROOVE semantics correctly captures the Reaction Systems transitions recalled in \Cref{sec:RS}. A complete formal proof is outside the scope of this paper, which focusses on experimental results; however, in this section we provide a sketch of such a proof.
 
 As described in \Cref{sec:RS2GTS}, each GROOVE state is a graph consisting of a fixed part (which is the same in every state) and a variable part. The fixed part contains an encoding of
 \begin{enumerate*}[label=\emph{(\roman*)}]
-\item the reaction system $\cal A$ itself, with the entities $S$ given as \Entity-typed nodes, and
-\item the automata of the context processes, with individual processes corresponding to \Token-typed nodes and states given as \State-typed nodes.
+\item the reaction system $\cal A$ itself, with the entities $S$ as \Entity-typed nodes, and
+\item the automata of the context processes, with individual processes corresponding to \Token-typed nodes and states as \State-typed nodes.
 \end{enumerate*} 
 The variable part consisting of \present flags on \Entity nodes and a \current-edge from every \Token to a \State. 
 \textcolor{blue}{
-As observed in Remark~\ref{rem:shortlts}, any RS process $[\mathsf{M}]$ can be written in the form $[\mathsf{Rs}~|~\mathsf{Ks}~|~D]$ where:
+As observed in Remark~\ref{rem:shortlts}, any RS process $[\mathsf{M}]$ can be written in the form $[\mathsf{Rs}~|~\mathsf{Ks}~|~D]$ where:\todo{AR: So then there is only one such set $D$? This would mean that reason (i) below for non-isomorphism no longer holds.}
 \begin{enumerate*}[label=\emph{(\roman*)}]
 \item  $\mathsf{Rs}=\prod_i (R_i,I_i,P_i)$ is the parallel composition of all reactions in the system, and never changes along the computation;
 \item $\mathsf{Ks}=\prod_j \mathsf{K}_j$ is the parallel composition of all contexts, and 
-\item $D$ is the set of currently present entities. 
+\item $D$ is the set of currently present entities.
 \end{enumerate*}
 }
 %An RS state $[\mathsf{M}]$, on the other hand, consists of

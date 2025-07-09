@@ -267,14 +267,14 @@ The generation of the LTS is often the bottleneck of the approach, both in terms
 
 The capabilities of \GROOVE called upon for this case study are very similar to those in \Cref{sec:cmsb2024}; the main difference lies in the specific interest in attractors. Indeed, in contrast to the situation for comorbidities, here after the initial selection of a profile, the context does not cause any more nondeterminism; hence every profile eventually ends up in such an attractor.
 
-An trace ending in a loop, sometimes called a ``lollipop'', is in fact precisely what LTL properties are checked over; hence an LTL property violation takes the form of a lollipop. This means that we can find attractors with specific properties by formulating their non-existence in LTL, and then finding a counter-example through LTL model checking. For instance, the following formulas deny the reachability of an attractor in which \texttt{tbet} and \texttt{gata3} are expressed:
+A trace ending in a loop, sometimes called a ``lollipop'', is in fact precisely what LTL properties are checked over; hence an LTL property violation takes the form of a lollipop. This means that we can find attractors with specific properties by formulating their non-existence in LTL, and then finding a counter-example through model checking. For instance, the following formulas deny the reachability of an attractor in which \texttt{tbet} and \texttt{gata3} are expressed:
 
 \begin{itemize}
 \item \verb=!G(F gata3 & F tbet)= (separate expression)
 \item \verb=!GF (gata3 & tbet)= (simultaneous expression)
 \end{itemize}
 
-Both formulas yield a counterexamples, meaning that \texttt{tbet} and \texttt{gata3} \emph{can} in fact be (recurrently) expressed simultaneously. Using a variation of the process outlined in \Cref{sec:RS2GTS}, we can once more visualise a trace leading to such a recurrent state. The variation lies in the fact that, this time, we do not  want to show the causal history of a \emph{single} forbidden entity, but rather of the combination of two distinct entities. Fortunately, this is just a matter of creating another rule, \gatatbet, which applies precisely when \verb=gata3 & tbet= holds. On this basis we can go through the steps outlined in \Cref{fig:chain}, resulting in the occurrence graph displayed in \Cref{fig:datamod-pruned}.
+Using the start graph derived from \BioResolve using the process outlined in \Cref{fig:chain}, both of these formulas yield counterexamples, meaning that \texttt{tbet} and \texttt{gata3} \emph{can} in fact be (recurrently) expressed simultaneously. Using a variation of the process outlined in \Cref{sec:RS2GTS}, we can once more visualise a trace leading to such a recurrent state. The variation lies in the fact that, this time, we do not  want to show the causal history of a \emph{single} forbidden entity, but rather of the combination of two distinct entities. Fortunately, this is just a matter of creating another rule, \gatatbet, which applies precisely when \verb=gata3 & tbet= holds. On this basis we can go through the steps outlined in \Cref{fig:chain}, resulting in the occurrence graph displayed in \Cref{fig:datamod-pruned}.
 
 \begin{figure}\centering
 \includegraphics[scale=.25]{figs/datamod-pruned}

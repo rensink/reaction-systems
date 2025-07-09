@@ -61,6 +61,34 @@ as well as their composition and filtering (rules (\textit{Par})--(\textit{Sys})
 %
 together with their composition with the \contextR-transitions (rule (\textit{Par})) and filtering (rule (\textit{Sys})). (The \fired-flags on the \Step-nodes, added by \contextR and removed again by \reactR, play no role in this correspondence: for the purpose of the equivalence of the \GROOVE and RS semantics, they might be omitted entirely.)
 
+\section{Mutual exclusion}
+
+\Cref{tab:mex} shows the \GROOVE performance in generating the full state space of the mutual exclusion example of \cite{DBLP:journals/isci/MeskiPR15,DBLP:journals/fuin/NobilePSMCMB17}, discussed in \Cref{sec:related}.
+
+\begin{table}
+\caption{State space generation for mutual exclusion}
+\label{tab:mex}
+\centering\small
+\begin{tabular}{|r|r@{{\;}}r|r@{{\;}}r|r@{{\;}}r|}
+\hline
+\bf Case & \multicolumn{2}{c|}{\bf States} & \multicolumn{2}{c|}{\bf Time} & \multicolumn{2}{c|}{\bf Memory} \\
+\multicolumn{1}{|c|}{\bf \#} & \multicolumn{1}{c@{{\;}}}{\bf \#} & \multicolumn{1}{@{}c|}{\bf ratio} & \multicolumn{1}{c@{{\;}}}{\bf s} & \multicolumn{1}{@{}c|}{\bf ratio} & \multicolumn{1}{c@{{\;}}}{\bf MB} & \multicolumn{1}{@{}c|}{\bf ratio} \\
+\hline
+ 2 &    11 &     &      0.2 &     &      1 &     \\
+ 3 &    27 & 2.5 &      0.4 & 1.9 &      2 & 2.2 \\
+ 4 &    63 & 2.3 &      0.7 & 2.0 &      4 & 2.1 \\
+ 5 &   143 & 2.3 &      2.0 & 2.8 &     13 & 3.0 \\
+ 6 &   319 & 2.2 &      5.6 & 2.7 &     34 & 2.6 \\
+ 7 &   703 & 2.2 &     17.5 & 3.2 &     96 & 2.8 \\
+ 8 &  1535 & 2.2 &     56.6 & 3.2 &    262 & 2.7 \\
+ 9 &  3327 & 2.2 &    175.0 & 3.1 &    700 & 2.7 \\
+10 &  7167 & 2.2 &    595.3 & 3.4 &  1,929 & 2.8 \\
+11 & 15359 & 2.1 &  1,890.3 & 3.2 &  4,764 & 2.5 \\
+12 & 32767 & 2.1 &  5,146.1 & 2.7 &  8,588 & 1.8 \\
+13 & 69631 & 2.1 & 15,647.3 & 3.0 & 13,640 & 1.6 \\
+\hline
+\end{tabular}
+\end{table}
 \section{Auxiliary Material}
 
 \subsection{Auxiliary Material for the toy running example}\label{app:running}

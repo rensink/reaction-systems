@@ -39,10 +39,8 @@ In contrast, other tools either consider linear executions only and do not scale
 
 \textcolor{blue}{%
 Contrary to \GROOVE, which is a general purpose, explicit-state tool, not optimized for Reaction Systems, \ReactICS can take advantage of symbolic representations to abstract much larger state-spaces.
-}%
-\textcolor{olive}{%
 For instance, for the mutual exclusion protocol reported in \cite{DBLP:journals/isci/MeskiPR15,DBLP:journals/fuin/NobilePSMCMB17}, \ReactICS can cope with 37 to 54 processes (depending on the precise analysis) in a matter of hours; in contrast, in comparable time \GROOVE can exhaustively generate the state space of up to 13 processes. Even though the model checking queries in \ReactICS probably do not require full state space exploration, and hence the comparison is skewed, the dedicated methods of \ReactICS clearly pay off.
-}\todo{We could include the table of state space sizes in an appendix?}
+}
 
 \subparagraph*{Causal analysis and verification.}
 A key distinguishing feature of our approach is the ability to perform graph-based \emph{causal slicing}. By automatically generating and pruning \emph{occurrence graphs}, \GROOVE provides detailed and visual explanations of how specific states, such as those involving undesirable or forbidden entities, are reached.

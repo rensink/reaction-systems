@@ -1,602 +1,482 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph role="type" edgeids="false" edgemode="directed" id="datamod.datamod23">
+    <graph role="type" edgeids="false" edgemode="directed" id="type">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n0">
-            <attr name="layout">
-                <string>318 318 19 19</string>
-            </attr>
+        <node id="Entity">
         </node>
-        <node id="n1">
-            <attr name="layout">
-                <string>99 119 19 19</string>
-            </attr>
-        </node>
-        <node id="n2">
-            <attr name="layout">
-                <string>299 21 19 19</string>
-            </attr>
-        </node>
-        <node id="n3">
-            <attr name="layout">
-                <string>198 119 19 19</string>
-            </attr>
-        </node>
-        <node id="n4">
-            <attr name="layout">
-                <string>16 221 19 19</string>
-            </attr>
-        </node>
-        <node id="n5">
-            <attr name="layout">
-                <string>99 319 19 19</string>
-            </attr>
-        </node>
-        <node id="n6">
-            <attr name="layout">
-                <string>198 200 19 19</string>
-            </attr>
-        </node>
-        <node id="n7">
-            <attr name="layout">
-                <string>299 119 19 19</string>
-            </attr>
-        </node>
-        <node id="n8">
-            <attr name="layout">
-                <string>398 147 19 19</string>
-            </attr>
-        </node>
-        <node id="n9">
-            <attr name="layout">
-                <string>299 221 19 19</string>
-            </attr>
-        </node>
-        <node id="n10">
-            <attr name="layout">
-                <string>99 421 19 19</string>
-            </attr>
-        </node>
-        <node id="n11">
-            <attr name="layout">
-                <string>8 421 19 19</string>
-            </attr>
-        </node>
-        <node id="n12">
-            <attr name="layout">
-                <string>299 369 19 19</string>
-            </attr>
-        </node>
-        <node id="n13">
-            <attr name="layout">
-                <string>198 421 19 19</string>
-            </attr>
-        </node>
-        <node id="n14">
-            <attr name="layout">
-                <string>11 319 19 19</string>
-            </attr>
-        </node>
-        <node id="n15">
-            <attr name="layout">
-                <string>398 319 19 19</string>
-            </attr>
-        </node>
-        <node id="n16">
-            <attr name="layout">
-                <string>197 21 19 19</string>
-            </attr>
-        </node>
-        <node id="n17">
-            <attr name="layout">
-                <string>499 145 19 19</string>
-            </attr>
-        </node>
-        <node id="n18">
-            <attr name="layout">
-                <string>499 242 19 19</string>
-            </attr>
-        </node>
-        <node id="n19">
-            <attr name="layout">
-                <string>398 422 19 19</string>
-            </attr>
-        </node>
-        <node id="n20">
-            <attr name="layout">
-                <string>499 442 19 19</string>
-            </attr>
-        </node>
-        <node id="n21">
-            <attr name="layout">
-                <string>398 35 19 19</string>
-            </attr>
-        </node>
-        <node id="n22">
-            <attr name="layout">
-                <string>499 42 19 19</string>
-            </attr>
-        </node>
-        <node id="n23">
-            <attr name="layout">
-                <string>499 345 19 19</string>
-            </attr>
-        </node>
-        <node id="n24">
-            <attr name="layout">
-                <string>398 235 19 19</string>
-            </attr>
-        </node>
-        <node id="n25">
-            <attr name="layout">
-                <string>198 519 19 19</string>
-            </attr>
-        </node>
-        <node id="n26">
-            <attr name="layout">
-                <string>299 622 19 19</string>
-            </attr>
-        </node>
-        <node id="n27">
-            <attr name="layout">
-                <string>398 519 19 19</string>
-            </attr>
-        </node>
-        <node id="n28">
-            <attr name="layout">
-                <string>198 255 19 19</string>
-            </attr>
-        </node>
-        <node id="n29">
-            <attr name="layout">
-                <string>299 435 19 19</string>
-            </attr>
-        </node>
-        <node id="n30">
-            <attr name="layout">
-                <string>598 145 19 19</string>
-            </attr>
-        </node>
-        <node id="n31">
-            <attr name="layout">
-                <string>598 242 19 19</string>
-            </attr>
-        </node>
-        <node id="n32">
-            <attr name="layout">
-                <string>99 519 19 19</string>
-            </attr>
-        </node>
-        <node id="n33">
-            <attr name="layout">
-                <string>198 319 19 19</string>
-            </attr>
-        </node>
-        <node id="n34">
-            <attr name="layout">
-                <string>598 442 19 19</string>
-            </attr>
-        </node>
-        <node id="n35">
-            <attr name="layout">
-                <string>598 345 19 19</string>
-            </attr>
-        </node>
-        <node id="n36">
-            <attr name="layout">
-                <string>499 546 19 19</string>
-            </attr>
-        </node>
-        <node id="n37">
-            <attr name="layout">
-                <string>198 621 19 19</string>
-            </attr>
-        </node>
-        <node id="n38">
-            <attr name="layout">
-                <string>299 519 19 19</string>
-            </attr>
-        </node>
-        <node id="n39">
-            <attr name="layout">
-                <string>398 622 19 19</string>
-            </attr>
-        </node>
-        <edge from="n0" to="n0">
+        <edge from="Entity" to="Entity">
             <attr name="label">
                 <string>type:Entity</string>
             </attr>
         </edge>
-        <edge from="n1" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n1" to="n1">
+        <node id="foxp3">
+        </node>
+        <edge from="foxp3" to="foxp3">
             <attr name="label">
                 <string>type:foxp3</string>
             </attr>
         </edge>
-        <edge from="n2" to="n0">
+        <edge from="foxp3" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n2" to="n2">
+        <node id="gata3">
+        </node>
+        <edge from="gata3" to="gata3">
             <attr name="label">
                 <string>type:gata3</string>
             </attr>
         </edge>
-        <edge from="n3" to="n3">
+        <edge from="gata3" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="ifng">
+        </node>
+        <edge from="ifng" to="ifng">
             <attr name="label">
                 <string>type:ifng</string>
             </attr>
         </edge>
-        <edge from="n3" to="n0">
+        <edge from="ifng" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n4" to="n4">
+        <node id="ifnge">
+        </node>
+        <edge from="ifnge" to="ifnge">
             <attr name="label">
                 <string>type:ifnge</string>
             </attr>
         </edge>
-        <edge from="n4" to="n0">
+        <edge from="ifnge" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n5" to="n5">
+        <node id="ifngr">
+        </node>
+        <edge from="ifngr" to="ifngr">
             <attr name="label">
                 <string>type:ifngr</string>
             </attr>
         </edge>
-        <edge from="n5" to="n0">
+        <edge from="ifngr" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n6" to="n6">
-            <attr name="label">
-                <string>type:il2</string>
-            </attr>
-        </edge>
-        <edge from="n6" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n7" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n7" to="n7">
-            <attr name="label">
-                <string>type:il2r</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n8">
-            <attr name="label">
-                <string>type:il4</string>
-            </attr>
-        </edge>
-        <edge from="n8" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n9">
-            <attr name="label">
-                <string>type:il4e</string>
-            </attr>
-        </edge>
-        <edge from="n9" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n10" to="n10">
-            <attr name="label">
-                <string>type:il4r</string>
-            </attr>
-        </edge>
-        <edge from="n11" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n11" to="n11">
-            <attr name="label">
-                <string>type:il6</string>
-            </attr>
-        </edge>
-        <edge from="n12" to="n12">
-            <attr name="label">
-                <string>type:il6e</string>
-            </attr>
-        </edge>
-        <edge from="n12" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n13" to="n13">
-            <attr name="label">
-                <string>type:il6r</string>
-            </attr>
-        </edge>
-        <edge from="n14" to="n14">
+        <node id="il12">
+        </node>
+        <edge from="il12" to="il12">
             <attr name="label">
                 <string>type:il12</string>
             </attr>
         </edge>
-        <edge from="n14" to="n0">
+        <edge from="il12" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n15" to="n15">
+        <node id="il12r">
+        </node>
+        <edge from="il12r" to="il12r">
             <attr name="label">
                 <string>type:il12r</string>
             </attr>
         </edge>
-        <edge from="n15" to="n0">
+        <edge from="il12r" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n16" to="n16">
+        <node id="il17">
+        </node>
+        <edge from="il17" to="il17">
             <attr name="label">
                 <string>type:il17</string>
             </attr>
         </edge>
-        <edge from="n16" to="n0">
+        <edge from="il17" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n17" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n17" to="n17">
+        <node id="il18">
+        </node>
+        <edge from="il18" to="il18">
             <attr name="label">
                 <string>type:il18</string>
             </attr>
         </edge>
-        <edge from="n18" to="n18">
+        <edge from="il18" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il18r">
+        </node>
+        <edge from="il18r" to="il18r">
             <attr name="label">
                 <string>type:il18r</string>
             </attr>
         </edge>
-        <edge from="n18" to="n0">
+        <edge from="il18r" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n19" to="n19">
+        <node id="il2">
+        </node>
+        <edge from="il2" to="il2">
+            <attr name="label">
+                <string>type:il2</string>
+            </attr>
+        </edge>
+        <edge from="il2" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il21">
+        </node>
+        <edge from="il21" to="il21">
             <attr name="label">
                 <string>type:il21</string>
             </attr>
         </edge>
-        <edge from="n19" to="n0">
+        <edge from="il21" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n20" to="n20">
+        <node id="il21r">
+        </node>
+        <edge from="il21r" to="il21r">
             <attr name="label">
                 <string>type:il21r</string>
             </attr>
         </edge>
-        <edge from="n20" to="n0">
+        <edge from="il21r" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n21" to="n21">
+        <node id="il23">
+        </node>
+        <edge from="il23" to="il23">
             <attr name="label">
                 <string>type:il23</string>
             </attr>
         </edge>
-        <edge from="n21" to="n0">
+        <edge from="il23" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n22" to="n22">
+        <node id="il23r">
+        </node>
+        <edge from="il23r" to="il23r">
             <attr name="label">
                 <string>type:il23r</string>
             </attr>
         </edge>
-        <edge from="n22" to="n0">
+        <edge from="il23r" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n23" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n23" to="n23">
+        <node id="il27">
+        </node>
+        <edge from="il27" to="il27">
             <attr name="label">
                 <string>type:il27</string>
             </attr>
         </edge>
-        <edge from="n24" to="n0">
+        <edge from="il27" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n24" to="n24">
+        <node id="il2r">
+        </node>
+        <edge from="il2r" to="il2r">
+            <attr name="label">
+                <string>type:il2r</string>
+            </attr>
+        </edge>
+        <edge from="il2r" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il4">
+        </node>
+        <edge from="il4" to="il4">
+            <attr name="label">
+                <string>type:il4</string>
+            </attr>
+        </edge>
+        <edge from="il4" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il4e">
+        </node>
+        <edge from="il4e" to="il4e">
+            <attr name="label">
+                <string>type:il4e</string>
+            </attr>
+        </edge>
+        <edge from="il4e" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il4r">
+        </node>
+        <edge from="il4r" to="il4r">
+            <attr name="label">
+                <string>type:il4r</string>
+            </attr>
+        </edge>
+        <edge from="il4r" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il6">
+        </node>
+        <edge from="il6" to="il6">
+            <attr name="label">
+                <string>type:il6</string>
+            </attr>
+        </edge>
+        <edge from="il6" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il6e">
+        </node>
+        <edge from="il6e" to="il6e">
+            <attr name="label">
+                <string>type:il6e</string>
+            </attr>
+        </edge>
+        <edge from="il6e" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="il6r">
+        </node>
+        <edge from="il6r" to="il6r">
+            <attr name="label">
+                <string>type:il6r</string>
+            </attr>
+        </edge>
+        <edge from="il6r" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="irak">
+        </node>
+        <edge from="irak" to="irak">
             <attr name="label">
                 <string>type:irak</string>
             </attr>
         </edge>
-        <edge from="n25" to="n0">
+        <edge from="irak" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n25" to="n25">
+        <node id="jak1">
+        </node>
+        <edge from="jak1" to="jak1">
             <attr name="label">
                 <string>type:jak1</string>
             </attr>
         </edge>
-        <edge from="n26" to="n26">
+        <edge from="jak1" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="nfat">
+        </node>
+        <edge from="nfat" to="nfat">
             <attr name="label">
                 <string>type:nfat</string>
             </attr>
         </edge>
-        <edge from="n26" to="n0">
+        <edge from="nfat" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n27" to="n27">
+        <node id="nfkb">
+        </node>
+        <edge from="nfkb" to="nfkb">
             <attr name="label">
                 <string>type:nfkb</string>
             </attr>
         </edge>
-        <edge from="n27" to="n0">
+        <edge from="nfkb" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n28" to="n28">
+        <node id="rorgt">
+        </node>
+        <edge from="rorgt" to="rorgt">
             <attr name="label">
                 <string>type:rorgt</string>
             </attr>
         </edge>
-        <edge from="n28" to="n0">
+        <edge from="rorgt" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n29" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n29" to="n29">
+        <node id="socs1">
+        </node>
+        <edge from="socs1" to="socs1">
             <attr name="label">
                 <string>type:socs1</string>
             </attr>
         </edge>
-        <edge from="n30" to="n0">
+        <edge from="socs1" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n30" to="n30">
+        <node id="stat1">
+        </node>
+        <edge from="stat1" to="stat1">
             <attr name="label">
                 <string>type:stat1</string>
             </attr>
         </edge>
-        <edge from="n31" to="n0">
+        <edge from="stat1" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n31" to="n31">
+        <node id="stat3">
+        </node>
+        <edge from="stat3" to="stat3">
             <attr name="label">
                 <string>type:stat3</string>
             </attr>
         </edge>
-        <edge from="n32" to="n32">
+        <edge from="stat3" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="stat4">
+        </node>
+        <edge from="stat4" to="stat4">
             <attr name="label">
                 <string>type:stat4</string>
             </attr>
         </edge>
-        <edge from="n32" to="n0">
+        <edge from="stat4" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n33" to="n33">
+        <node id="stat5">
+        </node>
+        <edge from="stat5" to="stat5">
             <attr name="label">
                 <string>type:stat5</string>
             </attr>
         </edge>
-        <edge from="n33" to="n0">
+        <edge from="stat5" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n34" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n34" to="n34">
+        <node id="stat6">
+        </node>
+        <edge from="stat6" to="stat6">
             <attr name="label">
                 <string>type:stat6</string>
             </attr>
         </edge>
-        <edge from="n35" to="n35">
+        <edge from="stat6" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="tbet">
+        </node>
+        <edge from="tbet" to="tbet">
             <attr name="label">
                 <string>type:tbet</string>
             </attr>
         </edge>
-        <edge from="n35" to="n0">
+        <edge from="tbet" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n36" to="n0">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
-        <edge from="n36" to="n36">
+        <node id="tcr">
+        </node>
+        <edge from="tcr" to="tcr">
             <attr name="label">
                 <string>type:tcr</string>
             </attr>
         </edge>
-        <edge from="n37" to="n0">
+        <edge from="tcr" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n37" to="n37">
+        <node id="tgfb">
+        </node>
+        <edge from="tgfb" to="tgfb">
             <attr name="label">
                 <string>type:tgfb</string>
             </attr>
         </edge>
-        <edge from="n38" to="n0">
+        <edge from="tgfb" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n38" to="n38">
+        <node id="tgfbr">
+        </node>
+        <edge from="tgfbr" to="tgfbr">
             <attr name="label">
                 <string>type:tgfbr</string>
             </attr>
         </edge>
-        <edge from="n39" to="n0">
+        <edge from="tgfbr" to="Entity">
             <attr name="label">
                 <string>sub:</string>
             </attr>
         </edge>
-        <edge from="n39" to="n39">
+        <node id="void">
+        </node>
+        <edge from="void" to="void">
             <attr name="label">
                 <string>type:void</string>
+            </attr>
+        </edge>
+        <edge from="void" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
             </attr>
         </edge>
     </graph>

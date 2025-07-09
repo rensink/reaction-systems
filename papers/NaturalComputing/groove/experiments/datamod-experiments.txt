@@ -13,6 +13,14 @@ function modelchecker {
   java -Xmx12G -XX:SoftRefLRUPolicyMSPerMB=10 -cp \Path\To\Groove\bin\Generator.jar nl.utwente.groove.verify.CTLModelChecker @args
 }
 
+Model checking
+--------------
+# LTL: !G(F gata3 & F tbet)
+generator -P datamod.properties -D ruleEnabling=+present -s 'ltl:!G(F present(\"gata3\") & F present(\"tbet\"))' .\rs-explore.gps\ datamod.datamod23
+
+# LTL: !GF (gata3 & tbet)
+generator -P datamod.properties -D ruleEnabling=+present -s 'ltl:!GF (present(\"gata3\") & present(\"tbet\"))' .\rs-explore.gps\ datamod.datamod23
+
 Producing the occurrence graph
 ------------------------------
 # Producing the forbidden trace as control program

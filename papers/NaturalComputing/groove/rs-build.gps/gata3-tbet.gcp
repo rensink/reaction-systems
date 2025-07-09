@@ -1,55 +1,57 @@
 // state s0
 context();
-// state s317
-fired("x3_1");
-fired("x2_0");
-fired("x9_0");
-fired("x6_1");
+// state s381
 fired("x7_1");
-fired("x8_0");
-fired("x4_0");
-fired("x5_0");
+fired("x2_1");
 fired("x1_1");
+fired("x3_1");
+fired("x8_0");
+fired("x6_1");
+fired("x5_0");
+fired("x4_1");
+fired("x9_0");
 react();
-// state s3191
+// state s2077
 context();
-// state s3192
-fired("x51_0");
-fired("x41_0");
-fired("x81_0");
+// state s2078
 fired("x91_0");
-fired("x21_0");
+fired("x51_0");
+fired("x81_0");
 fired("y_0");
 react();
-// state s3193
+// state s2079
 context();
-// state s3194
-fired("x51_0");
-fired("x41_0");
-fired("x81_0");
+// state s2080
 fired("x91_0");
-fired("x21_0");
+fired("x51_0");
+fired("x81_0");
 fired("y_0");
 react();
-// state s3195
+// state s2081
 context();
-// state s3196
-fired("x51_0");
-fired("x41_0");
-fired("x81_0");
+// state s2082
 fired("x91_0");
-fired("x21_0");
+fired("x51_0");
+fired("x81_0");
 fired("y_0");
 react();
-// state s3197
+// state s2083
 context();
-// state s3198
-fired("x51_0");
-fired("x41_0");
-fired("x81_0");
+// state s2084
 fired("x91_0");
-fired("x21_0");
+fired("x51_0");
+fired("x81_0");
 fired("y_0");
 react();
-// state s3199
+// state s2085
 datamod.gata3-tbet();
+context();
+// state s2086
+datamod.gata3-tbet();
+fired("x91_0");
+fired("x51_0");
+fired("x81_0");
+fired("y_0");
+react();
+// state s2087
+// final state

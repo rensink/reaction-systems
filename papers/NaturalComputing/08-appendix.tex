@@ -2,7 +2,7 @@
 
 \section{Semantic correspondence}\label{app:semantics}
 
-In this paper, we claim, but do not prove, that the \GROOVE semantics correctly captures the Reaction Systems transitions recalled in \Cref{sec:RS}. A complete formal proof is outside the scope of this paper, which focusses on experimental results; however, in this section we provide a sketch of such a proof.
+In this paper, we claim, but do not prove, that the \GROOVE encoding correctly captures the operational Reaction Systems semantics recalled in \Cref{sec:RS}. A complete formal proof is outside the scope of this paper, which focusses on experimental results; however, in this section we provide a sketch of such a proof.
 
 As described in \Cref{sec:RS2GTS}, each GROOVE state is a graph consisting of a fixed part (which is the same in every state) and a variable part. The fixed part contains an encoding of
 \begin{enumerate*}[label=\emph{(\roman*)}]
@@ -11,46 +11,25 @@ As described in \Cref{sec:RS2GTS}, each GROOVE state is a graph consisting of a 
 \end{enumerate*} 
 The variable part consisting of \present flags on \Entity nodes and a \current-edge from every \Token to a \State. 
 \textcolor{blue}{
-As observed in Remark~\ref{rem:shortlts}, any RS process $[\mathsf{M}]$ can be written in the form $[\mathsf{Rs}~|~\mathsf{Ks}~|~D]$ where:\todo{AR: So then there is only one such set $D$? This would mean that reason (i) below for non-isomorphism no longer holds.}
+As observed in Remark~\ref{rem:shortlts}, any RS process $[\mathsf{M}]$ can be written in the form $[\mathsf{Rs}~|~\mathsf{Ks}~|~D]$ where:
 \begin{enumerate*}[label=\emph{(\roman*)}]
 \item  $\mathsf{Rs}=\prod_i (R_i,I_i,P_i)$ is the parallel composition of all reactions in the system, and never changes along the computation;
 \item $\mathsf{Ks}=\prod_j \mathsf{K}_j$ is the parallel composition of all contexts, and 
 \item $D$ is the set of currently present entities.
 \end{enumerate*}
 }
-%An RS state $[\mathsf{M}]$, on the other hand, consists of
-%%
-%\begin{enumerate*}[label=\emph{(\roman*)}]
-%\item sets $D$ of currently present entities,
-%\item fixed reactions $(R,I,P)$, and
-%\item regular context processes $\mathsf K$.
-%\end{enumerate*}
 
-\textcolor{blue}{
 A \GROOVE state $G$ is equivalent to an RS process $[\mathsf{\mathsf{Rs}~|~\mathsf{Ks}~|~D}]$ if:
 %
 \begin{enumerate*}[label=\emph{(\roman*)}]
 \item an entity $\mathsf{e}$ is present in $D$ if and only if its \Entity node is flagged as \present in $G$, and
 \item there is a one-to-one correspondence of the available contexts $\mathsf{K}_j$ in the RS process and the $\Token$-nodes in $G$, such that the \current state of that \Token is the start state of the automaton for $\mathsf{K}_j$.
 \end{enumerate*}
-}
-%\begin{enumerate*}[label=\emph{(\roman*)}]
-%\item the union of all $D$ in $[\mathsf{M}]$ corresponds precisely to the set of \Entity nodes that are flagged as \present in a $G$, and
-%\item there is a one-to-one correspondence of the $\mathsf K$ in $[\mathsf{M}]$ and the $\Token$-nodes in $G$, such that the \current state of that \Token is the start state of the automaton for $\mathsf K$.
-%\end{enumerate*}
 
-We claim that this equivalence establishes a bisimulation between the \GROOVE and RS state spaces. (It is not an isomorphism for two reasons:
-%
-\begin{enumerate*}[label=\emph{(\roman*)}]
-\item due to structural equivalence, $\mathsf{[M]}$ may contain multiple, overlapping sets $D$ whereas $G$ merely encodes their union;
-\item the RS semantics for $\textsf K$ ``consumes'' the process (rules \textit{(Cxt)}--\textit{(Rec)} in \Cref{fig:guardforRS2nd}) whereas $G$ keeps the automaton intact, merely moving the \current pointer.
-\end{enumerate*}
-%
-To prove this claim, we have to show correspondence of the transitions.
+We claim that this equivalence establishes a bisimulation between the \GROOVE and RS state spaces. (It is not an isomorphism, because the RS semantics for $\textsf K$ ``consumes'' the process (rules \textit{(Cxt)}--\textit{(Rec)} in \Cref{fig:guardforRS2nd}) whereas $G$ keeps the automaton intact, merely moving the \current pointer.)
 
-Concretely, to any transition carrying the label $\obs{\obs{D}{R',I',C}}{R,I,P}$, there corresponds a single application of the recipe \fireR, which in turn consists of applications of rules \contextR (see \Cref{fig:context}) followed by \reactR (see \Cref{fig:react}).
-%
-%Concretely, every $\obs{\obs{D}{R',I',C}}{R,I,P}$-labelled transition corresponds to single application of the recipe \fireR, which in turn consists of applications of rules \contextR (see \Cref{fig:context}) followed by \reactR (see \Cref{fig:react}).
+To prove this claim, we have to show correspondence of the transitions. Concretely, to any transition carrying the label $\obs{\obs{D}{R',I',C}}{R,I,P}$, there corresponds a single application of the recipe \fireR, which in turn consists of applications of rules \contextR (see \Cref{fig:context}) followed by \reactR (see \Cref{fig:react}).
+
 %
 \begin{figure}
 \centering

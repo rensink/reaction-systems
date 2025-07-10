@@ -3,23 +3,23 @@
 
 \subsection{T cell differentiation analysis}\label{sec:datamod2023}
 
-The paper~\cite{datamod2023} exploits Reaction Systems to analyse T cell differentiation in the immune system, a widely studied biological phenomenon. The starting point for the analysis is a Boolean network model; several of those are available as a \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T-cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
+The paper~\cite{datamod2023} exploits Reaction Systems to analyse T cell differentiation in the immune system, a widely studied biological phenomenon. The starting point for the analysis is a Boolean network model; several of those are available as a \cite{saez2007logical,thakar2010boolean,puniya2018mechanistic}, among which the one in \cite{puniya2018mechanistic} was selected. The model encompasses reactions enabling T cells to manifest various phenotypes in response to environmental stimuli, and describes a realistic regulation system that is involved in many diseases \cite{lafaille1998role,hirahara2016cd4+,meng2016regulatory}.
 % it has been investigated under both the viewpoints of causality (effect of environmental conditions) and of reachability (reachable phenotypes). 
 
-The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T-cell can receive; all the other nodes represent so-called \emph{transcription factors} and have an associated Boolean update formula that specifies when they are triggered. 
+The Boolean network model is graphically represented as shown in Fig.~\ref{fig:model-graph}, where the 9 orange nodes represent different environmental stimuli that the T cell can receive; all the other nodes represent so-called \emph{transcription factors} and have an associated Boolean update formula that specifies when they are triggered. 
 %The analysis allowed to uncover the genes necessary for the expression of a target transcription factor.
 %The analysis of the model allowed to determine which combinations of stimuli lead to each phenotype, and also which proteins inside T cells are involved in each case. 
-T-cells can manifest four phenotypes, 
+T cells can manifest four phenotypes, 
 %\texttt{Th1}, \texttt{Th2}, \texttt{Th17} and \texttt{iTreg}, 
 represented by the four transcription factors \texttt{tbet}, \texttt{gata3}, \texttt{rorgt} and \texttt{foxp3}, respectively.
 %The case in which none of the four relevant transcription factors is expressed (i.e., no phenotype is exhibited) is denoted as Th0.
-There exists experimental and computational evidence that a T-cell can manifest more than one phenotype \cite{luckheeram2012cd4+,puniya2018mechanistic}.
+There exists experimental and computational evidence that a T cell can manifest more than one phenotype \cite{luckheeram2012cd4+,puniya2018mechanistic}.
 
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{figs-datamod2023/Tcell-graph-8set23.png}
 	\end{center}
-	\caption{Graphical representation of the Boolean network model of T-cell differentiation from \cite{puniya2018mechanistic}.}
+	\caption{Graphical representation of the Boolean network model of T cell differentiation from \cite{puniya2018mechanistic}.}
 	\label{fig:model-graph}
 \end{figure}
 

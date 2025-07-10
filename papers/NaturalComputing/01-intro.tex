@@ -9,11 +9,11 @@ Reaction systems (RSs)~\cite{DBLP:journals/fuin/EhrenfeuchtR07} are a computatio
 RSs focus on the interaction of entities through a set of reactions. 
 Each reaction relies on some reactants, inhibitors, and products to mimic two fundamental mechanisms found in nature: facilitation and inhibition.
 %Facilitation means that a reaction can occur only if all of its reactants are present, while inhibition means that a reaction cannot occur if any of its inhibitors is present. 
-At each time instant, the next state of the system is determined by the products of all enabled reactions plus some additional entities that are possibly provided by environment.
+At each time instant, the next state of the system is determined by the products of all enabled reactions plus some additional entities that are possibly provided by the environment.
 Unlike traditional models of concurrency, like Petri nets, the theory of RSs is based on three principles: \emph{no permanency}: any entity vanishes unless it is sustained by a reaction; \emph{no competition}: an entity is either available for all reactions, or it is not available at all; and \emph{no counting}: the exact concentration level of available entities is ignored.
 Moreover, due to the use of inhibitors, RS can exhibit non-monotonic behaviour, in the sense that what can be done with fewer resources is not necessarily replicable with more resources.
 
-While \emph{closed} RSs evolve in isolation, \emph{interactive processes} are dealt with by providing suitable environments that provide a sequence of stimuli at each step: these are set of entities that can be used to trigger or inhibit some reactions. A common example involves using contexts to analyse how drug administration affects organisms that are modelled as sets of reactions.
+While \emph{closed} RSs evolve in isolation, \emph{interactive processes} are dealt with by providing suitable environments that provide a sequence of stimuli at each step: these are sets of entities that can be used to trigger or inhibit some reactions. A common example involves using contexts to analyse how drug administration affects organisms that are modelled as sets of reactions.
 
 Since their introduction, RSs have been successfully applied to the analysis of complex systems in many different fields~\cite{ABP14,CMMBM12,Az17,OY16,DBLP:journals/ijfcs/EhrenfeuchtMR10,DBLP:journals/ijfcs/EhrenfeuchtMR11}.
 Recent applications concerned, e.g., with the efficacy of medical treatments for comorbidities and with the selection of the best environment to achieve some desired phenomena~\cite{DBLP:conf/cmsb/BowlesBBFGM24,datamod2023}, led to experimenting with environments that exhibit nondeterministic and recursive behaviour.

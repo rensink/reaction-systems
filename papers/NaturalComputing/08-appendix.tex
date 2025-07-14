@@ -1,5 +1,5 @@
 % !TEX root =  ./main.tex
-
+\begin{revision}
 \section{Semantic correspondence}\label{app:semantics}
 
 In this paper, we claim, but do not prove, that the \GROOVE encoding correctly captures the operational Reaction Systems semantics recalled in \Cref{sec:RS}. A complete formal proof is outside the scope of this paper, which focusses on experimental results; however, in this section we provide a sketch of such a proof.
@@ -10,14 +10,12 @@ As described in \Cref{sec:RS2GTS}, each GROOVE state is a graph consisting of a 
 \item the automata of the context processes, with individual processes corresponding to \Token-typed nodes and states as \State-typed nodes.
 \end{enumerate*} 
 The variable part consisting of \present flags on \Entity nodes and a \current-edge from every \Token to a \State. 
-\textcolor{blue}{
 As observed in Remark~\ref{rem:shortlts}, any RS process $[\mathsf{M}]$ can be written in the form $[\mathsf{Rs}~|~\mathsf{Ks}~|~D]$ where:
 \begin{enumerate*}[label=\emph{(\roman*)}]
 \item  $\mathsf{Rs}=\prod_i (R_i,I_i,P_i)$ is the parallel composition of all reactions in the system, and never changes along the computation;
 \item $\mathsf{Ks}=\prod_j \mathsf{K}_j$ is the parallel composition of all contexts, and 
 \item $D$ is the set of currently present entities.
 \end{enumerate*}
-}
 
 A \GROOVE state $G$ is equivalent to an RS process $[\mathsf{\mathsf{Rs}~|~\mathsf{Ks}~|~D}]$ if:
 %
@@ -89,6 +87,8 @@ together with their composition with the \contextR-transitions (rule (\textit{Pa
 \hline
 \end{tabular}
 \end{table}
+\end{revision}
+
 \section{Auxiliary Material}
 
 \subsection{Auxiliary Material for the toy running example}\label{app:running}

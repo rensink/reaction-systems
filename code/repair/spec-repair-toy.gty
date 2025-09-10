@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph role="type" edgeids="false" edgemode="directed" id="type">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="Entity">
+        </node>
+        <edge from="Entity" to="Entity">
+            <attr name="label">
+                <string>type:Entity</string>
+            </attr>
+        </edge>
+        <node id="acediur">
+        </node>
+        <edge from="acediur" to="acediur">
+            <attr name="label">
+                <string>type:acediur</string>
+            </attr>
+        </edge>
+        <edge from="acediur" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="alert">
+        </node>
+        <edge from="alert" to="alert">
+            <attr name="label">
+                <string>type:alert</string>
+            </attr>
+        </edge>
+        <edge from="alert" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="aspirine">
+        </node>
+        <edge from="aspirine" to="aspirine">
+            <attr name="label">
+                <string>type:aspirine</string>
+            </attr>
+        </edge>
+        <edge from="aspirine" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="asthma">
+        </node>
+        <edge from="asthma" to="asthma">
+            <attr name="label">
+                <string>type:asthma</string>
+            </attr>
+        </edge>
+        <edge from="asthma" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_acediur">
+        </node>
+        <edge from="get_acediur" to="get_acediur">
+            <attr name="label">
+                <string>type:get_acediur</string>
+            </attr>
+        </edge>
+        <edge from="get_acediur" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_aspirine">
+        </node>
+        <edge from="get_aspirine" to="get_aspirine">
+            <attr name="label">
+                <string>type:get_aspirine</string>
+            </attr>
+        </edge>
+        <edge from="get_aspirine" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_ibuprofen">
+        </node>
+        <edge from="get_ibuprofen" to="get_ibuprofen">
+            <attr name="label">
+                <string>type:get_ibuprofen</string>
+            </attr>
+        </edge>
+        <edge from="get_ibuprofen" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_norvasc">
+        </node>
+        <edge from="get_norvasc" to="get_norvasc">
+            <attr name="label">
+                <string>type:get_norvasc</string>
+            </attr>
+        </edge>
+        <edge from="get_norvasc" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="get_paracetamol">
+        </node>
+        <edge from="get_paracetamol" to="get_paracetamol">
+            <attr name="label">
+                <string>type:get_paracetamol</string>
+            </attr>
+        </edge>
+        <edge from="get_paracetamol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="headache">
+        </node>
+        <edge from="headache" to="headache">
+            <attr name="label">
+                <string>type:headache</string>
+            </attr>
+        </edge>
+        <edge from="headache" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="hypertension">
+        </node>
+        <edge from="hypertension" to="hypertension">
+            <attr name="label">
+                <string>type:hypertension</string>
+            </attr>
+        </edge>
+        <edge from="hypertension" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="ibuprofen">
+        </node>
+        <edge from="ibuprofen" to="ibuprofen">
+            <attr name="label">
+                <string>type:ibuprofen</string>
+            </attr>
+        </edge>
+        <edge from="ibuprofen" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_acediur">
+        </node>
+        <edge from="neg_acediur" to="neg_acediur">
+            <attr name="label">
+                <string>type:neg_acediur</string>
+            </attr>
+        </edge>
+        <edge from="neg_acediur" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_alert">
+        </node>
+        <edge from="neg_alert" to="neg_alert">
+            <attr name="label">
+                <string>type:neg_alert</string>
+            </attr>
+        </edge>
+        <edge from="neg_alert" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_aspirine">
+        </node>
+        <edge from="neg_aspirine" to="neg_aspirine">
+            <attr name="label">
+                <string>type:neg_aspirine</string>
+            </attr>
+        </edge>
+        <edge from="neg_aspirine" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_asthma">
+        </node>
+        <edge from="neg_asthma" to="neg_asthma">
+            <attr name="label">
+                <string>type:neg_asthma</string>
+            </attr>
+        </edge>
+        <edge from="neg_asthma" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_get_acediur">
+        </node>
+        <edge from="neg_get_acediur" to="neg_get_acediur">
+            <attr name="label">
+                <string>type:neg_get_acediur</string>
+            </attr>
+        </edge>
+        <edge from="neg_get_acediur" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_get_aspirine">
+        </node>
+        <edge from="neg_get_aspirine" to="neg_get_aspirine">
+            <attr name="label">
+                <string>type:neg_get_aspirine</string>
+            </attr>
+        </edge>
+        <edge from="neg_get_aspirine" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_get_ibuprofen">
+        </node>
+        <edge from="neg_get_ibuprofen" to="neg_get_ibuprofen">
+            <attr name="label">
+                <string>type:neg_get_ibuprofen</string>
+            </attr>
+        </edge>
+        <edge from="neg_get_ibuprofen" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_get_norvasc">
+        </node>
+        <edge from="neg_get_norvasc" to="neg_get_norvasc">
+            <attr name="label">
+                <string>type:neg_get_norvasc</string>
+            </attr>
+        </edge>
+        <edge from="neg_get_norvasc" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_get_paracetamol">
+        </node>
+        <edge from="neg_get_paracetamol" to="neg_get_paracetamol">
+            <attr name="label">
+                <string>type:neg_get_paracetamol</string>
+            </attr>
+        </edge>
+        <edge from="neg_get_paracetamol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_headache">
+        </node>
+        <edge from="neg_headache" to="neg_headache">
+            <attr name="label">
+                <string>type:neg_headache</string>
+            </attr>
+        </edge>
+        <edge from="neg_headache" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_hypertension">
+        </node>
+        <edge from="neg_hypertension" to="neg_hypertension">
+            <attr name="label">
+                <string>type:neg_hypertension</string>
+            </attr>
+        </edge>
+        <edge from="neg_hypertension" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_ibuprofen">
+        </node>
+        <edge from="neg_ibuprofen" to="neg_ibuprofen">
+            <attr name="label">
+                <string>type:neg_ibuprofen</string>
+            </attr>
+        </edge>
+        <edge from="neg_ibuprofen" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_norvasc">
+        </node>
+        <edge from="neg_norvasc" to="neg_norvasc">
+            <attr name="label">
+                <string>type:neg_norvasc</string>
+            </attr>
+        </edge>
+        <edge from="neg_norvasc" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_paracetamol">
+        </node>
+        <edge from="neg_paracetamol" to="neg_paracetamol">
+            <attr name="label">
+                <string>type:neg_paracetamol</string>
+            </attr>
+        </edge>
+        <edge from="neg_paracetamol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="neg_pregnant">
+        </node>
+        <edge from="neg_pregnant" to="neg_pregnant">
+            <attr name="label">
+                <string>type:neg_pregnant</string>
+            </attr>
+        </edge>
+        <edge from="neg_pregnant" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="norvasc">
+        </node>
+        <edge from="norvasc" to="norvasc">
+            <attr name="label">
+                <string>type:norvasc</string>
+            </attr>
+        </edge>
+        <edge from="norvasc" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="paracetamol">
+        </node>
+        <edge from="paracetamol" to="paracetamol">
+            <attr name="label">
+                <string>type:paracetamol</string>
+            </attr>
+        </edge>
+        <edge from="paracetamol" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+        <node id="pregnant">
+        </node>
+        <edge from="pregnant" to="pregnant">
+            <attr name="label">
+                <string>type:pregnant</string>
+            </attr>
+        </edge>
+        <edge from="pregnant" to="Entity">
+            <attr name="label">
+                <string>sub:</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
